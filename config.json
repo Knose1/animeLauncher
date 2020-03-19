@@ -1,0 +1,45 @@
+{
+	"videoPlayers" : 
+	[
+		{
+			"name" : "crunchyroll",
+			"prefix" : 
+			[
+				"https://www.crunchyroll.com/"
+			],
+			"downloadable" : false
+		},
+		
+		{
+			"name" : "neko-sama",
+			"prefix" :
+			[
+				"https://www.neko-sama.fr/"
+			],
+			"downloadable" : true,
+			"autoDownload" : false
+		},
+		
+		{
+			"name" : "animeVostFR",
+			"prefix" :
+			[
+				"https://www1.animesvostfr.net/"
+			],
+			"downloadable" : true,
+			"autoDownload" : false
+		},
+		{
+			"name" : "youtube",
+			"isNatif": true,
+			"isYoutube": true,
+			"prefix" :
+			[
+				"https://www.youtube.com/",
+				"https://www.youtu.be/"
+			],
+			"downloadable" : true,
+			"autoDownload" : true
+		}
+	]
+}
