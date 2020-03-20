@@ -30,8 +30,10 @@
 
 /** */
 
+const http = require('http');
 var fs = require('fs');
 var ytdl = require('ytdl-core');
+const path = require("path");
 
 class JsonObject {
 	/**
@@ -127,6 +129,12 @@ class JsonObject {
 
 class VideoPlayer {
 	/**
+	 * @readonly
+	 * @type {VideoPlayer[]}
+	 */
+	static get list() {return VideoPlayer._list || (VideoPlayer._list = []);}
+
+	/**
 	 * @param {VideoPlayerConfig} config 
 	 */
 	constructor(config)
@@ -136,19 +144,86 @@ class VideoPlayer {
 		this.prefix  = config.prefix;
 		this.downloadable = config.downloadable;
 		this.autoDownload = config.autoDownload;
+
+		VideoPlayer.list.push(this);
 	}
 
-	getInfo(path)
+	/**
+	 * @public
+	 * @param {string} url 
+	 */
+	getInfo(url) 
 	{
 
 	}
 
 	/**
-	 * @param {string} path
+	 * @public
+	 * @param {string} downloadUrl
+	 * @param {string} fileName
 	 */
-	download(path)
+	download(downloadUrl, fileName)
+	{
+		return new Promise(async (resolve, reject) => {
+			
+			var file = fs.createWriteStream(fileName);
+			http.get(downloadUrl, async function(response) {
+				response.pipe(file);
+
+				file.on('finish', async function() {
+					// close() is async, call resolve after close completes.
+					await file.close();
+					resolve(fileName);  
+				});
+			})
+			// Handle errors
+			.on('error', async function(err) {
+				
+				// Delete the file async. (But we don't check the result)
+				await fs.unlink(fileName); 
+				if (reject) reject(err.message);
+			});
+		});
+	}
+
+	/**
+	 * @public
+	 * @param {string} url 
+	 * @returns {boolean}
+	 */
+	hasPrefix(url)
+	{
+		for (let i = this.prefix.length - 1; i >= 0; i--) {
+			let lElement = this.prefix[i];
+
+			if (url.startsWith(lElement)) return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * @public
+	 * @param {Episode} episode 
+	 */
+	static getInfo(episode) 
 	{
 		
+	}
+
+	/**
+	 * @public
+	 * @param {string} url
+	 * @returns {VideoPlayer}
+	 */
+	static getPlayer(url)
+	{
+		for (let i = VideoPlayer.list.length - 1; i >= 0; i--) {
+			let lElement = VideoPlayer.list[i];
+			if (lElement.hasPrefix(url)) return lElement;
+		}
+
+		return null;
 	}
 }
 
@@ -186,15 +261,37 @@ class YoutubePlayer extends VideoPlayer {
 			onInfo(err, info, (format) => {ytdl.downloadFromInfo(info, {format: format} );});
 		});
 	}
+
+	getInfo(path)
+	{
+		return new Promise((resolve, reject) => {
+			ytdl.getInfo(path, {filter: "audioandvideo"}, (err, info) => {
+				if (err) 
+				{
+					console.error(`Error loading \"${path}\"`);
+					console.error(err);
+					reject(err);
+					return;
+				}
+				onInfo(err, info, (format) => {ytdl.downloadFromInfo(info, {format: format} );});
+			});
+		});
+	}
 }
 
 class Anime {
 	/**
+	 * @readonly
+	 * @type {Anime[]}
+	 */
+	static get list() {return Anime._list || (Anime._list = []);}
+
+	/**
 	 * 
 	 * @param {JsonObject} jsonObject 
-	 * @param {VideoPlayer[]} videoPlayers
+	 * @param {string} path
 	 */
-	constructor(jsonObject, videoPlayers) 
+	constructor(jsonObject, path) 
 	{
 		/**
 		 * @type {AnimeConfig}
@@ -202,6 +299,11 @@ class Anime {
 		let data = jsonObject.value;
 
 		this.name = data.name;
+
+		/**
+		 * @readonly
+		 */
+		this.path = path;
 		
 		/**
 		 * @type {Episode[]}
@@ -212,10 +314,12 @@ class Anime {
 		for (let i = episodes.length - 1; i >= 0; i--) {
 			let lElement = episodes[i];
 			
-			this.episodes.push(new Episode(lElement, videoPlayers));
+			this.episodes.push(new Episode(lElement));
 		}
 
 		this.episodes = this.episodes.sort( (a,b) => a.episodeId - b.episodeId);
+
+		Anime.list.push(this);
 	}
 }
 
@@ -223,16 +327,20 @@ class Episode {
 	/**
 	 * 
 	 * @param {EpisodeConfig} config 
-	 * @param {VideoPlayer[]} videoPlayerList 
+	 * @param {Anime} anime
 	 */
-	constructor(config, videoPlayerList) 
+	constructor(config, anime) 
 	{
-		this.localLink;
-		this.episodeId = config.episodeId;
-		this.videoPlayer;
+		this.episodeId 	= config.episodeId || -1;
+		this.posterLink = config.posterLink || "";
+		this.links 		= config.links;
+		this.localLink 	= config.localLink || "";
+		this.anime 		= anime;
 	}
 
-	get Islocal() {return this.localLink}
+	get islocal() {return Boolean(this.localLink);}
+	get hasPoster() {return Boolean(this.posterLink);}
+	get path() {return path.join(__dirname, this.anime.path, this.localLink);}
 }
 
 exports.JsonObject = JsonObject;

@@ -76,7 +76,7 @@ configLoader.load()
 				try {
 					await animeLoader.load();
 					
-					animes.push(new Anime(animeLoader, videoPlayers));
+					animes.push(new Anime(animeLoader));
 					console.dir(animeLoader.value);
 				}
 				catch(e){}
@@ -90,13 +90,14 @@ configLoader.load()
 .then(
 	() => {
 		console.newLine();
-		console.log(`${animes.length} animes has been loaded`);
+		console.log(`${Anime.list.length} animes has been loaded`);
 		console.log("Launching server......");
 		app.start();	
 	}
 )
 .catch(
-	() => {
+	(e) => {
+		console.error(e);;
 		throw new Error("Can't launch the server");
 	}
 );
