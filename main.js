@@ -76,7 +76,7 @@ configLoader.load()
 				try {
 					await animeLoader.load();
 					
-					animes.push(new Anime(animeLoader.value, videoPlayers));
+					animes.push(new Anime(animeLoader, videoPlayers));
 					console.dir(animeLoader.value);
 				}
 				catch(e){}

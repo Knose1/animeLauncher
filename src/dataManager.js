@@ -14,11 +14,18 @@
  * @namespace dataManager
  * @typedef AnimeConfig
  * @property {string} name
- * @property {string[]} prefix
- * @property {boolean} downloadable
- * @property {boolean} autoDownload
- * @property {boolean} isNatif 
- * @property {boolean} isYoutube
+ * @property {string} [thumbnailLink]
+ * @property {EpisodeConfig[]} episodes
+ */
+
+/**
+ * @namespace dataManager
+ * @typedef EpisodeConfig
+ * @property {string} [name]
+ * @property {number} episodeId
+ * @property {string} [posterLink]
+ * @property {string[]} links
+ * @property {string} [localLink]
  */
 
 /** */
@@ -116,7 +123,7 @@ class JsonObject {
 			if (func) func(err);
 		});
 	}
-};
+}
 
 class VideoPlayer {
 	/**
@@ -184,25 +191,48 @@ class YoutubePlayer extends VideoPlayer {
 class Anime {
 	/**
 	 * 
-	 * @param {AnimeConfig} data 
+	 * @param {JsonObject} jsonObject 
 	 * @param {VideoPlayer[]} videoPlayers
 	 */
-	constructor(data, videoPlayers) 
+	constructor(jsonObject, videoPlayers) 
 	{
+		/**
+		 * @type {AnimeConfig}
+		 */
+		let data = jsonObject.value;
+
+		this.name = data.name;
 		
+		/**
+		 * @type {Episode[]}
+		 */
+		this.episodes = [];
+
+		let episodes = data.episodes;
+		for (let i = episodes.length - 1; i >= 0; i--) {
+			let lElement = episodes[i];
+			
+			this.episodes.push(new Episode(lElement, videoPlayers));
+		}
+
+		this.episodes = this.episodes.sort( (a,b) => a.episodeId - b.episodeId);
 	}
-};
+}
 
 class Episode {
 	/**
 	 * 
-	 * @param {string} link 
+	 * @param {EpisodeConfig} config 
 	 * @param {VideoPlayer[]} videoPlayerList 
 	 */
-	constructor(link, videoPlayerList) 
+	constructor(config, videoPlayerList) 
 	{
+		this.localLink;
+		this.episodeId = config.episodeId;
 		this.videoPlayer;
 	}
+
+	get Islocal() {return this.localLink}
 }
 
 exports.JsonObject = JsonObject;
