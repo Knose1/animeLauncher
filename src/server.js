@@ -10,7 +10,7 @@ function start(port = 3000) {
 	let app = express();
 	app.use('*', (req,res,next) =>
 	{
-		console.group(`[${req.method}] `+req.path);
+		console.group(`[${req.method}] `+req.baseUrl);
 		next();
 	});
 
