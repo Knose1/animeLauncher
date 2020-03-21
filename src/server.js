@@ -44,8 +44,8 @@ function start(port = 3000) {
 
 	
 	let folders = ["js","html","css"];
-	folders.map(m => {return `/${m}/*`});
-
+	folders = folders.map(m => {return `/${m}/*`});
+	
 	app.get(folders, (req, res) => {
 		loadAndSendFile(req,res,path.join(__root,"public",req.path));
 	});
