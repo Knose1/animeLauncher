@@ -39,16 +39,16 @@ function start(port = 3000) {
 	}
 
 	app.get('/', (req, res) => {
-		loadAndSendFile(path.join(_root,"public","index.html"));
+		loadAndSendFile(req,res,path.join(__root,"public","index.html"));
 	});
 	app.get('/js/:path', (req, res) => {
-		loadAndSendFile(path.join(__root,"public","js",req.params.path));
+		loadAndSendFile(req,res,path.join(__root,"public","js",req.params.path));
 	});
 	app.get('/css/:path', (req, res) => {
-		loadAndSendFile(path.join(__root,"public","css",req.params.path));
+		loadAndSendFile(req,res,path.join(__root,"public","css",req.params.path));
 	});
 	app.get('/html/:path', (req, res) => {
-		loadAndSendFile(path.join(__root,"public","html",req.params.path));
+		loadAndSendFile(req,res,path.join(__root,"public","html",req.params.path));
 	});
 
 
