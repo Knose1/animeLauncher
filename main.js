@@ -2,6 +2,14 @@ const JSON_CONFIG = "config.json";
 const JSON_ANIME = "index.json";
 const ANIME_FOLDER = "episode";
 
+const path = require("path");
+const fs = require("fs");
+const Server = require("./src/server");
+
+//*//////////////////////////////*//
+//*       Global variables       *//
+//*//////////////////////////////*//
+
 /**
  * @example nameof({myVar}); //return "myVar"
  * @param {Object} varObject 
@@ -13,13 +21,9 @@ global.nameof = nameof;
 global.__root = path.resolve(__dirname);
 
 console.newLine = function() {console.log("\n\r")};
+//*//////////////////////////////*//
 
-//const server = require("./src/server");
-const path = require("path");
-const fs = require("fs");
 const dataManager = require("./src/dataManager");
-const Server = require("./src/server");
-
 const JsonObject = dataManager.JsonObject;
 const VideoPlayer = dataManager.VideoPlayer;
 const YoutubePlayer = dataManager.YoutubePlayer;
@@ -104,6 +108,7 @@ configLoader.load()
 	() => {
 		console.newLine();
 		console.log(`${Anime.list.length} animes has been loaded`);
+		console.newLine();
 		console.log("Launching server......");
 		Server();
 	}

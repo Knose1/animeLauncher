@@ -1,4 +1,4 @@
-import FileLoader from './utils/FileLoader';
+import FileLoader from './utils/FileLoader.js';
 
 export default class Loader 
 {
