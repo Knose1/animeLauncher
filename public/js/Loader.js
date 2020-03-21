@@ -4,12 +4,11 @@ export default class Loader
 {
 	static start()
 	{
-		reloadAnime();
+		Loader.reloadAnime();
 	}
 
 	static reloadAnime()
 	{
-		debugger;
 		FileLoader.getInstance()
 		.readAsJson("./get/list", this.onListLoaded)
 		.start();
