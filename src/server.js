@@ -30,7 +30,7 @@ function start(port = 3000) {
 	function loadAndSendFile(req,res,filePath)
 	{
 		console.group("[GET] "+req.path);
-		console.log("File path :"+filePath);
+		console.log("[File path] "+filePath);
 
 		res.sendFile(filePath), (err) => {
 			if (err) console.error(err);
@@ -41,14 +41,13 @@ function start(port = 3000) {
 	app.get('/', (req, res) => {
 		loadAndSendFile(req,res,path.join(__root,"public","index.html"));
 	});
-	app.get('/js/:path', (req, res) => {
-		loadAndSendFile(req,res,path.join(__root,"public","js",req.params.path));
-	});
-	app.get('/css/:path', (req, res) => {
-		loadAndSendFile(req,res,path.join(__root,"public","css",req.params.path));
-	});
-	app.get('/html/:path', (req, res) => {
-		loadAndSendFile(req,res,path.join(__root,"public","html",req.params.path));
+
+	
+	let folders = ["js","html","css"];
+	folders.map(m => {return `/${m}/*`});
+
+	app.get(folders, (req, res) => {
+		loadAndSendFile(req,res,path.join(__root,"public",req.path));
 	});
 
 
