@@ -27,7 +27,7 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	//*         Public Folder         *//
 	//*///////////////////////////////*//
-	loadAndSendFile(req,res,filePath)
+	function loadAndSendFile(req,res,filePath)
 	{
 		console.group("[GET] "+req.path);
 		console.log("File path :"+filePath);
