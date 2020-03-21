@@ -27,26 +27,32 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	//*         Public Folder         *//
 	//*///////////////////////////////*//
+	loadAndSendFile(req,res,filePath)
+	{
+		console.group("[GET] "+req.path);
+		console.log("File path :"+filePath);
+
+		res.sendFile(filePath), (err) => {
+			if (err) console.error(err);
+		};
+		console.groupEnd();
+	}
+
 	app.get('/', (req, res) => {
-		console.newLine();
-		console.log(req.path);
-		res.sendFile(path.join(__root,"public","index.html"));
+		loadAndSendFile(path.join(_root,"public","index.html"));
 	});
 	app.get('/js/:path', (req, res) => {
-		console.newLine();
-		console.log(req.path);
-		res.sendFile(path.join(__root,"public","js",req.params.path))
+		loadAndSendFile(path.join(__root,"public","js",req.params.path));
 	});
 	app.get('/css/:path', (req, res) => {
-		console.newLine();
-		console.log(req.path);
-		res.sendFile(path.join(__root,"public","css",req.params.path))
+		loadAndSendFile(path.join(__root,"public","css",req.params.path));
 	});
 	app.get('/html/:path', (req, res) => {
-		console.newLine();
-		console.log(req.path);
-		res.sendFile(path.join(__root,"public","html",req.params.path));
+		loadAndSendFile(path.join(__root,"public","html",req.params.path));
 	});
+
+
+
 	app.listen(port, function () {
 		console.log(`App listening on port ${port}!`);
 	});

@@ -7,4 +7,4 @@ export default class Main {
 	}	
 };
 
-document.on("DOMContentLoaded", Main.start);
+document.on("DOMContentLoadeds", () => {Main.start()});

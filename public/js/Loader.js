@@ -9,8 +9,9 @@ export default class Loader
 
 	static reloadAnime()
 	{
+		debugger;
 		FileLoader.getInstance()
-		.readAsJson("./get/list",this.onListLoaded)
+		.readAsJson("./get/list", this.onListLoaded)
 		.start();
 	}
 
