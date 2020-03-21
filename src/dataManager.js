@@ -285,13 +285,28 @@ class Anime {
 	 * @type {Anime[]}
 	 */
 	static get list() {return Anime._list || (Anime._list = []);}
+	
+	static get publicList() 
+	{
+		return Anime.list.map(m => m.toPublic());
+	}
+	
+	toPublic() {
+		var lToReturn = {
+			episodes : this.episodes.map(e => e.toPublic()),
+			name : this.name,
+			thumbnailLink : this.thumbnailLink
+		};
+
+		return lToReturn;
+	}
 
 	/**
 	 * 
 	 * @param {JsonObject} jsonObject 
-	 * @param {string} path
+	 * @param {string} folderPath
 	 */
-	constructor(jsonObject, path) 
+	constructor(jsonObject, folderPath) 
 	{
 		/**
 		 * @type {AnimeConfig}
@@ -299,11 +314,15 @@ class Anime {
 		let data = jsonObject.value;
 
 		this.name = data.name;
+		if (!data.name) throw `"${nameof(name)}" is null in anime : `+folderPath;
+
+		this.thumbnailLink = data.thumbnailLink;
 
 		/**
 		 * @readonly
 		 */
-		this.path = path;
+		this.path = folderPath;
+		if (!folderPath) throw `${nameof(folderPath)} is null (code exception)`;
 		
 		/**
 		 * @type {Episode[]}
@@ -311,10 +330,19 @@ class Anime {
 		this.episodes = [];
 
 		let episodes = data.episodes;
+		if (!episodes) throw `"${nameof(episodes)}" is null in anime : `+folderPath;
+
 		for (let i = episodes.length - 1; i >= 0; i--) {
 			let lElement = episodes[i];
 			
-			this.episodes.push(new Episode(lElement));
+			try
+			{
+				this.episodes.push(new Episode(lElement));
+			}
+			catch(e)
+			{
+				console.error(e);
+			}
 		}
 
 		this.episodes = this.episodes.sort( (a,b) => a.episodeId - b.episodeId);
@@ -331,11 +359,24 @@ class Episode {
 	 */
 	constructor(config, anime) 
 	{
+		if (config.episodeId === null || config.episodeId === undefined) throw  `"${nameof({episodeId})}" is null in anime : `+folderPath;
+
+		this.name 	= config.name || "";
 		this.episodeId 	= config.episodeId || -1;
 		this.posterLink = config.posterLink || "";
 		this.links 		= config.links;
 		this.localLink 	= config.localLink || "";
 		this.anime 		= anime;
+	}
+
+	toPublic() {
+		var lToReturn = {
+			name : this.name,
+			episodeId : this.episodeId,
+			posterLink : this.posterLink
+		};
+
+		return lToReturn;
 	}
 
 	get islocal() {return Boolean(this.localLink);}

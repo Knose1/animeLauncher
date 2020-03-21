@@ -3,37 +3,46 @@ const express = require("express");
 const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
 
-class Server
-{
+function start(port = 3000) {
 	/**
 	 * @constant
 	 */
-	static get GET_URL_PREFIX() {return "get"}
+	let app = express();
 
-	constructor()
-	{
-		/**
-		 * @constant
-		 */
-		this.app = express();
+	app.get("/get/list", (req, res) => {
+		console.log("hi");
+		res.contentType("application/json");
+		res.send(JSON.stringify(dataManager.Anime.publicList));
+	});
+	
+	app.get('/get/episode', (req, res) => {
+		console.group('/get/episode');
+		console.log("anime: "+req.query.animeName);
+		console.log("episodeId: "+req.query.episodeId);
+		console.groupEnd();
 
-		this.app.use(express.static(path.join(__dirname, 'public')));
-		//this.app.use('/episode', express.static(path.join(__dirname, 'public')));
+		res.sendStatus(HttpStatus.NOT_IMPLEMENTED);
+	})
 
-		this.app.get(Server.GET_URL_PREFIX + "/list", (req, res) => {
-			res.contentType("application/json");
-			res.send(JSON.parse(dataManager.Anime.list.length));
-		});
-	}
+	//*///////////////////////////////*//
+	//*         Public Folder         *//
+	//*///////////////////////////////*//
+	app.get('/', (req, res) => {
+		res.sendFile(path.join(__root,"public","index.html"));
+	});
+	app.get('/js/:path', (req, res) => {
+		res.sendFile(path.join(__root,"public","js",req.params.path))
+	});
+	app.get('/css/:path', (req, res) => {
+		res.sendFile(path.join(__root,"public","css",req.params.path))
+	});
+	app.get('/html/:path', (req, res) => {
+		res.sendFile(path.join(__root,"public","html",req.params.path));
+	});
+	app.listen(port, function () {
+		console.log(`App listening on port ${port}!`);
+	});
+};
 
-	start(port = 3000)
-	{
-		console.log("Animes : -"+dataManager.Anime.list.length);
 
-		this.app.listen(port, function () {
-			console.log(`App listening on port ${port}!`);
-		});
-	}
-}
-
-module.exports = Server;
+module.exports = start;
