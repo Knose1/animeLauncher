@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const express = require("express");
+const mime = require("mime-types");
 const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
 const imageWriter = require("./imageWriter");
@@ -10,33 +11,58 @@ function start(port = 3000) {
 	 * @constant
 	 */
 	let app = express();
+	
+	
+	
+	
 	app.use('*', (req,res,next) =>
 	{
 		console.group(`[${req.method}] `+(req.baseUrl || "/"));
 		next();
+
+		res.on("finish", () => {
+			console.groupEnd();
+		});
 	});
 
-	app.get("/get/list", (req, res, next) => {
+
+
+
+	//*///////////////////////////////*//
+	//*            Get List           *//
+	//*///////////////////////////////*//
+	app.get('/get/list', (req, res, next) => {
 		res.contentType("application/json");
 		res.send(JSON.stringify(dataManager.Anime.publicList));
-
-		next();
 	});
 	
-	app.get('/get/episodeInfo', (req, res, next) => {
-		console.group('/get/episode');
-		console.log("anime: "+req.query.animeName);
-		console.log("episodeId: "+req.query.episodeId);
-		console.groupEnd();
 
-
+	//*///////////////////////////////*//
+	//*        Download Episode       *//
+	//*///////////////////////////////*//
+	app.get('/get/episode/download', (req, res, next) => {
 		res.sendStatus(HttpStatus.NOT_IMPLEMENTED);
-		next();
 	});
 
+
 	//*///////////////////////////////*//
-	//*         Public Folder         *//
+	//*        Get Episode Info       *//
 	//*///////////////////////////////*//
+	app.get('/get/episode/info', async (req, res, next) => {
+		
+		let animeId = Number.parseInt(req.query.animeId);
+		let episodeId = Number.parseInt(req.query.episodeId);
+
+		console.log("?animeId = "+animeId);
+		console.log("?episodeId = "+episodeId);
+		
+		let info = await dataManager.Anime.list[animeId].episodes[episodeId].getInfo();
+
+		res.contentType("application/json");
+		res.send(JSON.stringify(info));
+	});
+
+
 	function loadAndSendFile(req,res,filePath)
 	{
 		console.log("[File path] "+filePath);
@@ -47,20 +73,28 @@ function start(port = 3000) {
 	}
 
 	
+	//*///////////////////////////////*//
+	//*           Index.html          *//
+	//*///////////////////////////////*//
 	app.get('/', (req, res, next) => {
 		loadAndSendFile(req, res, path.join(__root,"public","index.html"));
-		next();
 	});
 
 	
+	//*///////////////////////////////*//
+	//*         Public Folder         *//
+	//*///////////////////////////////*//
 	let folders = ["js","html","css", "fonts", "asset/ico"];
 	folders = folders.map(m => {return `/${m}/*`});
 	
 	app.get(folders, (req, res, next) => {
 		loadAndSendFile(req, res, path.join(__root,"public",req.path));
-		next();
 	});
 
+
+	//*///////////////////////////////*//
+	//*           Thumbnail           *//
+	//*///////////////////////////////*//
 	app.get("/asset/thumbnail/:text.png", async (req, res, next) => {
 		let textSize = Number.parseFloat(req.query.textSize);
 		let filePath = textSize ? 
@@ -70,23 +104,18 @@ function start(port = 3000) {
 		res.sendFile(filePath, (e) => {
 			if (e) {
 				console.error(e);
-				next();
 				return;
 			}
 			console.log(`Removing temp file at path \"${filePath}\"...`);
 			fs.unlink(filePath, (err) => {
 				console.log(`Removed temp file`);
 				if (err) console.error(err);
-				next();
 			});
 		});
 	});
 
-	app.use('*', (req,res,next) =>
-	{
-		console.groupEnd();
-		next();
-	});
+
+
 
 	app.listen(port, function () {
 		console.log(`App listening on port ${port}!`);

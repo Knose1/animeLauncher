@@ -6,14 +6,21 @@ export default class Loader
 {
 	static start()
 	{
-		Loader.reloadAnime();
+		Loader.loadAnimeList();
 	}
 
-	static reloadAnime()
+	static loadAnimeList()
 	{
 		FileLoader.getInstance()
 		.readAsJson("./get/list", this.onListLoaded)
 		.start();
+	}
+	
+	static getEpisodeInfo()
+	{
+		/*FileLoader.getInstance()
+		.readAsJson("./get/list", this.onListLoaded)
+		.start();*/
 	}
 
 	static onListLoaded(data)

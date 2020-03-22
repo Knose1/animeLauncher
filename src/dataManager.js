@@ -34,6 +34,7 @@ const http = require('http');
 var fs = require('fs');
 var ytdl = require('ytdl-core');
 const path = require("path");
+const mime = require("mime-types");
 
 class JsonObject {
 	/**
@@ -147,14 +148,15 @@ class VideoPlayer {
 
 		VideoPlayer.list.push(this);
 	}
-
-	/**
-	 * @public
-	 * @param {string} url 
-	 */
-	getInfo(url) 
+	
+	toPublic() 
 	{
-
+		return {
+			name: this.name,
+			isNatif: this.isNatif,
+			downloadable: this.downloadable,
+			autoDownload: this.autoDownload
+		}
 	}
 
 	/**
@@ -201,16 +203,7 @@ class VideoPlayer {
 
 		return false;
 	}
-
-	/**
-	 * @public
-	 * @param {Episode} episode 
-	 */
-	static getInfo(episode) 
-	{
-		
-	}
-
+	
 	/**
 	 * @public
 	 * @param {string} url
@@ -242,38 +235,43 @@ class YoutubePlayer extends VideoPlayer {
 	/**
 	 * @callback InfoCallback
 	 * @param {Error} err
-	 * @param {ytdl.videoInfo} info
+	 * @param {} info
 	 * @param {DownloadCallback} download
 	 */
 
 	/**
-	 * @param {string} path
-	 * @param {InfoCallback} onInfo
+	 * @param {string} localFileWithoutExtension
+	 * @param {ytdl.videoInfo} info
+	 * @param {ytdl.videoFormat} format
 	 */
-	download(path, onInfo)
+	download(localFileWithoutExtension, info, format)
 	{
-		ytdl.getInfo(path, {filter: "audioandvideo"}, (err, info) => {
-			if (err) 
-			{
-				console.error(`Error loading \"${path}\"`);
-				console.error(err);
-			}
-			onInfo(err, info, (format) => {ytdl.downloadFromInfo(info, {format: format} );});
+		let extension = mime.extension(format.mimeType) | "";
+
+		let stream = ytdl.downloadFromInfo(info, {format: format} ).pipe(fs.createWriteStream(localFileWithoutExtension+extension));
+		stream.on('finish', function() {
+			res.writeHead(204);
+			res.end();
 		});
 	}
 
-	getInfo(path)
+	/**
+	 * 
+	 * @param {string} url
+	 * @returns {Promise<ytdl.videoInfo>} 
+	 */
+	getInfo(url)
 	{
 		return new Promise((resolve, reject) => {
-			ytdl.getInfo(path, {filter: "audioandvideo"}, (err, info) => {
+			ytdl.getInfo(url, {filter: "audioandvideo"}, (err, info) => {
 				if (err) 
 				{
-					console.error(`Error loading \"${path}\"`);
+					console.error(`Error loading \"${url}\"`);
 					console.error(err);
 					reject(err);
 					return;
 				}
-				onInfo(err, info, (format) => {ytdl.downloadFromInfo(info, {format: format} );});
+				resolve(info);
 			});
 		});
 	}
@@ -293,6 +291,7 @@ class Anime {
 	
 	toPublic() {
 		var lToReturn = {
+			id : this.id,
 			episodes : this.episodes.map(e => e.toPublic()),
 			name : this.name,
 			thumbnailLink : this.thumbnailLink
@@ -346,6 +345,7 @@ class Anime {
 		}
 
 		this.episodes = this.episodes.sort( (a,b) => a.episodeId - b.episodeId);
+		this.id = Anime.list.length;
 
 		Anime.list.push(this);
 	}
@@ -375,6 +375,53 @@ class Episode {
 			episodeId : this.episodeId,
 			posterLink : this.posterLink
 		};
+
+		return lToReturn;
+	}
+
+	/**
+	 * @public
+	 */
+	async getInfo() 
+	{
+		/**
+		 * @typedef {Object} PlayerInfo
+		 * @property {string} url
+		 * @property {string} [ytInfo]
+		 * @property {*} player
+		 */
+		/**
+		 * @typedef {Object} EpisodeInfo
+		 * @property {string} name
+		 * @property {number} episodeId
+		 * @property {string} posterLink
+		 * @property {PlayerInfo[]} players
+		 */
+		/**
+		 * @type {EpisodeInfo}
+		 */
+		let lToReturn = this.toPublic();
+		lToReturn.players = [];
+
+		for (let i = this.links.length - 1; i >= 0; i--) {
+			/**
+			 * @type {PlayerInfo}
+			 */
+			let lToPush = {};
+			let url = this.links[i];
+			let videoPlayer = VideoPlayer.getPlayer(url);
+			
+			if (videoPlayer instanceof YoutubePlayer)
+			{
+				let ytInfo = await videoPlayer.getInfo(url);
+				lToPush.ytInfo = ytInfo;
+			}
+
+			lToPush.url = url;
+			lToPush.player = videoPlayer.toPublic();
+
+			lToReturn.players.push(lToPush);
+		}
 
 		return lToReturn;
 	}
