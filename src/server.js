@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
+const imageWriter = require("./imageWriter");
 
 function start(port = 3000) {
 	/**
@@ -10,23 +11,23 @@ function start(port = 3000) {
 	let app = express();
 	app.use('*', (req,res,next) =>
 	{
-		console.group(`[${req.method}] `+req.baseUrl);
+		console.group(`[${req.method}] `+(req.baseUrl || "/"));
 		next();
 	});
 
 	app.get("/get/list", (req, res, next) => {
-		console.log("hi");
 		res.contentType("application/json");
 		res.send(JSON.stringify(dataManager.Anime.publicList));
 
 		next();
 	});
 	
-	app.get('/get/episode', (req, res, next) => {
+	app.get('/get/episodeInfo', (req, res, next) => {
 		console.group('/get/episode');
 		console.log("anime: "+req.query.animeName);
 		console.log("episodeId: "+req.query.episodeId);
 		console.groupEnd();
+
 
 		res.sendStatus(HttpStatus.NOT_IMPLEMENTED);
 		next();
@@ -51,7 +52,7 @@ function start(port = 3000) {
 	});
 
 	
-	let folders = ["js","html","css"];
+	let folders = ["js","html","css", "fonts", "asset/ico"];
 	folders = folders.map(m => {return `/${m}/*`});
 	
 	app.get(folders, (req, res, next) => {
@@ -59,9 +60,19 @@ function start(port = 3000) {
 		next();
 	});
 
+	app.get("/asset/thumbnail/:text.png", async (req, res, next) => {
+		let img = await imageWriter.getThumbail(req.params);
+
+		res.setHeader('Content-Type', 'image/png');
+		res.setHeader('Content-Length', img.byteLength);
+		res.send(Buffer.from(img));
+		next();
+	});
+
 	app.use('*', (req,res,next) =>
 	{
 		console.groupEnd();
+		next();
 	});
 
 	app.listen(port, function () {

@@ -7,4 +7,4 @@ export default class Main {
 	}	
 };
 
-document.addEventListener("DOMContentLoadeds", () => {Main.start()});
+document.addEventListener("DOMContentLoaded", () => {Main.start()});

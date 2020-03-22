@@ -5,7 +5,7 @@ const ANIME_FOLDER = "episode";
 const path = require("path");
 const fs = require("fs");
 const Server = require("./src/server");
-
+const imageWriter = require("./src/imageWriter");
 //*//////////////////////////////*//
 //*       Global variables       *//
 //*//////////////////////////////*//
@@ -48,7 +48,10 @@ var videoPlayers = [];
 var animes = [];
 
 //Loading configs
-configLoader.load()
+imageWriter.init()
+.then(
+	() => configLoader.load()
+)
 .then(
 	() => {
 		/**
