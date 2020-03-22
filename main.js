@@ -18,7 +18,13 @@ function nameof(varObject) {
     return Object.keys(varObject)[0];
 }
 global.nameof = nameof;
-global.__root = path.resolve(__dirname);
+
+/**
+ * The folder of the node.js projet
+ * @type {string}
+ */
+var __root = path.resolve(__dirname);
+global.__root = __root;
 
 console.newLine = function() {console.log("\n\r")};
 //*//////////////////////////////*//

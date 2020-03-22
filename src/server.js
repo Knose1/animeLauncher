@@ -1,4 +1,5 @@
 const path = require("path");
+const fs = require("fs");
 const express = require("express");
 const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
@@ -61,12 +62,24 @@ function start(port = 3000) {
 	});
 
 	app.get("/asset/thumbnail/:text.png", async (req, res, next) => {
-		let img = await imageWriter.getThumbail(req.params);
+		let textSize = Number.parseFloat(req.query.textSize);
+		let filePath = textSize ? 
+			await imageWriter.getThumbail(req.params.text, textSize) : 
+			await imageWriter.getThumbail(req.params.text);
 
-		res.setHeader('Content-Type', 'image/png');
-		res.setHeader('Content-Length', img.byteLength);
-		res.send(Buffer.from(img));
-		next();
+		res.sendFile(filePath, (e) => {
+			if (e) {
+				console.error(e);
+				next();
+				return;
+			}
+			console.log(`Removing temp file at path \"${filePath}\"...`);
+			fs.unlink(filePath, (err) => {
+				console.log(`Removed temp file`);
+				if (err) console.error(err);
+				next();
+			});
+		});
 	});
 
 	app.use('*', (req,res,next) =>

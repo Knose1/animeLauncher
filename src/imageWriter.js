@@ -1,5 +1,7 @@
 const PImage = require('pureimage');
-const tokenGenerator = require("./tokenGenerator");
+const fs = require("fs");
+const path = require("path");
+const tokenGenerator = require("./utils/tokenGenerator");
 
 exports.init = function init()
 {
@@ -12,24 +14,31 @@ exports.init = function init()
 }
 /**
  * @param {string} text
+ * @param {number} [textSize=1000]
+ * @returns {Promise<string>} Return the path to the file
  */
-exports.getThumbail = function getThumbail(text) {
-	//Fill with a black rectangle with 50% opacity
-	var finalImage = PImage.make(1920,1080);
-	var finalImageCtx = finalImage.getContext('2d');
-	finalImageCtx.fillStyle = 'rgba(5,5,5, 0.5)';
-	finalImageCtx.fillRect(0,0,1920,1080);
+exports.getThumbail = function getThumbail(text, textSize = 1000) {
+	return new Promise((resolve, reject) => {
+		console.log(`Generating image with text \"${text}\" at size \"${textSize}\"...`);
 
-	//Create font layer
-	var fontLayer = PImage.make(1920,1080);
-	var fontLayerCtx = fontLayer.getContext('2d');
-	
-	fontLayerCtx.fillStyle = 'rgba(255,255,255, 1)';
-	fontLayerCtx.font = "1000px Cambria";
-	fontLayerCtx.fillText(text, 1920 / 2, 1080 / 2);
-	
-	//Add font layer to the image
-	finalImageCtx.drawImage(fontLayer, 0, 0);
+		//Create font layer
+		var img = PImage.make(1920,1080);
+		var ctx = img.getContext('2d');
+		ctx.fillStyle = 'rgba(5,5,5, 0.5)';
+		ctx.fillRect(0,0,1920,1080);
+		ctx.fillStyle = 'rgba(255,255,255, 1)';
+		ctx.font = `${textSize}px Cambria`;
+		ctx.textAlign="center";
+		ctx.textBaseline = 'middle'
+		ctx.fillText(text, img.width/2, img.height / 2);
+		
+		let filePath = path.join(__root, '_temp', tokenGenerator()+'.png');
 
-	return finalImage.data;
+		PImage.encodePNGToStream(img, fs.createWriteStream(filePath)).then(() => {
+			console.log(`Generated an image with text \"${text}\" at path \"${filePath}\"`);
+			resolve(filePath);
+		}).catch((e)=>{
+			reject(e);
+		});
+	});
 }
