@@ -104,6 +104,17 @@ export default class FileLoader {
 		this.loadList = [];
 	}
 
+	/**
+	 * @protected
+	 */
+	_destroy()
+	{
+		if (FileLoader._instance == this) 
+		{
+			FileLoader._instance = null;
+			_reset();
+		}
+	}
 	
 	/**
 	 * @namespace FileLoader
@@ -214,7 +225,7 @@ export default class FileLoader {
 		//Si on est arrivé à la fin de la loadlist, on execute oncomplete
 		if (this._currentLoadingItemIndex == this.loadList.length) {
 			if (this.oncomplete instanceof Function) this.oncomplete();
-			this._reset();
+			this._destroy();
 			return;
 		}
 		

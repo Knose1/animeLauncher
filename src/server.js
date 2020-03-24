@@ -56,10 +56,30 @@ function start(port = 3000) {
 		console.log("?animeId = "+animeId);
 		console.log("?episodeId = "+episodeId);
 		
-		let info = await dataManager.Anime.list[animeId].episodes[episodeId].getInfo();
+		if (!Number.isSafeInteger(animeId) || !Number.isSafeInteger(episodeId)) {
+			
+			console.log("[Missing Argument(s)]");
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
 
-		res.contentType("application/json");
-		res.send(JSON.stringify(info));
+		let lEpisode = dataManager.Anime.list[animeId].getEpisodeById(episodeId);
+		if (!lEpisode) {
+			console.log("[Episode not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+		try {
+			let info = await lEpisode.getInfo();
+
+			res.contentType("application/json");
+			res.send(JSON.stringify(info));
+		}
+		catch(e)
+		{
+			console.log(e);
+			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	});
 
 

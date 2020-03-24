@@ -146,6 +146,7 @@ class VideoPlayer {
 		this.downloadable = config.downloadable;
 		this.autoDownload = config.autoDownload;
 
+		this.id = VideoPlayer.list.length;
 		VideoPlayer.list.push(this);
 	}
 	
@@ -155,8 +156,9 @@ class VideoPlayer {
 			name: this.name,
 			isNatif: this.isNatif,
 			downloadable: this.downloadable,
-			autoDownload: this.autoDownload
-		}
+			autoDownload: this.autoDownload,
+			id: this.id
+		};
 	}
 
 	/**
@@ -349,6 +351,19 @@ class Anime {
 
 		Anime.list.push(this);
 	}
+
+	/**
+	 * 
+	 * @param {number} episodeId 
+	 */
+	getEpisodeById(episodeId)
+	{
+		for (let i = this.episodes.length - 1; i >= 0; i--) {
+			let lElement = this.episodes[i];
+			if (lElement.episodeId == episodeId) return lElement;
+		}
+		return null;
+	}
 }
 
 class Episode {
@@ -395,6 +410,8 @@ class Episode {
 		 * @property {string} name
 		 * @property {number} episodeId
 		 * @property {string} posterLink
+		 * @property {bool} isLocal
+		 * @property {bool} hasPoster
 		 * @property {PlayerInfo[]} players
 		 */
 		/**
@@ -402,6 +419,8 @@ class Episode {
 		 */
 		let lToReturn = this.toPublic();
 		lToReturn.players = [];
+		lToReturn.isLocal = this.isLocal;
+		lToReturn.hasPoster = this.hasPoster;
 
 		for (let i = this.links.length - 1; i >= 0; i--) {
 			/**
@@ -426,7 +445,9 @@ class Episode {
 		return lToReturn;
 	}
 
-	get islocal() {return Boolean(this.localLink);}
+
+
+	get isLocal() {return Boolean(this.localLink);}
 	get hasPoster() {return Boolean(this.posterLink);}
 	get path() {return path.join(__dirname, this.anime.path, this.localLink);}
 }
