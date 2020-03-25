@@ -36,18 +36,38 @@ function start(port = 3000) {
 		res.send(JSON.stringify(dataManager.Anime.publicList));
 	});
 	
-
-	//*///////////////////////////////*//
-	//*        Download Episode       *//
-	//*///////////////////////////////*//
-	app.get('/get/episode/download', (req, res, next) => {
-		res.sendStatus(HttpStatus.NOT_IMPLEMENTED);
-	});
-
-
 	//*///////////////////////////////*//
 	//*        Get Episode Info       *//
 	//*///////////////////////////////*//
+	function tryToGetEpisodeOrSendStatus(res, animeId, episodeId)
+	{
+		//Arguments checking
+		if (!Number.isSafeInteger(animeId) || !Number.isSafeInteger(episodeId)) {
+			
+			console.log("[Missing Argument(s)]");
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		//Anime finding
+		let lAnime = dataManager.Anime.list[animeId]
+		if (!lAnime) {
+			console.log("[Anime not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		//Episode finding
+		let lEpisode = lAnime.getEpisodeById(episodeId);
+		if (!lEpisode) {
+			console.log("[Episode not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		return lEpisode
+	}
+
 	app.get('/get/episode/info', async (req, res, next) => {
 		
 		let animeId = Number.parseInt(req.query.animeId);
@@ -56,19 +76,10 @@ function start(port = 3000) {
 		console.log("?animeId = "+animeId);
 		console.log("?episodeId = "+episodeId);
 		
-		if (!Number.isSafeInteger(animeId) || !Number.isSafeInteger(episodeId)) {
-			
-			console.log("[Missing Argument(s)]");
-			res.sendStatus(HttpStatus.BAD_REQUEST);
-			return;
-		}
-
-		let lEpisode = dataManager.Anime.list[animeId].getEpisodeById(episodeId);
-		if (!lEpisode) {
-			console.log("[Episode not found]");
-			res.sendStatus(HttpStatus.NOT_FOUND);
-			return;
-		}
+		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
+		if (!lEpisode) return;
+		
+		//Get episode info and send
 		try {
 			let info = await lEpisode.getInfo();
 
@@ -80,6 +91,14 @@ function start(port = 3000) {
 			console.log(e);
 			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	});
+	
+
+	//*///////////////////////////////*//
+	//*        Download Episode       *//
+	//*///////////////////////////////*//
+	app.get('/get/episode/download', (req, res, next) => {
+		res.sendStatus(HttpStatus.NOT_IMPLEMENTED);
 	});
 
 
