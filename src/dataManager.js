@@ -128,6 +128,14 @@ class JsonObject {
 	}
 }
 
+class DownloadedFile 
+{
+	constructor()
+	{
+
+	}
+}
+
 class VideoPlayer {
 	/**
 	 * @readonly
@@ -180,6 +188,12 @@ class VideoPlayer {
 					resolve(fileName);  
 				});
 			})
+			.on('data', function(chunk) {
+				//file.write(chunk)
+				downloaded += chunk.length
+				percent = (100.0 * downloaded / len).toFixed(2)
+				process.stdout.write(`Downloading ${percent}% ${downloaded} bytes\r`)
+			  })
 			// Handle errors
 			.on('error', async function(err) {
 				
@@ -223,9 +237,17 @@ class VideoPlayer {
 }
 
 class YoutubePlayer extends VideoPlayer {
+	/**
+	 * @returns {YoutubePlayer}
+	 */
+	static get instance() {return YoutubePlayer._instance}
+
 	constructor(config)
 	{
 		super(config);
+		if (!YoutubePlayer._instance) YoutubePlayer._instance = this;
+		else console.warn("2 YoutubePlayer has been instansied");
+		
 	}
 
 	/**
@@ -313,7 +335,8 @@ class Anime {
 		 * @type {AnimeConfig}
 		 */
 		let data = jsonObject.value;
-
+		
+		this.jsonObject = jsonObject;
 		this.name = data.name;
 		if (!data.name) throw `"${nameof(name)}" is null in anime : `+folderPath;
 
@@ -322,7 +345,7 @@ class Anime {
 		/**
 		 * @readonly
 		 */
-		this.path = folderPath;
+		this._path = folderPath;
 		if (!folderPath) throw `${nameof(folderPath)} is null (code exception)`;
 		
 		/**
@@ -364,6 +387,8 @@ class Anime {
 		}
 		return null;
 	}
+
+	get path() {return path.join(__root, this.path);}
 }
 
 class Episode {
@@ -393,27 +418,28 @@ class Episode {
 
 		return lToReturn;
 	}
-
+	/**
+	 * @typedef {Object} PlayerInfo
+	 * @property {string} url
+	 * @property {string} [ytInfo]
+	 * @property {boolean} [isYoutube]
+	 * @property {*} player
+	 */
+	/**
+	 * @typedef {Object} EpisodeInfo
+	 * @property {string} name
+	 * @property {number} episodeId
+	 * @property {string} posterLink
+	 * @property {bool} isLocal
+	 * @property {bool} hasPoster
+	 * @property {PlayerInfo[]} players
+	 */
 	/**
 	 * @public
 	 */
-	async getInfo() 
+	async getInfo(loadYoutubeInfo = true) 
 	{
-		/**
-		 * @typedef {Object} PlayerInfo
-		 * @property {string} url
-		 * @property {string} [ytInfo]
-		 * @property {*} player
-		 */
-		/**
-		 * @typedef {Object} EpisodeInfo
-		 * @property {string} name
-		 * @property {number} episodeId
-		 * @property {string} posterLink
-		 * @property {bool} isLocal
-		 * @property {bool} hasPoster
-		 * @property {PlayerInfo[]} players
-		 */
+		
 		/**
 		 * @type {EpisodeInfo}
 		 */
@@ -430,10 +456,14 @@ class Episode {
 			let url = this.links[i];
 			let videoPlayer = VideoPlayer.getPlayer(url);
 			
+			lToPush.isYoutube = false;
 			if (videoPlayer instanceof YoutubePlayer)
 			{
-				let ytInfo = await videoPlayer.getInfo(url);
-				lToPush.ytInfo = ytInfo;
+				lToPush.isYoutube = true;
+				if (loadYoutubeInfo) {
+					let ytInfo = await videoPlayer.getInfo(url);
+					lToPush.ytInfo = ytInfo;
+				}
 			}
 
 			lToPush.url = url;
@@ -444,15 +474,23 @@ class Episode {
 
 		return lToReturn;
 	}
-
-
+	
+	/**
+	 * @returns {PlayerInfo}
+	 */
+	async getVideoPlayerInfoById() 
+	{
+		let episodeInfo = await this.getInfo(false);
+		episodeInfo
+	}
 
 	get isLocal() {return Boolean(this.localLink);}
 	get hasPoster() {return Boolean(this.posterLink);}
-	get path() {return path.join(__dirname, this.anime.path, this.localLink);}
+	get path() {return path.join(this.anime.path, this.localLink);}
 }
 
 exports.JsonObject = JsonObject;
+exports.DownloadedFile = DownloadedFile;
 exports.VideoPlayer = VideoPlayer;
 exports.YoutubePlayer = YoutubePlayer;
 exports.Anime = Anime;

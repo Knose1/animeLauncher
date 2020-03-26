@@ -97,8 +97,33 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	//*        Download Episode       *//
 	//*///////////////////////////////*//
-	app.get('/get/episode/download', (req, res, next) => {
-		res.sendStatus(HttpStatus.NOT_IMPLEMENTED);
+	app.post('/post/episode/download', (req, res, next) => {
+		let animeId = Number.parseInt(req.body.animeId);
+		let episodeId = Number.parseInt(req.body.episodeId);
+		let videoPlayerId = Number.parseInt(req.body.videoPlayerId);
+		let ytInfo = JSON.parse(req.body.ytInfo);
+
+		console.log("?animeId = "+animeId);
+		console.log("?episodeId = "+episodeId);
+		console.log("?videoPlayerId = "+videoPlayerId);
+		
+		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
+		
+		if (lEpisode.isLocal) 
+		{
+			res.sendStatus(HttpStatus.CONFLICT);
+			return;
+		}
+
+		if (lEpisode.ytInfo) 
+		{
+			dataManager.YoutubePlayer.instance.download(
+
+			);
+		}
+
+		dataManager.Episode.
+		res.sendStatus(HttpStatus.PROCESSING);
 	});
 
 
@@ -111,7 +136,6 @@ function start(port = 3000) {
 		};
 	}
 
-	
 	//*///////////////////////////////*//
 	//*           Index.html          *//
 	//*///////////////////////////////*//
@@ -130,6 +154,19 @@ function start(port = 3000) {
 		loadAndSendFile(req, res, path.join(__root,"public",req.path));
 	});
 
+	//*///////////////////////////////*//
+	//*       Get Local Episode       *//
+	//*///////////////////////////////*//
+	app.get("/episode/:animeId/:episodeId", (req, res, next) => {
+		let animeId = Number.parseInt(req.params.animeId);
+		let episodeId = Number.parseInt(req.params.episodeId);
+
+		console.log(":animeId = "+animeId);
+		console.log(":episodeId = "+episodeId);
+
+		let episode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
+		loadAndSendFile(req, res, episode.path);
+	});
 
 	//*///////////////////////////////*//
 	//*           Thumbnail           *//

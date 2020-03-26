@@ -29,6 +29,11 @@ export default class Loader
 		.start();
 	}
 
+	static downloadYoutubeEpisode(ytInfo)
+	{
+		encodeURI(JSON.stringify(ytInfo));
+	}
+
 	static onListLoaded(data)
 	{
 		DataManager.initAnimes(data);
