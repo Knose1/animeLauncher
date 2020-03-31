@@ -35,6 +35,8 @@ var fs = require('fs');
 var ytdl = require('ytdl-core');
 const path = require("path");
 const mime = require("mime-types");
+const event = require("events");
+const EventEmitter = event.EventEmitter;
 
 class JsonObject {
 	/**
@@ -128,11 +130,55 @@ class JsonObject {
 	}
 }
 
-class DownloadedFile 
+class DownloadEpisode 
 {
-	constructor()
+	get list() {return DownloadEpisode._list || (DownloadEpisode._list = [])}
+	/**
+	 * 
+	 * @param {Episode} episode
+	 */
+	constructor(episode, videoPlayerId)
 	{
+		this.episode = episode;
+		this.id = DownloadEpisode.list.length;
 
+		this.player = VideoPlayer.getVideoPlayerById(videoPlayerId);
+		this.isReady = false;
+		this.isDownloading = false;
+		this.progress = 0;
+
+		DownloadEpisode.list.push(this);
+	}
+
+	_onDownloadEnd(pathToFile)
+	{
+		this.episode.setLocalPath(pathToFile);
+	}
+
+	download(url, format)
+	{
+		this.isDownloading = true;
+
+		if (this.player instanceof YoutubePlayer) this.downloadYoutube(format);
+		else this.downloadNormal(url);
+	}
+
+	downloadNormal(url) 
+	{
+		this.player.download(url, this.episode.path);
+	}
+
+	downloadYoutube(format)
+	{
+		this.promise = YoutubePlayer.instance.download(this.episode.path, format);
+		this.promise.then(
+			(path) => {
+				this.isReady = true;
+				this.progress = 0.99;
+
+				return this.episode.setLocalPath()
+			}
+		)
 	}
 }
 
@@ -176,32 +222,70 @@ class VideoPlayer {
 	 */
 	download(downloadUrl, fileName)
 	{
-		return new Promise(async (resolve, reject) => {
-			
-			var file = fs.createWriteStream(fileName);
-			http.get(downloadUrl, async function(response) {
-				response.pipe(file);
+		/**
+		 * @typedef DownloadObject
+		 * @property {number} progress - The download progress in %
+		 * @property {string} contentType
+		 * @property {string} fileName
+		 */
+		/**
+		 * @event DownloadEvent#progress
+		 */
+		/**
+		 * @event DownloadEvent#complete
+		 */
 
-				file.on('finish', async function() {
-					// close() is async, call resolve after close completes.
-					await file.close();
-					resolve(fileName);  
-				});
-			})
-			.on('data', function(chunk) {
-				//file.write(chunk)
+		/**
+		 * @fires DownloadEvent#progress
+		 * @fires DownloadEvent#complete
+		 */
+		let emitter = new EventEmitter();
+
+		let url = new URL(downloadUrl);
+		/**
+		 * @type {http.RequestOptions}
+		 */
+		let options = {headers: {Accept: "video/webm, video/mpeg, video/ogg"}}
+
+		let file = null;
+		let request = http.get(downloadUrl, options)
+		request.on("response", async function(response) {
+
+			let len = ?;
+
+			//Init the file with the response extension
+			if (file === null) {
+				fileName += mime.extension(response.headers["content-type"]);
+				fs.createWriteStream(fileName);
+			}
+			
+			response.on('data', function(chunk) {
+				//Write chunk into the file
+				file.write(chunk);
+
+				//Get progress
 				downloaded += chunk.length
 				percent = (100.0 * downloaded / len).toFixed(2)
 				process.stdout.write(`Downloading ${percent}% ${downloaded} bytes\r`)
-			  })
-			// Handle errors
-			.on('error', async function(err) {
-				
-				// Delete the file async. (But we don't check the result)
-				await fs.unlink(fileName); 
-				if (reject) reject(err.message);
+
+				emitter.emit('progress', {progress:percent, })
+			})
+
+			file.on('finish', async function() {
+				// close() is async, call resolve after close completes.
+				await file.close();
+				resolve(fileName);  
 			});
+		})
+		// Handle errors
+		.on('error', async function(err) {
+			
+			// Delete the file async. (But we don't check the result)
+			await fs.unlink(fileName); 
+			if (reject) reject(err.message);
 		});
+
+		return emitter;
 	}
 
 	/**
@@ -234,6 +318,15 @@ class VideoPlayer {
 
 		return null;
 	}
+
+	/**
+	 * 
+	 * @param {number} id 
+	 */
+	static getVideoPlayerById(id)
+	{
+		return VideoPlayer.list[id];
+	}
 }
 
 class YoutubePlayer extends VideoPlayer {
@@ -246,36 +339,27 @@ class YoutubePlayer extends VideoPlayer {
 	{
 		super(config);
 		if (!YoutubePlayer._instance) YoutubePlayer._instance = this;
-		else console.warn("2 YoutubePlayer has been instansied");
+		else console.warn("2 YoutubePlayer has been founded");
 		
 	}
 
 	/**
-	 * 
-	 * @callback DownloadCallback
-	 * @param {ytdl.videoFormat} format 
-	 */
-
-	/**
-	 * @callback InfoCallback
-	 * @param {Error} err
-	 * @param {} info
-	 * @param {DownloadCallback} download
-	 */
-
-	/**
 	 * @param {string} localFileWithoutExtension
-	 * @param {ytdl.videoInfo} info
 	 * @param {ytdl.videoFormat} format
 	 */
-	download(localFileWithoutExtension, info, format)
+	download(localFileWithoutExtension, format)
 	{
-		let extension = mime.extension(format.mimeType) | "";
+		return new Promise((resolve, reject) => {
+			let extension = mime.extension(format.mimeType) | "";
+			
+			let path = localFileWithoutExtension+"."+extension;
 
-		let stream = ytdl.downloadFromInfo(info, {format: format} ).pipe(fs.createWriteStream(localFileWithoutExtension+extension));
-		stream.on('finish', function() {
-			res.writeHead(204);
-			res.end();
+			let stream = ytdl(format.url, {format: format} ).pipe(fs.createWriteStream(path));
+			stream.on('finish', function() {
+				resolve(path);
+				res.writeHead(204);
+				res.end();
+			});
 		});
 	}
 
@@ -474,23 +558,21 @@ class Episode {
 
 		return lToReturn;
 	}
-	
-	/**
-	 * @returns {PlayerInfo}
-	 */
-	async getVideoPlayerInfoById() 
+
+	setLocalPath(path)
 	{
-		let episodeInfo = await this.getInfo(false);
-		episodeInfo
+		throw "Not implemented";
 	}
 
 	get isLocal() {return Boolean(this.localLink);}
 	get hasPoster() {return Boolean(this.posterLink);}
-	get path() {return path.join(this.anime.path, this.localLink);}
+	get path() {
+		return path.join(this.anime.path, this.isLocal ? this.localLink : `${this.episodeId}`);
+	}
 }
 
 exports.JsonObject = JsonObject;
-exports.DownloadedFile = DownloadedFile;
+exports.DownloadEpisode = DownloadEpisode;
 exports.VideoPlayer = VideoPlayer;
 exports.YoutubePlayer = YoutubePlayer;
 exports.Anime = Anime;

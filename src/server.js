@@ -6,6 +6,13 @@ const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
 const imageWriter = require("./imageWriter");
 
+let JsonObject = dataManager.JsonObject;
+let DownloadEpisode = dataManager.DownloadEpisode;
+let VideoPlayer = dataManager.VideoPlayer;
+let YoutubePlayer = dataManager.YoutubePlayer;
+let Anime = dataManager.Anime;
+let Episode = dataManager.Episode;
+
 function start(port = 3000) {
 	/**
 	 * @constant
@@ -33,7 +40,7 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	app.get('/get/list', (req, res, next) => {
 		res.contentType("application/json");
-		res.send(JSON.stringify(dataManager.Anime.publicList));
+		res.send(JSON.stringify(Anime.publicList));
 	});
 	
 	//*///////////////////////////////*//
@@ -50,7 +57,7 @@ function start(port = 3000) {
 		}
 
 		//Anime finding
-		let lAnime = dataManager.Anime.list[animeId]
+		let lAnime = Anime.list[animeId]
 		if (!lAnime) {
 			console.log("[Anime not found]");
 			res.sendStatus(HttpStatus.NOT_FOUND);
@@ -97,11 +104,12 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	//*        Download Episode       *//
 	//*///////////////////////////////*//
-	app.post('/post/episode/download', (req, res, next) => {
+	app.post('/post/episode/download', async (req, res, next) => {
 		let animeId = Number.parseInt(req.body.animeId);
 		let episodeId = Number.parseInt(req.body.episodeId);
 		let videoPlayerId = Number.parseInt(req.body.videoPlayerId);
-		let ytInfo = JSON.parse(req.body.ytInfo);
+		let ytFormat = req.body.ytInfo ? JSON.parse(req.body.ytInfo) : null;
+		let url = req.body.url;
 
 		console.log("?animeId = "+animeId);
 		console.log("?episodeId = "+episodeId);
@@ -115,15 +123,13 @@ function start(port = 3000) {
 			return;
 		}
 
-		if (lEpisode.ytInfo) 
-		{
-			dataManager.YoutubePlayer.instance.download(
 
-			);
-		}
+		let download = DownloadEpisode.getFromEpisode(lEpisode) || new DownloadEpisode(lEpisode);
+		if (!download.isDownloading) download.download(url, ytFormat);
 
-		dataManager.Episode.
+		//Episode
 		res.sendStatus(HttpStatus.PROCESSING);
+		res.send(JSON.stringify({progress:download.progress}));
 	});
 
 

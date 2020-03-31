@@ -53,9 +53,10 @@ var videoPlayers = [];
  */
 var animes = [];
 
-//Loading configs
+//Init imageWriter
 imageWriter.init()
 .then(
+	//Loading configs
 	() => configLoader.load()
 )
 .then(
