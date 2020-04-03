@@ -1,3 +1,5 @@
+//TODO Anime.update()
+//TODO Episode.toEpisodeConfig()
 
 /**
  * @namespace dataManager
@@ -26,6 +28,13 @@
  * @property {string} [posterLink]
  * @property {string[]} links
  * @property {string} [localLink]
+ */
+
+/**
+ * @typedef ReqDownloadData
+ * @property {number} progress - The download progress in %
+ * @property {string} contentType
+ * @property {string} fileName
  */
 
 /** */
@@ -116,7 +125,7 @@ class JsonObject {
 		console.newLine();
 		console.log("Saving "+this.path);
 
-		var data = JSON.stringify(this.value);
+		var data = JSON.stringify(this.value, null, "\t");//add tabs to make it more readable
 
 		fs.writeFile(this.path, data, function (err) {
 			if (err) {
@@ -132,7 +141,10 @@ class JsonObject {
 
 class DownloadEpisode 
 {
-	get list() {return DownloadEpisode._list || (DownloadEpisode._list = [])}
+	/**
+	 * @type {DownloadEpisode[]}
+	 */
+	static get list() {return DownloadEpisode._list || (DownloadEpisode._list = [])}
 	/**
 	 * 
 	 * @param {Episode} episode
@@ -147,38 +159,83 @@ class DownloadEpisode
 		this.isDownloading = false;
 		this.progress = 0;
 
+		if (!this.player.downloadable) throw "Is not downloadable";
+
 		DownloadEpisode.list.push(this);
 	}
 
-	_onDownloadEnd(pathToFile)
+	_setLocalPath(pathToFile)
 	{
-		this.episode.setLocalPath(pathToFile);
+		this.episode.setLocalPath(pathToFile)
+		.then(
+			() => {
+				this.isReady = true;
+				this.isDownloading = false;
+				this.progress = 1;
+			}
+		);
 	}
 
 	download(url, format)
 	{
-		this.isDownloading = true;
-
-		if (this.player instanceof YoutubePlayer) this.downloadYoutube(format);
-		else this.downloadNormal(url);
+		let emitter = this.player.download( (this.player.autoDownload ? this.episode.getUrlByPlayer(this.player) : url ) , format, this.episode.path);
+		this._setEvents(emitter);
 	}
 
-	downloadNormal(url) 
+	/**
+	 * 
+	 * @param {event.EventEmitter} emitter 
+	 */
+	_setEvents(emitter) 
 	{
-		this.player.download(url, this.episode.path);
+		emitter
+		.on('progress',
+		/**
+		 * @param {ReqDownloadData} recDownloadData
+		 */
+		(recDownloadData) => {
+			this.progress = recDownloadData.progress / 100 * 0.99;
+		})
+
+		.on('complete',
+		/**
+		 * @param {ReqDownloadData} recDownloadData
+		 */
+		(recDownloadData) => {
+			this.progress = 0.99;
+			this._setLocalPath(recDownloadData.fileName);
+		})
+
+		.on('error',
+		/**
+		 * @param {string} err
+		 */
+		(err) => {
+			console.err(err);
+		});
 	}
 
 	downloadYoutube(format)
 	{
-		this.promise = YoutubePlayer.instance.download(this.episode.path, format);
-		this.promise.then(
+		YoutubePlayer.instance.download(this.episode.path, format)
+		.then(
 			(path) => {
-				this.isReady = true;
 				this.progress = 0.99;
 
-				return this.episode.setLocalPath()
+				this._setLocalPath(path);
 			}
-		)
+		);
+	}
+
+	/**
+	 * 
+	 * @param {Episode} episode 
+	 */
+	static getFromEpisode(episode)
+	{
+		for (let i = DownloadEpisode.list.length - 1; i >= 0; i--) {
+			let lElement = DownloadEpisode.list[i]
+		}
 	}
 }
 
@@ -215,29 +272,63 @@ class VideoPlayer {
 		};
 	}
 
+	
+	/**
+	 * 
+	 * @param {event.EventEmitter} emitter 
+	 * @param {ReqDownloadData} recDownloadData 
+	 */
+	_dispatchOnComplete(emitter, recDownloadData)
+	{
+		/**
+		 * @event complete
+		 * @type {ReqDownloadData}
+		 */
+		emitter.emit('complete', recDownloadData);
+	}
+
+	/**
+	 * 
+	 * @param {event.EventEmitter} emitter 
+	 * @param {ReqDownloadData} recDownloadData 
+	 */
+	_dispatchOnProgress(emitter, recDownloadData)
+	{
+		/**
+		 * @event progress
+		 * @type {ReqDownloadData}
+		 */
+		emitter.emit('progress', recDownloadData);
+		
+	}
+
+	/**
+	 * 
+	 * @param {event.EventEmitter} emitter 
+	 * @param {string} err 
+	 */
+	_dispatchOnError(emitter, err)
+	{
+	
+		/**
+		 * @event error
+		 * @type {string}
+		 */
+		emitter.emit('error', err);
+	}
+
 	/**
 	 * @public
 	 * @param {string} downloadUrl
+	 * @param {object} format - unused
 	 * @param {string} fileName
 	 */
-	download(downloadUrl, fileName)
+	download(downloadUrl, format, fileName)
 	{
 		/**
-		 * @typedef DownloadObject
-		 * @property {number} progress - The download progress in %
-		 * @property {string} contentType
-		 * @property {string} fileName
-		 */
-		/**
-		 * @event DownloadEvent#progress
-		 */
-		/**
-		 * @event DownloadEvent#complete
-		 */
-
-		/**
-		 * @fires DownloadEvent#progress
-		 * @fires DownloadEvent#complete
+		 * @fires progress
+		 * @fires complete
+		 * @fires error
 		 */
 		let emitter = new EventEmitter();
 
@@ -245,44 +336,59 @@ class VideoPlayer {
 		/**
 		 * @type {http.RequestOptions}
 		 */
-		let options = {headers: {Accept: "video/webm, video/mpeg, video/ogg"}}
+		let options = {
+			headers: {Accept: "video/webm, video/mpeg, video/ogg"},
+			timeout: 10000
+		}
 
+		/**
+		 * @type {fs.WriteStream}
+		 */
 		let file = null;
 		let request = http.get(downloadUrl, options)
-		request.on("response", async function(response) {
-
-			let len = ?;
+		request.on("response", async (response) => {
+			
+			let len = parseInt(response.headers['content-length'], 10);
+			let downloaded = 0;
+			let contentType = response.headers["content-type"];
 
 			//Init the file with the response extension
 			if (file === null) {
-				fileName += mime.extension(response.headers["content-type"]);
-				fs.createWriteStream(fileName);
+				fileName += mime.extension(contentType);
+				file = fs.createWriteStream(fileName);
 			}
 			
-			response.on('data', function(chunk) {
+			response.on('data', (chunk) => {
 				//Write chunk into the file
 				file.write(chunk);
 
 				//Get progress
 				downloaded += chunk.length
-				percent = (100.0 * downloaded / len).toFixed(2)
-				process.stdout.write(`Downloading ${percent}% ${downloaded} bytes\r`)
+				let progress = (100.0 * downloaded / len).toFixed(2)
+				//process.stdout.write(`Downloading ${percent}% ${downloaded} bytes\r`)
 
-				emitter.emit('progress', {progress:percent, })
+				this._dispatchOnProgress(emitter, {progress, contentType, fileName});
 			})
-
-			file.on('finish', async function() {
+			
+			response.on('end', async () => {
 				// close() is async, call resolve after close completes.
 				await file.close();
-				resolve(fileName);  
+				this._dispatchOnComplete(emitter, {progress:100, contentType, fileName});  
 			});
 		})
+		.on('timeout', async () => {
+			request.abort();
+
+			// Delete the file async. (But we don't check the result)
+			await fs.unlink(fileName); 
+			this._dispatchOnError(emitter, "[Request Timeout] "+fileName);
+		})
 		// Handle errors
-		.on('error', async function(err) {
+		.on('error', async (err) => {
 			
 			// Delete the file async. (But we don't check the result)
 			await fs.unlink(fileName); 
-			if (reject) reject(err.message);
+			this._dispatchOnError(emitter, err.message);
 		});
 
 		return emitter;
@@ -338,29 +444,51 @@ class YoutubePlayer extends VideoPlayer {
 	constructor(config)
 	{
 		super(config);
+		
 		if (!YoutubePlayer._instance) YoutubePlayer._instance = this;
 		else console.warn("2 YoutubePlayer has been founded");
 		
 	}
 
 	/**
+	 * @param {string} url - Unused
 	 * @param {string} localFileWithoutExtension
 	 * @param {ytdl.videoFormat} format
 	 */
-	download(localFileWithoutExtension, format)
+	download(url, format, localFileWithoutExtension)
 	{
-		return new Promise((resolve, reject) => {
-			let extension = mime.extension(format.mimeType) | "";
-			
-			let path = localFileWithoutExtension+"."+extension;
+		/**
+		 * @fires progress
+		 * @fires complete
+		 * @fires error
+		 */
+		let emitter = new EventEmitter();
 
-			let stream = ytdl(format.url, {format: format} ).pipe(fs.createWriteStream(path));
-			stream.on('finish', function() {
-				resolve(path);
-				res.writeHead(204);
-				res.end();
+		let extension = mime.extension(format.mimeType) | "";
+		
+		let path = localFileWithoutExtension+"."+extension;
+
+		let video = ytdl(format.url, {format: format} );
+		video.on('response', (res) => {
+			var totalSize = res.headers['content-length'];
+			var dataRead = 0;
+			res.on('data', (data) => {
+				dataRead += data.length;
+				var percent = dataRead / totalSize;
+				let progress = (percent * 100).toFixed(2);
+				this._dispatchOnProgress(emitter, { progress, contentType:format.mimeType, fileName: path } );
 			});
+		})
+		.on('error', (e) => {this._dispatchOnError(emitter, e);});
+
+		let stream = video.pipe(fs.createWriteStream(path));
+		stream.on('finish', () => {
+			this._dispatchOnComplete(emitter, { progress: 100, contentType:format.mimeType, fileName: path });
+			res.writeHead(204);
+			res.end();
 		});
+
+		return emitter;
 	}
 
 	/**
@@ -472,6 +600,11 @@ class Anime {
 		return null;
 	}
 
+	updateJson()
+	{
+		throw "Not implemented";
+	}
+
 	get path() {return path.join(__root, this.path);}
 }
 
@@ -518,7 +651,8 @@ class Episode {
 	 * @property {bool} hasPoster
 	 * @property {PlayerInfo[]} players
 	 */
-	/**
+	
+	 /**
 	 * @public
 	 */
 	async getInfo(loadYoutubeInfo = true) 
@@ -558,16 +692,47 @@ class Episode {
 
 		return lToReturn;
 	}
+	/**
+	 * 
+	 * @param {VideoPlayer} player 
+	 */
+	getUrlByPlayer(player)
+	{
+		for (let i = this.links.length - 1; i >= 0; i--) {
+			let url = this.links[i];
+			if (player.hasPrefix(url)) 
+				return url;
+		}
+
+		return "";
+	}
 
 	setLocalPath(path)
 	{
-		throw "Not implemented";
+		this.localLink = path;
+		this.anime.updateJson();
 	}
 
 	get isLocal() {return Boolean(this.localLink);}
 	get hasPoster() {return Boolean(this.posterLink);}
 	get path() {
 		return path.join(this.anime.path, this.isLocal ? this.localLink : `${this.episodeId}`);
+	}
+
+	toEpisodeConfig()
+	{
+		//A little remember (must be removed after task done)
+		/**
+		 * @namespace dataManager
+		 * @typedef EpisodeConfig
+		 * @property {string} [name]
+		 * @property {number} episodeId
+		 * @property {string} [posterLink]
+		 * @property {string[]} links
+		 * @property {string} [localLink]
+		 */
+
+		throw "Not implemented";
 	}
 }
 

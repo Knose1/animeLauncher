@@ -108,12 +108,14 @@ function start(port = 3000) {
 		let animeId = Number.parseInt(req.body.animeId);
 		let episodeId = Number.parseInt(req.body.episodeId);
 		let videoPlayerId = Number.parseInt(req.body.videoPlayerId);
-		let ytFormat = req.body.ytInfo ? JSON.parse(req.body.ytInfo) : null;
+		let format = req.body.format ? JSON.parse(req.body.format) : null;
 		let url = req.body.url;
 
 		console.log("?animeId = "+animeId);
 		console.log("?episodeId = "+episodeId);
 		console.log("?videoPlayerId = "+videoPlayerId);
+		console.log("?ytFormat = "+format);
+		console.log("?url = "+url);
 		
 		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
 		
@@ -124,8 +126,8 @@ function start(port = 3000) {
 		}
 
 
-		let download = DownloadEpisode.getFromEpisode(lEpisode) || new DownloadEpisode(lEpisode);
-		if (!download.isDownloading) download.download(url, ytFormat);
+		let download = DownloadEpisode.getFromEpisode(lEpisode) || new DownloadEpisode(lEpisode, videoPlayerId);
+		if (!download.isDownloading) download.download(url, format);
 
 		//Episode
 		res.sendStatus(HttpStatus.PROCESSING);

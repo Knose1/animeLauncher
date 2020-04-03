@@ -2,6 +2,7 @@ _old/*
 episode/*
 node_modules/*
 .vscode/*
+docs/*
 
 # Logs
 logs

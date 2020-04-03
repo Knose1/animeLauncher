@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
-    "test": "node --inspect main.js"
+    "test": "node --inspect main.js",
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "keywords": [
     "anime"
@@ -18,5 +19,9 @@
     "mime-types": "^2.1.26",
     "pureimage": "^0.2.1",
     "ytdl-core": "^2.0.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.3",
+    "minami": "^1.2.3"
   }
 }
