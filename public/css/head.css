@@ -1,0 +1,31 @@
+header .title {
+	max-height: var(--titleHeight);
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+header {
+	z-index: 10;
+	position: sticky;
+	top: calc(-1 * var(--titleHeight));
+	width: 100%;
+	border-bottom: solid orange 2px;
+	background-color: var(--background-color);
+}
+
+/* The nav bar */
+.nav-parent
+{
+	display:flex;
+	align-items: flex-end;
+	height: var(--navSize);
+}
+
+.navigation {
+	list-style-position: outside;
+	list-style-type: none;
+}
+.navigation li {
+	display: inline;
+}

@@ -1,0 +1,23 @@
+:root {
+	--background-color:#1c2024;
+	--navSize: 50px;
+	--titleHeight: 64px;
+}
+
+html {
+	color: white;
+}
+
+body {
+	background-color: var(--background-color);
+	padding-bottom: 100px;
+}
+
+video {
+	width: 640px;
+}
+
+#iframeContainer iframe {
+	width: 100%;
+	min-height: 400px;
+}

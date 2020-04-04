@@ -4,7 +4,7 @@ const express = require("express");
 const mime = require("mime-types");
 const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
-const imageWriter = require("./imageWriter");
+const imageWriter = require("./image/imageWriter");
 
 let JsonObject = dataManager.JsonObject;
 let DownloadEpisode = dataManager.DownloadEpisode;
@@ -180,10 +180,25 @@ function start(port = 3000) {
 	//*           Thumbnail           *//
 	//*///////////////////////////////*//
 	app.get("/asset/thumbnail/:text.png", async (req, res, next) => {
-		let textSize = Number.parseFloat(req.query.textSize);
-		let filePath = textSize ? 
-			await imageWriter.getThumbail(req.params.text, textSize) : 
-			await imageWriter.getThumbail(req.params.text);
+		let width 			= Number.parseInt	(req.query.width);
+		let height 			= Number.parseInt	(req.query.height);
+		let textSize 		= Number.parseFloat	(req.query.textSize);
+		let backgroundColor = req.query.backgroundColor;
+		let textColor 		= req.query.textColor;
+
+		/**
+		 * @type {imageWriter.ThumbailOption}
+		 */
+		let options = {};
+		if (Number.isSafeInteger(width))	options.width = width;
+		if (Number.isSafeInteger(height))	options.height = height;
+		if (!Number.isNaN(textSize)) 		options.textSize = textSize;
+		if (backgroundColor) 				options.backgroundColor = backgroundColor;
+		if (textColor) 						options.textColor = textColor;
+
+		
+
+		let filePath = await imageWriter.getThumbail(req.params.text, options)
 
 		res.sendFile(filePath, (e) => {
 			if (e) {
