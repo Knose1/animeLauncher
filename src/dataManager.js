@@ -1,5 +1,5 @@
-//TODO Anime.update()
-//TODO Episode.toEpisodeConfig()
+//TODO Anime.updateJson() - line 603
+//TODO Episode.toEpisodeConfig() - line 722
 
 /**
  * @namespace dataManager

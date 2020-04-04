@@ -4,6 +4,7 @@ const { Worker } = require("worker_threads");
 exports.init = function init()
 {
 	return new Promise(async (resolve, reject) => {
+		console.log("Loading Cambria font");
 		var fnt = PImage.registerFont('public/fonts/Cambria.ttf','Cambria');
 		fnt.load(() => {
 			resolve();
@@ -35,8 +36,10 @@ exports.getThumbail = function getThumbail(text, option = {}) {
 		drawWorker.on("error", (e) => {
 			console.log(e);
 		});
-		drawWorker.on("message", (data) => {
-			if (data.err) reject(data.err);
+		drawWorker.on("message", (message) => {
+			if (message.err) reject(message.err);
+			else resolve(message.data);
 		});
 	});
 }
+exports.PImage = () => {return PImage};

@@ -5,7 +5,7 @@ const ANIME_FOLDER = "episode";
 const path = require("path");
 const fs = require("fs");
 const Server = require("./src/server");
-const imageWriter = require("./src/imageWriter");
+const imageWriter = require("./src/image/imageWriter");
 //*//////////////////////////////*//
 //*       Global variables       *//
 //*//////////////////////////////*//

@@ -197,9 +197,15 @@ function start(port = 3000) {
 		if (textColor) 						options.textColor = textColor;
 
 		
-
-		let filePath = await imageWriter.getThumbail(req.params.text, options)
-
+		try {
+			let filePath = await imageWriter.getThumbail(req.params.text, options)
+		}
+		catch(e)
+		{
+			console.log(e);
+			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			return;
+		}
 		res.sendFile(filePath, (e) => {
 			if (e) {
 				console.error(e);
