@@ -196,9 +196,12 @@ function start(port = 3000) {
 		if (backgroundColor) 				options.backgroundColor = backgroundColor;
 		if (textColor) 						options.textColor = textColor;
 
+		if (width > 2000 || width <= 0) options.width = null;
+		if (height > 2000 || height <= 0) options.height = null;
 		
+		let filePath;
 		try {
-			let filePath = await imageWriter.getThumbail(req.params.text, options)
+			filePath = await imageWriter.getThumbail(req.params.text, options)
 		}
 		catch(e)
 		{

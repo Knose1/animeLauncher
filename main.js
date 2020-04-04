@@ -6,28 +6,8 @@ const path = require("path");
 const fs = require("fs");
 const Server = require("./src/server");
 const imageWriter = require("./src/image/imageWriter");
-//*//////////////////////////////*//
-//*       Global variables       *//
-//*//////////////////////////////*//
 
-/**
- * @example nameof({myVar}); //return "myVar"
- * @param {Object} varObject 
- */
-function nameof(varObject) {
-    return Object.keys(varObject)[0];
-}
-global.nameof = nameof;
-
-/**
- * The folder of the node.js projet
- * @type {string}
- */
-var __root = path.resolve(__dirname);
-global.__root = __root;
-
-console.newLine = function() {console.log("\n\r")};
-//*//////////////////////////////*//
+require("./global");
 
 const dataManager = require("./src/dataManager");
 const JsonObject = dataManager.JsonObject;
