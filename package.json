@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node main.js",
     "test": "node --inspect main.js",
-    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
+    "generate-docs": "node _jsdocGenAndOpen.js .jsdoc.json docs/index.html"
   },
   "keywords": [
     "anime"
@@ -21,6 +21,7 @@
     "ytdl-core": "^2.0.0"
   },
   "devDependencies": {
+    "foodoc": "0.0.9",
     "jsdoc": "^3.6.3",
     "minami": "^1.2.3"
   }

@@ -239,14 +239,19 @@ class DownloadEpisode
 	}
 }
 
+/**
+ * @public
+ */
 class VideoPlayer {
 	/**
+	 * @public
 	 * @readonly
 	 * @type {VideoPlayer[]}
 	 */
 	static get list() {return VideoPlayer._list || (VideoPlayer._list = []);}
 
 	/**
+	 * @public
 	 * @param {VideoPlayerConfig} config 
 	 */
 	constructor(config)
@@ -261,6 +266,9 @@ class VideoPlayer {
 		VideoPlayer.list.push(this);
 	}
 	
+	/**
+	 * @public
+	 */
 	toPublic() 
 	{
 		return {
@@ -274,7 +282,7 @@ class VideoPlayer {
 
 	
 	/**
-	 * 
+	 * @protected
 	 * @param {event.EventEmitter} emitter 
 	 * @param {ReqDownloadData} recDownloadData 
 	 */
@@ -288,7 +296,7 @@ class VideoPlayer {
 	}
 
 	/**
-	 * 
+	 * @protected
 	 * @param {event.EventEmitter} emitter 
 	 * @param {ReqDownloadData} recDownloadData 
 	 */
@@ -303,7 +311,7 @@ class VideoPlayer {
 	}
 
 	/**
-	 * 
+	 * @protected
 	 * @param {event.EventEmitter} emitter 
 	 * @param {string} err 
 	 */
@@ -435,12 +443,22 @@ class VideoPlayer {
 	}
 }
 
+/**
+ * @public
+ * @extends VideoPlayer
+ */
 class YoutubePlayer extends VideoPlayer {
 	/**
+	 * @public
+	 * @readonly
 	 * @returns {YoutubePlayer}
 	 */
 	static get instance() {return YoutubePlayer._instance}
 
+	/**
+	 * 
+	 * @param {VideoPlayerConfig} config 
+	 */
 	constructor(config)
 	{
 		super(config);
@@ -451,6 +469,8 @@ class YoutubePlayer extends VideoPlayer {
 	}
 
 	/**
+	 * @public
+	 * @override
 	 * @param {string} url - Unused
 	 * @param {string} localFileWithoutExtension
 	 * @param {ytdl.videoFormat} format
@@ -492,7 +512,7 @@ class YoutubePlayer extends VideoPlayer {
 	}
 
 	/**
-	 * 
+	 * @public
 	 * @param {string} url
 	 * @returns {Promise<ytdl.videoInfo>} 
 	 */
@@ -618,11 +638,47 @@ class Episode {
 	{
 		if (config.episodeId === null || config.episodeId === undefined) throw  `"${nameof({episodeId})}" is null in anime : `+folderPath;
 
+		/**
+		 * The name of the episode
+		 * @public
+		 * @type {string}
+		 */
 		this.name 	= config.name || "";
+
+		/**
+		 * The unique id of the episode (define the order between episodes)
+		 * @public
+		 * @readonly
+		 * @type {number}
+		 */
 		this.episodeId 	= config.episodeId || -1;
+
+		/**
+		 * The uri of the anime poster
+		 * @public
+		 * @type {string}
+		 */
 		this.posterLink = config.posterLink || "";
+
+		/**
+		 * The episode's stream links
+		 * @public
+		 * @type {string[]}
+		 */
 		this.links 		= config.links;
+
+		/**
+		 * The local path to episode's file. 
+		 * @public
+		 * @readonly
+		 * @type {string}
+		 */
 		this.localLink 	= config.localLink || "";
+
+		/**
+		 * Reference to the anime
+		 * @type {Anime}
+		 */
 		this.anime 		= anime;
 	}
 
@@ -722,7 +778,7 @@ class Episode {
 	toEpisodeConfig()
 	{
 		//A little remember (must be removed after task done)
-		/**
+		/*
 		 * @namespace dataManager
 		 * @typedef EpisodeConfig
 		 * @property {string} [name]
