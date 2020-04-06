@@ -1,8 +1,6 @@
-//TODO Anime.updateJson() - line 603
-//TODO Episode.toEpisodeConfig() - line 722
 
 /**
- * @namespace dataManager
+ * @namespace
  * @typedef VideoPlayerConfig
  * @property {string} name
  * @property {string[]} prefix
@@ -13,7 +11,20 @@
  */
 
 /**
- * @namespace dataManager
+ * @typedef {Object} PublicVideoPlayer
+ */ 
+/**
+ * @typedef {Object} PlayerInfo
+ * @property {string} url
+ * @property {string} [ytInfo]
+ * @property {boolean} [isYoutube]
+ * @property {*} player
+ */
+
+ /*-****************************-*/
+
+/**
+ * @namespace
  * @typedef AnimeConfig
  * @property {string} name
  * @property {string} [thumbnailLink]
@@ -21,7 +32,18 @@
  */
 
 /**
- * @namespace dataManager
+ * @namespace
+ * @typedef PublicAnime
+ * @property {number} id
+ * @property {PublicEpisode} episodes
+ * @property {string} name
+ * @property {string} thumbnailLink
+ */
+
+/*-*****************************-*/
+
+/**
+ * @namespace
  * @typedef EpisodeConfig
  * @property {string} [name]
  * @property {number} episodeId
@@ -29,10 +51,25 @@
  * @property {string[]} links
  * @property {string} [localLink]
  */
+/**
+ * @typedef PublicEpisode 
+ * @property {string} name The name of the episode
+ * @property {number} episodeId The unique id of the episode (define the order between episodes)
+ * @property {string} posterLink The uri of the anime poster
+ */
+/**
+ * @typedef {Object} EpisodeInfo
+ * @property {string} name
+ * @property {number} episodeId
+ * @property {string} posterLink
+ * @property {bool} isLocal
+ * @property {bool} hasPoster
+ * @property {PlayerInfo[]} players
+ */
 
 /**
  * @typedef ReqDownloadData
- * @property {number} progress - The download progress in %
+ * @property {number} progress The download progress in %
  * @property {string} contentType
  * @property {string} fileName
  */
@@ -80,15 +117,7 @@ class JsonObject {
 	}
 	
 	/**
-	 * 
-	 * @callback DataCalback
-	 * @param {NodeJS.ErrnoException} err
-	 * @param {Buffer} data
-	 * @returns {void}
-	 */
-	
-	/**
-	 * @param {DataCalback} [func]
+	 * @public
 	 */
 	load()
 	{
@@ -118,23 +147,26 @@ class JsonObject {
 	}
 
 	/**
-	 * @param {fs.NoParamCallback} func
+	 * @returns {Promise<void>}
 	 */
-	save(func)
+	save()
 	{
 		console.newLine();
 		console.log("Saving "+this.path);
 
-		var data = JSON.stringify(this.value, null, "\t");//add tabs to make it more readable
+		return new Promise((resolve, reject) => {
+			var data = JSON.stringify(this.value, null, "\t");//add tabs to make it more readable
 
-		fs.writeFile(this.path, data, function (err) {
-			if (err) {
-				console.log(`There has been an error saving your file "${this.path}".`);
-				console.log(err.message);
-				return;
-			}
+			fs.writeFile(this.path, data, function (err) {
+				if (err) {
+					console.log(`There has been an error saving your file "${this.path}".`);
+					console.log(err.message);
+					reject(err);
+					return;
+				}
 
-			if (func) func(err);
+				resolve();
+			});
 		});
 	}
 }
@@ -328,7 +360,7 @@ class VideoPlayer {
 	/**
 	 * @public
 	 * @param {string} downloadUrl
-	 * @param {object} format - unused
+	 * @param {object} format unused
 	 * @param {string} fileName
 	 */
 	download(downloadUrl, format, fileName)
@@ -471,7 +503,7 @@ class YoutubePlayer extends VideoPlayer {
 	/**
 	 * @public
 	 * @override
-	 * @param {string} url - Unused
+	 * @param {string} url Unused
 	 * @param {string} localFileWithoutExtension
 	 * @param {ytdl.videoFormat} format
 	 */
@@ -540,12 +572,23 @@ class Anime {
 	 */
 	static get list() {return Anime._list || (Anime._list = []);}
 	
+	/**
+	 * @public
+	 * @returns {PublicAnime[]}
+	 */
 	static get publicList() 
 	{
 		return Anime.list.map(m => m.toPublic());
 	}
 	
+	/**
+	 * @public
+	 * @returns {PublicAnime}
+	 */
 	toPublic() {
+		/**
+		 * @type {PublicAnime}
+		 */
 		var lToReturn = {
 			id : this.id,
 			episodes : this.episodes.map(e => e.toPublic()),
@@ -557,7 +600,7 @@ class Anime {
 	}
 
 	/**
-	 * 
+	 * @public
 	 * @param {JsonObject} jsonObject 
 	 * @param {string} folderPath
 	 */
@@ -568,19 +611,36 @@ class Anime {
 		 */
 		let data = jsonObject.value;
 		
+		/**
+		 * @private
+		 * @readonly
+		 * @type {JsonObject}
+		 */
 		this.jsonObject = jsonObject;
+
+		/**
+		 * @public
+		 * @type {string}
+		 */
 		this.name = data.name;
 		if (!data.name) throw `"${nameof(name)}" is null in anime : `+folderPath;
 
+		/**
+		 * @public
+		 * @type {string}
+		 */
 		this.thumbnailLink = data.thumbnailLink;
 
 		/**
+		 * @private
 		 * @readonly
+		 * @type {string}
 		 */
 		this._path = folderPath;
 		if (!folderPath) throw `${nameof(folderPath)} is null (code exception)`;
 		
 		/**
+		 * @public
 		 * @type {Episode[]}
 		 */
 		this.episodes = [];
@@ -601,15 +661,24 @@ class Anime {
 			}
 		}
 
+		
 		this.episodes = this.episodes.sort( (a,b) => a.episodeId - b.episodeId);
+
+		/**
+		 * @public
+		 * @readonly
+		 * @type {number}
+		 */
 		this.id = Anime.list.length;
 
 		Anime.list.push(this);
 	}
 
 	/**
-	 * 
-	 * @param {number} episodeId 
+	 * Get an anime's episode by its id
+	 * @public
+	 * @param {number} episodeId
+	 * @returns {(Episode|null)}
 	 */
 	getEpisodeById(episodeId)
 	{
@@ -620,17 +689,51 @@ class Anime {
 		return null;
 	}
 
+	/**
+	 * Update the json by generating the {@link AnimeConfig} and getting the {@link EpisodeConfig} of all its episode
+	 * @public
+	 * @returns {Promise<void>}
+	 * @see {@link JsonObject}
+	 */
 	updateJson()
 	{
-		throw "Not implemented";
+		this.jsonObject.value = this.animeConfig;
+		return this.jsonObject.save().catch( () => {console.error(`Can't save anime ${this.name}`);});
 	}
 
+	/**
+	 * @public
+	 * @returns {AnimeConfig}
+	 */
+	toAnimeConfig()
+	{
+		/**
+		 * @type {AnimeConfig}
+		 */
+		let animeConfig = {
+			episodes: this.episodes.map((m) => {return m.toEpisodeConfig()}),
+			name : this.name,
+			thumbnailLink: this.thumbnailLink
+		};
+
+		return animeConfig;
+	}
+
+	/**
+	 * Return the path to the anime folder
+	 * @public
+	 * @readonly
+	 * @returns {string}
+	 */
 	get path() {return path.join(__root, this.path);}
 }
 
+/**
+ * @public
+ */
 class Episode {
 	/**
-	 * 
+	 * @public
 	 * @param {EpisodeConfig} config 
 	 * @param {Anime} anime
 	 */
@@ -668,7 +771,8 @@ class Episode {
 		this.links 		= config.links;
 
 		/**
-		 * The local path to episode's file. 
+		 * The local path to episode's file.  
+		 * To set {@link Episode#localLink Episode.localLink}, see : {@link Episode#setLocalPath Episode.setLocalPath}
 		 * @public
 		 * @readonly
 		 * @type {string}
@@ -676,13 +780,24 @@ class Episode {
 		this.localLink 	= config.localLink || "";
 
 		/**
-		 * Reference to the anime
+		 * Reference to the {@link Anime}
+		 * @public
+		 * @readonly
 		 * @type {Anime}
 		 */
-		this.anime 		= anime;
+		this.anime = anime;
 	}
-
+ 
+	
+	/**
+	 * Return the public information of the episode (= the informations to give to the client)
+	 * @public
+	 * @returns {PublicEpisode}
+	 */
 	toPublic() {
+		/**
+		 * @type {PublicEpisode}
+		 */
 		var lToReturn = {
 			name : this.name,
 			episodeId : this.episodeId,
@@ -691,25 +806,12 @@ class Episode {
 
 		return lToReturn;
 	}
+
 	/**
-	 * @typedef {Object} PlayerInfo
-	 * @property {string} url
-	 * @property {string} [ytInfo]
-	 * @property {boolean} [isYoutube]
-	 * @property {*} player
-	 */
-	/**
-	 * @typedef {Object} EpisodeInfo
-	 * @property {string} name
-	 * @property {number} episodeId
-	 * @property {string} posterLink
-	 * @property {bool} isLocal
-	 * @property {bool} hasPoster
-	 * @property {PlayerInfo[]} players
-	 */
-	
-	 /**
+	 * Get the info of an episode
 	 * @public
+	 * @param {bool} loadYoutubeInfo Decide or not to call {@link YoutubePlayer#getInfo YoutubePlayer.getInfo}
+	 * @returns {Promise<EpisodeInfo>}
 	 */
 	async getInfo(loadYoutubeInfo = true) 
 	{
@@ -748,9 +850,12 @@ class Episode {
 
 		return lToReturn;
 	}
+
 	/**
-	 * 
+	 * Get the first url corresponding to the {@link Videoplayer}
+	 * @public
 	 * @param {VideoPlayer} player 
+	 * @returns {string} Return the first url corresponding to the player
 	 */
 	getUrlByPlayer(player)
 	{
@@ -763,32 +868,60 @@ class Episode {
 		return "";
 	}
 
+	/**
+	 * Set {@link Episode#localLink Episode.localLink} and update the anime
+	 * @public 
+	 * @param {string} path 
+	 * @returns {Promise<void>}
+	 * @see {@link Anime#updateJson Anime.updateJson}
+	 */
 	setLocalPath(path)
 	{
 		this.localLink = path;
-		this.anime.updateJson();
+		return this.anime.updateJson();
 	}
 
+	/**
+	 * True when ${@link Episode#localLink localLink} is set
+	 * @public
+	 * @type {boolean}
+	 */
 	get isLocal() {return Boolean(this.localLink);}
-	get hasPoster() {return Boolean(this.posterLink);}
-	get path() {
-		return path.join(this.anime.path, this.isLocal ? this.localLink : `${this.episodeId}`);
-	}
 
+	/**
+	 * True when ${@link Episode#posterLink posterLink} is set
+	 * @public
+	 * @type {boolean}
+	 */
+	get hasPoster() {return Boolean(this.posterLink);}
+
+	/**
+	 * If there is no local file, return the default local path `path.join(${@link Anime#path this.anime.path}, ${@link Episode#episodeId this.episodeId})`
+	 * Else return the ${@link Episode#localLink local path}
+	 * @public
+	 * @type {string}
+	 */
+	get path() {return this.isLocal ? this.localLink : path.join(this.anime.path, `${this.episodeId}`);}
+
+	/**
+	 * @public
+	 * @returns {EpisodeConfig}
+	 */
 	toEpisodeConfig()
 	{
 		//A little remember (must be removed after task done)
-		/*
-		 * @namespace dataManager
-		 * @typedef EpisodeConfig
-		 * @property {string} [name]
-		 * @property {number} episodeId
-		 * @property {string} [posterLink]
-		 * @property {string[]} links
-		 * @property {string} [localLink]
+		/**
+		 * @type {EpisodeConfig}
 		 */
+		let config = {
+			name: this.name,
+			episodeId: this.episodeId,
+			posterLink: this.posterLink,
+			links: this.links,
+			localLink: this.localLink,
+		};
 
-		throw "Not implemented";
+		return config;
 	}
 }
 

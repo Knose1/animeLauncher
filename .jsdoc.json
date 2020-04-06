@@ -15,7 +15,10 @@
 		"systemName": "Test",
 		"systemSummary": "JSDoc",
 		"systemLogo": "./public/asset/ico/ico_64.png",
-		"stylesheets": ["../_jsdocCustomCss/index.css"]
+		"favicon": "./public/asset/ico/ico_64.png",
+		"systemColor": "hsl(0, 56%, 46%)",
+		"stylesheets": ["./_jsdocCustomScripts/index.css"],
+		"scripts": ["./_jsdocCustomScripts/jsColorUtils.js", "./_jsdocCustomScripts/index.js"]
 	},
 	"opts": {
 		"destination": "./docs/",

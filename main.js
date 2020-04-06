@@ -7,7 +7,7 @@ const fs = require("fs");
 const Server = require("./src/server");
 const imageWriter = require("./src/image/imageWriter");
 
-require("./global");
+require("./src/global");
 
 const dataManager = require("./src/dataManager");
 const JsonObject = dataManager.JsonObject;
@@ -17,21 +17,13 @@ const Anime = dataManager.Anime;
 
 /**
  * @typedef Config
- * @property {dataManager.VideoPlayerConfig[]} videoPlayers
+ * @property {VideoPlayerConfig[]} videoPlayers
  */
 
-/** */
-
+/** 
+ * @ignore
+ */
 var configLoader = new JsonObject(path.join(__dirname, JSON_CONFIG));
-/**
- * @type {dataManager.VideoPlayer[]}
- */
-var videoPlayers = [];
-
-/**
- * @type {dataManager.Anime[]}
- */
-var animes = [];
 
 //Init imageWriter
 imageWriter.init()

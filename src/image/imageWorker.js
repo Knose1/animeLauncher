@@ -1,4 +1,4 @@
-require("../../global");
+require("../global");
 const commands = require("./imageWorkerCommands.js");
 const PImage = require('pureimage');
 const fs = require("fs");
@@ -11,6 +11,7 @@ const NONE = -1;
 let currentRequest = NONE;
 
 /**
+ * @ignore
  * @type {Function[]}
  */
 let requests = [];
@@ -70,18 +71,12 @@ function generateImage(requestId, text, option)
 	var img = PImage.make(width,height);
 	var ctx = img.getContext('2d');
 	ctx.fillStyle = backgroundColor;
-	ctx.fillRect(0,0,1920,1080);
+	ctx.fillRect(0,0,width,height);
 	ctx.fillStyle = textColor;
 	ctx.font = `${textSize}px Cambria`;
 	ctx.textAlign="center";
 	ctx.textBaseline = 'middle'
 	ctx.fillText(text, img.width/2, img.height / 2);
-
-	/*for(var i=x; i<x+w; i++) {
-		for(var j=y; j<y+h; j++) {
-			ctx.fillPixel(i,j);
-		}
-	}*/
 
 	let filePath = path.join(__root, '_temp', tokenGenerator()+'.png');
 
