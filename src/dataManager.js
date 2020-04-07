@@ -12,6 +12,12 @@
 
 /**
  * @typedef {Object} PublicVideoPlayer
+ * @property {string} name
+ * @property {boolean} isNatif
+ * @property {boolean} downloadable
+ * @property {boolean} autoDownload
+ * @property {number} id
+ * id: this.id
  */ 
 /**
  * @typedef {Object} PlayerInfo
@@ -178,11 +184,15 @@ class DownloadEpisode
 	 */
 	static get list() {return DownloadEpisode._list || (DownloadEpisode._list = [])}
 	/**
-	 * 
+	 * Constructor of the class
 	 * @param {Episode} episode
+	 * @param {number}
+	 * @see {@link Videoplayer#id}
 	 */
 	constructor(episode, videoPlayerId)
 	{
+		//TODO : Documentation
+
 		this.episode = episode;
 		this.id = DownloadEpisode.list.length;
 
@@ -196,6 +206,12 @@ class DownloadEpisode
 		DownloadEpisode.list.push(this);
 	}
 
+	/**
+	 * Call {@link Episode#setLocalPath} and set itself ready when it's done
+	 * @private
+	 * @param {string} pathToFile
+	 * @see {@link Episode#setLocalPath}
+	 */
 	_setLocalPath(pathToFile)
 	{
 		this.episode.setLocalPath(pathToFile)
@@ -208,6 +224,12 @@ class DownloadEpisode
 		);
 	}
 
+	/**
+	 * Launch the download
+	 * @param {string} url 
+	 * @param {object} format 
+	 * @see {@link DownloadEpisode#_setEvents} 
+	 */
 	download(url, format)
 	{
 		let emitter = this.player.download( (this.player.autoDownload ? this.episode.getUrlByPlayer(this.player) : url ) , format, this.episode.path);
@@ -215,8 +237,10 @@ class DownloadEpisode
 	}
 
 	/**
-	 * 
-	 * @param {event.EventEmitter} emitter 
+	 * Set the events of the emitter
+	 * @private
+	 * @param {event.EventEmitter} emitter
+	 * @see {@link DownloadEpisode#download} 
 	 */
 	_setEvents(emitter) 
 	{
@@ -247,18 +271,6 @@ class DownloadEpisode
 		});
 	}
 
-	downloadYoutube(format)
-	{
-		YoutubePlayer.instance.download(this.episode.path, format)
-		.then(
-			(path) => {
-				this.progress = 0.99;
-
-				this._setLocalPath(path);
-			}
-		);
-	}
-
 	/**
 	 * 
 	 * @param {Episode} episode 
@@ -276,6 +288,7 @@ class DownloadEpisode
  */
 class VideoPlayer {
 	/**
+	 * The list of VideoPlayer
 	 * @public
 	 * @readonly
 	 * @type {VideoPlayer[]}
@@ -283,11 +296,14 @@ class VideoPlayer {
 	static get list() {return VideoPlayer._list || (VideoPlayer._list = []);}
 
 	/**
+	 * Constructor of the class
 	 * @public
 	 * @param {VideoPlayerConfig} config 
 	 */
 	constructor(config)
 	{
+		//TODO : Documentation
+
 		this.name = config.name
 		this.isNatif = config.isNatif;
 		this.prefix  = config.prefix;
@@ -299,7 +315,9 @@ class VideoPlayer {
 	}
 	
 	/**
+	 * Return the public information of the VideoPlayer (= the informations to give to the client)
 	 * @public
+	 * @returns {PublicVideoPlayer}
 	 */
 	toPublic() 
 	{
@@ -314,6 +332,7 @@ class VideoPlayer {
 
 	
 	/**
+	 * Fire the event "complete" on the emitter
 	 * @protected
 	 * @param {event.EventEmitter} emitter 
 	 * @param {ReqDownloadData} recDownloadData 
@@ -328,6 +347,7 @@ class VideoPlayer {
 	}
 
 	/**
+	 * Fire the event "progress" on the emitter
 	 * @protected
 	 * @param {event.EventEmitter} emitter 
 	 * @param {ReqDownloadData} recDownloadData 
@@ -343,7 +363,9 @@ class VideoPlayer {
 	}
 
 	/**
+	 * Fire the event "error" on the emitter
 	 * @protected
+	 * @fires error
 	 * @param {event.EventEmitter} emitter 
 	 * @param {string} err 
 	 */
@@ -356,20 +378,19 @@ class VideoPlayer {
 		 */
 		emitter.emit('error', err);
 	}
-
 	/**
+	 * Download the video using the given link (async)
 	 * @public
+	 * @fires progress
+	 * @fires complete
+	 * @fires error
 	 * @param {string} downloadUrl
 	 * @param {object} format unused
 	 * @param {string} fileName
+	 * @returns {EventEmitter}
 	 */
 	download(downloadUrl, format, fileName)
 	{
-		/**
-		 * @fires progress
-		 * @fires complete
-		 * @fires error
-		 */
 		let emitter = new EventEmitter();
 
 		let url = new URL(downloadUrl);
@@ -435,9 +456,11 @@ class VideoPlayer {
 	}
 
 	/**
+	 * Compare the url with the prefix and return true if the url match a prefix in the prefix list
 	 * @public
 	 * @param {string} url 
-	 * @returns {boolean}
+	 * @returns {boolean} Return true if the url match a prefix in the prefix list
+	 * @see {@link Videoplayer.prefix}
 	 */
 	hasPrefix(url)
 	{
@@ -451,9 +474,11 @@ class VideoPlayer {
 	}
 	
 	/**
+	 * Return the first Videoplayer with its prefix matching the url
 	 * @public
 	 * @param {string} url
 	 * @returns {VideoPlayer}
+	 * @see {@link Videoplayer.prefix}
 	 */
 	static getPlayer(url)
 	{
@@ -466,8 +491,10 @@ class VideoPlayer {
 	}
 
 	/**
-	 * 
+	 * Return the video player corrisponding 
+	 * @public
 	 * @param {number} id 
+	 * @return {VideoPlayer}
 	 */
 	static getVideoPlayerById(id)
 	{
@@ -476,11 +503,13 @@ class VideoPlayer {
 }
 
 /**
+ * A class used to handle the download of a youtube video. It also get the video info.
  * @public
  * @extends VideoPlayer
  */
 class YoutubePlayer extends VideoPlayer {
 	/**
+	 * Unique instance of the class
 	 * @public
 	 * @readonly
 	 * @returns {YoutubePlayer}
@@ -488,7 +517,8 @@ class YoutubePlayer extends VideoPlayer {
 	static get instance() {return YoutubePlayer._instance}
 
 	/**
-	 * 
+	 * Constructor of the class
+	 * @public
 	 * @param {VideoPlayerConfig} config 
 	 */
 	constructor(config)
@@ -497,23 +527,22 @@ class YoutubePlayer extends VideoPlayer {
 		
 		if (!YoutubePlayer._instance) YoutubePlayer._instance = this;
 		else console.warn("2 YoutubePlayer has been founded");
-		
 	}
 
 	/**
+	 * Download the youtube video (async)
 	 * @public
 	 * @override
-	 * @param {string} url Unused
-	 * @param {string} localFileWithoutExtension
+	 * @fires progress
+	 * @fires complete
+	 * @fires error
+	 * @param {string} downloadUrl Unused
 	 * @param {ytdl.videoFormat} format
+	 * @param {string} localFileWithoutExtension
+	 * @returns {EventEmitter}
 	 */
-	download(url, format, localFileWithoutExtension)
+	download(downloadUrl, format, localFileWithoutExtension)
 	{
-		/**
-		 * @fires progress
-		 * @fires complete
-		 * @fires error
-		 */
 		let emitter = new EventEmitter();
 
 		let extension = mime.extension(format.mimeType) | "";
@@ -544,9 +573,12 @@ class YoutubePlayer extends VideoPlayer {
 	}
 
 	/**
+	 * Fetch the informations of the youtube video
 	 * @public
+	 * @requires "node_modules/ytdl"
 	 * @param {string} url
-	 * @returns {Promise<ytdl.videoInfo>} 
+	 * @returns {Promise<ytdl.videoInfo>}
+	 * @see ytdl#getInfo 
 	 */
 	getInfo(url)
 	{
@@ -565,14 +597,21 @@ class YoutubePlayer extends VideoPlayer {
 	}
 }
 
+/**
+ * Store the datas of an anime. Can update the index.json of the anime.
+ * @public
+ */
 class Anime {
 	/**
+	 * The list of Animes
+	 * @public
 	 * @readonly
 	 * @type {Anime[]}
 	 */
 	static get list() {return Anime._list || (Anime._list = []);}
 	
 	/**
+	 * The list of Animes mapped with their public informations
 	 * @public
 	 * @returns {PublicAnime[]}
 	 */
@@ -582,6 +621,7 @@ class Anime {
 	}
 	
 	/**
+	 * Return the public information of the anime (= the informations to give to the client)
 	 * @public
 	 * @returns {PublicAnime}
 	 */
@@ -600,6 +640,7 @@ class Anime {
 	}
 
 	/**
+	 * Constructor of the class
 	 * @public
 	 * @param {JsonObject} jsonObject 
 	 * @param {string} folderPath
@@ -607,11 +648,13 @@ class Anime {
 	constructor(jsonObject, folderPath) 
 	{
 		/**
+		 * @ignore
 		 * @type {AnimeConfig}
 		 */
 		let data = jsonObject.value;
 		
 		/**
+		 * The json object of the anime. Used to store the datas in the index.json of the anime.
 		 * @private
 		 * @readonly
 		 * @type {JsonObject}
@@ -619,6 +662,7 @@ class Anime {
 		this.jsonObject = jsonObject;
 
 		/**
+		 * The name of the anime
 		 * @public
 		 * @type {string}
 		 */
@@ -626,12 +670,14 @@ class Anime {
 		if (!data.name) throw `"${nameof(name)}" is null in anime : `+folderPath;
 
 		/**
+		 * The uri of the anime poster
 		 * @public
 		 * @type {string}
 		 */
 		this.thumbnailLink = data.thumbnailLink;
 
 		/**
+		 * The path to the anime's folder
 		 * @private
 		 * @readonly
 		 * @type {string}
@@ -640,6 +686,7 @@ class Anime {
 		if (!folderPath) throw `${nameof(folderPath)} is null (code exception)`;
 		
 		/**
+		 * The list of episodes
 		 * @public
 		 * @type {Episode[]}
 		 */
@@ -665,6 +712,7 @@ class Anime {
 		this.episodes = this.episodes.sort( (a,b) => a.episodeId - b.episodeId);
 
 		/**
+		 * The unique id of the anime
 		 * @public
 		 * @readonly
 		 * @type {number}
@@ -675,10 +723,11 @@ class Anime {
 	}
 
 	/**
-	 * Get an anime's episode by its id
+	 * Get an anime's {@link Episode} by its id
 	 * @public
 	 * @param {number} episodeId
 	 * @returns {(Episode|null)}
+	 * @see {Episode#episodeId}
 	 */
 	getEpisodeById(episodeId)
 	{
@@ -702,6 +751,7 @@ class Anime {
 	}
 
 	/**
+	 * Return the {@link AnimeConfig} of the Anime
 	 * @public
 	 * @returns {AnimeConfig}
 	 */
@@ -729,10 +779,12 @@ class Anime {
 }
 
 /**
+ * Store the datas of an episode
  * @public
  */
 class Episode {
 	/**
+	 * Constructor of the class
 	 * @public
 	 * @param {EpisodeConfig} config 
 	 * @param {Anime} anime
@@ -757,7 +809,7 @@ class Episode {
 		this.episodeId 	= config.episodeId || -1;
 
 		/**
-		 * The uri of the anime poster
+		 * The uri of the episode poster
 		 * @public
 		 * @type {string}
 		 */
@@ -904,12 +956,12 @@ class Episode {
 	get path() {return this.isLocal ? this.localLink : path.join(this.anime.path, `${this.episodeId}`);}
 
 	/**
+	 * Return the {@link EpisodeConfig} of the Episode
 	 * @public
 	 * @returns {EpisodeConfig}
 	 */
 	toEpisodeConfig()
 	{
-		//A little remember (must be removed after task done)
 		/**
 		 * @type {EpisodeConfig}
 		 */
