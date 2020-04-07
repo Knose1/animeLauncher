@@ -90,8 +90,13 @@ const mime = require("mime-types");
 const event = require("events");
 const EventEmitter = event.EventEmitter;
 
+/**
+ * Load and save a json file
+ * @public
+ */
 class JsonObject {
 	/**
+	 * @public
 	 * @param {string} path
 	 */
 	constructor(path)
@@ -101,6 +106,7 @@ class JsonObject {
 	}
 	
 	/**
+	 * @public
 	 * @param {fs.NoParamCallback} [func]
 	 */
 	loadSync(func)
@@ -153,6 +159,7 @@ class JsonObject {
 	}
 
 	/**
+	 * @public
 	 * @returns {Promise<void>}
 	 */
 	save()
@@ -177,6 +184,11 @@ class JsonObject {
 	}
 }
 
+/**
+ * A class used to handle the events of {@link VideoPlayer#download VideoPlayer.download}.  
+ * Ensure that there's only one download max by episode
+ * @public
+ */
 class DownloadEpisode 
 {
 	/**
@@ -191,17 +203,56 @@ class DownloadEpisode
 	 */
 	constructor(episode, videoPlayerId)
 	{
-		//TODO : Documentation
-
+		/**
+		 * The episode we want to download
+		 * @public
+		 * @readonly
+		 * @type {Episode}
+		 */
 		this.episode = episode;
+
+		/**
+		 * The unique id of the DownloadEpisode instance
+		 * @public
+		 * @readonly
+		 * @type {number}
+		 */
 		this.id = DownloadEpisode.list.length;
 
+		/**
+		 * The player used to download the video (epsode)
+		 * @private
+		 * @readonly
+		 * @type {}
+		 */
 		this.player = VideoPlayer.getVideoPlayerById(videoPlayerId);
+		
+		/**
+		 * If the download is done and the json saved
+		 * @private
+		 * @readonly
+		 * @type {boolean}
+		 * @see {@link DownloadEpisode#download}, {@link DownloadEpisode#_setLocalPath}
+		 */
 		this.isReady = false;
+
+		/**
+		 * If the download is ongoing
+		 * @public
+		 * @readonly
+		 * @type {boolean}
+		 */
 		this.isDownloading = false;
+
+		/**
+		 * The progress of the download
+		 * @public
+		 * @readonly
+		 * @type {number}
+		 */
 		this.progress = 0;
 
-		if (!this.player.downloadable) throw "Is not downloadable";
+		if (!this.player.downloadable) throw "The episode is not downloadable";
 
 		DownloadEpisode.list.push(this);
 	}
@@ -278,12 +329,17 @@ class DownloadEpisode
 	static getFromEpisode(episode)
 	{
 		for (let i = DownloadEpisode.list.length - 1; i >= 0; i--) {
-			let lElement = DownloadEpisode.list[i]
+			let lElement = DownloadEpisode.list[i];
+
+			if (lElement.episode == episode) return lElement;
 		}
+
+		return null;
 	}
 }
 
 /**
+ * A class used to download a video.
  * @public
  */
 class VideoPlayer {
@@ -302,14 +358,49 @@ class VideoPlayer {
 	 */
 	constructor(config)
 	{
-		//TODO : Documentation
-
+		/**
+		 * The name of the videoPlayer
+		 * @public
+		 * @readonly
+		 * @type {string}
+		 */
 		this.name = config.name
+
+		/**
+		 * If true, the VideoPlayer wront be available for edit
+		 * @public
+		 * @readonly
+		 * @type {boolean}
+		 */
 		this.isNatif = config.isNatif;
+
+		/**
+		 * The prefix(s) for matching the url
+		 * @public
+		 * @type {string[]}
+		 * @see {@link Videoplayer#getPlayer}, {@link Videoplayer#hasPrefix}
+		 */
 		this.prefix  = config.prefix;
+
+		/**
+		 * Tell if the server can download
+		 * @public
+		 * @type {boolean}
+		 */
 		this.downloadable = config.downloadable;
+
+		/**
+		 * Tell if the url used for downloading is an url in {@link Episode#links Episode.links} 
+		 * @public
+		 * @type {boolean}
+		 */
 		this.autoDownload = config.autoDownload;
 
+		/**
+		 * The unique id of the videoPlayer
+		 * @public
+		 * @readonly
+		 */
 		this.id = VideoPlayer.list.length;
 		VideoPlayer.list.push(this);
 	}
@@ -503,7 +594,7 @@ class VideoPlayer {
 }
 
 /**
- * A class used to handle the download of a youtube video. It also get the video info.
+ * A class used to download a youtube video. It also get the video info.
  * @public
  * @extends VideoPlayer
  */
