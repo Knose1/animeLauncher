@@ -20,12 +20,24 @@ header {
 	display:flex;
 	align-items: flex-end;
 	height: var(--navSize);
+	margin-top: 40px;
+    margin-bottom: -12px;
 }
 
 .navigation {
 	list-style-position: outside;
 	list-style-type: none;
+	width: 100%;
+	padding-left: 20px;
 }
 .navigation li {
 	display: inline;
+}
+.navigation button {
+	font-size: 15px;
+	background-color: #B8B8B8;
+	border:none;
+	height: var(--navSize);
+	padding: 0 20px;
+	margin: 0 0px 0 -5px;
 }

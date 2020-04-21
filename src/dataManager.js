@@ -198,7 +198,7 @@ class DownloadEpisode
 	/**
 	 * Constructor of the class
 	 * @param {Episode} episode
-	 * @param {number}
+	 * @param {number} videoPlayerId
 	 * @see {@link Videoplayer#id}
 	 */
 	constructor(episode, videoPlayerId)

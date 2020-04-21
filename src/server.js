@@ -121,7 +121,8 @@ function start(port = 3000) {
 		
 		if (lEpisode.isLocal) 
 		{
-			res.sendStatus(HttpStatus.CONFLICT);
+			console.log("[Redirect] "+req.hostname+`/episode/${animeId}/${episodeid}`);
+			res.redirect(req.hostname+`/episode/${animeId}/${episodeid}`);
 			return;
 		}
 

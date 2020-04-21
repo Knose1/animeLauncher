@@ -37,6 +37,7 @@ imageWriter.init()
 		 * @type {Config}
 		 */
 		var value = configLoader.value;
+		console.log(configLoader);
 
 		//Get all video players
 		for (let i = value.videoPlayers.length - 1; i >= 0; i--) {
@@ -44,11 +45,11 @@ imageWriter.init()
 
 			if (lElement.isNatif || lElement.isYoutube) 
 			{
-				videoPlayers.push(new YoutubePlayer(lElement));
+				new YoutubePlayer(lElement);
 				continue;
 			}
 
-			videoPlayers.push(new VideoPlayer(lElement));
+			new VideoPlayer(lElement);
 		}
 	}
 )
@@ -72,7 +73,7 @@ imageWriter.init()
 					await animeLoader.load();
 					console.dir(animeLoader.value);
 					
-					animes.push(new Anime(animeLoader, animeFolderPath));
+					new Anime(animeLoader, animeFolderPath);
 				}
 				catch(e)
 				{

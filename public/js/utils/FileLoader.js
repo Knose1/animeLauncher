@@ -45,6 +45,11 @@ export default class FileLoader {
 		this._reset();
 
 		/**
+		 * True if not started or not ended
+		 */
+		this.isComplete = true;
+
+		/**
 		 * @callback Next
 		 * @returns {void}
 		 */
@@ -205,6 +210,7 @@ export default class FileLoader {
 	}
 
 	start() {
+		this.isComplete = false;
 		this._currentLoadingItemIndex = START;
 		this._callNext();
 	}
@@ -225,7 +231,8 @@ export default class FileLoader {
 		//Si on est arrivé à la fin de la loadlist, on execute oncomplete
 		if (this._currentLoadingItemIndex == this.loadList.length) {
 			if (this.oncomplete instanceof Function) this.oncomplete();
-			this._destroy();
+			this.isComplete = true;
+			//this._destroy();
 			return;
 		}
 		
