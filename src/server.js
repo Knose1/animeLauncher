@@ -13,6 +13,57 @@ let YoutubePlayer = dataManager.YoutubePlayer;
 let Anime = dataManager.Anime;
 let Episode = dataManager.Episode;
 
+/**
+ * Start the server  
+ *   
+ * ------------------  
+ * Server links :  
+ * [USE] `*` - Used to do consoleGroup  
+ * <br/>  
+ * [GET] `/get/list` - Get the anime list  
+ * &ensp;&ensp;&ensp;Send : {@link Anime.publicList Anime.publicList}  
+ * <br/>  
+ * [GET] `/get/episode/info?` - Get the info of an episode  
+ * &ensp;&ensp;&ensp;Param : `animeId` - The id of the anime  
+ * &ensp;&ensp;&ensp;Param : `episodeId` - The id of the episode in the anime  
+ * &ensp;&ensp;&ensp;Send : {@link EpisodeInfo}  
+ * <br/>  
+ * [GET] `/get/episode/download?` - Download an episode  
+ * &ensp;&ensp;&ensp;Param : `animeId`  
+ * &ensp;&ensp;&ensp;Param : `episodeId`  
+ * &ensp;&ensp;&ensp;Param : `videoPlayerId`  
+ * &ensp;&ensp;&ensp;Param : `format`  
+ * &ensp;&ensp;&ensp;Param : `url`  
+ * &ensp;&ensp;&ensp;Send : {"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}}  
+ * <br/>  
+ * [GET] `/` - Index.html  
+ * <br/>  
+ * [GET] `/js/*` - Folder js  
+ * <br/>  
+ * [GET] `/html/*` - Folder html  
+ * <br/>  
+ * [GET] `/css/*` - Folder css  
+ * <br/>  
+ * [GET] `/fonts/*` - Folder fonts  
+ * <br/>  
+ * [GET] `/asset/ico/*` - Folder assets ico  
+ * <br/>  
+ * [GET] `/episode/:animeId/:episodeId` - Get a local episode in folder episode  
+ * &ensp;&ensp;&ensp;Param : `animeId` - The id of the anime  
+ * &ensp;&ensp;&ensp;Param : `episodeId` - The id of the episode in the anime  
+ * <br/>  
+ * [GET] `/asset/thumbnail/:text.png` - Generate an image  
+ * &ensp;&ensp;&ensp;Param : `text` - The text to show on the image  
+ * &ensp;&ensp;&ensp;Param : `width` - The image width  
+ * &ensp;&ensp;&ensp;Param : `height` - The image height  
+ * &ensp;&ensp;&ensp;Param : `textSize` - The text size  
+ * &ensp;&ensp;&ensp;Param : `backgroundColor` - The background color  
+ * &ensp;&ensp;&ensp;Param : `textColor` - The text color  
+ * 
+ * @protected
+ * @namespace server
+ * @param {number} port - An integer for the server port
+ */
 function start(port = 3000) {
 	/**
 	 * @constant
@@ -27,7 +78,7 @@ function start(port = 3000) {
 		console.group(`[${req.method}] `+(req.baseUrl || "/"));
 		next();
 
-		res.on("finish", () => {
+		res.once("finish", () => {
 			console.groupEnd();
 		});
 	});
@@ -104,12 +155,12 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	//*        Download Episode       *//
 	//*///////////////////////////////*//
-	app.post('/post/episode/download', async (req, res, next) => {
-		let animeId = Number.parseInt(req.body.animeId);
-		let episodeId = Number.parseInt(req.body.episodeId);
-		let videoPlayerId = Number.parseInt(req.body.videoPlayerId);
-		let format = req.body.format ? JSON.parse(req.body.format) : null;
-		let url = req.body.url;
+	app.get('/get/episode/download', async (req, res, next) => {
+		let animeId = Number.parseInt(req.query.animeId);
+		let episodeId = Number.parseInt(req.query.episodeId);
+		let videoPlayerId = Number.parseInt(req.query.videoPlayerId);
+		let format = req.query.format ? JSON.parse(req.query.format) : null;
+		let url = req.query.url;
 
 		console.log("?animeId = "+animeId);
 		console.log("?episodeId = "+episodeId);
@@ -126,9 +177,8 @@ function start(port = 3000) {
 			return;
 		}
 
-
 		let download = DownloadEpisode.getFromEpisode(lEpisode) || new DownloadEpisode(lEpisode, videoPlayerId);
-		if (!download.isDownloading) download.download(url, format);
+		if (!download.isDownloading && !download.isPending) download.download(url, format);
 
 		//Episode
 		res.sendStatus(HttpStatus.PROCESSING);

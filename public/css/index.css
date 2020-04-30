@@ -2,6 +2,7 @@
 	--background-color:#1c2024;
 	--navSize: 50px;
 	--titleHeight: 64px;
+	--tabSize:30px;
 }
 
 html {
@@ -20,4 +21,22 @@ video {
 #iframeContainer iframe {
 	width: 100%;
 	min-height: 400px;
+}
+
+button {
+	min-width: 100px;
+	min-height: 20px;
+}
+
+.tab-1 {
+	margin-left: calc(var(--tabSize) * 1);
+}
+.tab-2 {
+	margin-left: calc(var(--tabSize) * 2);
+}
+.tab-3 {
+	margin-left: calc(var(--tabSize) * 3);
+}
+.tab-4 {
+	margin-left: calc(var(--tabSize) * 4);
 }

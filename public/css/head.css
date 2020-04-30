@@ -10,6 +10,7 @@ header {
 	position: sticky;
 	top: calc(-1 * var(--titleHeight));
 	width: 100%;
+    margin-bottom: 20px;
 	border-bottom: solid orange 2px;
 	background-color: var(--background-color);
 }

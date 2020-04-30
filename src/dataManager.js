@@ -1,6 +1,5 @@
-
 /**
- * @namespace
+ * @namespace data.config
  * @typedef VideoPlayerConfig
  * @property {string} name
  * @property {string[]} prefix
@@ -11,6 +10,7 @@
  */
 
 /**
+ * @namespace data.public
  * @typedef {Object} PublicVideoPlayer
  * @property {string} name
  * @property {boolean} isNatif
@@ -20,17 +20,18 @@
  * id: this.id
  */ 
 /**
+ * @namespace data.public
  * @typedef {Object} PlayerInfo
  * @property {string} url
  * @property {string} [ytInfo]
  * @property {boolean} [isYoutube]
- * @property {*} player
+ * @property {PublicVideoPlayer} player
  */
 
  /*-****************************-*/
 
 /**
- * @namespace
+ * @namespace data.config
  * @typedef AnimeConfig
  * @property {string} name
  * @property {string} [thumbnailLink]
@@ -38,7 +39,7 @@
  */
 
 /**
- * @namespace
+ * @namespace data.public
  * @typedef PublicAnime
  * @property {number} id
  * @property {PublicEpisode} episodes
@@ -49,7 +50,7 @@
 /*-*****************************-*/
 
 /**
- * @namespace
+ * @namespace data.config
  * @typedef EpisodeConfig
  * @property {string} [name]
  * @property {number} episodeId
@@ -58,12 +59,15 @@
  * @property {string} [localLink]
  */
 /**
+ * @namespace data.public
  * @typedef PublicEpisode 
  * @property {string} name The name of the episode
+ * @property {number} animeId The unique id of the anime
  * @property {number} episodeId The unique id of the episode (define the order between episodes)
  * @property {string} posterLink The uri of the anime poster
  */
 /**
+ * @namespace data.public
  * @typedef {Object} EpisodeInfo
  * @property {string} name
  * @property {number} episodeId
@@ -74,6 +78,7 @@
  */
 
 /**
+ * @namespace data
  * @typedef ReqDownloadData
  * @property {number} progress The download progress in %
  * @property {string} contentType
@@ -85,7 +90,7 @@
 const http = require('http');
 var fs = require('fs');
 var ytdl = require('ytdl-core');
-const path = require("path");
+const pathNode = require("path");
 const mime = require("mime-types");
 const event = require("events");
 const EventEmitter = event.EventEmitter;
@@ -192,9 +197,25 @@ class JsonObject {
 class DownloadEpisode 
 {
 	/**
+	 * @public
+	 * @readonly
 	 * @type {DownloadEpisode[]}
 	 */
 	static get list() {return DownloadEpisode._list || (DownloadEpisode._list = [])}
+	
+	/**
+	 * @protected
+	 * @type {Function[]}
+	 */
+	static get toDownload() {return DownloadEpisode._toDownload || (DownloadEpisode._toDownload = [])}
+	
+	/**
+	 * @protected
+	 * @type {DownloadEpisode[]}
+	 */
+	static get currentDownload() {return DownloadEpisode._currentDownload || null}
+	static set currentDownload(value) {return DownloadEpisode._currentDownload = value}
+	
 	/**
 	 * Constructor of the class
 	 * @param {Episode} episode
@@ -223,7 +244,7 @@ class DownloadEpisode
 		 * The player used to download the video (epsode)
 		 * @private
 		 * @readonly
-		 * @type {}
+		 * @type {VideoPlayer}
 		 */
 		this.player = VideoPlayer.getVideoPlayerById(videoPlayerId);
 		
@@ -235,6 +256,14 @@ class DownloadEpisode
 		 * @see {@link DownloadEpisode#download}, {@link DownloadEpisode#_setLocalPath}
 		 */
 		this.isReady = false;
+
+		/**
+		 * If the download is pending
+		 * @public
+		 * @readonly
+		 * @type {boolean}
+		 */
+		this.isPending = false;
 
 		/**
 		 * If the download is ongoing
@@ -265,7 +294,9 @@ class DownloadEpisode
 	 */
 	_setLocalPath(pathToFile)
 	{
-		this.episode.setLocalPath(pathToFile)
+		let reg = new RegExp(`/^.*(\\|\/)episode(\\|\/).*(\\|\/)/`);
+
+		this.episode.setLocalPath(pathToFile.replace(reg, ""))
 		.then(
 			() => {
 				this.isReady = true;
@@ -283,8 +314,31 @@ class DownloadEpisode
 	 */
 	download(url, format)
 	{
-		let emitter = this.player.download( (this.player.autoDownload ? this.episode.getUrlByPlayer(this.player) : url ) , format, this.episode.path);
-		this._setEvents(emitter);
+		if (this.isDownloading) 
+		{
+			console.error(`${nameof({DownloadEpisode})}`);
+		}
+
+		this.isPending = true;
+
+		if (currentDownload === null) 
+		{
+			DownloadEpisode.toDownload.shift();
+
+			this.isPending = false;			
+			this.isDownloading = true;
+			DownloadEpisode.currentDownload = this;
+
+			let emitter = this.player.download(this.player, (this.player.autoDownload ? this.episode.getUrlByPlayer(this.player) : url ) , format, this.episode.path);	
+			this._setEvents(emitter);
+		}
+		else if (!this.isPending)
+		{
+			DownloadEpisode.toDownload.push(
+				this.download.bind(this, url, format)
+			);
+		}
+
 	}
 
 	/**
@@ -311,6 +365,9 @@ class DownloadEpisode
 		(recDownloadData) => {
 			this.progress = 0.99;
 			this._setLocalPath(recDownloadData.fileName);
+			DownloadEpisode.currentDownload = null;
+			
+			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0]();
 		})
 
 		.on('error',
@@ -318,7 +375,10 @@ class DownloadEpisode
 		 * @param {string} err
 		 */
 		(err) => {
+			this.isDownloading = false;
 			console.err(err);
+			
+			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0]();
 		});
 	}
 
@@ -791,7 +851,7 @@ class Anime {
 			
 			try
 			{
-				this.episodes.push(new Episode(lElement));
+				this.episodes.push(new Episode(lElement, this));
 			}
 			catch(e)
 			{
@@ -866,7 +926,10 @@ class Anime {
 	 * @readonly
 	 * @returns {string}
 	 */
-	get path() {return path.join(__root, this.path);}
+	get path() 
+	{
+		return this._path;
+	}
 }
 
 /**
@@ -943,6 +1006,7 @@ class Episode {
 		 */
 		var lToReturn = {
 			name : this.name,
+			animeId : this.anime.id,
 			episodeId : this.episodeId,
 			posterLink : this.posterLink
 		};
@@ -974,7 +1038,8 @@ class Episode {
 			let lToPush = {};
 			let url = this.links[i];
 			let videoPlayer = VideoPlayer.getPlayer(url);
-			
+			if (!videoPlayer) continue;
+
 			lToPush.isYoutube = false;
 			if (videoPlayer instanceof YoutubePlayer)
 			{
@@ -1039,12 +1104,19 @@ class Episode {
 	get hasPoster() {return Boolean(this.posterLink);}
 
 	/**
-	 * If there is no local file, return the default local path `path.join(${@link Anime#path this.anime.path}, ${@link Episode#episodeId this.episodeId})`
-	 * Else return the ${@link Episode#localLink local path}
+	 * path.join(${@link Anime#path this.anime.path} with :
+	 * 
+	 * If there is no local file, use the default local path ${@link Episode#episodeId this.episodeId})`
+	 * Else use the ${@link Episode#localLink local path}
 	 * @public
 	 * @type {string}
 	 */
-	get path() {return this.isLocal ? this.localLink : path.join(this.anime.path, `${this.episodeId}`);}
+	get path() 
+	{
+		let animePath = this.anime.path;
+
+		return pathNode.join(animePath, (this.isLocal ? this.localLink : `${this.episodeId}`));
+	}
 
 	/**
 	 * Return the {@link EpisodeConfig} of the Episode

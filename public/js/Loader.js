@@ -16,15 +16,33 @@ export default class Loader
 		.start();
 	}
 	
-	static getEpisodeInfo(animeId, episodeId)
+	static getEpisodeInfo(animeId, episodeId, callback)
 	{
 		animeId = Number.parseInt(animeId);
 		episodeId = Number.parseInt(episodeId);
 
-		FileLoader.getInstance()
+		FileLoader.getInstance()._reset()
 		.readAsJson(`./get/episode/info?animeId=${animeId}&episodeId=${episodeId}`, (data) => {
 			console.log(data);
-			DataManager.generateEpisodeInfo(data);
+			callback(data);
+		})
+		.start();
+	}
+	
+	/**
+	 * 
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 */
+	static loadLocalEpisode(animeId, episodeId)
+	{
+		animeId = Number.parseInt(animeId);
+		episodeId = Number.parseInt(episodeId);
+
+		FileLoader.getInstance()._reset()
+		.readAsBlob(`./episode/${animeId}/${episodeId}`, (blob) => {
+			console.log(blob);
+			DataManager.showVideo(blob, animeId, episodeId);
 		})
 		.start();
 	}
@@ -33,6 +51,8 @@ export default class Loader
 	{
 		encodeURI(JSON.stringify(ytInfo));
 	}
+
+	static download()
 
 	static onListLoaded(data)
 	{

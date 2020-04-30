@@ -19,7 +19,15 @@
 			"downloadable" : true,
 			"autoDownload" : false
 		},
-		
+		{
+			"name" : "upstream",
+			"prefix" :
+			[
+				"https://upstream.to/"
+			],
+			"downloadable" : true,
+			"autoDownload" : false
+		},
 		{
 			"name" : "animeVostFR",
 			"prefix" :

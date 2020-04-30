@@ -218,6 +218,7 @@ export default class FileLoader {
 	_reset() {
 		this._currentLoadingItemIndex = RESET;
 		this.loadList = [];
+		return this;
 	}
 	
 

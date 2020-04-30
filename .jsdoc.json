@@ -16,8 +16,8 @@
 		"systemSummary": "Documentation",
 		"systemLogo": "./public/asset/ico/ico_64.png",
 		"favicon": "./public/asset/ico/ico_64.png",
-		"systemColor": "hsl(0, 56%, 46%)",
-		"stylesheets": ["./_jsdocCustomScripts/index.css"],
+		"systemColor": "hsl(150, 56%, 46%)",
+		"stylesheets": ["./_jsdocCustomScripts/index.css", "./_jsdocCustomScripts/dark.css"],
 		"scripts": ["./_jsdocCustomScripts/jsColorUtils.js", "./_jsdocCustomScripts/index.js"]
 	},
 	"opts": {
@@ -26,5 +26,10 @@
 		"private": true,
 		"recurse": true,
 		"template": "./node_modules/foodoc/template"
+	},
+	"plugins": ["plugins/markdown"],
+	"markdown": {
+		"hardwrap ": true,
+		"idInHeadings": true
 	}
 }
