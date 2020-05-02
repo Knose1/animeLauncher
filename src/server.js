@@ -35,6 +35,17 @@ let Episode = dataManager.Episode;
  * &ensp;&ensp;&ensp;Param : `format`  
  * &ensp;&ensp;&ensp;Param : `url`  
  * &ensp;&ensp;&ensp;Send : {"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}}  
+ * <br/>
+ * [GET] `/get/list/download` - Get download list
+ * &ensp;&ensp;&ensp;Send : {
+ * &ensp;&ensp;&ensp;&ensp;"current": {
+ * &ensp;&ensp;&ensp;&ensp;&ensp;"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}
+ * &ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name
+ * &ensp;&ensp;&ensp;&ensp;},
+ * &ensp;&ensp;&ensp;&ensp;"list": [
+ * &ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name
+ * &ensp;&ensp;&ensp;&ensp;]
+ * &ensp;&ensp;&ensp;}  
  * <br/>  
  * [GET] `/` - Index.html  
  * <br/>  
@@ -172,8 +183,9 @@ function start(port = 3000) {
 		
 		if (lEpisode.isLocal) 
 		{
-			console.log("[Redirect] "+req.hostname+`/episode/${animeId}/${episodeid}`);
-			res.redirect(req.hostname+`/episode/${animeId}/${episodeid}`);
+			//console.log("[Redirect] "+req.hostname+`/episode/${animeId}/${episodeid}`);
+			//res.redirect(req.hostname+`/episode/${animeId}/${episodeid}`);
+			res.sendStatus(HttpStatus.CONFLICT);
 			return;
 		}
 
@@ -183,6 +195,28 @@ function start(port = 3000) {
 		//Episode
 		res.sendStatus(HttpStatus.PROCESSING);
 		res.send(JSON.stringify({progress:download.progress}));
+	});
+
+	//*///////////////////////////////*//
+	//*         Download List         *//
+	//*///////////////////////////////*//
+	app.get('/get/list/download', async (req, res, next) => {
+		
+		let downloads = DownloadEpisode.list;
+
+		let currentDlEpisode = DownloadEpisode.currentDownload.episode;
+
+		//Episode
+		res.send(JSON.stringify({
+			current: {
+				progress: DownloadEpisode.currentDownload.progress,
+				episode: currentDlEpisode.anime.name + " - " + (currentDlEpisode.name || currentDlEpisode.episodeId)
+			},
+			list : downloads.map( (d) => {
+				let e = d.episode;
+				return e.anime.name + " - " + (e.name || e.episodeId);
+			})
+		}));
 	});
 
 

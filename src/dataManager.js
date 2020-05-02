@@ -196,6 +196,7 @@ class JsonObject {
  */
 class DownloadEpisode 
 {
+
 	/**
 	 * @public
 	 * @readonly
@@ -204,14 +205,22 @@ class DownloadEpisode
 	static get list() {return DownloadEpisode._list || (DownloadEpisode._list = [])}
 	
 	/**
+	 * @typedef ToDownloadItem
+	 * @property {Function} func
+	 * @property {DownloadEpisode} downloadEpisode
+	 * @memberof DownloadEpisode
+	 * @public
+	 */
+
+	/**
 	 * @protected
-	 * @type {Function[]}
+	 * @type {ToDownloadItem[]}
 	 */
 	static get toDownload() {return DownloadEpisode._toDownload || (DownloadEpisode._toDownload = [])}
 	
 	/**
 	 * @protected
-	 * @type {DownloadEpisode[]}
+	 * @type {DownloadEpisode}
 	 */
 	static get currentDownload() {return DownloadEpisode._currentDownload || null}
 	static set currentDownload(value) {return DownloadEpisode._currentDownload = value}
@@ -316,7 +325,7 @@ class DownloadEpisode
 	{
 		if (this.isDownloading) 
 		{
-			console.error(`${nameof({DownloadEpisode})}`);
+			console.error(`${nameof({DownloadEpisode})} is downloading`);
 		}
 
 		this.isPending = true;
@@ -335,7 +344,10 @@ class DownloadEpisode
 		else if (!this.isPending)
 		{
 			DownloadEpisode.toDownload.push(
-				this.download.bind(this, url, format)
+				{
+					func : this.download.bind(this, url, format),
+					downloadEpisode : this
+				}
 			);
 		}
 
@@ -367,7 +379,7 @@ class DownloadEpisode
 			this._setLocalPath(recDownloadData.fileName);
 			DownloadEpisode.currentDownload = null;
 			
-			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0]();
+			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0].func();
 		})
 
 		.on('error',
@@ -378,7 +390,7 @@ class DownloadEpisode
 			this.isDownloading = false;
 			console.err(err);
 			
-			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0]();
+			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0].func();
 		});
 	}
 
