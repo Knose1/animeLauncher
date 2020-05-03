@@ -1,7 +1,7 @@
 import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
 
-export default class DataManager {
+export default class ScreenManager {
 
 	/**
 	 * @typedef Listener
@@ -177,25 +177,26 @@ export default class DataManager {
 				this.removeListeners();
 
 				let args = lElement.id.slice("episode".length).split("-").map( i => parseInt(i));
-				Loader.getEpisodeInfo(args[0], args[1], (d) => {DataManager.generateEpisodeInfo(d)});
+				Loader.getEpisodeInfo(args[0], args[1], (d) => {ScreenManager.generateEpisodeInfo(d, args[0], args[1])});
 			});
 		}
 		
 		this.addListener(HTMLManager.body.querySelector("#return"), "click", () => {
 			this.removeListeners();
 
-			DataManager.generateAnimeListHTML();
+			ScreenManager.generateAnimeListHTML();
 		});
 		
 		this.addListener(HTMLManager.body.querySelector("#downloadAll"), "click", () => {
 			this.removeListeners();
 
 			let i = 0;
-			next = () => 
+			let next = () => 
 			{
-				if (++i == episodeButtons.length) 
+				if (++i >= episodeButtons.length) 
 				{
-					DataManager.generateEpisodeListHTML(anime);
+					alert("Download is done");
+					ScreenManager.generateEpisodeListHTML(anime);
 					return;
 				}
 
@@ -203,7 +204,7 @@ export default class DataManager {
 	
 				let args = lElement.id.slice("episode".length).split("-").map( i => parseInt(i));
 
-				Loader.getEpisodeInfo(args[0], args[1], (d) => {DataManager.generateEpisodeInfoForDownload(d, next)});
+				Loader.getEpisodeInfo(args[0], args[1], (d) => {ScreenManager.generateEpisodeInfoForDownload(d, next)});
 			}
 			
 			next();
@@ -212,13 +213,20 @@ export default class DataManager {
 		this.allowStaticListener();
 	}
 
-	static generateEpisodeInfoForDownload(info, anime, next) 
+	static generateEpisodeInfoForDownload(info, next) 
 	{
 		if (info.isLocal) 
 		{
 			next();
 			return;
 		}
+
+		let animeId = info.animeId;
+		let episodeId = info.episodeId;
+		
+		let anime = this.animes[animeId];
+		let episode = ScreenManager.getEpisodeFromId(anime, episodeId);
+
 
 		let lText =
 		`<button id="return">Return</button>\n`+
@@ -239,8 +247,6 @@ export default class DataManager {
 			`\tautoDownload : ${player.player.autoDownload}<br/>\n`+
 			`\tid : ${player.player.id}<br/>`
 			
-			if (player.ytInfo) lToReturn += `\tytInfo : ${player.ytInfo}<br/>`;
-			
 			lToReturn += `<button class="download ${i}"> dl</button>`
 			lToReturn += `</div>`;
 			
@@ -255,7 +261,7 @@ export default class DataManager {
 		this.addListener(HTMLManager.body.querySelector("#return"), "click", () => {
 			this.removeListeners();
 
-			DataManager.generateAnimeListHTML();
+			ScreenManager.generateAnimeListHTML();
 		});
 
 		this.allowStaticListener();
@@ -300,10 +306,18 @@ export default class DataManager {
 
 		HTMLManager.body.innerHTML = lText;
 
+
+		let animeId = info.animeId;
+		let episodeId = info.episodeId;
+
+		let anime = this.animes[animeId];
+
+		let episode = ScreenManager.getEpisodeFromId(anime, episodeId);
+
 		this.addListener(HTMLManager.body.querySelector("#return"), "click", () => {
 			this.removeListeners();
 
-			DataManager.generateAnimeListHTML();
+			ScreenManager.generateEpisodeListHTML(anime);
 		});
 
 		this.addListener(HTMLManager.body.querySelector("#watch"), "click", () => {
@@ -323,6 +337,20 @@ export default class DataManager {
 			});
 		}
 
+		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
+		let nextButton = null
+		if (nextEpisode != null) 
+		{
+			nextButton = document.createElement("button");
+			this.addListener(nextButton, "click", () => {
+				this.removeListeners();
+				Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d)});
+			});
+
+			nextButton.innerText = "Next - Episode "+nextEpisode.episodeId;
+		}
+		if (nextButton != null) HTMLManager.body.appendChild(nextButton);
+
 		this.allowStaticListener();
 	}
 
@@ -336,9 +364,9 @@ export default class DataManager {
 	{
 		let anime = this.animes[animeId];
 
-		let episode = DataManager.getEpisodeFromId(anime, episodeId);
+		let episode = ScreenManager.getEpisodeFromId(anime, episodeId);
 
-		let nextEpisode = DataManager.getNextEpisode(anime, episode);
+		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
 		
 		HTMLManager.body.innerHTML = "";
 
@@ -357,7 +385,7 @@ export default class DataManager {
 			nextButton = document.createElement("button");
 			this.addListener(nextButton, "click", () => {
 				this.removeListeners();
-				Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {DataManager.generateEpisodeInfo(d)});
+				Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d)});
 			});
 
 			nextButton.innerText = "Next - Episode "+nextEpisode.episodeId;
@@ -367,7 +395,7 @@ export default class DataManager {
 		animeButton = document.createElement("button");
 		this.addListener(animeButton, "click", () => {
 			this.removeListeners();
-			DataManager.generateEpisodeListHTML(anime);
+			ScreenManager.generateEpisodeListHTML(anime);
 		});
 
 		animeButton.innerText = "Return to anime";
@@ -381,6 +409,11 @@ export default class DataManager {
 		HTMLManager.body.appendChild(animeButton);
 		
 		this.allowStaticListener();
+	}
+
+	static generateDownloadPhase()
+	{
+		
 	}
 
 	static getNextEpisode(anime, episode) 

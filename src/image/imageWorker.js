@@ -78,7 +78,7 @@ function generateImage(requestId, text, option)
 	ctx.textBaseline = 'middle'
 	ctx.fillText(text, img.width/2, img.height / 2);
 
-	let filePath = path.join(__root, '_temp', tokenGenerator()+'.png');
+	let filePath = path.join(__tempFolder, tokenGenerator()+'.png');
 
 	PImage.encodePNGToStream(img, fs.createWriteStream(filePath))
 	.then(() => {

@@ -26,7 +26,36 @@ const Anime = dataManager.Anime;
 var configLoader = new JsonObject(path.join(__dirname, JSON_CONFIG));
 
 //Init imageWriter
-imageWriter.init()
+
+let tempFileRemove = new Promise((resolve, reject) => {
+
+	console.log("Clearing temp...");
+	if (fs.existsSync(__tempFolder))
+	{
+		let files = fs.readdirSync(__tempFolder);
+
+		for (let i = files.length - 1; i >= 0; i--) {
+			let file = files[i];
+
+			let filePath = path.join(__tempFolder, file);
+			fs.unlinkSync(filePath);
+		}
+
+	}
+	else
+	{
+		fs.mkdir(__tempFolder);
+	}
+
+	console.log("Clearing temp... DONE !");
+	console.newLine();
+
+	resolve();
+});
+
+tempFileRemove.then(
+	() => imageWriter.init()
+)
 .then(
 	//Loading configs
 	() => configLoader.load()

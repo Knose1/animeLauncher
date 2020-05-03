@@ -1,5 +1,5 @@
 import FileLoader from './utils/FileLoader.js';
-import DataManager from './data/DataManager.js';
+import ScreenManager from './data/ScreenManager.js';
 
 
 export default class Loader 
@@ -62,9 +62,9 @@ export default class Loader
 			
 
 			FileLoader.getInstance().oncomplete = null;
-			FileLoader.getInstance().onerror = () => {
-				alert("Can't connect to the server. Please verify that the server is on");
-				DataManager.generateAnimeListHTML();
+			FileLoader.getInstance().onerror = (e) => {
+				alert(e);
+				ScreenManager.generateAnimeListHTML();
 			};
 			
 			this.onListLoaded(list);
@@ -96,7 +96,7 @@ export default class Loader
 		animeId = Number.parseInt(animeId);
 		episodeId = Number.parseInt(episodeId);
 
-		DataManager.showVideo(`./episode/${animeId}/${episodeId}`, animeId, episodeId);
+		ScreenManager.showVideo(`./episode/${animeId}/${episodeId}`, animeId, episodeId);
 		
 	}
 
@@ -109,6 +109,6 @@ export default class Loader
 
 	static onListLoaded(data)
 	{
-		DataManager.initAnimes(data);
+		ScreenManager.initAnimes(data);
 	}
 }
