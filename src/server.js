@@ -89,7 +89,7 @@ function start(port = 3000) {
 		console.group(`[${req.method}] `+(req.baseUrl || "/"));
 		next();
 
-		res.once("finish", () => {
+		res.once("close", () => {
 			console.groupEnd();
 		});
 	});

@@ -230,7 +230,7 @@ export default class FileLoader {
 		this._currentLoadingItemIndex++;
 
 		//Si on est arrivé à la fin de la loadlist, on execute oncomplete
-		if (this._currentLoadingItemIndex == this.loadList.length) {
+		if (this._currentLoadingItemIndex >= this.loadList.length) {
 			if (this.oncomplete instanceof Function) this.oncomplete();
 			this.isComplete = true;
 			//this._destroy();
@@ -258,57 +258,57 @@ export default class FileLoader {
 
 		//On récupère le contenu du fichier
 		fetch(currentLoadingItem.url)
-			.then((pResult) => {
-				if (pResult.status !== STATUS_OK) {
-					lCatchFunction(this.onerror, new Error(pResult.status+" "+pResult.statusText+" : " + pResult.url));
-					return;
-				}
+		.then((pResult) => {
+			if (pResult.status !== STATUS_OK) {
+				lCatchFunction(this.onerror, new Error(pResult.status+" "+pResult.statusText+" : " + pResult.url));
+				return;
+			}
 
-				/*
-					On parse le résultat en text ou en blob en fonction de la réponse
-				*/
-				
-				let lFunction = null;
+			/*
+				On parse le résultat en text ou en blob en fonction de la réponse
+			*/
+			
+			let lFunction = null;
 
-				switch (currentLoadingItem.type) {
-					case FileToLoad.getTYPE_HTML():
-					case FileToLoad.getTYPE_TEXT():
-						lFunction = pResult.text();
-						break;
+			switch (currentLoadingItem.type) {
+				case FileToLoad.getTYPE_HTML():
+				case FileToLoad.getTYPE_TEXT():
+					lFunction = pResult.text();
+					break;
 
-					case FileToLoad.getTYPE_BLOB():
-						lFunction = pResult.blob();
-						break;
+				case FileToLoad.getTYPE_BLOB():
+					lFunction = pResult.blob();
+					break;
 
-					case FileToLoad.getTYPE_JSON():
-						lFunction = pResult.json();
-						break;
-				}
+				case FileToLoad.getTYPE_JSON():
+					lFunction = pResult.json();
+					break;
+			}
 
-				lFunction.then(
-					(pData) => {
+			lFunction.then(
+				(pData) => {
 
-						switch (currentLoadingItem.type) {
-							case FileToLoad.getTYPE_BLOB():
-								this._createUrlAndSendResult(pData, currentLoadingItem)
-								break;
-							
-							case FileToLoad.getTYPE_HTML():
-								this._parseAsHtmlAndSendResult(pData, currentLoadingItem);
-								break;
+					switch (currentLoadingItem.type) {
+						case FileToLoad.getTYPE_BLOB():
+							this._createUrlAndSendResult(pData, currentLoadingItem)
+							break;
+						
+						case FileToLoad.getTYPE_HTML():
+							this._parseAsHtmlAndSendResult(pData, currentLoadingItem);
+							break;
 
-							default:
-								this._directSendResult(pData, currentLoadingItem)
-								break;
-						}
-
-						this._callNext();
+						default:
+							this._directSendResult(pData, currentLoadingItem)
+							break;
 					}
-					
-				)
-				.catch( lCatchFunction.bind(this, this.onparseerror) );
-			})
-			.catch( lCatchFunction.bind(this, this.onerror) );
+
+					this._callNext();
+				}
+				
+			)
+			.catch( lCatchFunction.bind(this, this.onparseerror) );
+		})
+		.catch( lCatchFunction.bind(this, this.onerror) );
 		
 	}
 

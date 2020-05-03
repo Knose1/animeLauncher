@@ -38,12 +38,12 @@ export default class DataManager {
 		}
 	}
 
-	static removeListeners()
+	static removeListeners(removeStatic = false)
 	{
 		for (let i = this.listeners.length - 1; i >= 0; i--) {
 			let lElement = this.listeners[i];
 
-			if (!lElement.isStatic) 
+			if (!lElement.isStatic || removeStatic) 
 			{
 				this.listeners.splice(i, 1);
 			}
@@ -66,20 +66,42 @@ export default class DataManager {
 
 		console.log(this.animes);
 
-		this.generateAnimeListHTML()
 
-		this.addListener(HTMLManager.buttons.home, "click", () => {
-			this.removeListeners();
-			this.generateAnimeListHTML();
-		}, true);
+		HTMLManager.body.innerText = "Generating default episode thumbnail please wait..."
+
+		let episodeIds = [];
+		for (let i = this.animes.length - 1; i >= 0; i--) {
+			let lAnime = this.animes[i];
+			for (let j = lAnime.episodes.length - 1; j >= 0; j--) {
+				let lEpisode = lAnime.episodes[j];
+
+				if (episodeIds.includes(lEpisode.episodeId)) continue;
+				episodeIds.push(lEpisode.episodeId);
+			}
+		}
+
+		Loader.preloadDefaultThumbnail(episodeIds, () => 
+		{
+			this.generateAnimeListHTML()
+
+			//If click on home (static event) generate AnimeList
+			this.addListener(HTMLManager.buttons.home, "click", () => {
+				this.removeListeners();
+				this.generateAnimeListHTML();
+			}, true);
+		});
 	}
 	
+	/**
+	 * Generate the list of animes
+	 */
 	static generateAnimeListHTML()
 	{
 		var animesString = "";
 		for (let i = 0; i < this.animes.length; i++) {
 			const a = this.animes[i];
-				//Animes
+			
+			//Animes
 			let thumbnail = a.thumbnailLink ? `<img src="${a.thumbnailLink}"/>` : "";
 		
 			animesString += 
@@ -104,6 +126,8 @@ export default class DataManager {
 		//  HTML ENDS HERE  //
 		// **************** //
 
+
+		//Get the anime buttons. On click, get the id of the anime and show the episodes
 		let animeButtons = Array.from(HTMLManager.body.querySelectorAll(".anime > button"));
 		for (let i = animeButtons.length - 1; i >= 0; i--) {
 			let lElement = animeButtons[i].parentElement;
@@ -153,7 +177,7 @@ export default class DataManager {
 				this.removeListeners();
 
 				let args = lElement.id.slice("episode".length).split("-").map( i => parseInt(i));
-				Loader.getEpisodeInfo(args[0], args[1], DataManager.generateEpisodeInfo);
+				Loader.getEpisodeInfo(args[0], args[1], (d) => {DataManager.generateEpisodeInfo(d)});
 			});
 		}
 		
@@ -171,7 +195,7 @@ export default class DataManager {
 			{
 				if (++i == episodeButtons.length) 
 				{
-					generateEpisodeListHTML(anime);
+					DataManager.generateEpisodeListHTML(anime);
 					return;
 				}
 
@@ -188,7 +212,7 @@ export default class DataManager {
 		this.allowStaticListener();
 	}
 
-	static generateEpisodeInfoForDownload(info, next) 
+	static generateEpisodeInfoForDownload(info, anime, next) 
 	{
 		if (info.isLocal) 
 		{
@@ -312,13 +336,10 @@ export default class DataManager {
 	{
 		let anime = this.animes[animeId];
 
-		let episode;
-		for (let i = anime.episodes.length - 1; i >= 0; i--) {
-			episode = anime.episodes[i];
-			
-			if (episode.episodeId == episodeId) break;
-		}
+		let episode = DataManager.getEpisodeFromId(anime, episodeId);
 
+		let nextEpisode = DataManager.getNextEpisode(anime, episode);
+		
 		HTMLManager.body.innerHTML = "";
 
 		let title = document.createElement("h2");
@@ -328,11 +349,66 @@ export default class DataManager {
 		video.src = url;
 		video.controls = true;
 		video.autoplay = false;
-		video.poster = episode.posterLink || `/asset/thumbnail/${episodeId}.png?width:170&height:90&textSize=700`;
+		video.poster = episode.posterLink || Loader.defaultThumbnailList[episodeId] || `/asset/thumbnail/${episodeId}.png?width:170&height:90&textSize=700`;
+
+		let nextButton = null
+		if (nextEpisode != null) 
+		{
+			nextButton = document.createElement("button");
+			this.addListener(nextButton, "click", () => {
+				this.removeListeners();
+				Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {DataManager.generateEpisodeInfo(d)});
+			});
+
+			nextButton.innerText = "Next - Episode "+nextEpisode.episodeId;
+		}
+
+		let animeButton = null
+		animeButton = document.createElement("button");
+		this.addListener(animeButton, "click", () => {
+			this.removeListeners();
+			DataManager.generateEpisodeListHTML(anime);
+		});
+
+		animeButton.innerText = "Return to anime";
 
 		HTMLManager.body.appendChild(video);
 		HTMLManager.body.appendChild(title);
+		HTMLManager.body.appendChild(document.createElement("br"));
+		HTMLManager.body.appendChild(document.createElement("br"));
+		
+		if (nextButton != null) HTMLManager.body.appendChild(nextButton);
+		HTMLManager.body.appendChild(animeButton);
 		
 		this.allowStaticListener();
+	}
+
+	static getNextEpisode(anime, episode) 
+	{
+		let nextEpisode = null;
+		//Get next episode
+		for (let i = anime.episodes.length - 1; i >= 0; i--) {
+			let epi = anime.episodes[i];
+			
+			if (epi.episodeId <= episode.episodeId) continue;
+
+			if (nextEpisode == null || epi.episodeId < nextEpisode.episodeId)
+			{
+				nextEpisode = epi;
+			}
+		}
+
+		return nextEpisode;
+	}
+
+	static getEpisodeFromId(anime, episodeId) 
+	{	
+		for (let i = anime.episodes.length - 1; i >= 0; i--) {
+			let epi = anime.episodes[i];
+			
+			if (epi.episodeId == episodeId) return epi;
+		}
+
+		return null;
 	}
 };
