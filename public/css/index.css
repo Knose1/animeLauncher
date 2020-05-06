@@ -40,3 +40,11 @@ button {
 .tab-4 {
 	margin-left: calc(var(--tabSize) * 4);
 }
+
+.code {
+	background-color: #2a2a2a;
+	border: #4a4a4a solid 3px;
+	border-radius: 3px;
+	padding: 10px;
+	width: fit-content;
+}

@@ -24,7 +24,7 @@ export default class Loader
 		FileLoader.getInstance()._reset();
 		for (let i = numbers.length - 1; i >= 0; i--) {
 			let num = numbers[i];
-			FileLoader.getInstance().readAsBlob(`/asset/thumbnail/${num}.png?width:170&height:90&textSize=700`, (url) => {
+			FileLoader.getInstance().readAsBlob(`/asset/thumbnail/${num}.png?width=640&height=358&textSize=300`, (url) => {
 				this.defaultThumbnailList[num] = url;
 			});
 		}
@@ -56,8 +56,6 @@ export default class Loader
 		})
 
 		FileLoader.getInstance().oncomplete = () => {
-
-			debugger;
 			console.log("[FileLoader] Finished loading list");
 			
 
@@ -100,12 +98,36 @@ export default class Loader
 		
 	}
 
-	static downloadYoutubeEpisode(ytInfo)
+	static download(animeId, episodeId, videoPlayerId, url, format = null)
 	{
-		encodeURI(JSON.stringify(ytInfo));
+		return new Promise((resolve, reject) => {
+			//location.host = hostname:port;
+			let reqUrl = new URL(`${window.location.protocol}//${window.location.host}/get/episode/download`);
+		
+			if (format != null) reqUrl.searchParams.set("format", JSON.stringify(format));
+			
+			reqUrl.searchParams.set("animeId", animeId);
+			reqUrl.searchParams.set("episodeId", episodeId);
+			reqUrl.searchParams.set("videoPlayerId", videoPlayerId);
+			reqUrl.searchParams.set("url", url);
+
+			let loader = new FileLoader().readAsJson(reqUrl.toString(), (json) => {
+				//json but no need bro
+				loader._destroy();
+				resolve();
+			});
+			loader.onparseerror = loader.onerror = (e) => 
+			{
+				reject(e);
+			}
+			loader.start();
+		});
 	}
 
-	static download() {}
+	static listDownload()
+	{
+		
+	}
 
 	static onListLoaded(data)
 	{

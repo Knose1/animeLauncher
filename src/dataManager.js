@@ -330,7 +330,7 @@ class DownloadEpisode
 
 		this.isPending = true;
 
-		if (currentDownload === null) 
+		if (DownloadEpisode.currentDownload === null) 
 		{
 			DownloadEpisode.toDownload.shift();
 
@@ -338,7 +338,7 @@ class DownloadEpisode
 			this.isDownloading = true;
 			DownloadEpisode.currentDownload = this;
 
-			let emitter = this.player.download(this.player, (this.player.autoDownload ? this.episode.getUrlByPlayer(this.player) : url ) , format, this.episode.path);	
+			let emitter = this.player.download((this.player.autoDownload ? this.episode.getUrlByPlayer(this.player) : url ) , format, this.episode.path);	
 			this._setEvents(emitter);
 		}
 		else if (!this.isPending)
@@ -708,11 +708,11 @@ class YoutubePlayer extends VideoPlayer {
 	{
 		let emitter = new EventEmitter();
 
-		let extension = mime.extension(format.mimeType) | "";
+		let extension = mime.extension(format.mimeType) || "";
 		
 		let path = localFileWithoutExtension+"."+extension;
 
-		let video = ytdl(format.url, {format: format} );
+		let video = ytdl(downloadUrl, {format: format} );
 		video.on('response', (res) => {
 			var totalSize = res.headers['content-length'];
 			var dataRead = 0;

@@ -167,16 +167,30 @@ function start(port = 3000) {
 	//*        Download Episode       *//
 	//*///////////////////////////////*//
 	app.get('/get/episode/download', async (req, res, next) => {
-		let animeId = Number.parseInt(req.query.animeId);
-		let episodeId = Number.parseInt(req.query.episodeId);
-		let videoPlayerId = Number.parseInt(req.query.videoPlayerId);
-		let format = req.query.format ? JSON.parse(req.query.format) : null;
-		let url = req.query.url;
+		let animeId;
+		let episodeId;
+		let videoPlayerId;
+		let format;
+		let url;
+
+		try {
+			animeId = Number.parseInt(req.query.animeId);
+			episodeId = Number.parseInt(req.query.episodeId);
+			videoPlayerId = Number.parseInt(req.query.videoPlayerId);
+			format = req.query.format ? JSON.parse(req.query.format) : null;
+			url = req.query.url;
+		}
+		catch(e)
+		{
+			console.error(e);
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
 
 		console.log("?animeId = "+animeId);
 		console.log("?episodeId = "+episodeId);
 		console.log("?videoPlayerId = "+videoPlayerId);
-		console.log("?ytFormat = "+format);
+		console.log("?ytFormat = "+JSON.stringify(format));
 		console.log("?url = "+url);
 		
 		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
@@ -193,7 +207,7 @@ function start(port = 3000) {
 		if (!download.isDownloading && !download.isPending) download.download(url, format);
 
 		//Episode
-		res.sendStatus(HttpStatus.PROCESSING);
+		res.status(HttpStatus.PROCESSING);
 		res.send(JSON.stringify({progress:download.progress}));
 	});
 

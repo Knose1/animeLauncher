@@ -117,8 +117,8 @@ export default class FileLoader {
 		if (FileLoader._instance == this) 
 		{
 			FileLoader._instance = null;
-			_reset();
 		}
+		this._reset();
 	}
 	
 	/**
@@ -268,6 +268,9 @@ export default class FileLoader {
 				On parse le résultat en text ou en blob en fonction de la réponse
 			*/
 			
+			/**
+			 * @type {Promise<*>}
+			 */
 			let lFunction = null;
 
 			switch (currentLoadingItem.type) {
@@ -281,7 +284,16 @@ export default class FileLoader {
 					break;
 
 				case FileToLoad.getTYPE_JSON():
-					lFunction = pResult.json();
+					
+					lFunction = pResult.text().then(txt => {
+						console.group("JSON");
+						console.log(txt);
+						return JSON.parse(txt);
+					})
+					.catch( e => {
+						console.log(e);
+					})
+					.finally( () => console.groupEnd() );
 					break;
 			}
 
