@@ -15,22 +15,26 @@ export default class Loader
 	 * @param {number[]} numbers 
 	 * @param {Function} onComplete 
 	 */
-	static preloadDefaultThumbnail(numbers, onComplete)
+	static preloadDefaultThumbnail(numbers, onComplete, onprogress)
 	{
 		console.group("Thumbnail");
 		console.log(numbers);
 		console.groupEnd();
 
-		FileLoader.getInstance()._reset();
+		let fl = new FileLoader();
 		for (let i = numbers.length - 1; i >= 0; i--) {
 			let num = numbers[i];
-			FileLoader.getInstance().readAsBlob(`/asset/thumbnail/${num}.png?width=640&height=358&textSize=300`, (url) => {
+			
+			if (this.defaultThumbnailList[num]) continue;
+
+			fl.readAsBlob(`/asset/thumbnail/${num}.png?width=640&height=358&textSize=300`, (url) => {
 				this.defaultThumbnailList[num] = url;
 			});
 		}
 
-		FileLoader.getInstance().oncomplete = () => {
-			FileLoader.getInstance().oncomplete = null;
+		fl.oncomplete = () => {
+			fl.oncomplete = null;
+			fl.onprogress = null;
 
 			console.group("Blob Thumbnail");
 			console.log(this.defaultThumbnailList);
@@ -39,7 +43,13 @@ export default class Loader
 			onComplete();
 		};
 
-		FileLoader.getInstance().start();
+		if (onprogress) {
+			fl.onprogress = (p) => {
+				onprogress(p);
+			};
+		}
+
+		fl.start();
 	}
 
 	static start()
@@ -74,13 +84,13 @@ export default class Loader
 		FileLoader.getInstance().start();
 	}
 	
-	static getEpisodeInfo(animeId, episodeId, callback)
+	static getEpisodeInfo(animeId, episodeId, callback, loadYtInfo = true)
 	{
 		animeId = Number.parseInt(animeId);
 		episodeId = Number.parseInt(episodeId);
 
 		FileLoader.getInstance()._reset()
-		.readAsJson(`./get/episode/info?animeId=${animeId}&episodeId=${episodeId}`, (data) => {
+		.readAsJson(`./get/episode/info?animeId=${animeId}&episodeId=${episodeId}&loadYtInfo=${loadYtInfo}`, (data) => {
 			console.log(data);
 			callback(data);
 		})

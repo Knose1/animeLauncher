@@ -141,16 +141,30 @@ function start(port = 3000) {
 		
 		let animeId = Number.parseInt(req.query.animeId);
 		let episodeId = Number.parseInt(req.query.episodeId);
+		let loadYtInfo = req.query.loadYtInfo;
+
+		try {
+			loadYtInfo = JSON.parse(loadYtInfo);
+			if (typeof(loadYtInfo) !== "boolean") 
+			{
+				loadYtInfo = true;
+			}
+		}
+		catch(e)
+		{
+			loadYtInfo = true;
+		}
 
 		console.log("?animeId = "+animeId);
 		console.log("?episodeId = "+episodeId);
+		console.log("?loadYtInfo = "+loadYtInfo);
 		
 		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
 		if (!lEpisode) return;
 		
 		//Get episode info and send
 		try {
-			let info = await lEpisode.getInfo();
+			let info = await lEpisode.getInfo(loadYtInfo);
 
 			res.contentType("application/json");
 			res.send(JSON.stringify(info));

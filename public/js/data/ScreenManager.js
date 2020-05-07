@@ -67,7 +67,11 @@ export default class ScreenManager {
 		console.log(this.animes);
 
 
-		HTMLManager.body.innerText = "Generating default episode thumbnail please wait..."
+		HTMLManager.body.innerHTML = "Generating default episode thumbnail please wait...</br>"
+		
+		let progress = document.createElement("p");
+
+		HTMLManager.body.append(progress);
 
 		let episodeIds = [];
 		for (let i = this.animes.length - 1; i >= 0; i--) {
@@ -89,6 +93,9 @@ export default class ScreenManager {
 				this.removeListeners();
 				this.generateAnimeListHTML();
 			}, true);
+		}, 
+		(p) => {
+			progress.innerText = "Progress: "+(p*100)+"%";
 		});
 	}
 	
@@ -135,7 +142,29 @@ export default class ScreenManager {
 
 			this.addListener(lElement, "click", () => {
 				this.removeListeners();
-				this.generateEpisodeListHTML(this.animes[id]);
+				let anime = this.animes[id];
+
+				let listIsEpisodeLocal = [];
+
+				let currentIndex = -1;
+				const next = () => {
+					++currentIndex;
+					
+					if (currentIndex >= anime.episodes.length) 
+					{
+						this.generateEpisodeListHTML(anime, listIsEpisodeLocal);
+						return;
+					}
+
+					let epId = anime.episodes[currentIndex].episodeId;
+
+					Loader.getEpisodeInfo(id, epId, (d) => {
+						listIsEpisodeLocal[epId] = d.isLocal;
+						next();
+					}, false);
+				};
+
+				next();
 			});
 
 		}
@@ -143,8 +172,9 @@ export default class ScreenManager {
 		this.allowStaticListener();
 	}
 
-	static generateEpisodeListHTML(anime)
+	static generateEpisodeListHTML(anime, listIsEpisodeLocal)
 	{
+		debugger;
 		let episodeString = "";
 
 		for (let i = 0; i < anime.episodes.length; i++) {
@@ -158,8 +188,18 @@ export default class ScreenManager {
 						${poster}
 						<h2>${e.name || "Episode " + e.episodeId}</h2>
 					</button>
-				</li>
 			`
+
+			if (listIsEpisodeLocal[e.episodeId]) 
+			{
+				episodeString += `
+					<button>
+						<h2>Watch local</h2>
+					</button>
+				`
+			}
+
+			episodeString += `</li>`;
 		}
 
 		HTMLManager.body.innerHTML =
