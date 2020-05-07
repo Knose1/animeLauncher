@@ -142,7 +142,11 @@ export default class Loader
 		}
 		loader.onparseerror = loader.onerror = (e) => 
 		{
-			//reject(e);
+			console.log(e);
+			setTimeout(
+				() => { Loader.listDownload(); },
+				2000
+			);
 		}
 		loader.start();
 	}
