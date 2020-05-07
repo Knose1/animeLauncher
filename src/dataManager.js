@@ -727,9 +727,8 @@ class YoutubePlayer extends VideoPlayer {
 
 		let stream = video.pipe(fs.createWriteStream(path));
 		stream.on('finish', () => {
+			await stream.close();
 			this._dispatchOnComplete(emitter, { progress: 100, contentType:format.mimeType, fileName: path });
-			res.writeHead(204);
-			res.end();
 		});
 
 		return emitter;

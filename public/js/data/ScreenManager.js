@@ -190,7 +190,7 @@ export default class ScreenManager {
 		this.addListener(HTMLManager.body.querySelector("#downloadAll"), "click", () => {
 			this.removeListeners();
 
-			let i = 0;
+			let i = -1;
 			let next = () => 
 			{
 				if (++i >= episodeButtons.length) 
@@ -350,10 +350,12 @@ export default class ScreenManager {
 		for (let i = downloadList.length - 1; i >= 0; i--) {
 			let lElement = downloadList[i];
 			//const oncomplete = () => {next()}
-			const oncomplete = () => {
+			const oncomplete = (p) => {
+				alert("Download success ! Progess : "+p.progress);
 				ScreenManager.generateEpisodeListHTML(anime);
 			};
-			const catchError = () => {
+			const catchError = (e) => {
+				alert("Can't download episode\nError : "+e);
 				ScreenManager.allowStaticListener();
 			};
 			const ytdlHandeler = () => {

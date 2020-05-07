@@ -45,6 +45,9 @@ export default class Loader
 	static start()
 	{
 		Loader.loadAnimeList();
+		/*
+			Loader.listDownload();
+		*/
 	}
 
 	static loadAnimeList()
@@ -112,9 +115,8 @@ export default class Loader
 			reqUrl.searchParams.set("url", url);
 
 			let loader = new FileLoader().readAsJson(reqUrl.toString(), (json) => {
-				//json but no need bro
 				loader._destroy();
-				resolve();
+				resolve(json);
 			});
 			loader.onparseerror = loader.onerror = (e) => 
 			{
@@ -126,7 +128,23 @@ export default class Loader
 
 	static listDownload()
 	{
-		
+		let loader = new FileLoader().readAsJson(list, (json) => {
+			//json but no need bro
+			loader._destroy();
+			//resolve();
+		});
+		loader.oncomplete() 
+		{
+			setTimeout(
+				() => { Loader.listDownload(); },
+				2000
+			);
+		}
+		loader.onparseerror = loader.onerror = (e) => 
+		{
+			//reject(e);
+		}
+		loader.start();
 	}
 
 	static onListLoaded(data)

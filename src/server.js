@@ -207,8 +207,7 @@ function start(port = 3000) {
 		if (!download.isDownloading && !download.isPending) download.download(url, format);
 
 		//Episode
-		res.status(HttpStatus.PROCESSING);
-		res.send(JSON.stringify({progress:download.progress}));
+		res.send(JSON.stringify({progress:(download.progress || 0)}));
 	});
 
 	//*///////////////////////////////*//
