@@ -1,65 +1,54 @@
 import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
-import {ScreenElementManager, GenerateThumbnailIndicator, ProgressIndicator} from './ScreenElement';
+import 
+{
+	ScreenElementManager,
+	ScreenElement,
+	ScreenElementFromElement,
+	ProgressIndicator,
+	ButtonElement,
+	MenuButtonElement,
+}
+from './ScreenElement';
 
 export default class ScreenManager {
 
-	/**
-	 * @typedef Listener
-	 * @property {HTMLElement} elm 
-	 * @property {string} type 
-	 * @property {function} handeler 
-	 * @property {boolean} isStatic 
-	 */
-
-	/**
-	 * 
-	 * @param {HTMLElement} elm 
-	 * @param {string} type 
-	 * @param {function} handeler 
-	 * @param {boolean} isStatic 
-	 */
-	static addListener(elm, type, handeler, isStatic = false)
+	static init()
 	{
-		elm.addEventListener(type, handeler);
-		this.listeners.push({elm, type, handeler, isStatic});
+		HTMLManager.menuBar.append(
+			//If click on Watch generate AnimeList
+			new MenuButtonElement("Watch", () => {
+				ScreenElementManager.removeListenersOnAllElements();
+				this.generateAnimeListHTML();
+			}),
+			
+			new MenuButtonElement("Edit Animes", () => {
+			}),
+			
+			new MenuButtonElement("Edit Streams", () => {
+			}),
+			
+			new MenuButtonElement("Reload Animes", () => {
+				ScreenElementManager.removeListenersOnAllElements();
+				Loader.loadAnimeList();
+			})
+		);
 	}
 
-	static allowStaticListener()
+	static showLoadingAnime()
 	{
-		for (let i = this.listeners.length - 1; i >= 0; i--) {
-			let lElement = this.listeners[i];
+		HTMLManager.body.clear();
+		HTMLManager.body.append(
+			new ScreenElement("p").setText("Loading Animes...")
+		);
 
-			if (!lElement.isStatic) 
-			{
-				continue;
-			}
-
-			lElement.elm.addEventListener(lElement.type, lElement.handeler);
-		}
-	}
-
-	static removeListeners(removeStatic = false)
-	{
-		for (let i = this.listeners.length - 1; i >= 0; i--) {
-			let lElement = this.listeners[i];
-
-			if (!lElement.isStatic || removeStatic) 
-			{
-				this.listeners.splice(i, 1);
-			}
-
-			lElement.elm.removeEventListener(lElement.type, lElement.handeler);
-		}
 	}
 
 	static initAnimes(json) 
 	{
-		/**
-		 * @type {Listener[]} 
-		 */
-			this.listeners = [];
+		HTMLManager.body.clear();
 
+		/* It's cool to get the anime from the episode */
 		this.animes = json.map( (m) => {
 			m.episodes = m.episodes.map( e => {e.anime = m; return e;});
 			return m;
@@ -67,13 +56,10 @@ export default class ScreenManager {
 
 		console.log(this.animes);
 
-
-		HTMLManager.body.innerHTML = "Generating default episode thumbnail please wait...</br>"
-		
-		let progress = document.createElement("p");
-
-		HTMLManager.body.append(progress);
-
+		/* Get all id (to generate the thumnail) */
+		/**
+		 * @type {number[]}
+		 */
 		let episodeIds = [];
 		for (let i = this.animes.length - 1; i >= 0; i--) {
 			let lAnime = this.animes[i];
@@ -85,19 +71,26 @@ export default class ScreenManager {
 			}
 		}
 
-		Loader.preloadDefaultThumbnail(episodeIds, () => 
-		{
-			this.generateAnimeListHTML()
+		let progress = new ProgressIndicator();
+		
+		HTMLManager.body.append(
+			new ScreenElement("p").setText("Generating default episode thumbnail please wait..."),
+			new ScreenElement("br"),
+			progress
+		);
 
-			//If click on home (static event) generate AnimeList
-			this.addListener(HTMLManager.buttons.home, "click", () => {
-				this.removeListeners();
-				this.generateAnimeListHTML();
-			}, true);
-		}, 
-		(p) => {
-			progress.innerText = "Progress: "+(p*100)+"%";
-		});
+		let oncomplete = () => 
+		{
+			this.generateAnimeListHTML();
+		};
+
+		let onprogress = (p) => 
+		{
+			progress.setProgress(p);
+		}
+
+		/* Generate the Thumbnails */
+		Loader.preloadDefaultThumbnail(episodeIds, oncomplete, onprogress);
 	}
 	
 	/**
@@ -119,7 +112,7 @@ export default class ScreenManager {
 					<h1>${a.name}</h1>
 				</button>
 			</li>`
-			
+			//new AnimeElement();
 			
 		}
 

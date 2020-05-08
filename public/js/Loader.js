@@ -14,6 +14,7 @@ export default class Loader
 	 * 
 	 * @param {number[]} numbers 
 	 * @param {Function} onComplete 
+	 * @param {Function} onprogress 
 	 */
 	static preloadDefaultThumbnail(numbers, onComplete, onprogress)
 	{
@@ -56,12 +57,14 @@ export default class Loader
 	{
 		Loader.loadAnimeList();
 		/*
-			Loader.listDownload();
+			Loader.getListDownload();
 		*/
 	}
 
 	static loadAnimeList()
 	{
+		ScreenManager.showLoadingAnime();
+
 		let list;
 		FileLoader.getInstance()._reset()
 		FileLoader.getInstance().readAsJson("./get/list", (d) => {
@@ -136,7 +139,7 @@ export default class Loader
 		});
 	}
 
-	static listDownload()
+	static getListDownload()
 	{
 		let loader = new FileLoader().readAsJson(list, (json) => {
 			//json but no need bro
@@ -146,7 +149,7 @@ export default class Loader
 		loader.oncomplete() 
 		{
 			setTimeout(
-				() => { Loader.listDownload(); },
+				() => { Loader.getListDownload(); },
 				2000
 			);
 		}
@@ -154,7 +157,7 @@ export default class Loader
 		{
 			console.log(e);
 			setTimeout(
-				() => { Loader.listDownload(); },
+				() => { Loader.getListDownload(); },
 				2000
 			);
 		}
