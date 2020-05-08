@@ -1,5 +1,6 @@
 import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
+import {ScreenElementManager, GenerateThumbnailIndicator, ProgressIndicator} from './ScreenElement';
 
 export default class ScreenManager {
 
@@ -57,7 +58,7 @@ export default class ScreenManager {
 		/**
 		 * @type {Listener[]} 
 		 */
-		this.listeners = [];
+			this.listeners = [];
 
 		this.animes = json.map( (m) => {
 			m.episodes = m.episodes.map( e => {e.anime = m; return e;});
