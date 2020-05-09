@@ -1,4 +1,4 @@
-import ScreenManager from "./ScreenManager";
+import Loader from '../Loader.js';
 
 class ScreenElementManager {
 
@@ -128,14 +128,55 @@ class ScreenElement {
 
 	/**
 	 * 
-	 * @param  {...HTMLElement} elements 
+	 * @param  {ScreenElement[]} elements 
+	 */
+	appendList(elements)
+	{
+		this.append.apply(this, elements);
+		return this;
+	} 
+
+	/**
+	 * 
+	 * @param  {...ScreenElement} elements 
 	 */
 	append(...elements) 
 	{
 		for (let i = 0; i < elements.length; i++)
 		{
-			this.element.append(elements[i]);
+			this.element.append(elements[i].element);
 		}
+		return this;
+	}
+
+	
+
+	/**
+	 * 
+	 * @param  {string[]} classes 
+	 */
+	addClassList(classes)
+	{
+		this.append.addClass(this, classes);
+		return this;
+	} 
+
+	/**
+	 * 
+	 * @param  {...string} classes 
+	 */
+	addClass(...classes) 
+	{
+		for (let i = 0; i < classes.length; i++)
+		{
+			this.element.classList.add(classes[i]);
+		}
+		return this;
+	}
+
+	setId(id)
+	{
+		this.element.id = id;
 		return this;
 	}
 
@@ -157,6 +198,7 @@ class ScreenElementFromElement extends ScreenElement {
 	 */
 	constructor(element)
 	{
+		super();
 		this.element = element;
 	}
 }
@@ -179,7 +221,7 @@ class ProgressIndicator extends ScreenElement
 	 */
 	setProgress(p) 
 	{
-		this.setText("Progress: "+(p*100)+"%");
+		this.setText("Progress: "+parseInt(p*100)+"%");
 		return this;
 	}
 }
@@ -200,7 +242,6 @@ class ButtonElement extends ScreenElement
 		this.handeler = handeler;
 		this.isStatic = isStatic;
 		this.listen();
-		this.unlisten();
 	}
 
 	setHandeler(handeler, isStatic = false)
@@ -248,18 +289,92 @@ class AnimeElement extends ScreenElement
 {
 	/**
 	 * @param {*} anime
+	 * @param {Function} onclick
 	 */
 	constructor(anime, onclick)
 	{
 		super("li");
 
 		let thumbnail = anime.thumbnailLink ? `<img src="${anime.thumbnailLink}"/>` : "";
-		
+		this.addClass("anime");
+		this.setId(anime.id);
 		this.append(
-			new ButtonElement(onclick)
+			new ButtonElement(() => {onclick(anime);})
 			.setText(thumbnail)
-			.append(new ScreenElement("h1").append.setText(anime.name))
+			.append(new ScreenElement("h1").setText(anime.name))
 		);
+	}
+}
+
+class EpisodeElement extends ScreenElement
+{
+	/**
+	 * @param {*} anime
+	 * @param {*} episode
+	 * @param {boolean} isEpisodeLocal
+	 * @param {Function} onclick
+	 */
+	constructor(anime, episode, isEpisodeLocal, onclick)
+	{
+		super("li");
+
+		let poster = episode.posterLink ? `<img src="${episode.posterLink}"/>` : "";
+		this.addClass("episode");
+		this.setId(`episode ${anime.id}-${episode.episodeId}`);
+		this.append(
+			new ButtonElement(() => {onclick(anime, episode);})
+			.setText(poster)
+			.append(new ScreenElement("h2").setText(episode.name || "Episode " + episode.episodeId))
+		);
+
+		if (isEpisodeLocal)
+		{
+			this.append(new EpisodeWatchButton(anime, episode));
+		}
+	}
+}
+
+class EpisodeWatchButton extends ButtonElement
+{
+	/**
+	 * @param {*} anime
+	 * @param {*} episode
+	 */
+	constructor(anime, episode)
+	{
+		super(() => {
+			ScreenElementManager.removeListeners();
+			Loader.loadLocalEpisode(anime.id, episode.episodeId);
+		});
+
+		this.addClass("watch");
+		this.append(new ScreenElement("h2").setText("Watch local"));
+	}
+}
+
+class ReturnButton extends ButtonElement
+{
+	/**
+	 * @param {Function} handeler
+	 */
+	constructor(handeler)
+	{
+		super(handeler);
+		this.addClass("return");
+		this.setText("Return");
+	}
+}
+
+class DownloadAllButton extends ButtonElement
+{
+	/**
+	 * @param {Function} handeler
+	 */
+	constructor(handeler)
+	{
+		super(handeler);
+		this.addClass("downloadAll");
+		this.setText("Download All");
 	}
 }
 
@@ -271,5 +386,9 @@ export
 	ProgressIndicator,
 	ButtonElement,
 	MenuButtonElement,
-	AnimeElement
+	AnimeElement,
+	EpisodeElement,
+	EpisodeWatchButton,
+	ReturnButton,
+	DownloadAllButton
 };

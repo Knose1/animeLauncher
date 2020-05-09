@@ -8,8 +8,13 @@ import
 	ProgressIndicator,
 	ButtonElement,
 	MenuButtonElement,
+	AnimeElement,
+	EpisodeElement,
+	EpisodeWatchButton,
+	ReturnButton,
+	DownloadAllButton
 }
-from './ScreenElement';
+from './ScreenElement.js';
 
 export default class ScreenManager {
 
@@ -98,48 +103,18 @@ export default class ScreenManager {
 	 */
 	static generateAnimeListHTML()
 	{
-		var animesString = "";
+		HTMLManager.body.clear();
+
+		var animesElms = [];
 		for (let i = 0; i < this.animes.length; i++) {
 			const a = this.animes[i];
 			
-			//Animes
-			let thumbnail = a.thumbnailLink ? `<img src="${a.thumbnailLink}"/>` : "";
-		
-			animesString += 
-			`<li class="anime" id="anime ${a.id}">
-				<button>
-					${thumbnail}
-					<h1>${a.name}</h1>
-				</button>
-			</li>`
-			//new AnimeElement();
-			
-		}
-
-		// **************** //
-		// HTML STARTS HERE //
-		// **************** //
-		HTMLManager.body.innerHTML = 
-		`<ul id="animeList">
-			${animesString}
-		</ul>`;
-		// **************** //
-		//  HTML ENDS HERE  //
-		// **************** //
-
-
-		//Get the anime buttons. On click, get the id of the anime and show the episodes
-		let animeButtons = Array.from(HTMLManager.body.querySelectorAll(".anime > button"));
-		for (let i = animeButtons.length - 1; i >= 0; i--) {
-			let lElement = animeButtons[i].parentElement;
-			let id = parseInt(lElement.id.slice("anime".length));
-
-			this.addListener(lElement, "click", () => {
-				this.removeListeners();
-				let anime = this.animes[id];
-
+			animesElms.push(new AnimeElement(a, (anime) => {
+				ScreenElementManager.removeListeners();
+	
 				let listIsEpisodeLocal = [];
-
+	
+				//Get if the episode is local or not for each episode
 				let currentIndex = -1;
 				const next = () => {
 					++currentIndex;
@@ -149,102 +124,85 @@ export default class ScreenManager {
 						this.generateEpisodeListHTML(anime, listIsEpisodeLocal);
 						return;
 					}
-
+	
 					let epId = anime.episodes[currentIndex].episodeId;
-
-					Loader.getEpisodeInfo(id, epId, (d) => {
+	
+					Loader.getEpisodeInfo(anime.id, epId, (d) => {
 						listIsEpisodeLocal[epId] = d.isLocal;
 						next();
 					}, false);
 				};
-
+	
 				next();
-			});
-
+			}));
 		}
 
-		this.allowStaticListener();
+		console.log(animesElms);
+
+		// **************** //
+		// HTML STARTS HERE //
+		// **************** //
+		HTMLManager.body.append(
+			new ScreenElement("ul").setId("animeList").appendList(animesElms)
+		);
+		// **************** //
+		//  HTML ENDS HERE  //
+		// **************** //
+
+		ScreenElementManager.allowStaticListener();
 	}
 
 	static generateEpisodeListHTML(anime, listIsEpisodeLocal)
 	{
-		debugger;
-		let episodeString = "";
+		HTMLManager.body.clear();
+		
+		let episodeElms = [];
 
 		for (let i = 0; i < anime.episodes.length; i++) {
+			let episode = anime.episodes[i];
+			let isLocal = listIsEpisodeLocal[episode.episodeId];
 
-			const e = anime.episodes[i];
-			let poster = e.posterLink ? `<img src="${e.posterLink}"/>` : "";
-
-			episodeString += `
-				<li class="episode" id="episode ${anime.id}-${e.episodeId}">
-					<button>
-						${poster}
-						<h2>${e.name || "Episode " + e.episodeId}</h2>
-					</button>
-			`
-
-			if (listIsEpisodeLocal[e.episodeId]) 
-			{
-				episodeString += `
-					<button>
-						<h2>Watch local</h2>
-					</button>
-				`
-			}
-
-			episodeString += `</li>`;
-		}
-
-		HTMLManager.body.innerHTML =
-		`<button id="return">Return</button>\n`+
-		`<button id="downloadAll">downloadAll</button>\n`+
-		`<ul style="" class="episodes">
-			${episodeString}
-		</ul>`
-
-		let episodeButtons = Array.from(HTMLManager.body.querySelectorAll(".episode > button"));
-		for (let i = episodeButtons.length - 1; i >= 0; i--) {
-			let lElement = episodeButtons[i].parentElement;
-
-			this.addListener(lElement, "click", () => {
-				this.removeListeners();
-
-				let args = lElement.id.slice("episode".length).split("-").map( i => parseInt(i));
-				Loader.getEpisodeInfo(args[0], args[1], (d) => {ScreenManager.generateEpisodeInfo(d, args[0], args[1])});
-			});
-		}
-		
-		this.addListener(HTMLManager.body.querySelector("#return"), "click", () => {
-			this.removeListeners();
-
-			ScreenManager.generateAnimeListHTML();
-		});
-		
-		this.addListener(HTMLManager.body.querySelector("#downloadAll"), "click", () => {
-			this.removeListeners();
-
-			let i = -1;
-			let next = () => 
-			{
-				if (++i >= episodeButtons.length) 
-				{
-					alert("Download is done");
-					ScreenManager.generateEpisodeListHTML(anime);
-					return;
+			episodeElms.push(new EpisodeElement(anime, episode, isLocal,
+				//OnClick
+				(a,e) => {
+					ScreenElementManager.removeListeners();
+					Loader.getEpisodeInfo(a.id, e.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, args[0], args[1])});
 				}
+			));
+		}
 
-				let lElement = episodeButtons[i].parentElement;
+		HTMLManager.body.append(
+			new ReturnButton(() => {
+				ScreenElementManager.removeListeners();
 	
-				let args = lElement.id.slice("episode".length).split("-").map( i => parseInt(i));
+				ScreenManager.generateAnimeListHTML();
+			}),
+			new DownloadAllButton(() => {
+				ScreenElementManager.removeListeners();
 
-				Loader.getEpisodeInfo(args[0], args[1], (d) => {ScreenManager.generateEpisodeInfoForDownload(d, next)});
-			}
-			
-			next();
-		});
+				let i = -1;
+				let next = () => 
+				{
+					if (++i >= episodeButtons.length) 
+					{
+						alert("Download is done");
+						ScreenManager.generateEpisodeListHTML(anime);
+						return;
+					}
+
+					let lElement = episodeButtons[i].parentElement;
 		
-		this.allowStaticListener();
+					let args = lElement.id.slice("episode".length).split("-").map( i => parseInt(i));
+
+					Loader.getEpisodeInfo(args[0], args[1], (d) => {ScreenManager.generateEpisodeInfoForDownload(d, next)});
+				}
+				
+				next();
+			}),
+			new ScreenElement("ul").addClass("episodes").appendList(episodeElms)
+		);
+		
+		ScreenElementManager.allowStaticListener();
 	}
 
 	static generateEpisodeInfoForDownload(info, next) 
@@ -293,7 +251,7 @@ export default class ScreenManager {
 		HTMLManager.body.innerHTML = lText;
 
 		this.addListener(HTMLManager.body.querySelector("#return"), "click", () => {
-			this.removeListeners();
+			ScreenElementManager.removeListeners();
 
 			ScreenManager.generateAnimeListHTML();
 		});
@@ -373,9 +331,7 @@ export default class ScreenManager {
 		if (watch) 
 		{
 			this.addListener(watch, "click", () => {
-				this.removeListeners();
-					
-				Loader.loadLocalEpisode(info.animeId, info.episodeId);
+				
 			});
 		}
 

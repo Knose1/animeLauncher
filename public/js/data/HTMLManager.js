@@ -1,4 +1,4 @@
-import {ScreenElementFromElement} from './ScreenElement';
+import {ScreenElementFromElement} from './ScreenElement.js';
 
 export default class HTMLManager {
 	static init()
