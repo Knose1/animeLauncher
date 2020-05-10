@@ -12,7 +12,8 @@ import
 	EpisodeElement,
 	EpisodeWatchButton,
 	ReturnButton,
-	DownloadAllButton
+	DownloadAllButton,
+	EpisodeInfoElement
 }
 from './ScreenElement.js';
 
@@ -166,7 +167,7 @@ export default class ScreenManager {
 				//OnClick
 				(a,e) => {
 					ScreenElementManager.removeListeners();
-					Loader.getEpisodeInfo(a.id, e.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, args[0], args[1])});
+					Loader.getEpisodeInfo(a.id, e.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, a, e, listIsEpisodeLocal)});
 				}
 			));
 		}
@@ -259,133 +260,45 @@ export default class ScreenManager {
 		this.allowStaticListener();
 	}
 
-	static generateEpisodeInfo(info)
+	static generateEpisodeInfo(info, anime, episode, listIsEpisodeLocal)
 	{
-		let lText = `<button id="return">Return</button>`
-
-		if (info.isLocal) lText += `<button id="watch">Watch Local</button>`;
-		lText += `<br/><hr/>`;
-		lText += `<br/>`+
-		`<br/>`+
-		`<div>`+
-		`Name : ${info.name}<br/>`+
-		`AnimeId : ${info.animeId}<br/>`+
-		`EpisodeId : ${info.episodeId}<br/>`+
-		`PosterLink : ${info.posterLink}<br/>`+
-		`IsLocal : ${info.isLocal}<br/>`+
-		`HasPoster : ${info.hasPoster}<br/>`+
-		`${info.players.map( (player, i) => {
-
-			let lToReturn = `${player.player.name}:<br/>`+
-			`<div class="tab-1">`+
-			`URL : ${player.url}<br/>`+
-			`isYoutube : ${Boolean(player.isYoutube)}<br/>`+
-			`isNatif : ${player.player.isNatif}<br/>`+
-			`downloadable : ${player.player.downloadable}<br/>`+
-			`autoDownload : ${player.player.autoDownload}<br/>`+
-			`id : ${player.player.id}<br/>`
-			
-			if (player.ytInfo) 
-			{
-				lToReturn += `\tytInfo : <div class="ytInfo">${player.ytInfo.formats.map( (f, ytIndex) => 
-				{
-					return `<div class="tab-1 code"><pre class="tab-1">${JSON.stringify(f,"",3)}</pre>`+
-					`<button class="download yt" id="dl ${i}-${ytIndex}">download</button></div>`
-				}).join("<br/><br/>")}</div><br/>`;
-			}
-			else if (player.player.autoDownload) {
-				lToReturn += `<button class="download autoDownload" id="dl ${i}">download</button>`;
-				lToReturn += `</div>`;
-			}
-			else {
-				lToReturn += `<button class="download" id="dl ${i}">show iFrame for download</button>`;
-				lToReturn += `</div>`;
-			}
-			
-
-			return `<div class="tab-1">${lToReturn}</div>`;
-
-		}).join("<br/>")}`+
-		`</div>`;
-
-		HTMLManager.body.innerHTML = lText;
-
+		HTMLManager.body.clear();
 
 		let animeId = info.animeId;
 		let episodeId = info.episodeId;
 
-		let anime = this.animes[animeId];
+		let elmsToAppend = [];
 
-		let episode = ScreenManager.getEpisodeFromId(anime, episodeId);
+		elmsToAppend.push(new ReturnButton(() => {
+			ScreenElementManager.removeListeners();
 
-		//* RETURN BUTTON *//
-		let returnBtn = HTMLManager.body.querySelector("#return")
-			this.addListener(returnBtn, "click", () => {
-			this.removeListeners();
+			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal);
+		}));
 
-			ScreenManager.generateEpisodeListHTML(anime);
-		});
-		
-		//* WATCH ANIME BUTTON *//
-		let watch = HTMLManager.body.querySelector("#watch");
-		if (watch) 
-		{
-			this.addListener(watch, "click", () => {
-				
-			});
-		}
+		if (info.isLocal) elmsToAppend.push(new EpisodeWatchButton());
 
-		//* DOWNLOAD BUTTON *//
-		let downloadList = HTMLManager.body.querySelectorAll(".download");
-		for (let i = downloadList.length - 1; i >= 0; i--) {
-			let lElement = downloadList[i];
-			//const oncomplete = () => {next()}
-			const oncomplete = (p) => {
-				alert("Download success ! Progess : "+p.progress);
-				ScreenManager.generateEpisodeListHTML(anime);
-			};
-			const catchError = (e) => {
-				alert("Can't download episode\nError : "+e);
-				ScreenManager.allowStaticListener();
-			};
-			const ytdlHandeler = () => {
-				
-				let ids = lElement.id.slice("dl ".length, lElement.id.length).split("-");
-				let player = info.players[parseInt(ids[0])];
-				let format = player.ytInfo.formats[parseInt(ids[1])];
+		elmsToAppend.push(
+			new ScreenElement("br"),
+			new ScreenElement("hr"),
+			new ScreenElement("br"),
+			new ScreenElement("br"),
+			new EpisodeInfoElement(info,
+				//Complete
+				(p) => {
+					alert("Download success ! Progess : "+p.progress);
+					ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal);
+				},
+				//Error
+				(e) => {
+					alert("Can't download episode\nError : "+e);
+					ScreenElement.allowStaticListener();
+				}
+			)
+		);
 
-				this.removeListeners();
-				Loader.download(info.animeId, info.episodeId, player.player.id, player.url, format)
-				.then(oncomplete)
-				.catch(catchError);
-			};
-			
-			const iFrameHandeler = () => {
+		HTMLManager.body.appendList(elmsToAppend);
 
-			};
-
-			const autoDlHandeler = () => {
-				
-				let id = parseInt(lElement.id.slice("dl ".length, lElement.id.length));
-				let player = info.players[id];
-				
-				this.removeListeners();
-				dlPromise = Loader.download(info.animeId, info.episodeId, player.player.id, player.url)
-				.then(oncomplete)
-				.catch(catchError);
-			};
-
-			//Get appropriate download handeler. Default : iFrame
-			let lHandleClick = iFrameHandeler;
-			if (lElement.classList.contains("yt")) 
-				lHandleClick = ytdlHandeler;
-			else if (lElement.classList.contains("autoDownload")) 
-				lHandleClick = autoDlHandeler;
-			
-			
-			this.addListener(lElement, "click", lHandleClick);
-		}
-
+		return;
 		//* SHOW NEXT EPISODE BUTTON *//
 		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
 		let nextButton = null
