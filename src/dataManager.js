@@ -173,7 +173,7 @@ class JsonObject {
 		console.log("Saving "+this.path);
 
 		return new Promise((resolve, reject) => {
-			var data = JSON.stringify(this.value, null, "\t");//add tabs to make it more readable
+			var data = JSON.stringify(this.value, "", "\t");//add tabs to make it more readable
 
 			fs.writeFile(this.path, data, function (err) {
 				if (err) {
@@ -183,6 +183,7 @@ class JsonObject {
 					return;
 				}
 
+				console.log("Saved "+this.path);
 				resolve();
 			});
 		});
@@ -303,9 +304,7 @@ class DownloadEpisode
 	 */
 	_setLocalPath(pathToFile)
 	{
-		let reg = new RegExp(`/^.*(\\|\/)episode(\\|\/).*(\\|\/)/`);
-
-		this.episode.setLocalPath(pathToFile.replace(reg, ""))
+		this.episode.setLocalPath(pathToFile.replace(/^.*(\\|\/)episode(\\|\/).*(\\|\/)/, ""))
 		.then(
 			() => {
 				this.isReady = true;
@@ -908,7 +907,7 @@ class Anime {
 	 */
 	updateJson()
 	{
-		this.jsonObject.value = this.animeConfig;
+		this.jsonObject.value = this.toAnimeConfig();
 		return this.jsonObject.save().catch( () => {console.error(`Can't save anime ${this.name}`);});
 	}
 
@@ -923,10 +922,11 @@ class Anime {
 		 * @type {AnimeConfig}
 		 */
 		let animeConfig = {
-			episodes: this.episodes.map((m) => {return m.toEpisodeConfig()}),
-			name : this.name,
-			thumbnailLink: this.thumbnailLink
+			episodes: this.episodes.map((m) => {return m.toEpisodeConfig()})
 		};
+		
+		if(this.name) 			animeConfig.name = this.name;
+		if(this.thumbnailLink) 	animeConfig.thumbnailLink = this.thumbnailLink;
 
 		return animeConfig;
 	}
@@ -1139,13 +1139,13 @@ class Episode {
 		/**
 		 * @type {EpisodeConfig}
 		 */
-		let config = {
-			name: this.name,
-			episodeId: this.episodeId,
-			posterLink: this.posterLink,
-			links: this.links,
-			localLink: this.localLink,
-		};
+		let config = {};
+
+		if(this.name) 		config.name = this.name;
+		if(this.episodeId) 	config.episodeId = this.episodeId;
+		if(this.posterLink) 	config.posterLink = this.posterLink;
+		if(this.links) 		config.links = this.links;
+		if(this.localLink) 	config.localLink = this.localLink;
 
 		return config;
 	}

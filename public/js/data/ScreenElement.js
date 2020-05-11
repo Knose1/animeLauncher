@@ -1,3 +1,4 @@
+import HTMLManager from './HTMLManager';
 import Loader from '../Loader.js';
 
 class ScreenElementManager {
@@ -216,28 +217,6 @@ class ScreenElementFromElement extends ScreenElement {
 	}
 }
 
-/**
- * Creates a div with text that indicates progress
- */
-class ProgressIndicator extends ScreenElement
-{
-	constructor()
-	{
-		super("div")
-		this.setProgress(0);
-	}
-
-	/**
-	 * 
-	 * @param {number} p Progress
-	 * @returns {this}
-	 */
-	setProgress(p) 
-	{
-		this.setText("Progress: "+parseInt(p*100)+"%");
-		return this;
-	}
-}
 class SrcElement extends ScreenElement 
 {
 	constructor(tagName, src)
@@ -290,6 +269,48 @@ class ButtonElement extends ScreenElement
 }
 
 /**
+ * 
+ */
+class InputElement extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {*} startValue 
+	 * @param {string} placeholder
+	 */
+	constructor(startValue, placeholder)
+	{
+		super("input");
+
+		/**
+		 * @type {HTMLInputElement}
+		 */
+		this.element;
+
+		this.setValue(startValue);
+		this.getValue();
+		this.setPlaceolder(placeholder);
+	}
+
+	setValue(value)
+	{
+		this.element.value = value;
+		return this;
+	}
+
+	getValue()
+	{
+		this.element.value = value;
+	}
+
+	setPlaceolder(placeholder)
+	{
+		this.element.placeholder = placeholder;
+		return this;
+	}
+}
+
+/**
  * Creates a button element listening to click event
  */
 class MenuButtonElement extends ScreenElement 
@@ -308,6 +329,34 @@ class MenuButtonElement extends ScreenElement
 				new ScreenElement("span").setText(name)
 			)
 		);
+	}
+}
+
+
+/*//////////////////////////////////*/
+/*        PERSONALISED CLASS        */
+/*//////////////////////////////////*/
+
+/**
+ * Creates a div with text that indicates progress
+ */
+class ProgressIndicator extends ScreenElement
+{
+	constructor()
+	{
+		super("div")
+		this.setProgress(0);
+	}
+
+	/**
+	 * 
+	 * @param {number} p Progress
+	 * @returns {this}
+	 */
+	setProgress(p) 
+	{
+		this.setText("Progress: "+parseInt(p*100)+"%");
+		return this;
 	}
 }
 
@@ -437,6 +486,21 @@ class EpisodeInfoElement extends ScreenElement
 
 class PlayerInfoElement extends ScreenElement
 {
+	static setCurrentIFrame(src) 
+	{
+		PlayerInfoElement.closeIframe();
+		PlayerInfoElement.currentIframe = new IframeDownloadPromiseElement(src);
+		PlayerInfoElement.currentIframe
+		.onconfirm( () => {
+			PlayerInfoElement.closeIframe();
+		})
+		.oncancel( () => {
+			PlayerInfoElement.closeIframe();
+		});
+
+		return PlayerInfoElement.currentIframe;
+	}
+
 	constructor(info, player, id, oncomplete, catchError)
 	{
 		super("div");
@@ -449,8 +513,6 @@ class PlayerInfoElement extends ScreenElement
 			`autoDownload : ${player.player.autoDownload}`, new ScreenElement("br"),
 			`id : ${player.player.id}`, new ScreenElement("br")
 		);
-
-			
 
 		if (player.ytInfo) 
 		{
@@ -489,13 +551,20 @@ class PlayerInfoElement extends ScreenElement
 			this.append(
 				new ButtonElement( () => { 
 					/*Iframe*/ 
-					ScreenElementManager.removeListeners();
+					if (!PlayerInfoElement.isIFrameAppend) HTMLManager.iframeContainer.append(PlayerInfoElement.currentIframe);
 				})
 				.addClass("download")
 				.setId(`dl ${id}`)
 				.setText("Show iFrame for download")
 			);
 		}
+	}
+
+	static closeIframe()
+	{
+		PlayerInfoElement.currentIframe.removeHandelers();
+		PlayerInfoElement.currentIframe = null;
+		HTMLManager.iframeContainer.clear();
 	}
 }
 
@@ -516,14 +585,79 @@ class YtDlFormatElement extends ScreenElement
 	}
 }
 
+class IframeDownloadPromiseElement extends ScreenElement 
+{
+	constructor(src) 
+	{
+		super("div");
+		this.srcElm = new SrcElement("iframe", src);
+		this.append(
+			srcElm,
+			new InputElement("", "Video Url"),
+			new ButtonElement(() => {
+				//Confirm button
+				if (!this._confirm) return;
+				for (let i = 0; i < this._confirm.length; i++) {
+					this._confirm[i](this);
+				}
+			})
+			.append(
+				new ScreenElement("h4").setText("Confirm")
+			),
+			new ScreenElement("br"),
+			new ButtonElement(() => {
+				//Cansel button
+				if (!this._cancel) return;
+				for (let i = 0; i < this._cancel.length; i++) {
+					this._cancel[i](this);
+				}
+			})
+			.append(
+				new ScreenElement("h4").setText("Cansel")
+			)
+		)
+	}
+
+	setSrc(src) 
+	{
+		this.srcElm.setSrc(src);
+	}
+
+	onconfirm(handeler) 
+	{
+		/**
+		 * @type {Function[]}
+		 */
+		(this._confirm = this._confirm || []).push(handeler);
+		return this;
+	}
+
+	oncancel(handeler) 
+	{
+		/**
+		 * @type {Function[]}
+		 */
+		(this._cancel = this._cancel || []).push(handeler);
+		return this;
+	}
+
+	removeHandelers()
+	{
+		this._cancel = null;
+		this._confirm = null;
+	}
+}
+
 export 
 {
 	ScreenElementManager,
 	ScreenElement,
 	ScreenElementFromElement,
-	ProgressIndicator,
+	SrcElement,
 	ButtonElement,
+	InputElement,
 	MenuButtonElement,
+	ProgressIndicator,
 	AnimeElement,
 	EpisodeElement,
 	EpisodeWatchButton,
@@ -531,5 +665,5 @@ export
 	DownloadAllButton,
 	EpisodeInfoElement,
 	PlayerInfoElement,
-	YtDlFormatElement
+	YtDlFormatElement,
 };

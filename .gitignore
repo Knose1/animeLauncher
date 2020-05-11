@@ -3,6 +3,7 @@ episode/*
 node_modules/*
 .vscode/*
 docs/*
+build/*
 
 # Logs
 logs

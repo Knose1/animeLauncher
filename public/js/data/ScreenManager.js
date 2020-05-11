@@ -5,15 +5,19 @@ import
 	ScreenElementManager,
 	ScreenElement,
 	ScreenElementFromElement,
-	ProgressIndicator,
+	SrcElement,
 	ButtonElement,
+	InputElement,
 	MenuButtonElement,
+	ProgressIndicator,
 	AnimeElement,
 	EpisodeElement,
 	EpisodeWatchButton,
 	ReturnButton,
 	DownloadAllButton,
-	EpisodeInfoElement
+	EpisodeInfoElement,
+	PlayerInfoElement,
+	YtDlFormatElement,
 }
 from './ScreenElement.js';
 
@@ -277,6 +281,18 @@ export default class ScreenManager {
 
 		if (info.isLocal) elmsToAppend.push(new EpisodeWatchButton());
 
+		//* SHOW NEXT EPISODE BUTTON *//
+		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
+		if (nextEpisode != null) 
+		{
+			elmsToAppend.push(
+				new ButtonElement(() => {
+					ScreenElementManager.removeListeners();
+					Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal)});
+				}).append(new ScreenElement("h4").setText("Next - Episode "+nextEpisode.episodeId))
+			);
+		}
+
 		elmsToAppend.push(
 			new ScreenElement("br"),
 			new ScreenElement("hr"),
@@ -297,24 +313,7 @@ export default class ScreenManager {
 		);
 
 		HTMLManager.body.appendList(elmsToAppend);
-
-		return;
-		//* SHOW NEXT EPISODE BUTTON *//
-		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
-		let nextButton = null
-		if (nextEpisode != null) 
-		{
-			nextButton = document.createElement("button");
-			this.addListener(nextButton, "click", () => {
-				this.removeListeners();
-				Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d)});
-			});
-
-			nextButton.innerText = "Next - Episode "+nextEpisode.episodeId;
-		}
-		if (nextButton != null) (watch ? watch : returnBtn).after(nextButton);
-
-		this.allowStaticListener();
+		ScreenElementManager.allowStaticListener();
 	}
 
 	/**
