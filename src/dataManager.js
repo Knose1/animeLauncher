@@ -88,6 +88,7 @@
 /** */
 
 const http = require('http');
+const https = require('https');
 var fs = require('fs');
 var ytdl = require('ytdl-core');
 const pathNode = require("path");
@@ -175,7 +176,7 @@ class JsonObject {
 		return new Promise((resolve, reject) => {
 			var data = JSON.stringify(this.value, "", "\t");//add tabs to make it more readable
 
-			fs.writeFile(this.path, data, function (err) {
+			fs.writeFile(this.path, data, (err) => {
 				if (err) {
 					console.log(`There has been an error saving your file "${this.path}".`);
 					console.log(err.message);
@@ -568,7 +569,27 @@ class VideoPlayer {
 		 * @type {fs.WriteStream}
 		 */
 		let file = null;
-		let request = http.get(downloadUrl, options)
+		
+		/**
+		 * @type {http.ClientRequest || https.ClientRequest}
+		 */
+		let request = null;
+
+		switch (url.protocol) {
+			case "http:":
+				request = http.get(downloadUrl, options);
+				break;
+			
+			case "https:":
+				request = https.get(downloadUrl, options);
+				break;
+		
+			default:
+				this._dispatchOnError(emitter, "Protocol not supported");
+				return;
+		}
+
+
 		request.on("response", async (response) => {
 			
 			let len = parseInt(response.headers['content-length'], 10);

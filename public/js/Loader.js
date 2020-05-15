@@ -56,9 +56,7 @@ export default class Loader
 	static start()
 	{
 		Loader.loadAnimeList();
-		/*
-			Loader.getListDownload();
-		*/
+		Loader.getListDownload();
 	}
 
 	static loadAnimeList()
@@ -141,26 +139,30 @@ export default class Loader
 
 	static getListDownload()
 	{
-		let loader = new FileLoader().readAsJson(list, (json) => {
-			//json but no need bro
-			loader._destroy();
-			//resolve();
+		let loader = new FileLoader().readAsJson("./get/list/download", (json) => {
+			ScreenManager.downloadList(json);
 		});
-		loader.oncomplete() 
-		{
+		loader.oncomplete = () => {
 			setTimeout(
-				() => { Loader.getListDownload(); },
+				() => 
+				{ 
+					Loader.getListDownload();
+					loader._destroy();
+				},
 				2000
 			);
-		}
+		};
 		loader.onparseerror = loader.onerror = (e) => 
 		{
 			console.log(e);
 			setTimeout(
-				() => { Loader.getListDownload(); },
+				() => {
+					Loader.getListDownload();
+					loader._destroy(); 
+				},
 				2000
 			);
-		}
+		};
 		loader.start();
 	}
 

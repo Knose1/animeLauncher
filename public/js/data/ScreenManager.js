@@ -10,6 +10,7 @@ import
 	InputElement,
 	MenuButtonElement,
 	ProgressIndicator,
+	ProgressBarIndicator,
 	AnimeElement,
 	EpisodeElement,
 	EpisodeWatchButton,
@@ -18,6 +19,7 @@ import
 	EpisodeInfoElement,
 	PlayerInfoElement,
 	YtDlFormatElement,
+	EpisodeDlProgress
 }
 from './ScreenElement.js';
 
@@ -373,11 +375,6 @@ export default class ScreenManager {
 		this.allowStaticListener();
 	}
 
-	static generateDownloadPhase()
-	{
-		
-	}
-
 	static getNextEpisode(anime, episode) 
 	{
 		let nextEpisode = null;
@@ -405,5 +402,39 @@ export default class ScreenManager {
 		}
 
 		return null;
+	}
+
+	/**
+	 * @typedef DlCurrent
+	 * @property {string} episode
+	 * @property {number} progress
+	 */
+
+	/**
+	 * @typedef DlList
+	 * @property {DlCurrent} current
+	 * @property {string[]} list
+	 */
+
+	/**
+	 * 
+	 * @param {DlList} list 
+	 */
+	static downloadList(list)
+	{
+		HTMLManager.downloadContainer.clear();
+
+		if (!list.current || !list.current.episode) return;
+
+		list.list.splice(list.list.indexOf(list.current.episode), 1);
+
+		HTMLManager.downloadContainer.append(new EpisodeDlProgress(list.current.episode,list.current.progress));
+		
+		if (list.list.length > 0)
+		{
+			HTMLManager.downloadContainer.appendList(
+				list.list.map(m => {new EpisodeElement("div").setText(m); })
+			);
+		}
 	}
 };

@@ -16,6 +16,7 @@
 	"author": "Knose1",
 	"license": "GPL-3.0",
 	"dependencies": {
+		"cors": "^2.8.5",
 		"express": "^4.17.1",
 		"http-status-codes": "^1.4.0",
 		"mime-types": "^2.1.26",

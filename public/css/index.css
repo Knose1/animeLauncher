@@ -48,3 +48,27 @@ button {
 	padding: 10px;
 	width: fit-content;
 }
+
+#downloadContainer > div {
+    display: flex;
+    justify-content: left;
+}
+
+.external {
+    height: 20px;
+    background-color: #555;
+    width: 200px;
+}
+
+#downloadContainer > div > * 
+{
+	margin-right: 20px;
+} 
+#downloadContainer {
+    margin-bottom: 50px;
+}
+
+.content {
+    background-color: #75b4ec;
+    height: 100%;
+}

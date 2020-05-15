@@ -7,6 +7,7 @@ export default class HTMLManager {
 		 * @this HTMLManager
 		 */
 
+		this.downloadContainer = new ScreenElementFromElement(document.getElementById("downloadContainer"));
 		this.iframeContainer = new ScreenElementFromElement(document.getElementById("iframeContainer"));
 		this.body = new ScreenElementFromElement(document.getElementById("body"));
 		this.menuBar = new ScreenElementFromElement(document.getElementById("menuBar"));

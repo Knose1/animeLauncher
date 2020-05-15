@@ -1,4 +1,4 @@
-import HTMLManager from './HTMLManager';
+import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
 
 class ScreenElementManager {
@@ -117,6 +117,7 @@ class ScreenElement {
 		 */
 		this.element = document.createElement(tagName);
 	}
+
 	/**
 	 * 
 	 * @param  {string} txt 
@@ -130,12 +131,16 @@ class ScreenElement {
 	/**
 	 * 
 	 * @param  {(string | ScreenElement)[]} elements 
-	 * @param  {(string | ScreenElement)[]} [join]
+	 * @param  {(string | ScreenElement | function)[]} [join]
 	 */
 	appendList(elements, join = undefined)
 	{
 		if (join != undefined) 
 		{
+			join = join.map(m => {
+				if (m instanceof Function) return m();
+			});
+
 			for (let i = elements.length - 2; i >= 1; i--) {
 				let joinArgs = Array.from(join)
 				joinArgs.unshift(i, 0);
@@ -300,7 +305,7 @@ class InputElement extends ScreenElement
 
 	getValue()
 	{
-		this.element.value = value;
+		return this.element.value;
 	}
 
 	setPlaceolder(placeholder)
@@ -332,11 +337,6 @@ class MenuButtonElement extends ScreenElement
 	}
 }
 
-
-/*//////////////////////////////////*/
-/*        PERSONALISED CLASS        */
-/*//////////////////////////////////*/
-
 /**
  * Creates a div with text that indicates progress
  */
@@ -344,9 +344,18 @@ class ProgressIndicator extends ScreenElement
 {
 	constructor()
 	{
-		super("div")
+		super("div");
+
+		this.setUpProgress();
+
 		this.setProgress(0);
 	}
+
+	/**
+	 * @virtual
+	 * @protected
+	 */
+	setUpProgress(){}
 
 	/**
 	 * 
@@ -359,6 +368,42 @@ class ProgressIndicator extends ScreenElement
 		return this;
 	}
 }
+
+class ProgressBarIndicator extends ProgressIndicator
+{
+	constructor()
+	{
+		super();
+	}
+
+	/**
+	 * @virtual
+	 * @protected
+	 */
+	setUpProgress()
+	{
+		this.addClass("external");
+		this.progressContent = new ScreenElement("div").addClass("content");
+
+		this.append(this.progressContent);
+	}
+
+	/**
+	 * 
+	 * @param {number} p Progress
+	 * @returns {this}
+	 */
+	setProgress(p) 
+	{
+		this.progressContent.element.style.width=`${p*100}%`;
+		return this;
+	}
+}
+
+
+/*//////////////////////////////////*/
+/*        PERSONALISED CLASS        */
+/*//////////////////////////////////*/
 
 class AnimeElement extends ScreenElement
 {
@@ -486,17 +531,23 @@ class EpisodeInfoElement extends ScreenElement
 
 class PlayerInfoElement extends ScreenElement
 {
+	/**
+	 * 
+	 * @param {string} src
+	 * @returns {IframeDownloadPromiseElement}
+	 */
 	static setCurrentIFrame(src) 
 	{
 		PlayerInfoElement.closeIframe();
+		
+		
 		PlayerInfoElement.currentIframe = new IframeDownloadPromiseElement(src);
 		PlayerInfoElement.currentIframe
-		.onconfirm( () => {
-			PlayerInfoElement.closeIframe();
-		})
-		.oncancel( () => {
+		.onEnd( () => {
 			PlayerInfoElement.closeIframe();
 		});
+
+		HTMLManager.iframeContainer.append(PlayerInfoElement.currentIframe);
 
 		return PlayerInfoElement.currentIframe;
 	}
@@ -550,8 +601,12 @@ class PlayerInfoElement extends ScreenElement
 		else {
 			this.append(
 				new ButtonElement( () => { 
-					/*Iframe*/ 
-					if (!PlayerInfoElement.isIFrameAppend) HTMLManager.iframeContainer.append(PlayerInfoElement.currentIframe);
+					/*Iframe*/
+					PlayerInfoElement.setCurrentIFrame(player.url)
+					.onconfirm((it) => {
+						alert(`URL : "${it.inputElm.getValue()}"`);
+						Loader.download(info.animeId, info.episodeId, player.player.id, it.inputElm.getValue());
+					});
 				})
 				.addClass("download")
 				.setId(`dl ${id}`)
@@ -562,7 +617,7 @@ class PlayerInfoElement extends ScreenElement
 
 	static closeIframe()
 	{
-		PlayerInfoElement.currentIframe.removeHandelers();
+		if(PlayerInfoElement.currentIframe) PlayerInfoElement.currentIframe.removeHandelers();
 		PlayerInfoElement.currentIframe = null;
 		HTMLManager.iframeContainer.clear();
 	}
@@ -587,64 +642,167 @@ class YtDlFormatElement extends ScreenElement
 
 class IframeDownloadPromiseElement extends ScreenElement 
 {
+	/**
+	 * @callback onConfirmCb
+	 * @param {IframeDownloadPromiseElement} th this
+	 * @returns {void}
+	 * @memberof IframeDownloadPromiseElement
+	 */
+	
+	 /**
+	 * @callback onCancelCb
+	 * @param {IframeDownloadPromiseElement} th this
+	 * @returns {void}
+	 * @memberof IframeDownloadPromiseElement
+	 */
+	
+	 /**
+	 * @callback onEndCb
+	 * @returns {void}
+	 * @memberof IframeDownloadPromiseElement
+	 */
+
+	/**
+	 * 
+	 * @param {string} src 
+	 */
 	constructor(src) 
 	{
 		super("div");
 		this.srcElm = new SrcElement("iframe", src);
+		this.inputElm = new InputElement("", "Video Url");
 		this.append(
-			srcElm,
-			new InputElement("", "Video Url"),
+			this.srcElm,
+			this.inputElm,
 			new ButtonElement(() => {
 				//Confirm button
-				if (!this._confirm) return;
-				for (let i = 0; i < this._confirm.length; i++) {
-					this._confirm[i](this);
+				if (this._confirm) {
+					let arr = this._confirm;
+
+					for (let i = 0; i < arr.length; i++) {
+						arr[i](this);
+					}
 				}
+				
+				this.sendOnEnd();
 			})
 			.append(
 				new ScreenElement("h4").setText("Confirm")
 			),
-			new ScreenElement("br"),
 			new ButtonElement(() => {
 				//Cansel button
-				if (!this._cancel) return;
-				for (let i = 0; i < this._cancel.length; i++) {
-					this._cancel[i](this);
+				if (this._cancel) {
+					let arr = this._cancel;
+	
+					for (let i = 0; i < arr.length; i++) {
+						arr[i](this);
+					}
 				}
+
+				this.sendOnEnd();
 			})
 			.append(
 				new ScreenElement("h4").setText("Cansel")
-			)
+			),
+			new ButtonElement(() => {
+				open(src, "_blank ", "toolbar=no,menubar=no", false)
+			})
+			.append(
+				new ScreenElement("h4").setText("Open Iframe in new tab")
+			),
+			new ScreenElement("hr")
 		)
 	}
 
+	/**
+	 * 
+	 * @param {string} src 
+	 */
 	setSrc(src) 
 	{
 		this.srcElm.setSrc(src);
 	}
 
+	/**
+	 * 
+	 * @param {onConfirmCb} handeler 
+	 */
 	onconfirm(handeler) 
 	{
 		/**
-		 * @type {Function[]}
+		 * @type {onConfirmCb[]}
 		 */
 		(this._confirm = this._confirm || []).push(handeler);
 		return this;
 	}
 
+	/**
+	 * 
+	 * @param {onCancelCb} handeler 
+	 */
 	oncancel(handeler) 
 	{
 		/**
-		 * @type {Function[]}
+		 * @type {onCancelCb[]}
 		 */
 		(this._cancel = this._cancel || []).push(handeler);
 		return this;
+	}
+
+	/**
+	 * 
+	 * @param {onEndCb} handeler 
+	 */
+	onEnd(handeler) 
+	{
+		/**
+		 * @type {onEndCb[]}
+		 */
+		(this._end = this._end || []).push(handeler);
+		return this;
+	}
+
+	/**
+	 * @protected
+	 */
+	sendOnEnd() 
+	{
+		if (!this._end) return;
+
+		let arr = this._end;
+
+		for (let i = 0; i < arr.length; i++) {
+			arr[i]();
+		}
 	}
 
 	removeHandelers()
 	{
 		this._cancel = null;
 		this._confirm = null;
+		this._end = null;
+	}
+}
+
+class EpisodeDlProgress extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {number} progress 
+	 */
+	constructor(name, progress)
+	{
+		super("div");
+		
+		this.progressBar = new ProgressBarIndicator().setProgress(progress); 
+		this.progressText = new ProgressIndicator().setProgress(progress);
+		
+		this.append(
+			this.progressBar,
+			this.progressText,
+			" - " + name
+		);
 	}
 }
 
@@ -658,6 +816,7 @@ export
 	InputElement,
 	MenuButtonElement,
 	ProgressIndicator,
+	ProgressBarIndicator,
 	AnimeElement,
 	EpisodeElement,
 	EpisodeWatchButton,
@@ -666,4 +825,5 @@ export
 	EpisodeInfoElement,
 	PlayerInfoElement,
 	YtDlFormatElement,
+	EpisodeDlProgress
 };

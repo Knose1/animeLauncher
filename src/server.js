@@ -80,7 +80,8 @@ function start(port = 3000) {
 	 * @constant
 	 */
 	let app = express();
-	
+	const cors = require('cors');
+	app.use(cors());
 	
 	
 	
@@ -231,14 +232,20 @@ function start(port = 3000) {
 		
 		let downloads = DownloadEpisode.list;
 
-		let currentDlEpisode = DownloadEpisode.currentDownload.episode;
+		let current = {}
+
+		if (DownloadEpisode.currentDownload) 
+		{
+			let currentDlEpisode = DownloadEpisode.currentDownload.episode;	
+			current = {
+				progress: DownloadEpisode.currentDownload.progress,
+				episode: currentDlEpisode.anime.name + " - " + (currentDlEpisode.name || currentDlEpisode.episodeId)
+			}
+		}
 
 		//Episode
 		res.send(JSON.stringify({
-			current: {
-				progress: DownloadEpisode.currentDownload.progress,
-				episode: currentDlEpisode.anime.name + " - " + (currentDlEpisode.name || currentDlEpisode.episodeId)
-			},
+			current: current,
 			list : downloads.map( (d) => {
 				let e = d.episode;
 				return e.anime.name + " - " + (e.name || e.episodeId);
