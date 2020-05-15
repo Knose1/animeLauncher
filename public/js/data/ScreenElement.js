@@ -234,6 +234,36 @@ class SrcElement extends ScreenElement
 	{
 		this.element.src = src;
 	}
+
+	/**
+	 * 
+	 * @param {boolean} bool 
+	 */
+	setControls(bool)
+	{
+		this.element.controls = bool;
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param {boolean} bool 
+	 */
+	setAutoplay(bool)
+	{
+		this.element.autoplay = bool;
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param {string} src 
+	 */
+	setPoster(src)
+	{
+		this.element.poster = src;
+		return this;
+	}
 }
 
 /**
@@ -436,7 +466,7 @@ class EpisodeElement extends ScreenElement
 	 * @param {boolean} isEpisodeLocal
 	 * @param {Function} onclick
 	 */
-	constructor(anime, episode, isEpisodeLocal, onclick)
+	constructor(anime, episode, isEpisodeLocal, listIsEpisodeLocal, onclick)
 	{
 		super("li");
 
@@ -453,7 +483,7 @@ class EpisodeElement extends ScreenElement
 
 		if (isEpisodeLocal)
 		{
-			this.append(new EpisodeWatchButton(anime, episode, "h2"));
+			this.append(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, "h2"));
 		}
 	}
 }
@@ -465,11 +495,11 @@ class EpisodeWatchButton extends ButtonElement
 	 * @param {*} episode
 	 * @param {"h1" | "h2" | "h3" | "h4" | "h5" | "h6"} innerTextElementTag
 	 */
-	constructor(anime, episode, innerTextElementTag="h4")
+	constructor(anime, episode, listIsEpisodeLocal, innerTextElementTag="h4")
 	{
 		super(() => {
 			ScreenElementManager.removeListeners();
-			Loader.loadLocalEpisode(anime.id, episode.episodeId);
+			Loader.loadLocalEpisode(anime.id, episode.episodeId, listIsEpisodeLocal);
 		});
 
 		this.addClass("watch");

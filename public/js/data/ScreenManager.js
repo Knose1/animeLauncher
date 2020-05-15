@@ -34,11 +34,11 @@ export default class ScreenManager {
 				this.generateAnimeListHTML();
 			}),
 			
-			new MenuButtonElement("Edit Animes", () => {
+			/*new MenuButtonElement("Edit Animes", () => {
 			}),
 			
 			new MenuButtonElement("Edit Streams", () => {
-			}),
+			}),*/
 			
 			new MenuButtonElement("Reload Animes", () => {
 				ScreenElementManager.removeListenersOnAllElements();
@@ -169,7 +169,7 @@ export default class ScreenManager {
 			let episode = anime.episodes[i];
 			let isLocal = listIsEpisodeLocal[episode.episodeId];
 
-			episodeElms.push(new EpisodeElement(anime, episode, isLocal,
+			episodeElms.push(new EpisodeElement(anime, episode, isLocal, listIsEpisodeLocal,
 				//OnClick
 				(a,e) => {
 					ScreenElementManager.removeListeners();
@@ -184,7 +184,7 @@ export default class ScreenManager {
 	
 				ScreenManager.generateAnimeListHTML();
 			}),
-			new DownloadAllButton(() => {
+			/*new DownloadAllButton(() => {
 				ScreenElementManager.removeListeners();
 
 				let i = -1;
@@ -205,7 +205,7 @@ export default class ScreenManager {
 				}
 				
 				next();
-			}),
+			}),*/
 			new ScreenElement("ul").addClass("episodes").appendList(episodeElms)
 		);
 		
@@ -281,7 +281,7 @@ export default class ScreenManager {
 			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal);
 		}));
 
-		if (info.isLocal) elmsToAppend.push(new EpisodeWatchButton());
+		if (info.isLocal) elmsToAppend.push(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal));
 
 		//* SHOW NEXT EPISODE BUTTON *//
 		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
@@ -324,7 +324,7 @@ export default class ScreenManager {
 	 * @param {number} animeId 
 	 * @param {number} episodeId 
 	 */
-	static showVideo(url, animeId, episodeId)
+	static showVideo(url, animeId, episodeId, listIsEpisodeLocal)
 	{
 		let anime = this.animes[animeId];
 
@@ -332,47 +332,46 @@ export default class ScreenManager {
 
 		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
 		
-		HTMLManager.body.innerHTML = "";
+		HTMLManager.body.clear();
 
-		let title = document.createElement("h2");
-		title.innerText = anime.name + " - " + (episode.name || "Episode " + episodeId)
+		HTMLManager.body.append(
+			new SrcElement("video", url)
+				.setControls(true)
+				.setAutoplay(false)
+				.setPoster(episode.posterLink || Loader.defaultThumbnailList[episodeId] || `/asset/thumbnail/${episodeId}.png?width:170&height:90&textSize=700`),
+			new ScreenElement("h2")
+				.setText(anime.name + " - " + (episode.name || "Episode " + episodeId)),
+			
+			new ScreenElement("br"),
+			new ScreenElement("br"),
+		);
 
-		let video = document.createElement("video");
-		video.src = url;
-		video.controls = true;
-		video.autoplay = false;
-		video.poster = episode.posterLink || Loader.defaultThumbnailList[episodeId] || `/asset/thumbnail/${episodeId}.png?width:170&height:90&textSize=700`;
-
-		let nextButton = null
 		if (nextEpisode != null) 
 		{
-			nextButton = document.createElement("button");
-			this.addListener(nextButton, "click", () => {
-				this.removeListeners();
-				Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d)});
-			});
-
-			nextButton.innerText = "Next - Episode "+nextEpisode.episodeId;
+			HTMLManager.body.append(
+				new ButtonElement(
+					() => {
+						ScreenElementManager.removeListeners();
+						
+						//If episode is local, show next video. Else show info
+						if (listIsEpisodeLocal[nextEpisode.episodeId])
+							Loader.loadLocalEpisode(animeId, nextEpisode.episodeId, listIsEpisodeLocal);
+						else 
+							Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal)});
+					}
+				)
+				.setText("Next - Episode "+nextEpisode.episodeId)
+			);
 		}
 
-		let animeButton = null
-		animeButton = document.createElement("button");
-		this.addListener(animeButton, "click", () => {
-			this.removeListeners();
-			ScreenManager.generateEpisodeListHTML(anime);
-		});
-
-		animeButton.innerText = "Return to anime";
-
-		HTMLManager.body.appendChild(video);
-		HTMLManager.body.appendChild(title);
-		HTMLManager.body.appendChild(document.createElement("br"));
-		HTMLManager.body.appendChild(document.createElement("br"));
+		HTMLManager.body.append(new ButtonElement(
+			() => {
+				ScreenElementManager.removeListeners();
+				ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal);
+			}).setText("Return to anime")
+		);
 		
-		if (nextButton != null) HTMLManager.body.appendChild(nextButton);
-		HTMLManager.body.appendChild(animeButton);
-		
-		this.allowStaticListener();
+		ScreenElementManager.allowStaticListener();
 	}
 
 	static getNextEpisode(anime, episode) 

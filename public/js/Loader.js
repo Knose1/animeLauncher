@@ -103,12 +103,12 @@ export default class Loader
 	 * @param {number} animeId 
 	 * @param {number} episodeId 
 	 */
-	static loadLocalEpisode(animeId, episodeId)
+	static loadLocalEpisode(animeId, episodeId, listIsEpisodeLocal)
 	{
 		animeId = Number.parseInt(animeId);
 		episodeId = Number.parseInt(episodeId);
 
-		ScreenManager.showVideo(`./episode/${animeId}/${episodeId}`, animeId, episodeId);
+		ScreenManager.showVideo(`./episode/${animeId}/${episodeId}`, animeId, episodeId, listIsEpisodeLocal);
 		
 	}
 

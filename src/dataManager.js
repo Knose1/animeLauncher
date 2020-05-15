@@ -585,7 +585,9 @@ class VideoPlayer {
 				break;
 		
 			default:
-				this._dispatchOnError(emitter, "Protocol not supported");
+				setTimeout( () => {
+					this._dispatchOnError(emitter, "Protocol not supported");
+				}, 1000 );
 				return;
 		}
 
@@ -598,7 +600,7 @@ class VideoPlayer {
 
 			//Init the file with the response extension
 			if (file === null) {
-				fileName += mime.extension(contentType);
+				fileName = `${fileName}.${mime.extension(contentType)}`;
 				file = fs.createWriteStream(fileName);
 			}
 			
@@ -1147,7 +1149,7 @@ class Episode {
 	{
 		let animePath = this.anime.path;
 
-		return pathNode.join(animePath, (this.isLocal ? this.localLink : `${this.episodeId}`));
+		return pathNode.join(animePath, (this.isLocal ? this.localLink : `ep${this.episodeId}`));
 	}
 
 	/**
