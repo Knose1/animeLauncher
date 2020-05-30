@@ -595,7 +595,17 @@ class PlayerInfoElement extends ScreenElement
 			`id : ${player.player.id}`, new ScreenElement("br")
 		);
 
-		if (player.ytInfo) 
+		if (!player.player.downloadable)
+		{
+			this.append(
+				new ButtonElement(() => {
+					open(player.url, "_blank ", "toolbar=no,menubar=no", false)
+				})
+				.addClass("iframe-watch")
+				.setText("Watch in iFrame")
+			)
+		}
+		else if (player.ytInfo) 
 		{
 			let ytdlInfoList = [];
 			let formats = player.ytInfo.formats;

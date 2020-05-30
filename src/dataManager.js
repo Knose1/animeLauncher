@@ -328,8 +328,6 @@ class DownloadEpisode
 			console.error(`${nameof({DownloadEpisode})} is downloading`);
 		}
 
-		this.isPending = true;
-
 		if (DownloadEpisode.currentDownload === null) 
 		{
 			DownloadEpisode.toDownload.shift();
@@ -343,6 +341,8 @@ class DownloadEpisode
 		}
 		else if (!this.isPending)
 		{
+			this.isPending = true;
+	
 			DownloadEpisode.toDownload.push(
 				{
 					func : this.download.bind(this, url, format),
@@ -379,6 +379,8 @@ class DownloadEpisode
 			this._setLocalPath(recDownloadData.fileName);
 			DownloadEpisode.currentDownload = null;
 			
+			this.destroy();
+
 			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0].func();
 		})
 
@@ -388,10 +390,15 @@ class DownloadEpisode
 		 */
 		(err) => {
 			this.isDownloading = false;
-			console.err(err);
+			console.error(err);
 			
 			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0].func();
 		});
+	}
+
+	destroy()
+	{
+		DownloadEpisode.list.splice( DownloadEpisode.list.indexOf(this), 1);
 	}
 
 	/**
@@ -617,8 +624,16 @@ class VideoPlayer {
 			})
 			
 			response.on('end', async () => {
+				if (!response.complete) 
+				{
+					let err = 'The connection was terminated while the message was still being sent';
+					console.error(err);
+					this._dispatchOnError(emitter, err);
+					return;
+				}
+
 				// close() is async, call resolve after close completes.
-				await file.close();
+				file.close();
 				this._dispatchOnComplete(emitter, {progress:100, contentType, fileName});  
 			});
 		})
@@ -626,15 +641,17 @@ class VideoPlayer {
 			request.abort();
 
 			// Delete the file async. (But we don't check the result)
-			await fs.unlink(fileName); 
-			this._dispatchOnError(emitter, "[Request Timeout] "+fileName);
+			fs.unlink(fileName, () => {
+				this._dispatchOnError(emitter, "[Request Timeout] "+fileName);
+			}); 
 		})
 		// Handle errors
 		.on('error', async (err) => {
 			
 			// Delete the file async. (But we don't check the result)
-			await fs.unlink(fileName); 
-			this._dispatchOnError(emitter, err.message);
+			fs.unlink(fileName, () => {
+				this._dispatchOnError(emitter, err.message);
+			});  
 		});
 
 		return emitter;
