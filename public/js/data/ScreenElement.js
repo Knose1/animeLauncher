@@ -595,7 +595,7 @@ class PlayerInfoElement extends ScreenElement
 			`id : ${player.player.id}`, new ScreenElement("br")
 		);
 
-		if (!player.downloadable)
+		if (!player.player.downloadable)
 		{
 			this.append(
 				new ButtonElement(() => {
