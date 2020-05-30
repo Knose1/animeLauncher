@@ -1,0 +1,32 @@
+{
+	"name": "anime-launcher",
+	"version": "1.0.0",
+	"description": "Software that provides a way to store and organise where you can find your animes (local and remote)",
+	"main": "main.js",
+	"scripts": {
+		"start": "node main.js",
+		"test": "node --inspect main.js",
+		"generate-docs": "node _jsdocGenAndOpen.js .jsdoc.json docs/index.html",
+		"build": "pkg --out-path ./build .",
+		"build-test": "pkg --debug --out-path ./build ."
+	},
+	"keywords": [
+		"anime"
+	],
+	"author": "Knose1",
+	"license": "GPL-3.0",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"http-status-codes": "^1.4.0",
+		"mime-types": "^2.1.26",
+		"pureimage": "^0.2.1",
+		"ytdl-core": "^2.0.0"
+	},
+	"devDependencies": {
+		"foodoc": "0.0.9",
+		"jsdoc": "^3.6.3",
+		"minami": "^1.2.3"
+	},
+	"bin": "main.js"
+}
