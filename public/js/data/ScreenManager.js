@@ -432,7 +432,7 @@ export default class ScreenManager {
 		if (list.list.length > 0)
 		{
 			HTMLManager.downloadContainer.appendList(
-				list.list.map(m => {new EpisodeElement("div").setText(m); })
+				list.list.map(m => {return new ScreenElement("div").setText(m); })
 			);
 		}
 	}
