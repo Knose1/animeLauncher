@@ -332,11 +332,19 @@ class DownloadEpisode
 		{
 			DownloadEpisode.toDownload.shift();
 
-			this.isPending = false;			
+			this.isPending = false;
 			this.isDownloading = true;
 			DownloadEpisode.currentDownload = this;
 
 			let emitter = this.player.download((this.player.autoDownload ? this.episode.getUrlByPlayer(this.player) : url ) , format, this.episode.path);	
+			if (emitter == null) 
+			{
+				DownloadEpisode.currentDownload = null;
+				this.isDownloading = false;
+				if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0].func();
+				return;
+			}
+
 			this._setEvents(emitter);
 		}
 		else if (!this.isPending)
@@ -389,6 +397,7 @@ class DownloadEpisode
 		 * @param {string} err
 		 */
 		(err) => {
+			DownloadEpisode.currentDownload = null;
 			this.isDownloading = false;
 			console.error(err);
 			
@@ -563,7 +572,14 @@ class VideoPlayer {
 	{
 		let emitter = new EventEmitter();
 
-		let url = new URL(downloadUrl);
+		try {
+			let url = new URL(downloadUrl);
+		}
+		catch(_) 
+		{
+			return null;
+		}
+
 		/**
 		 * @type {http.RequestOptions}
 		 */
