@@ -573,7 +573,7 @@ class VideoPlayer {
 		let emitter = new EventEmitter();
 
 		try {
-			let url = new URL(downloadUrl);
+			var url = new URL(downloadUrl);
 		}
 		catch(_) 
 		{
