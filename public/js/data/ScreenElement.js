@@ -139,6 +139,7 @@ class ScreenElement {
 		{
 			join = join.map(m => {
 				if (m instanceof Function) return m();
+				return m;
 			});
 
 			for (let i = elements.length - 2; i >= 1; i--) {
