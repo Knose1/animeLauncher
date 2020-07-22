@@ -54,6 +54,7 @@ console.log = (message, ...optionalParams) =>
 		}
 		else 
 		{
+			process.stdout.cursorTo(0, process.stdout.columns);
 			process.stdout.moveCursor(0,-1);
 			process.stdout.clearLine();
 			process.stdout.cursorTo(0);

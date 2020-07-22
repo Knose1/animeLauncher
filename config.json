@@ -19,6 +19,17 @@
 			"downloadable" : true,
 			"autoDownload" : false
 		},
+		
+		{
+			"name" : "adkami",
+			"prefix" :
+			[
+				"https://www.adkami.com/"
+			],
+			"downloadable" : true,
+			"autoDownload" : false
+		},
+		
 		{
 			"name" : "upstream",
 			"prefix" :
