@@ -401,6 +401,8 @@ class DownloadEpisode
 			this.isDownloading = false;
 			console.error(err);
 			
+			this.destroy();
+
 			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0].func();
 		});
 	}
