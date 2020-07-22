@@ -72,3 +72,7 @@ button {
     background-color: #75b4ec;
     height: 100%;
 }
+
+.dlError {
+    color: red;
+}

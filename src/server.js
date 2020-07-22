@@ -36,16 +36,24 @@ let Episode = dataManager.Episode;
  * &ensp;&ensp;&ensp;Param : `url`  
  * &ensp;&ensp;&ensp;Send : {"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}}  
  * <br/>
- * [GET] `/get/list/download` - Get download list
- * &ensp;&ensp;&ensp;Send : {
- * &ensp;&ensp;&ensp;&ensp;"current": {
- * &ensp;&ensp;&ensp;&ensp;&ensp;"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}
- * &ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name
- * &ensp;&ensp;&ensp;&ensp;},
- * &ensp;&ensp;&ensp;&ensp;"list": [
- * &ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name
- * &ensp;&ensp;&ensp;&ensp;]
- * &ensp;&ensp;&ensp;}  
+ * [GET] `/get/list/download` - Get download list  
+ * ```json
+ * Send: {
+ * 	"current": {
+ * 		"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}
+ * 		"episode": Episode's name
+ * 	},
+ * 	"list": [
+ * 		Episodes's name
+ * 	],
+ * 	"error": [
+ * 		{
+ * 			"episode": Episode's name
+ * 			"error": Error
+ * 		}
+ * 	]
+ * }
+ * ```
  * <br/>  
  * [GET] `/` - Index.html  
  * <br/>  
@@ -219,6 +227,12 @@ function start(port = 3000) {
 		}
 
 		let download = DownloadEpisode.getFromEpisode(lEpisode) || new DownloadEpisode(lEpisode, videoPlayerId);
+		if (download.isError) 
+		{
+			download.destroy();
+			download = new DownloadEpisode(lEpisode, videoPlayerId);
+		}
+
 		if (!download.isDownloading && !download.isPending) download.download(url, format);
 
 		//Episode
@@ -230,7 +244,8 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	app.get('/get/list/download', async (req, res, next) => {
 		
-		let downloads = DownloadEpisode.list;
+		let downloads = DownloadEpisode.toDownload;
+		let errorList = DownloadEpisode.list.filter(e => e.isError);
 
 		let current = {}
 
@@ -239,7 +254,7 @@ function start(port = 3000) {
 			let currentDlEpisode = DownloadEpisode.currentDownload.episode;	
 			current = {
 				progress: DownloadEpisode.currentDownload.progress,
-				episode: currentDlEpisode.anime.name + " - " + (currentDlEpisode.name || currentDlEpisode.episodeId)
+				episode: currentDlEpisode.anime.name + " : " + (currentDlEpisode.name || currentDlEpisode.episodeId)
 			}
 		}
 
@@ -247,8 +262,12 @@ function start(port = 3000) {
 		res.send(JSON.stringify({
 			current: current,
 			list : downloads.map( (d) => {
+				let e = d.downloadEpisode.episode;
+				return e.anime.name + " : " + (e.name || e.episodeId);
+			}),
+			error : errorList.map( (d) => {
 				let e = d.episode;
-				return e.anime.name + " - " + (e.name || e.episodeId);
+				return {episode: e.anime.name + " : " + (e.name || e.episodeId), error : d.error};
 			})
 		}));
 	});

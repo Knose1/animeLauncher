@@ -94,6 +94,7 @@ var ytdl = require('ytdl-core');
 const pathNode = require("path");
 const mime = require("mime-types");
 const event = require("events");
+const { error } = require('console');
 const EventEmitter = event.EventEmitter;
 
 /**
@@ -215,13 +216,14 @@ class DownloadEpisode
 	 */
 
 	/**
-	 * @protected
+	 * @public
 	 * @type {ToDownloadItem[]}
 	 */
 	static get toDownload() {return DownloadEpisode._toDownload || (DownloadEpisode._toDownload = [])}
 	
 	/**
-	 * @protected
+	 * @public get
+	 * @protected set
 	 * @type {DownloadEpisode}
 	 */
 	static get currentDownload() {return DownloadEpisode._currentDownload || null}
@@ -283,6 +285,22 @@ class DownloadEpisode
 		 * @type {boolean}
 		 */
 		this.isDownloading = false;
+
+		/**
+		 * If there is an error
+		 * @public
+		 * @readonly
+		 * @type {boolean}
+		 */
+		this.isError = false;
+
+		/**
+		 * The error
+		 * @public
+		 * @readonly
+		 * @type {string}
+		 */
+		this.error = "";
 
 		/**
 		 * The progress of the download
@@ -399,14 +417,18 @@ class DownloadEpisode
 		(err) => {
 			DownloadEpisode.currentDownload = null;
 			this.isDownloading = false;
+			this.isError = true;
+			this.error = err;
 			console.error(err);
 			
-			this.destroy();
-
 			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0].func();
 		});
 	}
 
+	/**
+	 * Destroy the instance (Removes it from {@link DownloadEpisode#list DownloadEpisode.list}.)
+	 * @public
+	 */
 	destroy()
 	{
 		DownloadEpisode.list.splice( DownloadEpisode.list.indexOf(this), 1);
@@ -617,6 +639,16 @@ class VideoPlayer {
 		}
 
 
+		request.setTimeout(20000, async () => {
+			request.abort();
+
+			file.close();
+			// Delete the file async. (But we don't check the result)
+			fs.unlink(fileName, () => {
+				this._dispatchOnError(emitter, "[Request Timeout] "+fileName);
+			}); 
+		});
+
 		request.on("response", async (response) => {
 			
 			let len = parseInt(response.headers['content-length'], 10);
@@ -642,6 +674,8 @@ class VideoPlayer {
 			})
 			
 			response.on('end', async () => {
+				// close() is async, call resolve after close completes.
+				file.close();
 				if (!response.complete) 
 				{
 					let err = 'The connection was terminated while the message was still being sent';
@@ -650,22 +684,13 @@ class VideoPlayer {
 					return;
 				}
 
-				// close() is async, call resolve after close completes.
-				file.close();
 				this._dispatchOnComplete(emitter, {progress:100, contentType, fileName});  
 			});
 		})
-		.on('timeout', async () => {
-			request.abort();
-
-			// Delete the file async. (But we don't check the result)
-			fs.unlink(fileName, () => {
-				this._dispatchOnError(emitter, "[Request Timeout] "+fileName);
-			}); 
-		})
 		// Handle errors
 		.on('error', async (err) => {
-			
+			file.close();
+
 			// Delete the file async. (But we don't check the result)
 			fs.unlink(fileName, () => {
 				this._dispatchOnError(emitter, err.message);

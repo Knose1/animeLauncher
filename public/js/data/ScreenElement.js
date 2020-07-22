@@ -847,6 +847,27 @@ class EpisodeDlProgress extends ScreenElement
 	}
 }
 
+class EpisodeDlErrorProgress extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {string} error 
+	 */
+	constructor(name, error)
+	{
+		super("div");
+		
+		this.nameElm = new ScreenElement("span").addClass("dlError").setText(name); 
+		this.errorElm = new ScreenElement("span").setText(error);
+		
+		this.append(
+			this.nameElm,
+			this.errorElm,
+		);
+	}
+}
+
 export 
 {
 	ScreenElementManager,
@@ -866,5 +887,6 @@ export
 	EpisodeInfoElement,
 	PlayerInfoElement,
 	YtDlFormatElement,
-	EpisodeDlProgress
+	EpisodeDlProgress,
+	EpisodeDlErrorProgress
 };

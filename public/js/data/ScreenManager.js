@@ -19,7 +19,8 @@ import
 	EpisodeInfoElement,
 	PlayerInfoElement,
 	YtDlFormatElement,
-	EpisodeDlProgress
+	EpisodeDlProgress,
+	EpisodeDlErrorProgress
 }
 from './ScreenElement.js';
 
@@ -408,11 +409,17 @@ export default class ScreenManager {
 	 * @property {string} episode
 	 * @property {number} progress
 	 */
+	/**
+	 * @typedef DlError
+	 * @property {string} episode
+	 * @property {string} error
+	 */
 
 	/**
 	 * @typedef DlList
 	 * @property {DlCurrent} current
 	 * @property {string[]} list
+	 * @property {DlError[]} error
 	 */
 
 	/**
@@ -423,16 +430,23 @@ export default class ScreenManager {
 	{
 		HTMLManager.downloadContainer.clear();
 
-		if (!list.current || !list.current.episode) return;
+		if (list.current && list.current.episode) 
+		{
+			list.list.splice(list.list.indexOf(list.current.episode), 1);
+			HTMLManager.downloadContainer.append(new EpisodeDlProgress(list.current.episode,list.current.progress));
+		}
 
-		list.list.splice(list.list.indexOf(list.current.episode), 1);
-
-		HTMLManager.downloadContainer.append(new EpisodeDlProgress(list.current.episode,list.current.progress));
-		
 		if (list.list.length > 0)
 		{
 			HTMLManager.downloadContainer.appendList(
 				list.list.map(m => {return new ScreenElement("div").setText(m); })
+			);
+		}
+
+		if (list.error.length > 0)
+		{
+			HTMLManager.downloadContainer.appendList(
+				list.error.map(m => {return new EpisodeDlErrorProgress(m.episode, m.error); })
 			);
 		}
 	}
