@@ -49,6 +49,15 @@
 			"autoDownload" : false
 		},
 		{
+			"name" : "mavanimes",
+			"prefix" :
+			[
+				"http://www.mavanimes.co/"
+			],
+			"downloadable" : false,
+			"autoDownload" : false
+		},
+		{
 			"name" : "youtube",
 			"isNatif": true,
 			"isYoutube": true,

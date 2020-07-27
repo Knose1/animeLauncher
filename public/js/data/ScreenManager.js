@@ -118,7 +118,7 @@ export default class ScreenManager {
 			const a = this.animes[i];
 			
 			animesElms.push(new AnimeElement(a, (anime) => {
-				ScreenElementManager.removeListeners();
+				ScreenElementManager.removeListenersOnAllElements();
 	
 				let listIsEpisodeLocal = [];
 	
@@ -173,7 +173,7 @@ export default class ScreenManager {
 			episodeElms.push(new EpisodeElement(anime, episode, isLocal, listIsEpisodeLocal,
 				//OnClick
 				(a,e) => {
-					ScreenElementManager.removeListeners();
+					ScreenElementManager.removeListenersOnAllElements();
 					Loader.getEpisodeInfo(a.id, e.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, a, e, listIsEpisodeLocal)});
 				}
 			));
@@ -181,12 +181,12 @@ export default class ScreenManager {
 
 		HTMLManager.body.append(
 			new ReturnButton(() => {
-				ScreenElementManager.removeListeners();
+				ScreenElementManager.removeListenersOnAllElements();
 	
 				ScreenManager.generateAnimeListHTML();
 			}),
 			/*new DownloadAllButton(() => {
-				ScreenElementManager.removeListeners();
+				ScreenElementManager.removeListenersOnAllElements();
 
 				let i = -1;
 				let next = () => 
@@ -259,7 +259,7 @@ export default class ScreenManager {
 		HTMLManager.body.innerHTML = lText;
 
 		this.addListener(HTMLManager.body.querySelector("#return"), "click", () => {
-			ScreenElementManager.removeListeners();
+			ScreenElementManager.removeListenersOnAllElements();
 
 			ScreenManager.generateAnimeListHTML();
 		});
@@ -277,7 +277,7 @@ export default class ScreenManager {
 		let elmsToAppend = [];
 
 		elmsToAppend.push(new ReturnButton(() => {
-			ScreenElementManager.removeListeners();
+			ScreenElementManager.removeListenersOnAllElements();
 
 			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal);
 		}));
@@ -290,7 +290,7 @@ export default class ScreenManager {
 		{
 			elmsToAppend.push(
 				new ButtonElement(() => {
-					ScreenElementManager.removeListeners();
+					ScreenElementManager.removeListenersOnAllElements();
 					Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal)});
 				}).append(new ScreenElement("h4").setText("Next - Episode "+nextEpisode.episodeId))
 			);
@@ -305,12 +305,13 @@ export default class ScreenManager {
 				//Complete
 				(p) => {
 					alert("Download success ! Progess : "+p.progress);
-					ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal);
+					//ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal);
+					ScreenElementManager.allowStaticListener();
 				},
 				//Error
 				(e) => {
 					alert("Can't download episode\nError : "+e);
-					ScreenElement.allowStaticListener();
+					ScreenElementManager.allowStaticListener();
 				}
 			)
 		);
@@ -352,7 +353,7 @@ export default class ScreenManager {
 			HTMLManager.body.append(
 				new ButtonElement(
 					() => {
-						ScreenElementManager.removeListeners();
+						ScreenElementManager.removeListenersOnAllElements();
 						
 						//If episode is local, show next video. Else show info
 						if (listIsEpisodeLocal[nextEpisode.episodeId])
@@ -367,7 +368,7 @@ export default class ScreenManager {
 
 		HTMLManager.body.append(new ButtonElement(
 			() => {
-				ScreenElementManager.removeListeners();
+				ScreenElementManager.removeListenersOnAllElements();
 				ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal);
 			}).setText("Return to anime")
 		);
@@ -432,7 +433,11 @@ export default class ScreenManager {
 
 		if (list.current && list.current.episode) 
 		{
-			list.list.splice(list.list.indexOf(list.current.episode), 1);
+			let indexOfCurrentEp = list.list.indexOf(list.current.episode);
+			if (indexOfCurrentEp != -1) {
+				list.list.splice(indexOfCurrentEp, 1);
+			}
+			
 			HTMLManager.downloadContainer.append(new EpisodeDlProgress(list.current.episode,list.current.progress));
 		}
 

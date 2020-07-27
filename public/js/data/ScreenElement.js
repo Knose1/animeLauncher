@@ -44,6 +44,8 @@ class ScreenElementManager {
 
 			lElement.elm.element.addEventListener(lElement.type, lElement.handeler);
 		}
+		
+		HTMLManager.overlay.addClass("disabled");
 	}
 
 	/**
@@ -93,6 +95,8 @@ class ScreenElementManager {
 
 			lElement.elm.element.removeEventListener(lElement.type, lElement.handeler);
 		}
+		
+		HTMLManager.overlay.removeClass("disabled");
 	}
 }
 
@@ -179,7 +183,7 @@ class ScreenElement {
 	{
 		this.append.addClass(this, classes);
 		return this;
-	} 
+	}
 
 	/**
 	 * 
@@ -190,6 +194,19 @@ class ScreenElement {
 		for (let i = 0; i < classes.length; i++)
 		{
 			this.element.classList.add(classes[i]);
+		}
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param  {...string} classes 
+	 */
+	removeClass(...classes) 
+	{
+		for (let i = 0; i < classes.length; i++)
+		{
+			this.element.classList.remove(classes[i]);
 		}
 		return this;
 	}
@@ -646,7 +663,9 @@ class PlayerInfoElement extends ScreenElement
 					PlayerInfoElement.setCurrentIFrame(player.url)
 					.onconfirm((it) => {
 						alert(`URL : "${it.inputElm.getValue()}"`);
-						Loader.download(info.animeId, info.episodeId, player.player.id, it.inputElm.getValue());
+						Loader.download(info.animeId, info.episodeId, player.player.id, it.inputElm.getValue())
+						.then(oncomplete)
+						.catch(catchError);
 					});
 				})
 				.addClass("download")

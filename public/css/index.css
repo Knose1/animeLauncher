@@ -76,3 +76,22 @@ button {
 .dlError {
     color: red;
 }
+
+.disabled 
+{
+    display:none !important;
+}
+
+#overlay 
+{
+    display:flex;
+    position:fixed;
+    background:hsl(0 0% 0% / 0.5);
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index:100;
+    align-items:center;
+    justify-content:center;
+}

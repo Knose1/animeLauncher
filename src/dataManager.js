@@ -639,7 +639,7 @@ class VideoPlayer {
 		}
 
 
-		request.setTimeout(20000, async () => {
+		request.setTimeout(30000, async () => {
 			request.abort();
 
 			file.close();
@@ -680,7 +680,7 @@ class VideoPlayer {
 				{
 					let err = 'The connection was terminated while the message was still being sent';
 					console.error(err);
-					this._dispatchOnError(emitter, err);
+					//this._dispatchOnError(emitter, err);
 					return;
 				}
 
