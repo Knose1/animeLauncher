@@ -15,6 +15,16 @@ let FileType =
 	TYPE_HTML
 }
 
+/**
+ * @namespace Public
+ */
+/**
+ * @namespace Common
+ * @memberof Public
+ */
+/**
+ * @memberof Public.Common
+ */
 export default class FileToLoad {
 	
 	/**

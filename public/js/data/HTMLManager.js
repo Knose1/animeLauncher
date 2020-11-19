@@ -1,5 +1,12 @@
 import {ScreenElementFromElement} from './ScreenElement.js';
 
+/**
+ * @namespace Public
+ */
+
+/**
+ * @memberof Public 
+ */
 export default class HTMLManager {
 	static init()
 	{

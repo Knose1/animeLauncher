@@ -1,7 +1,13 @@
 import FileLoader from './utils/FileLoader.js';
 import ScreenManager from './data/ScreenManager.js';
 
+/**
+ * @namespace Public
+ */
 
+/**
+ * @memberof Public 
+ */
 export default class Loader 
 {
 	/**

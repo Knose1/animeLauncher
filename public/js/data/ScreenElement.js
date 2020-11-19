@@ -1,6 +1,22 @@
 import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
 
+/**
+ * @namespace Public
+ */
+/**
+ * @namespace Elements
+ * @memberof Public
+ */
+/**
+ * @namespace Personalised
+ * @memberof Elements
+ */
+
+
+/**
+ * @memberof Public.Elements
+ */
 class ScreenElementManager {
 
 	/**
@@ -106,7 +122,7 @@ class ScreenElementManager {
  * let body = new ScreenElement("div");
  * body.append( new ScreenElement("pre").setText("My text") );
  * 
- * @abstract
+ * @memberof Public.Elements
  */
 class ScreenElement {
 
@@ -225,7 +241,8 @@ class ScreenElement {
 }
 
 /**
- * Creates a ScreenElenem using an HTMLElement
+ * Creates a ScreenElement using an HTMLElement
+ * @memberof Public.Elements 
  */
 class ScreenElementFromElement extends ScreenElement {
 	
@@ -240,6 +257,10 @@ class ScreenElementFromElement extends ScreenElement {
 	}
 }
 
+/**
+ * Creates a screenElement that has a SRC attribute
+ * @memberof Public.Elements 
+ */
 class SrcElement extends ScreenElement 
 {
 	constructor(tagName, src)
@@ -286,6 +307,7 @@ class SrcElement extends ScreenElement
 
 /**
  * Creates a button element listening to click event
+ * @memberof Public.Elements 
  */
 class ButtonElement extends ScreenElement 
 {
@@ -322,7 +344,8 @@ class ButtonElement extends ScreenElement
 }
 
 /**
- * 
+ * Creates an input
+ * @memberof Public.Elements 
  */
 class InputElement extends ScreenElement 
 {
@@ -364,7 +387,8 @@ class InputElement extends ScreenElement
 }
 
 /**
- * Creates a button element listening to click event
+ * Creates button in the main menu (top bar)
+ * @memberof Public.Elements 
  */
 class MenuButtonElement extends ScreenElement 
 {
@@ -387,6 +411,8 @@ class MenuButtonElement extends ScreenElement
 
 /**
  * Creates a div with text that indicates progress
+ * @memberof Public.Elements 
+ * @abstract
  */
 class ProgressIndicator extends ScreenElement
 {
@@ -402,6 +428,7 @@ class ProgressIndicator extends ScreenElement
 	/**
 	 * @virtual
 	 * @protected
+	 * @abstract
 	 */
 	setUpProgress(){}
 
@@ -417,6 +444,10 @@ class ProgressIndicator extends ScreenElement
 	}
 }
 
+/**
+ * Creates a div with a bar that indicates progress
+ * @memberof Public.Elements
+ */
 class ProgressBarIndicator extends ProgressIndicator
 {
 	constructor()
@@ -453,6 +484,10 @@ class ProgressBarIndicator extends ProgressIndicator
 /*        PERSONALISED CLASS        */
 /*//////////////////////////////////*/
 
+/**
+ * An anime button in the anime list
+ * @memberof Public.Elements.Personalised
+ */
 class AnimeElement extends ScreenElement
 {
 	/**
@@ -476,6 +511,10 @@ class AnimeElement extends ScreenElement
 	}
 }
 
+/**
+ * An episode button in the anime's episode list
+ * @memberof Public.Elements.Personalised
+ */
 class EpisodeElement extends ScreenElement
 {
 	/**
@@ -506,6 +545,10 @@ class EpisodeElement extends ScreenElement
 	}
 }
 
+/**
+ * A button to watch the episode
+ * @memberof Public.Elements.Personalised
+ */
 class EpisodeWatchButton extends ButtonElement
 {
 	/**
@@ -525,6 +568,10 @@ class EpisodeWatchButton extends ButtonElement
 	}
 }
 
+/**
+ * A button to return to previous screen 
+ * @memberof Public.Elements.Personalised
+ */
 class ReturnButton extends ButtonElement
 {
 	/**
@@ -538,6 +585,11 @@ class ReturnButton extends ButtonElement
 	}
 }
 
+/**
+ * A button to download all the episodes
+ * @memberof Public.Elements.Personalised
+ * @deprecated
+ */
 class DownloadAllButton extends ButtonElement
 {
 	/**
@@ -551,6 +603,10 @@ class DownloadAllButton extends ButtonElement
 	}
 }
 
+/**
+ * A text that contains infos about the episode
+ * @memberof Public.Elements.Personalised
+ */
 class EpisodeInfoElement extends ScreenElement
 {
 	/**
@@ -577,6 +633,10 @@ class EpisodeInfoElement extends ScreenElement
 	}
 }
 
+/**
+ * A text that contains infos about the videoplayer
+ * @memberof Public.Elements.Personalised
+ */
 class PlayerInfoElement extends ScreenElement
 {
 	/**
@@ -683,6 +743,10 @@ class PlayerInfoElement extends ScreenElement
 	}
 }
 
+/**
+ * A text that formats ytdl string
+ * @memberof Public.Elements.Personalised
+ */
 class YtDlFormatElement extends ScreenElement 
 {
 	constructor(format, index, ondownload) 
@@ -700,6 +764,10 @@ class YtDlFormatElement extends ScreenElement
 	}
 }
 
+/**
+ * An element that opens an Iframe and wait for user input
+ * @memberof Public.Elements.Personalised
+ */
 class IframeDownloadPromiseElement extends ScreenElement 
 {
 	/**
@@ -844,6 +912,10 @@ class IframeDownloadPromiseElement extends ScreenElement
 	}
 }
 
+/**
+ * A progressbar fo
+ * @memberof Public.Elements.Personalised
+ */
 class EpisodeDlProgress extends ScreenElement 
 {
 	/**
@@ -866,6 +938,10 @@ class EpisodeDlProgress extends ScreenElement
 	}
 }
 
+/**
+ * When an episode has errors
+ * @memberof Public.Elements.Personalised
+ */
 class EpisodeDlErrorProgress extends ScreenElement 
 {
 	/**

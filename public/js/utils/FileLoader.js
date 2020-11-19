@@ -21,6 +21,18 @@ const START = -1;
 	</code>
 */
 
+/**
+ * @namespace Public
+ */
+/**
+ * @namespace Common
+ * @memberof Public
+ */
+
+/**
+ * Manage Screen
+ * @memberof Public.Common
+ */
 export default class FileLoader {
 	//static _instance;
 	//_currentLoadingItemIndex;

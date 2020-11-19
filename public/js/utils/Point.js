@@ -1,5 +1,10 @@
-/*
-	Classe qui permet de stocker les x / y et de comparer les valeurs avec d'autres points
+/**
+ * @namespace Public
+ */
+
+/**
+ * Classe qui permet de stocker les x / y et de comparer les valeurs avec d'autres points
+ * @memberof Public 
 */
 export default class Point {
 
@@ -11,8 +16,12 @@ export default class Point {
 		Point.checkIsPointConvertible(this);
 	}
 
+	getSqrtLength() {
+		return x * x + y * y;
+	}
+	
 	getLength() {
-		return Math.sqrt(x * x + y * y);
+		return Math.sqrt(getSqrtLength());
 	}
 
 	equal(pPoint) {

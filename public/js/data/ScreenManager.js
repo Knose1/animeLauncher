@@ -24,6 +24,14 @@ import
 }
 from './ScreenElement.js';
 
+/**
+ * @namespace Public
+ */
+
+/**
+ * Manage Screen
+ * @memberof Public
+ */
 export default class ScreenManager {
 
 	static init()
