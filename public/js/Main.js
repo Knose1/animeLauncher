@@ -9,7 +9,7 @@ import ScreenManager from './data/ScreenManager.js';
  * Main class
  * @memberof Public 
  */
-export default class Main {
+class Main {
 	static start()
 	{
 		HTMLManager.init();
@@ -17,5 +17,7 @@ export default class Main {
 		Loader.start();
 	}
 };
+
+export default Main;
 
 document.addEventListener("DOMContentLoaded", () => {Main.start()});

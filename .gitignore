@@ -2,7 +2,7 @@ _old/*
 episode/*
 node_modules/*
 .vscode/*
-docs/*
+#docs/*
 build/*
 
 # Logs

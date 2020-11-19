@@ -33,7 +33,7 @@ const START = -1;
  * Manage Screen
  * @memberof Public.Common
  */
-export default class FileLoader {
+class FileLoader {
 	//static _instance;
 	//_currentLoadingItemIndex;
 	//loadList;
@@ -353,3 +353,5 @@ export default class FileLoader {
 		pCurrentLoadingItem(doc);
 	}
 }
+
+export default FileLoader;

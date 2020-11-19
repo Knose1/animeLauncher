@@ -10,7 +10,7 @@ import Loader from '../Loader.js';
  */
 /**
  * @namespace Personalised
- * @memberof Elements
+ * @memberof Public.Elements
  */
 
 

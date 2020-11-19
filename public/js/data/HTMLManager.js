@@ -7,7 +7,7 @@ import {ScreenElementFromElement} from './ScreenElement.js';
 /**
  * @memberof Public 
  */
-export default class HTMLManager {
+class HTMLManager {
 	static init()
 	{
 		/**
@@ -21,3 +21,5 @@ export default class HTMLManager {
 		this.overlay = new ScreenElementFromElement(document.getElementById("overlay"));
 	}
 }
+
+export default HTMLManager;

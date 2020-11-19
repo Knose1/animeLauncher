@@ -3,9 +3,18 @@ const TYPE_BLOB = 1;
 const TYPE_JSON = 2;
 const TYPE_HTML = 3;
 
+/**
+ * @namespace Public
+ */
+/**
+ * @namespace Common
+ * @memberof Public
+ */
+
 /** 
  * @readonly
  * @enum {number}
+ * @memberof Public.Common
  */
 let FileType = 
 {
@@ -16,16 +25,9 @@ let FileType =
 }
 
 /**
- * @namespace Public
- */
-/**
- * @namespace Common
- * @memberof Public
- */
-/**
  * @memberof Public.Common
  */
-export default class FileToLoad {
+class FileToLoad {
 	
 	/**
 	 * @returns {FileType}
@@ -67,3 +69,5 @@ export default class FileToLoad {
 		this.callback 	= pCallback;
 	}
 }
+
+export default FileToLoad;

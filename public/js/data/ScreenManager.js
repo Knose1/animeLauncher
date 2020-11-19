@@ -32,7 +32,7 @@ from './ScreenElement.js';
  * Manage Screen
  * @memberof Public
  */
-export default class ScreenManager {
+class ScreenManager {
 
 	static init()
 	{
@@ -464,3 +464,5 @@ export default class ScreenManager {
 		}
 	}
 };
+
+export default ScreenManager;

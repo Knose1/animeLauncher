@@ -1,0 +1,46 @@
+code[class*=language-], pre[class*=language-] 
+{
+	font-size:15px;   
+}
+
+.page-header .signature-attribs {
+    color: #1A1A1A;
+}
+
+dl {
+    margin-bottom: 100px;
+    border: var(--dl-border-color) solid 1.5px;
+    padding: 20px 50px 25px 50px;
+}
+
+article.secondary dl hr:first-child,
+article.secondary dl hr.first {
+    display: none !important;
+}
+
+hr {
+    border-color: var(--hr-Color);
+}
+
+.nav.toc-nav li ul {
+    padding-left: 20px;
+}
+
+/*.callout-info {
+    border-left-color : var(--system-color);
+}
+.callout-info h5 {
+    color: var(--system-color);
+}*/
+
+.symbol-title .name-string, .symbol-title .signature-param, .symbol-title h4.event,
+.toc .nav>li.event>a .name, .toc .nav>li>a .name-string, .toc .nav>li>a .signature-param
+{
+    color: var(--system-oppositeColor)
+}
+
+.signature-type {
+    color: #337ab7;
+}
+
+/* Nice to have : darktheme*/
