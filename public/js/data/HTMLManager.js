@@ -14,6 +14,7 @@ class HTMLManager {
 		 * @this HTMLManager
 		 */
 
+		this.title = new ScreenElementFromElement(document.getElementById("title"));
 		this.downloadContainer = new ScreenElementFromElement(document.getElementById("downloadContainer"));
 		this.iframeContainer = new ScreenElementFromElement(document.getElementById("iframeContainer"));
 		this.body = new ScreenElementFromElement(document.getElementById("body"));

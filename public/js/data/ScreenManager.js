@@ -24,6 +24,12 @@ import
 }
 from './ScreenElement.js';
 
+const LOADING_ANIMES = "Loading Animes...";
+const LOADING_THUMBNAILS = "Loading Thumbnails...";
+const ANIME_NODEJS = "AnimeNodeJs";
+const INFO = "Info";
+const WATCH = "Watch";
+
 /**
  * @namespace Public
  */
@@ -33,6 +39,19 @@ from './ScreenElement.js';
  * @memberof Public
  */
 class ScreenManager {
+
+	/**
+	 * 
+	 * @param {string} title 
+	 * @param {string} htmlTitle 
+	 */
+	static setTitle(title, htmlTitle) 
+	{
+		if (!htmlTitle) htmlTitle = title;
+
+		HTMLManager.title.setText(htmlTitle);
+		document.title = title;
+	}
 
 	static init()
 	{
@@ -58,15 +77,19 @@ class ScreenManager {
 
 	static showLoadingAnime()
 	{
+		this.setTitle(LOADING_ANIMES, ANIME_NODEJS);
+
 		HTMLManager.body.clear();
 		HTMLManager.body.append(
-			new ScreenElement("p").setText("Loading Animes...")
+			new ScreenElement("p").setText(LOADING_ANIMES)
 		);
 
 	}
 
 	static initAnimes(json) 
 	{
+		this.setTitle(LOADING_THUMBNAILS, ANIME_NODEJS);
+
 		HTMLManager.body.clear();
 
 		/* It's cool to get the anime from the episode */
@@ -119,6 +142,8 @@ class ScreenManager {
 	 */
 	static generateAnimeListHTML()
 	{
+		this.setTitle(ANIME_NODEJS);
+
 		HTMLManager.body.clear();
 
 		var animesElms = [];
@@ -170,6 +195,8 @@ class ScreenManager {
 
 	static generateEpisodeListHTML(anime, listIsEpisodeLocal)
 	{
+		this.setTitle(ANIME_NODEJS + " - " + anime.name, anime.name);
+
 		HTMLManager.body.clear();
 		
 		let episodeElms = [];
@@ -221,6 +248,12 @@ class ScreenManager {
 		ScreenElementManager.allowStaticListener();
 	}
 
+	/**
+	 * 
+	 * @deprecated
+	 * @param {*} info 
+	 * @param {*} next 
+	 */
 	static generateEpisodeInfoForDownload(info, next) 
 	{
 		if (info.isLocal) 
@@ -277,10 +310,13 @@ class ScreenManager {
 
 	static generateEpisodeInfo(info, anime, episode, listIsEpisodeLocal)
 	{
+
 		HTMLManager.body.clear();
 
 		let animeId = info.animeId;
 		let episodeId = info.episodeId;
+
+		this.setTitle(INFO + " - " + anime.name + " : " + info.episodeId, INFO + " - " + anime.name + " : " + "Episode " + episodeId);
 
 		let elmsToAppend = [];
 
@@ -337,6 +373,7 @@ class ScreenManager {
 	static showVideo(url, animeId, episodeId, listIsEpisodeLocal)
 	{
 		let anime = this.animes[animeId];
+		this.setTitle(WATCH + " - " + anime.name + " : " + episodeId, anime.name + " : " + "Episode " + episodeId);
 
 		let episode = ScreenManager.getEpisodeFromId(anime, episodeId);
 

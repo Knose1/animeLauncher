@@ -827,15 +827,15 @@ class YoutubePlayer extends VideoPlayer {
 	getInfo(url)
 	{
 		return new Promise((resolve, reject) => {
-			ytdl.getInfo(url, {filter: "audioandvideo"}, (err, info) => {
-				if (err) 
-				{
-					console.error(`Error loading \"${url}\"`);
-					console.error(err);
-					reject(err);
-					return;
-				}
+			ytdl.getInfo(url, {filter: "audioandvideo"})
+			.then(info => {
 				resolve(info);
+			})
+			.catch(err => {
+				console.error(`Error loading \"${url}\"`);
+				console.error(err);
+				reject(err);
+				return;
 			});
 		});
 	}
@@ -1139,8 +1139,13 @@ class Episode {
 			{
 				lToPush.isYoutube = true;
 				if (loadYoutubeInfo) {
-					let ytInfo = await videoPlayer.getInfo(url);
-					lToPush.ytInfo = ytInfo;
+					try {
+						let ytInfo = await videoPlayer.getInfo(url);
+						lToPush.ytInfo = ytInfo;
+					} catch (e) 
+					{
+						lToPush.ytInfo = {formats : []};
+					}
 				}
 			}
 

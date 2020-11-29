@@ -337,6 +337,10 @@ function start(port = 3000) {
 		if (width > 2000 || width <= 0) options.width = null;
 		if (height > 2000 || height <= 0) options.height = null;
 		
+		/**
+		 * @ignore
+		 * @type {string}
+		 */
 		let filePath;
 		try {
 			filePath = await imageWriter.getThumbail(req.params.text, options)
@@ -347,6 +351,10 @@ function start(port = 3000) {
 			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 			return;
 		}
+		
+		//This code is executed on succes
+		/////////////////////////////////
+
 		res.sendFile(filePath, (e) => {
 			if (e) {
 				console.error(e);
