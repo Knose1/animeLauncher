@@ -11,8 +11,20 @@ drawWorker.on("error", (e) => {
 exports.init = function init()
 {
 	return new Promise(async (resolve, reject) => {
-		drawWorker.postMessage({command:commands.fetchFont})
-		drawWorker.once("message", () => {resolve()});
+		drawWorker.postMessage({command:commands.fetchFont});
+		drawWorker.on("message", ({log, message}) => {
+			if (log) {
+				console.log(message);
+			}
+		});
+		function lLog({log}) {
+			if (!log) 
+			{
+				drawWorker.off("message",lLog);
+				resolve();
+			}
+		}
+		drawWorker.on("message", lLog);
 	});
 }
 

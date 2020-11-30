@@ -1,3 +1,8 @@
+const inspector = require("inspector");
+try {
+	inspector.waitForDebugger();
+} catch (_) {}
+
 const JSON_CONFIG = "config.json";
 const JSON_ANIME = "index.json";
 const ANIME_FOLDER = "episode";
@@ -7,7 +12,8 @@ const fs = require("fs");
 const Server = require("./src/server");
 const imageWriter = require("./src/image/imageWriter");
 
-require("./src/global");
+const {createLogFile} = require("./src/global");
+createLogFile();
 
 const dataManager = require("./src/dataManager");
 const JsonObject = dataManager.JsonObject;
@@ -17,7 +23,9 @@ const Anime = dataManager.Anime;
 
 /**
  * @typedef Config
- * @property {VideoPlayerConfig[]} videoPlayers
+ * @property {number} port
+ * @property {boolean} keepThumbnails
+ * @property {dataManager.VideoPlayerConfig[]} videoPlayers
  */
 
 /** 
@@ -25,8 +33,8 @@ const Anime = dataManager.Anime;
  */
 var configLoader = new JsonObject(path.join(__dirname, JSON_CONFIG));
 
-//Init imageWriter
 
+//Init imageWriter
 let tempFileRemove = new Promise((resolve, reject) => {
 
 	console.log("Clearing temp...");
@@ -122,7 +130,7 @@ tempFileRemove.then(
 		console.log(`${Anime.list.length} animes has been loaded`);
 		console.newLine();
 		console.log("Launching server......");
-		Server();
+		Server(configLoader.value);
 	}
 )
 .catch(

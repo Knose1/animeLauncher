@@ -1,14 +1,27 @@
+const CRLF = "\r\n";
+const path = require("path");
+const fs = require('fs');
+const { error } = require("console");
+
 let tabCount = 0;
 let group = console.group;
 let groupEnd = console.groupEnd;
 
 
 let log = console.log;
+let dir = console.dir;
 
 let lastStringLog = null;
 let lastStringLogCount = 0;
+
+console.dir = (item, options) => 
+{
+	writeLog(JSON.stringify(item, null, 1));
+	dir(item,options)
+}
 console.log = (message, ...optionalParams) =>
 {
+
 	if (typeof(message) == "string" && !message.match(/%o/)) 
 	{
 		let matches = message.match(/(%d|%s)/g);
@@ -51,27 +64,35 @@ console.log = (message, ...optionalParams) =>
 			lastStringLog = message
 			lastStringLogCount = 0;
 			process.stdout.write(message + "\n");
+			writeLog(message);
 		}
 		else 
 		{
+			let m = message + ` (${++lastStringLogCount})`;
 			process.stdout.cursorTo(0, process.stdout.columns);
 			process.stdout.moveCursor(0,-1);
 			process.stdout.clearLine();
 			process.stdout.cursorTo(0);
-			process.stdout.write(message + ` (${++lastStringLogCount})` + "\n");
+			process.stdout.write(m + "\n");
+			overrideLine(m);
 		}
 
 		return
 	}
 	else lastStringLog = null;
 
+	if (typeof(message) === "object") 
+	{
+		writeLog(JSON.stringify(message, null, 1));
+	}
+
+	writeLog(message);
 	let args = [message];
 	args.push.apply(args, optionalParams);
 
 	log.apply(console, args);
 }
 
-const path = require("path");
 
 //*//////////////////////////////*//
 //*       Global variables       *//
@@ -95,6 +116,14 @@ var __root = path.resolve(__dirname, "../");//we are in /src so we must go up to
 global.__root = __root;
 
 /**
+ * The path to the logfile
+ * @global
+ * @type {string}
+ */
+var __logFile = "";
+global.__logFile = __logFile;
+
+/**
  * The temp folder of the node.js projet
  * @global
  * @type {string}
@@ -102,5 +131,44 @@ global.__root = __root;
 var __tempFolder = path.join(__root, '_temp');
 global.__tempFolder = __tempFolder;
 
-console.newLine = function() {console.log("\n\r")};
+let logText = "";
+let lastIndexOfLine = 0;
+
+module.exports.createLogFile = createLogFile;
+function createLogFile() 
+{
+	let lLogFolder = path.join(__root, "log");
+		if (!fs.existsSync(lLogFolder)) 
+		{
+			fs.mkdirSync(lLogFolder);
+		}
+		let lFileName = `${new Date(Date.now()).toISOString()}_Log.txt`;
+		lFileName = lFileName.replace(/\\|\/|:|\*|\?|"|\<|\>|\|/g, "-");
+		__logFile = path.join(lLogFolder, lFileName);
+		global.__logFile = __logFile;
+		writeLog("============");
+		writeLog(new Date(Date.now()).toString());
+}
+
+function overrideLine(message, newLine = true) {
+	let line = logText.lastIndexOf(CRLF);
+	logText = logText.slice(0, line);
+	
+	let m = message+(newLine ? CRLF : "");
+	lastIndexOfLine += m.length;
+
+	logText += m;
+
+	fs.writeFileSync(__logFile, logText);
+}
+
+function writeLog(message, newLine = true) {
+	let m = message+(newLine ? CRLF : "");
+	lastIndexOfLine += m.length;
+	logText += m;
+	fs.appendFileSync(__logFile, m);
+}
+global.writeLog = writeLog;
+
+console.newLine = function() {console.log(CRLF)};
 //*//////////////////////////////*//

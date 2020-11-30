@@ -81,9 +81,9 @@ let Episode = dataManager.Episode;
  * 
  * @protected
  * @namespace server
- * @param {number} port - An integer for the server port
- */
-function start(port = 3000) {
+ * @param {Config} config
+*/
+function start(config) {
 	/**
 	 * @constant
 	 */
@@ -91,6 +91,10 @@ function start(port = 3000) {
 	const cors = require('cors');
 	app.use(cors());
 	
+	/**
+	 * @type {number}
+	 */
+	let port = config.port;
 	
 	
 	app.use('*', (req,res,next) =>
@@ -318,11 +322,33 @@ function start(port = 3000) {
 	//*           Thumbnail           *//
 	//*///////////////////////////////*//
 	app.get("/asset/thumbnail/:text.png", async (req, res, next) => {
+		const commands = require("./image/imageWorkerCommands.js");
+
+		let fileExtension = commands.fileExtension;
+
 		let width 			= Number.parseInt	(req.query.width);
 		let height 			= Number.parseInt	(req.query.height);
 		let textSize 		= Number.parseFloat	(req.query.textSize);
 		let backgroundColor = req.query.backgroundColor;
 		let textColor 		= req.query.textColor;
+		let text 			= req.params.text;
+		
+		let thumbailsFolder = path.join(__root,"public/asset/thumbails");
+		let pathToTest = path.join(thumbailsFolder, `${text}.${fileExtension}`);
+		if (!fs.existsSync(thumbailsFolder)) 
+		{
+			fs.mkdirSync(thumbailsFolder);
+		}
+
+		//If keep thumbnails, send them
+		if (config.keepThumbnails) 
+		{
+			let thumbnlailExists = fs.existsSync(pathToTest);
+			if (thumbnlailExists) 
+			{
+				return loadAndSendFile(req, res, pathToTest);
+			}
+		}
 
 		/**
 		 * @type {imageWriter.ThumbailOption}
@@ -343,7 +369,7 @@ function start(port = 3000) {
 		 */
 		let filePath;
 		try {
-			filePath = await imageWriter.getThumbail(req.params.text, options)
+			filePath = await imageWriter.getThumbail(text, options)
 		}
 		catch(e)
 		{
@@ -360,16 +386,26 @@ function start(port = 3000) {
 				console.error(e);
 				return;
 			}
-			console.log(`Removing temp file at path \"${filePath}\"...`);
-			fs.unlink(filePath, (err) => {
-				console.log(`Removed temp file`);
-				if (err) console.error(err);
-			});
+
+			if (config.keepThumbnails) 
+			{
+				//Keep thumbnail
+				let renamePath = pathToTest;
+				fs.rename(filePath, renamePath, () => {
+					console.log(`Saved thumbnail as \"${renamePath}\"`)
+				});
+			}
+			else 
+			{
+				//Remove thumbnail
+				console.log(`Removing temp file at path \"${filePath}\"...`);
+				fs.unlink(filePath, (err) => {
+					console.log(`Removed temp file`);
+					if (err) console.error(err);
+				});
+			}
 		});
 	});
-
-
-
 
 	app.listen(port, function () {
 		console.log(`App listening on port ${port}!`);

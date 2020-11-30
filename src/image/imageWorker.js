@@ -1,4 +1,4 @@
-require("../global");
+require("../global.js");
 const commands = require("./imageWorkerCommands.js");
 const PImage = require('pureimage');
 const fs = require("fs");
@@ -16,8 +16,11 @@ let currentRequest = NONE;
  */
 let requests = [];
 
-parentPort.on("message", 
+function log(message) {
+	parentPort.postMessage({log:true, message:message});
+}
 
+parentPort.on("message", 
 	({command}) => {
 		if (command == commands.fetchFont)
 			fetchFont();
@@ -39,11 +42,11 @@ parentPort.on("close", () => {
 
 function fetchFont()
 {
-	console.log("Loading Cambria font...");
+	log("Loading Cambria font...");
 	var fnt = PImage.registerFont('public/fonts/Cambria.ttf','Cambria');
 	fnt.load(() => {
-		console.log("Loading Cambria font... DONE !");
-		parentPort.postMessage({});
+		log("Loading Cambria font... DONE !");
+		parentPort.postMessage({log:false});
 	});
 }
 
@@ -65,7 +68,7 @@ function generateImage(requestId, text, option)
 	let backgroundColor	= option.backgroundColor || 'rgba(5,5,5,1)';
 	let textColor		= option.textColor 		 || 'rgba(255,255,255,1)';
 
-	console.log(`Generating image with text \"${text}\" and params : \"${JSON.stringify(option)}\"...`);
+	log(`Generating image with text \"${text}\" and params : \"${JSON.stringify(option)}\"...`);
 
 	//Create font layer
 	var img = PImage.make(width,height);
@@ -78,11 +81,11 @@ function generateImage(requestId, text, option)
 	ctx.textBaseline = 'middle'
 	ctx.fillText(text, img.width/2, img.height / 2);
 
-	let filePath = path.join(__tempFolder, tokenGenerator()+'.png');
+	let filePath = path.join(__tempFolder, tokenGenerator()+'.'+commands.fileExtension);
 
 	PImage.encodePNGToStream(img, fs.createWriteStream(filePath))
 	.then(() => {
-		console.log(`Generated an image with text \"${text}\" at path \"${filePath}\"`);
+		log(`Generated an image with text \"${text}\" at path \"${filePath}\"`);
 		parentPort.postMessage({requestId, data:filePath});
 		
 	})
