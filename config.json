@@ -28,7 +28,8 @@
 			"prefix" :
 			[
 				"https://www.anime-ultime.net/",
-				"http://www.anime-ultime.net/"
+				"http://www.anime-ultime.net/",
+				"https://v5.anime-ultime.net/"
 			],
 			"downloadable" : true,
 			"autoDownload" : false

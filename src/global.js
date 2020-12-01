@@ -1,7 +1,6 @@
 const CRLF = "\r\n";
 const path = require("path");
 const fs = require('fs');
-const { error } = require("console");
 
 let tabCount = 0;
 let group = console.group;
@@ -10,6 +9,7 @@ let groupEnd = console.groupEnd;
 
 let log = console.log;
 let dir = console.dir;
+let error = console.error;
 
 let lastStringLog = null;
 let lastStringLogCount = 0;
@@ -19,6 +19,19 @@ console.dir = (item, options) =>
 	writeLog(JSON.stringify(item, null, 1));
 	dir(item,options)
 }
+
+console.error = (message, ...optionalParams) =>
+{
+	writeLog("===ERROR===");
+	writeLog(message);
+	writeLog("===========");
+
+	let args = [message];
+	args.push.apply(args, optionalParams);
+
+	error.apply(console, args);
+}
+
 console.log = (message, ...optionalParams) =>
 {
 
@@ -132,7 +145,6 @@ var __tempFolder = path.join(__root, '_temp');
 global.__tempFolder = __tempFolder;
 
 let logText = "";
-let lastIndexOfLine = 0;
 
 module.exports.createLogFile = createLogFile;
 function createLogFile() 
@@ -152,10 +164,12 @@ function createLogFile()
 
 function overrideLine(message, newLine = true) {
 	let line = logText.lastIndexOf(CRLF);
-	logText = logText.slice(0, line);
 	
-	let m = message+(newLine ? CRLF : "");
-	lastIndexOfLine += m.length;
+	if (line == -1) return writeLog(message,newLine);
+
+	logText = logText.slice(0, line);
+
+	let m = (newLine ? CRLF : "")+message;
 
 	logText += m;
 
@@ -163,8 +177,8 @@ function overrideLine(message, newLine = true) {
 }
 
 function writeLog(message, newLine = true) {
-	let m = message+(newLine ? CRLF : "");
-	lastIndexOfLine += m.length;
+	
+	let m = (newLine && logText.length > 0 ? CRLF : "")+message;
 	logText += m;
 	fs.appendFileSync(__logFile, m);
 }
