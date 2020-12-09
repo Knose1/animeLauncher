@@ -6,8 +6,8 @@ const RESET = -2;
 const START = -1;
 
 /**
-	FileLoader s'occupe de charger les fichiers et transmettre les données à des callbacks.
-	Il peut charger du text ou générer un blob.
+	FileLoader can load files and send their responce using calbacks.
+	It can load text, json, html or blob. See : {@link FileToLoad FileToLoad} 
 	@example
 	<code type="javascript">
 		function init() {
@@ -19,9 +19,9 @@ const START = -1;
 			FileLoader.getInstance().start();
 		}
 	</code>
+ * @memberof Public.Common
 */
-
-export default class FileLoader {
+class FileLoader {
 	//static _instance;
 	//_currentLoadingItemIndex;
 	//loadList;
@@ -52,10 +52,12 @@ export default class FileLoader {
 		/**
 		 * @callback Next
 		 * @returns {void}
+		 * @memberof Public.Common.FileLoader
 		 */
 		/**
 		 * @callback Reset
 		 * @returns {void}
+		 * @memberof Public.Common.FileLoader
 		 */
 
 		/** 
@@ -65,7 +67,8 @@ export default class FileLoader {
 		 * @param {Reset} pReset
 		 * @param {number} pCurrentLoadingItemIndex
 		 * @returns {void}
-		*/
+		 * @memberof Public.Common.FileLoader
+		 */
 		/**
 		 * @type {onerror}
 		 */
@@ -78,7 +81,8 @@ export default class FileLoader {
 		 * @param {Reset} pReset
 		 * @param {number} pCurrentLoadingItemIndex
 		 * @returns {void}
-		*/
+		 * @memberof Public.Common.FileLoader
+		 */
 		/**
 		 * @type {onparseerror}
 		 */
@@ -87,7 +91,8 @@ export default class FileLoader {
 		/** 
 		 * @callback oncomplete
 		 * @returns {void}
-		*/
+		 * @memberof Public.Common.FileLoader
+		 */
 		/**
 		 * @type {oncomplete}
 		 */
@@ -97,7 +102,8 @@ export default class FileLoader {
 		 * @callback onprogress
 		 * @param {number} pProgress
 		 * @returns {void}
-		*/
+		 * @memberof Public.Common.FileLoader
+		 */
 		/**
 		 * @type {onprogress}
 		 */
@@ -122,10 +128,10 @@ export default class FileLoader {
 	}
 	
 	/**
-	 * @namespace FileLoader
 	 * @callback TextDataCallback
 	 * @param {string} pData
 	 * @return {void}
+	 * @memberof Public.Common.FileLoader
 	 */
 
 	/**
@@ -145,10 +151,10 @@ export default class FileLoader {
 
 
 	/**
-	 * @namespace FileLoader
 	 * @callback JsonDataCallback
 	 * @param {*} pData
 	 * @return {void}
+	 * @memberof Public.Common.FileLoader
 	 */
 
 	/**
@@ -168,10 +174,10 @@ export default class FileLoader {
 
 
 	/**
-	 * @namespace FileLoader
 	 * @callback HTMLDataCallback
 	 * @param {Document} pData
 	 * @return {void}
+	 * @memberof Public.Common.FileLoader
 	 */
 
 	/**
@@ -189,10 +195,10 @@ export default class FileLoader {
 	}
 
 	/**
-	 * @namespace FileLoader
 	 * @callback BlobDataCallback
 	 * @param {string} pData
 	 * @return {void}
+	 * @memberof Public.Common.FileLoader
 	 */
 
 	/**
@@ -341,3 +347,5 @@ export default class FileLoader {
 		pCurrentLoadingItem(doc);
 	}
 }
+
+export default FileLoader;

@@ -1,8 +1,9 @@
 _old/*
+_temp/*
 episode/*
 node_modules/*
 .vscode/*
-docs/*
+#docs/*
 build/*
 
 # Logs
@@ -109,3 +110,5 @@ dist
 
 # TernJS port file
 .tern-port
+public/asset/thumbails/
+log/

@@ -1,7 +1,8 @@
-/*
-	Classe qui permet de stocker les x / y et de comparer les valeurs avec d'autres points
+/**
+ * Classe qui permet de stocker les x / y et de comparer les valeurs avec d'autres points
+ * @memberof Public.Common
 */
-export default class Point {
+class Point {
 
 	constructor(pX = 0, pY = 0) {
 
@@ -11,8 +12,12 @@ export default class Point {
 		Point.checkIsPointConvertible(this);
 	}
 
+	getSqrtLength() {
+		return x * x + y * y;
+	}
+	
 	getLength() {
-		return Math.sqrt(x * x + y * y);
+		return Math.sqrt(getSqrtLength());
 	}
 
 	equal(pPoint) {
@@ -50,3 +55,5 @@ export default class Point {
 		if ( !(typeof pPoint.x === "number") || !(typeof pPoint.y === "number")) throw new TypeError(`la propriété x ou y n'as pas été trouvé sur pPoint`);
 	}
 }
+
+export default Point;

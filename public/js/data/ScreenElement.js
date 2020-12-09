@@ -1,6 +1,9 @@
 import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
 
+/**
+ * @memberof Public.Html.Elements
+ */
 class ScreenElementManager {
 
 	/**
@@ -44,6 +47,8 @@ class ScreenElementManager {
 
 			lElement.elm.element.addEventListener(lElement.type, lElement.handeler);
 		}
+		
+		HTMLManager.overlay.addClass("disabled");
 	}
 
 	/**
@@ -93,6 +98,8 @@ class ScreenElementManager {
 
 			lElement.elm.element.removeEventListener(lElement.type, lElement.handeler);
 		}
+		
+		HTMLManager.overlay.removeClass("disabled");
 	}
 }
 
@@ -102,7 +109,7 @@ class ScreenElementManager {
  * let body = new ScreenElement("div");
  * body.append( new ScreenElement("pre").setText("My text") );
  * 
- * @abstract
+ * @memberof Public.Html.Elements
  */
 class ScreenElement {
 
@@ -179,7 +186,7 @@ class ScreenElement {
 	{
 		this.append.addClass(this, classes);
 		return this;
-	} 
+	}
 
 	/**
 	 * 
@@ -190,6 +197,19 @@ class ScreenElement {
 		for (let i = 0; i < classes.length; i++)
 		{
 			this.element.classList.add(classes[i]);
+		}
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param  {...string} classes 
+	 */
+	removeClass(...classes) 
+	{
+		for (let i = 0; i < classes.length; i++)
+		{
+			this.element.classList.remove(classes[i]);
 		}
 		return this;
 	}
@@ -208,7 +228,8 @@ class ScreenElement {
 }
 
 /**
- * Creates a ScreenElenem using an HTMLElement
+ * Creates a ScreenElement using an HTMLElement
+ * @memberof Public.Html.Elements 
  */
 class ScreenElementFromElement extends ScreenElement {
 	
@@ -223,6 +244,10 @@ class ScreenElementFromElement extends ScreenElement {
 	}
 }
 
+/**
+ * Creates a screenElement that has a SRC attribute
+ * @memberof Public.Html.Elements 
+ */
 class SrcElement extends ScreenElement 
 {
 	constructor(tagName, src)
@@ -269,6 +294,7 @@ class SrcElement extends ScreenElement
 
 /**
  * Creates a button element listening to click event
+ * @memberof Public.Html.Elements 
  */
 class ButtonElement extends ScreenElement 
 {
@@ -305,7 +331,8 @@ class ButtonElement extends ScreenElement
 }
 
 /**
- * 
+ * Creates an input
+ * @memberof Public.Html.Elements 
  */
 class InputElement extends ScreenElement 
 {
@@ -347,7 +374,8 @@ class InputElement extends ScreenElement
 }
 
 /**
- * Creates a button element listening to click event
+ * Creates button in the main menu (top bar)
+ * @memberof Public.Html.Elements 
  */
 class MenuButtonElement extends ScreenElement 
 {
@@ -370,6 +398,8 @@ class MenuButtonElement extends ScreenElement
 
 /**
  * Creates a div with text that indicates progress
+ * @memberof Public.Html.Elements 
+ * @abstract
  */
 class ProgressIndicator extends ScreenElement
 {
@@ -385,6 +415,7 @@ class ProgressIndicator extends ScreenElement
 	/**
 	 * @virtual
 	 * @protected
+	 * @abstract
 	 */
 	setUpProgress(){}
 
@@ -400,6 +431,10 @@ class ProgressIndicator extends ScreenElement
 	}
 }
 
+/**
+ * Creates a div with a bar that indicates progress
+ * @memberof Public.Html.Elements
+ */
 class ProgressBarIndicator extends ProgressIndicator
 {
 	constructor()
@@ -436,6 +471,10 @@ class ProgressBarIndicator extends ProgressIndicator
 /*        PERSONALISED CLASS        */
 /*//////////////////////////////////*/
 
+/**
+ * An anime button in the anime list
+ * @memberof Public.Html.Elements.Personalised
+ */
 class AnimeElement extends ScreenElement
 {
 	/**
@@ -459,6 +498,10 @@ class AnimeElement extends ScreenElement
 	}
 }
 
+/**
+ * An episode button in the anime's episode list
+ * @memberof Public.Html.Elements.Personalised
+ */
 class EpisodeElement extends ScreenElement
 {
 	/**
@@ -489,6 +532,10 @@ class EpisodeElement extends ScreenElement
 	}
 }
 
+/**
+ * A button to watch the episode
+ * @memberof Public.Html.Elements.Personalised
+ */
 class EpisodeWatchButton extends ButtonElement
 {
 	/**
@@ -508,6 +555,10 @@ class EpisodeWatchButton extends ButtonElement
 	}
 }
 
+/**
+ * A button to return to previous screen 
+ * @memberof Public.Html.Elements.Personalised
+ */
 class ReturnButton extends ButtonElement
 {
 	/**
@@ -521,6 +572,11 @@ class ReturnButton extends ButtonElement
 	}
 }
 
+/**
+ * A button to download all the episodes
+ * @memberof Public.Html.Elements.Personalised
+ * @deprecated
+ */
 class DownloadAllButton extends ButtonElement
 {
 	/**
@@ -534,6 +590,10 @@ class DownloadAllButton extends ButtonElement
 	}
 }
 
+/**
+ * A text that contains infos about the episode
+ * @memberof Public.Html.Elements.Personalised
+ */
 class EpisodeInfoElement extends ScreenElement
 {
 	/**
@@ -560,6 +620,10 @@ class EpisodeInfoElement extends ScreenElement
 	}
 }
 
+/**
+ * A text that contains infos about the videoplayer
+ * @memberof Public.Html.Elements.Personalised
+ */
 class PlayerInfoElement extends ScreenElement
 {
 	/**
@@ -646,7 +710,9 @@ class PlayerInfoElement extends ScreenElement
 					PlayerInfoElement.setCurrentIFrame(player.url)
 					.onconfirm((it) => {
 						alert(`URL : "${it.inputElm.getValue()}"`);
-						Loader.download(info.animeId, info.episodeId, player.player.id, it.inputElm.getValue());
+						Loader.download(info.animeId, info.episodeId, player.player.id, it.inputElm.getValue())
+						.then(oncomplete)
+						.catch(catchError);
 					});
 				})
 				.addClass("download")
@@ -664,6 +730,10 @@ class PlayerInfoElement extends ScreenElement
 	}
 }
 
+/**
+ * A text that formats ytdl string
+ * @memberof Public.Html.Elements.Personalised
+ */
 class YtDlFormatElement extends ScreenElement 
 {
 	constructor(format, index, ondownload) 
@@ -681,6 +751,10 @@ class YtDlFormatElement extends ScreenElement
 	}
 }
 
+/**
+ * An element that opens an Iframe and wait for user input
+ * @memberof Public.Html.Elements.Personalised
+ */
 class IframeDownloadPromiseElement extends ScreenElement 
 {
 	/**
@@ -825,6 +899,10 @@ class IframeDownloadPromiseElement extends ScreenElement
 	}
 }
 
+/**
+ * A progressbar fo
+ * @memberof Public.Html.Elements.Personalised
+ */
 class EpisodeDlProgress extends ScreenElement 
 {
 	/**
@@ -843,6 +921,31 @@ class EpisodeDlProgress extends ScreenElement
 			this.progressBar,
 			this.progressText,
 			" - " + name
+		);
+	}
+}
+
+/**
+ * When an episode has errors
+ * @memberof Public.Html.Elements.Personalised
+ */
+class EpisodeDlErrorProgress extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {string} error 
+	 */
+	constructor(name, error)
+	{
+		super("div");
+		
+		this.nameElm = new ScreenElement("span").addClass("dlError").setText(name); 
+		this.errorElm = new ScreenElement("span").setText(error);
+		
+		this.append(
+			this.nameElm,
+			this.errorElm,
 		);
 	}
 }
@@ -866,5 +969,6 @@ export
 	EpisodeInfoElement,
 	PlayerInfoElement,
 	YtDlFormatElement,
-	EpisodeDlProgress
+	EpisodeDlProgress,
+	EpisodeDlErrorProgress
 };

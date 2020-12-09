@@ -1,21 +1,46 @@
+const { waitForDebugger } = require('inspector');
+try {
+	waitForDebugger();
+} catch (e) {}
+
 const childProcess = require('child_process');
 const path = require('path');
 const url = require('url');
+const { stdout } = require('process');
 
 let args = process.argv.slice(2);
-let jsdocArgs = ["--verbose"];
+let jsdocArgs = [];
 
-let projectPath = __dirname;
+let projectPath = __dirname.slice(0, __dirname.indexOf(path.basename(__dirname)));
+const CONFIGURE = "--configure";
+const README = "--readme";
+const LICENSE = "--license";
+const PRIVATE = "--access all";
+const VERBOSE = "--verbose";
 
 if (args.length == 0)
 {
-	throw "usage : node _jsdocGenAndOpen/index.js [jsonConfig.json] <pathToIndex.html>"
-} 
-if (args.length == 2) 
+	throw "usage : node _jsdocGenAndOpen/index.js [jsonConfig.json] [docIndex.html file] [LICENSE file] <pathToIndex.html>"
+}
+if (args.length >= 2) 
 {
-	jsdocArgs.unshift("--configure",args.shift());
+	jsdocArgs.push(CONFIGURE,args.shift()); //jsonConfig.json
+}
+if (args.length >= 2) 
+{
+	jsdocArgs.push(README,args.shift()); //docIndex.html file
+}
+if (args.length >= 2) 
+{
+	jsdocArgs.push(LICENSE,args.shift()); //LICENSE file
+}
+if (args.length >= 2) 
+{
+	args = [path.join("../",args.join(" "))];
 }
 
+jsdocArgs.push(PRIVATE);
+jsdocArgs.push(VERBOSE);
 
 let jsdocExecute = `jsdoc ${jsdocArgs.join(" ")}`;
 

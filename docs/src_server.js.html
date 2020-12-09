@@ -1,0 +1,684 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>src/server.js</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="./jsdocCustomScripts/index.css">
+			<link type="text/css" rel="stylesheet" href="./jsdocCustomScripts/dark.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: hsl(150, 56%, 46%);
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: hsl(150, 56%, 46%);
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: hsl(150, 56%, 46%);
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: hsl(150, 56%, 46%);
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Anime Launcher","systemSummary":"Documentation","systemLogo":"img/ico_64.png","systemColor":"hsl(150, 56%, 46%)","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Anime Launcher is licensed under MIT <a href=\"https://github.com/Knose1/animeLauncher/blob/master/LICENSE\">license</a>. Copyright (c) 2020 <a href=\"https://github.com/Knose1/\">Knose1</a>","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":"favicon.png","stylesheets":["./jsdocCustomScripts/index.css","./jsdocCustomScripts/dark.css"],"scripts":["./jsdocCustomScripts/jsColorUtils.js","./jsdocCustomScripts/index.js"],"monospaceLinks":true,"cleverLinks":false,"useLongnameInNav":false};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand branding-logo" href="index.html" style="background-image: url(img/ico_64.png);">
+					Anime Launcher
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
+											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
+											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
+											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
+											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
+											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.AnimeElement.html">Public.Html.Elements.Personalised.AnimeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.DownloadAllButton.html">Public.Html.Elements.Personalised.DownloadAllButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeDlErrorProgress.html">Public.Html.Elements.Personalised.EpisodeDlErrorProgress</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeDlProgress.html">Public.Html.Elements.Personalised.EpisodeDlProgress</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeElement.html">Public.Html.Elements.Personalised.EpisodeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeInfoElement.html">Public.Html.Elements.Personalised.EpisodeInfoElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeWatchButton.html">Public.Html.Elements.Personalised.EpisodeWatchButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.IframeDownloadPromiseElement.html">Public.Html.Elements.Personalised.IframeDownloadPromiseElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.PlayerInfoElement.html">Public.Html.Elements.Personalised.PlayerInfoElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.ReturnButton.html">Public.Html.Elements.Personalised.ReturnButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.YtDlFormatElement.html">Public.Html.Elements.Personalised.YtDlFormatElement</a></li>
+											<li><a href="Public.Html.Elements.ProgressBarIndicator.html">Public.Html.Elements.ProgressBarIndicator</a></li>
+											<li><a href="Public.Html.Elements.ProgressIndicator.html">Public.Html.Elements.ProgressIndicator</a></li>
+											<li><a href="Public.Html.Elements.ScreenElement.html">Public.Html.Elements.ScreenElement</a></li>
+											<li><a href="Public.Html.Elements.ScreenElementFromElement.html">Public.Html.Elements.ScreenElementFromElement</a></li>
+											<li><a href="Public.Html.Elements.ScreenElementManager.html">Public.Html.Elements.ScreenElementManager</a></li>
+											<li><a href="Public.Html.Elements.SrcElement.html">Public.Html.Elements.SrcElement</a></li>
+											<li><a href="Public.Html.HTMLManager.html">Public.Html.HTMLManager</a></li>
+											<li><a href="Public.Html.ScreenManager.html">Public.Html.ScreenManager</a></li>
+											<li><a href="Public.Loader.html">Public.Loader</a></li>
+											<li><a href="Public.Main.html">Public.Main</a></li>
+											<li><a href="server.Anime.html">server.Anime</a></li>
+											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
+											<li><a href="server.Episode.html">server.Episode</a></li>
+											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
+											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
+											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="Public.html">Public</a></li>
+											<li><a href="Public.Common.html">Public.Common</a></li>
+											<li><a href="Public.Html.html">Public.Html</a></li>
+											<li><a href="Public.Html.Elements.html">Public.Html.Elements</a></li>
+											<li><a href="Public.Html.Elements.Personalised.html">Public.Html.Elements.Personalised</a></li>
+											<li><a href="server.html">server</a></li>
+											<li><a href="server.data.html">server.data</a></li>
+											<li><a href="server.data.config.html">server.data.config</a></li>
+											<li><a href="server.data.public.html">server.data.public</a></li>
+											<li><a href="server.global.html">server.global</a></li>
+											<li><a href="server.https.html">server.https</a></li>
+											<li><a href="server.image.html">server.image</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">src/server.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">const path = require("path");
+const fs = require("fs");
+const express = require("express");
+const mime = require("mime-types");
+const HttpStatus = require('http-status-codes');
+const dataManager = require("./dataManager");
+const imageWriter = require("./image/imageWriter");
+
+const ANIME_FOLDER = "episode";
+const JSON_ANIME = "index.json";
+
+let JsonObject = dataManager.JsonObject;
+let DownloadEpisode = dataManager.DownloadEpisode;
+let VideoPlayer = dataManager.VideoPlayer;
+let YoutubePlayer = dataManager.YoutubePlayer;
+let Anime = dataManager.Anime;
+let Episode = dataManager.Episode;
+
+/**
+ * Start the server  
+ *   
+ * ------------------  
+ * Server links :  
+ * [USE] `*` - Used to do consoleGroup  
+ * &lt;br/>&lt;br/>  
+ * [GET] `/new/anime?` - Add a new anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `name` - The name of the anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `thumbnailLink` - The path to the thumbnail  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Send : {"id":Anime Id}  
+ * &lt;br/>  
+ * [GET] `/new/episode?` - Add a new episode to an anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Send : {"id":Anime Id}  
+ * &lt;br/>  
+ * [GET] `/get/list` - Get the anime list  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Send : {@link Anime.publicList Anime.publicList}  
+ * &lt;br/>  
+ * [GET] `/get/episode/info?` - Get the info of an episode  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `animeId` - The id of the anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `episodeId` - The id of the episode in the anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Send : {@link EpisodeInfo}  
+ * &lt;br/>  
+ * [GET] `/get/episode/download?` - Download an episode  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `animeId`  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `episodeId`  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `videoPlayerId`  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `format`  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `url`  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Send : {"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}}  
+ * &lt;br/>
+ * [GET] `/get/list/download` - Get download list  
+ * &lt;code class="prettyprint source language-json code-toolbar pre">
+ * Send: {  
+ * &amp;ensp;&amp;ensp;&amp;ensp;"current": {  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;"episode": Episode's name  
+ * &amp;ensp;&amp;ensp;&amp;ensp;},  
+ * &amp;ensp;&amp;ensp;&amp;ensp;"list": [  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Episodes's name  
+ * &amp;ensp;&amp;ensp;&amp;ensp;],  
+ * &amp;ensp;&amp;ensp;&amp;ensp;"error": [  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;{  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;"episode": Episode's name  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;"error": Error  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;}  
+ * &amp;ensp;&amp;ensp;&amp;ensp;]  
+ * }
+ * &lt;/code>
+ * &lt;br/>  
+ * [GET] `/` - Index.html  
+ * &lt;br/>  
+ * [GET] `/js/*` - Folder js  
+ * &lt;br/>  
+ * [GET] `/html/*` - Folder html  
+ * &lt;br/>  
+ * [GET] `/css/*` - Folder css  
+ * &lt;br/>  
+ * [GET] `/fonts/*` - Folder fonts  
+ * &lt;br/>  
+ * [GET] `/asset/ico/*` - Folder assets ico  
+ * &lt;br/>  
+ * [GET] `/episode/:animeId/:episodeId` - Get a local episode in folder episode  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `animeId` - The id of the anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `episodeId` - The id of the episode in the anime   
+ * &lt;br/>  
+ * [GET] `/asset/thumbnail/:text.png` - Generate an image or return a generated image
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `text` - The text to show on the image  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `width` - The image width  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `height` - The image height  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `textSize` - The text size  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `backgroundColor` - The background color  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `textColor` - The text color  
+ * @protected
+ * @memberof server.https
+ * @param {Config} config
+*/
+function start(config) {
+	/**
+	 * @constant
+	 */
+	let app = express();
+	const cors = require('cors');
+	app.use(cors());
+	
+	/**
+	 * @type {number}
+	 */
+	let port = config.port;
+	
+	
+	app.use('*', (req,res,next) =>
+	{
+		console.group(`[${req.method}] `+(req.baseUrl || "/"));
+		next();
+
+		res.once("close", () => {
+			console.groupEnd();
+		});
+	});
+	
+	//*///////////////////////////////*//
+	//*           New Anime           *//
+	//*///////////////////////////////*//
+	app.get('/new/anime', (req, res, next) => {
+		let animeName = req.query.name;
+		let animeThumbnailLink = req.query.thumbnailLink;
+		
+		/**
+		 * @ignore
+		 * @type {import("./dataManager").AnimeConfig}
+		 */
+		let animeData = {"name":animeName, "episodes":[]}
+		if (animeThumbnailLink) 
+		{
+			animeData.thumbnailLink = animeThumbnailLink;
+		}
+
+		let animeFolderName = global.toFileName(req.name.animeName, "-").replace(/\ /g,"_");
+		let animeFolder = path.join(__root, ANIME_FOLDER, animeFolderName); 
+		let jsonFile = path.join(animeFolderName, JSON_ANIME); 
+
+		fs.mkdir(animeFolderName, () => {
+			fs.writeFile(jsonFile, JSON.stringify(animeData), () => {
+				let jsonObj = new JsonObject(jsonFile);
+				jsonObj.value = animeData;
+				
+				let anime = new Anime(jsonObj, animeFolder);
+				res.send(JSON.stringify({'id': anime.id}));
+			});
+		});
+	});
+
+	//*///////////////////////////////*//
+	//*          New Episode          *//
+	//*///////////////////////////////*//
+	app.get('/new/episode', (req, res, next) => {
+		let animeId = req.query.animeId;
+		let episodeName = req.query.name;
+		let posterLink = req.query.posterLink;
+
+		let anime = tryToGetAnimeOrSendStatus(animeId)
+		if (!anime) return;
+
+		/**
+		 * @type {import("./dataManager").EpisodeConfig}
+		 */
+		let epConfig = {"episodeId":anime.episodes.length,"links":[],"name":episodeName,"posterLink":posterLink};
+		let ep = new Episode(epConfig, anime);
+
+		anime.episodes.push(ep);
+
+		res.send(JSON.stringify({'id': ep.episodeId}));
+	});
+
+
+	//*///////////////////////////////*//
+	//*            Get List           *//
+	//*///////////////////////////////*//
+	app.get('/get/list', (req, res, next) => {
+		res.contentType("application/json");
+		res.send(JSON.stringify(Anime.publicList));
+	});
+	
+	//*///////////////////////////////*//
+	//*        Get Episode Info       *//
+	//*///////////////////////////////*//
+	function tryToGetAnimeOrSendStatus(res, animeId)
+	{
+		//Arguments checking
+		if (!Number.isSafeInteger(animeId)) {
+			
+			console.log("[Missing Argument]");
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		//Anime finding
+		let lAnime = Anime.list[animeId]
+		if (!lAnime) {
+			console.log("[Anime not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		return lAnime;
+	}
+	
+	function tryToGetEpisodeOrSendStatus(res, animeId, episodeId)
+	{
+		//Arguments checking
+		if (!Number.isSafeInteger(animeId) || !Number.isSafeInteger(episodeId)) {
+			
+			console.log("[Missing Argument(s)]");
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		//Anime finding
+		let lAnime = Anime.list[animeId]
+		if (!lAnime) {
+			console.log("[Anime not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		//Episode finding
+		let lEpisode = lAnime.getEpisodeById(episodeId);
+		if (!lEpisode) {
+			console.log("[Episode not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		return lEpisode
+	}
+
+	app.get('/get/episode/info', async (req, res, next) => {
+		
+		let animeId = Number.parseInt(req.query.animeId);
+		let episodeId = Number.parseInt(req.query.episodeId);
+		let loadYtInfo = req.query.loadYtInfo;
+
+		try {
+			loadYtInfo = JSON.parse(loadYtInfo);
+			if (typeof(loadYtInfo) !== "boolean") 
+			{
+				loadYtInfo = true;
+			}
+		}
+		catch(e)
+		{
+			loadYtInfo = true;
+		}
+
+		console.log("?animeId = "+animeId);
+		console.log("?episodeId = "+episodeId);
+		console.log("?loadYtInfo = "+loadYtInfo);
+		
+		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
+		if (!lEpisode) return;
+		
+		//Get episode info and send
+		try {
+			let info = await lEpisode.getInfo(loadYtInfo);
+
+			res.contentType("application/json");
+			res.send(JSON.stringify(info));
+		}
+		catch(e)
+		{
+			console.log(e);
+			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	});
+	
+
+	//*///////////////////////////////*//
+	//*        Download Episode       *//
+	//*///////////////////////////////*//
+	app.get('/get/episode/download', async (req, res, next) => {
+		let animeId;
+		let episodeId;
+		let videoPlayerId;
+		let format;
+		let url;
+
+		try {
+			animeId = Number.parseInt(req.query.animeId);
+			episodeId = Number.parseInt(req.query.episodeId);
+			videoPlayerId = Number.parseInt(req.query.videoPlayerId);
+			format = req.query.format ? JSON.parse(req.query.format) : null;
+			url = req.query.url;
+		}
+		catch(e)
+		{
+			console.error(e);
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		console.log("?animeId = "+animeId);
+		console.log("?episodeId = "+episodeId);
+		console.log("?videoPlayerId = "+videoPlayerId);
+		console.log("?ytFormat = "+JSON.stringify(format));
+		console.log("?url = "+url);
+		
+		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
+		
+		if (lEpisode.isLocal) 
+		{
+			//console.log("[Redirect] "+req.hostname+`/episode/${animeId}/${episodeid}`);
+			//res.redirect(req.hostname+`/episode/${animeId}/${episodeid}`);
+			res.sendStatus(HttpStatus.CONFLICT);
+			return;
+		}
+
+		let download = DownloadEpisode.getFromEpisode(lEpisode) || new DownloadEpisode(lEpisode, videoPlayerId);
+		if (download.isError) 
+		{
+			download.destroy();
+			download = new DownloadEpisode(lEpisode, videoPlayerId);
+		}
+
+		if (!download.isDownloading &amp;&amp; !download.isPending) download.download(url, format);
+
+		//Episode
+		res.send(JSON.stringify({progress:(download.progress || 0)}));
+	});
+
+	//*///////////////////////////////*//
+	//*         Download List         *//
+	//*///////////////////////////////*//
+	app.get('/get/list/download', async (req, res, next) => {
+		
+		let downloads = DownloadEpisode.toDownload;
+		let errorList = DownloadEpisode.list.filter(e => e.isError);
+
+		let current = {}
+
+		if (DownloadEpisode.currentDownload) 
+		{
+			let currentDlEpisode = DownloadEpisode.currentDownload.episode;	
+			current = {
+				progress: DownloadEpisode.currentDownload.progress,
+				episode: currentDlEpisode.anime.name + " : " + (currentDlEpisode.name || currentDlEpisode.episodeId)
+			}
+		}
+
+		//Episode
+		res.send(JSON.stringify({
+			current: current,
+			list : downloads.map( (d) => {
+				let e = d.downloadEpisode.episode;
+				return e.anime.name + " : " + (e.name || e.episodeId);
+			}),
+			error : errorList.map( (d) => {
+				let e = d.episode;
+				return {episode: e.anime.name + " : " + (e.name || e.episodeId), error : d.error};
+			})
+		}));
+	});
+
+
+	function loadAndSendFile(req,res,filePath)
+	{
+		console.log("[File path] "+filePath);
+
+		res.sendFile(filePath), (err) => {
+			if (err) console.error(err);
+		};
+	}
+
+	//*///////////////////////////////*//
+	//*           Index.html          *//
+	//*///////////////////////////////*//
+	app.get('/', (req, res, next) => {
+		loadAndSendFile(req, res, path.join(__root,"public","index.html"));
+	});
+
+	
+	//*///////////////////////////////*//
+	//*         Public Folder         *//
+	//*///////////////////////////////*//
+	let folders = ["js","html","css", "fonts", "asset/ico"];
+	folders = folders.map(m => {return `/${m}/*`});
+	
+	app.get(folders, (req, res, next) => {
+		loadAndSendFile(req, res, path.join(__root,"public",req.path));
+	});
+
+	//*///////////////////////////////*//
+	//*       Get Local Episode       *//
+	//*///////////////////////////////*//
+	app.get("/episode/:animeId/:episodeId", (req, res, next) => {
+		let animeId = Number.parseInt(req.params.animeId);
+		let episodeId = Number.parseInt(req.params.episodeId);
+
+		console.log(":animeId = "+animeId);
+		console.log(":episodeId = "+episodeId);
+
+		let episode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
+		loadAndSendFile(req, res, episode.path);
+	});
+
+	//*///////////////////////////////*//
+	//*           Thumbnail           *//
+	//*///////////////////////////////*//
+	app.get("/asset/thumbnail/:text.png", async (req, res, next) => {
+		const commands = require("./image/imageWorkerCommands.js");
+
+		let fileExtension = commands.fileExtension;
+
+		let width 			= Number.parseInt	(req.query.width);
+		let height 			= Number.parseInt	(req.query.height);
+		let textSize 		= Number.parseFloat	(req.query.textSize);
+		let backgroundColor = req.query.backgroundColor;
+		let textColor 		= req.query.textColor;
+		let text 			= req.params.text;
+		
+		let thumbailsFolder = path.join(__root,"public/asset/thumbails");
+		let pathToTest = path.join(thumbailsFolder, `${text}.${fileExtension}`);
+		if (!fs.existsSync(thumbailsFolder)) 
+		{
+			fs.mkdirSync(thumbailsFolder);
+		}
+
+		//If keep thumbnails, send them
+		if (config.keepThumbnails) 
+		{
+			let thumbnlailExists = fs.existsSync(pathToTest);
+			if (thumbnlailExists) 
+			{
+				return loadAndSendFile(req, res, pathToTest);
+			}
+		}
+
+		/**
+		 * @type {imageWriter.ThumbailOption}
+		 */
+		let options = {};
+		if (Number.isSafeInteger(width))	options.width = width;
+		if (Number.isSafeInteger(height))	options.height = height;
+		if (!Number.isNaN(textSize)) 		options.textSize = textSize;
+		if (backgroundColor) 				options.backgroundColor = backgroundColor;
+		if (textColor) 						options.textColor = textColor;
+
+		if (width > 2000 || width &lt;= 0) options.width = null;
+		if (height > 2000 || height &lt;= 0) options.height = null;
+		
+		/**
+		 * @ignore
+		 * @type {string}
+		 */
+		let filePath;
+		try {
+			filePath = await imageWriter.getThumbail(text, options)
+		}
+		catch(e)
+		{
+			console.log(e);
+			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			return;
+		}
+		
+		//This code is executed on succes
+		/////////////////////////////////
+
+		res.sendFile(filePath, (e) => {
+			if (e) {
+				console.error(e);
+				return;
+			}
+
+			if (config.keepThumbnails) 
+			{
+				//Keep thumbnail
+				let renamePath = pathToTest;
+				fs.rename(filePath, renamePath, () => {
+					console.log(`Saved thumbnail as \"${renamePath}\"`)
+				});
+			}
+			else 
+			{
+				//Remove thumbnail
+				console.log(`Removing temp file at path \"${filePath}\"...`);
+				fs.unlink(filePath, (err) => {
+					console.log(`Removed temp file`);
+					if (err) console.error(err);
+				});
+			}
+		});
+	});
+
+	app.listen(port, function () {
+		console.log(`App listening on port ${port}!`);
+	});
+};
+
+
+module.exports = start;</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Anime Launcher is licensed under MIT <a href="https://github.com/Knose1/animeLauncher/blob/master/LICENSE">license</a>. Copyright (c) 2020 <a href="https://github.com/Knose1/">Knose1</a></div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 9th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="./jsdocCustomScripts/jsColorUtils.js"></script>
+		<script src="./jsdocCustomScripts/index.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

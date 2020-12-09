@@ -1,4 +1,6 @@
 {
+	"port": 3000,
+	"keepThumbnails": true,
 	"videoPlayers" : 
 	[
 		{
@@ -7,7 +9,8 @@
 			[
 				"https://www.crunchyroll.com/"
 			],
-			"downloadable" : false
+			"downloadable" : false,
+			"autoDownload" : false
 		},
 		
 		{
@@ -15,6 +18,18 @@
 			"prefix" :
 			[
 				"https://www.neko-sama.fr/"
+			],
+			"downloadable" : true,
+			"autoDownload" : false
+		},
+		
+		{
+			"name" : "anime-ultime",
+			"prefix" :
+			[
+				"https://www.anime-ultime.net/",
+				"http://www.anime-ultime.net/",
+				"https://v5.anime-ultime.net/"
 			],
 			"downloadable" : true,
 			"autoDownload" : false
@@ -40,10 +55,28 @@
 			"autoDownload" : false
 		},
 		{
-			"name" : "animeVostFR",
+			"name" : "gum-gum-streaming",
+			"prefix": 
+			[
+				"https://gum-gum-streaming.com/"
+			],
+			"downloadable" : true,
+			"autoDownload" : false
+		},
+		{
+			"name" : "1animeVostFR",
 			"prefix" :
 			[
 				"https://www1.animesvostfr.net/"
+			],
+			"downloadable" : false,
+			"autoDownload" : false
+		},
+		{
+			"name" : "mavanimes",
+			"prefix" :
+			[
+				"http://www.mavanimes.co/"
 			],
 			"downloadable" : false,
 			"autoDownload" : false

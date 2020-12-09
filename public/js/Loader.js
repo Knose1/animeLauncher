@@ -1,8 +1,10 @@
 import FileLoader from './utils/FileLoader.js';
 import ScreenManager from './data/ScreenManager.js';
 
-
-export default class Loader 
+/**
+ * @memberof Public 
+ */
+class Loader 
 {
 	/**
 	 * List of blob url for thumbnail
@@ -171,3 +173,5 @@ export default class Loader
 		ScreenManager.initAnimes(data);
 	}
 }
+
+export default Loader;

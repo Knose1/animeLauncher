@@ -6,6 +6,9 @@ const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
 const imageWriter = require("./image/imageWriter");
 
+const ANIME_FOLDER = "episode";
+const JSON_ANIME = "index.json";
+
 let JsonObject = dataManager.JsonObject;
 let DownloadEpisode = dataManager.DownloadEpisode;
 let VideoPlayer = dataManager.VideoPlayer;
@@ -19,6 +22,14 @@ let Episode = dataManager.Episode;
  * ------------------  
  * Server links :  
  * [USE] `*` - Used to do consoleGroup  
+ * <br/><br/>  
+ * [GET] `/new/anime?` - Add a new anime  
+ * &ensp;&ensp;&ensp;Param : `name` - The name of the anime  
+ * &ensp;&ensp;&ensp;Param : `thumbnailLink` - The path to the thumbnail  
+ * &ensp;&ensp;&ensp;Send : {"id":Anime Id}  
+ * <br/>  
+ * [GET] `/new/episode?` - Add a new episode to an anime  
+ * &ensp;&ensp;&ensp;Send : {"id":Anime Id}  
  * <br/>  
  * [GET] `/get/list` - Get the anime list  
  * &ensp;&ensp;&ensp;Send : {@link Anime.publicList Anime.publicList}  
@@ -36,16 +47,24 @@ let Episode = dataManager.Episode;
  * &ensp;&ensp;&ensp;Param : `url`  
  * &ensp;&ensp;&ensp;Send : {"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}}  
  * <br/>
- * [GET] `/get/list/download` - Get download list
- * &ensp;&ensp;&ensp;Send : {
- * &ensp;&ensp;&ensp;&ensp;"current": {
- * &ensp;&ensp;&ensp;&ensp;&ensp;"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}
- * &ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name
- * &ensp;&ensp;&ensp;&ensp;},
- * &ensp;&ensp;&ensp;&ensp;"list": [
- * &ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name
- * &ensp;&ensp;&ensp;&ensp;]
- * &ensp;&ensp;&ensp;}  
+ * [GET] `/get/list/download` - Get download list  
+ * <code class="prettyprint source language-json code-toolbar pre">
+ * Send: {  
+ * &ensp;&ensp;&ensp;"current": {  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name  
+ * &ensp;&ensp;&ensp;},  
+ * &ensp;&ensp;&ensp;"list": [  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Episodes's name  
+ * &ensp;&ensp;&ensp;],  
+ * &ensp;&ensp;&ensp;"error": [  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"error": Error  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}  
+ * &ensp;&ensp;&ensp;]  
+ * }
+ * </code>
  * <br/>  
  * [GET] `/` - Index.html  
  * <br/>  
@@ -61,21 +80,20 @@ let Episode = dataManager.Episode;
  * <br/>  
  * [GET] `/episode/:animeId/:episodeId` - Get a local episode in folder episode  
  * &ensp;&ensp;&ensp;Param : `animeId` - The id of the anime  
- * &ensp;&ensp;&ensp;Param : `episodeId` - The id of the episode in the anime  
+ * &ensp;&ensp;&ensp;Param : `episodeId` - The id of the episode in the anime   
  * <br/>  
- * [GET] `/asset/thumbnail/:text.png` - Generate an image  
+ * [GET] `/asset/thumbnail/:text.png` - Generate an image or return a generated image
  * &ensp;&ensp;&ensp;Param : `text` - The text to show on the image  
  * &ensp;&ensp;&ensp;Param : `width` - The image width  
  * &ensp;&ensp;&ensp;Param : `height` - The image height  
  * &ensp;&ensp;&ensp;Param : `textSize` - The text size  
  * &ensp;&ensp;&ensp;Param : `backgroundColor` - The background color  
  * &ensp;&ensp;&ensp;Param : `textColor` - The text color  
- * 
  * @protected
- * @namespace server
- * @param {number} port - An integer for the server port
- */
-function start(port = 3000) {
+ * @memberof server.https
+ * @param {Config} config
+*/
+function start(config) {
 	/**
 	 * @constant
 	 */
@@ -83,6 +101,10 @@ function start(port = 3000) {
 	const cors = require('cors');
 	app.use(cors());
 	
+	/**
+	 * @type {number}
+	 */
+	let port = config.port;
 	
 	
 	app.use('*', (req,res,next) =>
@@ -94,8 +116,60 @@ function start(port = 3000) {
 			console.groupEnd();
 		});
 	});
+	
+	//*///////////////////////////////*//
+	//*           New Anime           *//
+	//*///////////////////////////////*//
+	app.get('/new/anime', (req, res, next) => {
+		let animeName = req.query.name;
+		let animeThumbnailLink = req.query.thumbnailLink;
+		
+		/**
+		 * @ignore
+		 * @type {import("./dataManager").AnimeConfig}
+		 */
+		let animeData = {"name":animeName, "episodes":[]}
+		if (animeThumbnailLink) 
+		{
+			animeData.thumbnailLink = animeThumbnailLink;
+		}
 
+		let animeFolderName = global.toFileName(req.name.animeName, "-").replace(/\ /g,"_");
+		let animeFolder = path.join(__root, ANIME_FOLDER, animeFolderName); 
+		let jsonFile = path.join(animeFolderName, JSON_ANIME); 
 
+		fs.mkdir(animeFolderName, () => {
+			fs.writeFile(jsonFile, JSON.stringify(animeData), () => {
+				let jsonObj = new JsonObject(jsonFile);
+				jsonObj.value = animeData;
+				
+				let anime = new Anime(jsonObj, animeFolder);
+				res.send(JSON.stringify({'id': anime.id}));
+			});
+		});
+	});
+
+	//*///////////////////////////////*//
+	//*          New Episode          *//
+	//*///////////////////////////////*//
+	app.get('/new/episode', (req, res, next) => {
+		let animeId = req.query.animeId;
+		let episodeName = req.query.name;
+		let posterLink = req.query.posterLink;
+
+		let anime = tryToGetAnimeOrSendStatus(animeId)
+		if (!anime) return;
+
+		/**
+		 * @type {import("./dataManager").EpisodeConfig}
+		 */
+		let epConfig = {"episodeId":anime.episodes.length,"links":[],"name":episodeName,"posterLink":posterLink};
+		let ep = new Episode(epConfig, anime);
+
+		anime.episodes.push(ep);
+
+		res.send(JSON.stringify({'id': ep.episodeId}));
+	});
 
 
 	//*///////////////////////////////*//
@@ -109,6 +183,27 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	//*        Get Episode Info       *//
 	//*///////////////////////////////*//
+	function tryToGetAnimeOrSendStatus(res, animeId)
+	{
+		//Arguments checking
+		if (!Number.isSafeInteger(animeId)) {
+			
+			console.log("[Missing Argument]");
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		//Anime finding
+		let lAnime = Anime.list[animeId]
+		if (!lAnime) {
+			console.log("[Anime not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		return lAnime;
+	}
+	
 	function tryToGetEpisodeOrSendStatus(res, animeId, episodeId)
 	{
 		//Arguments checking
@@ -219,6 +314,12 @@ function start(port = 3000) {
 		}
 
 		let download = DownloadEpisode.getFromEpisode(lEpisode) || new DownloadEpisode(lEpisode, videoPlayerId);
+		if (download.isError) 
+		{
+			download.destroy();
+			download = new DownloadEpisode(lEpisode, videoPlayerId);
+		}
+
 		if (!download.isDownloading && !download.isPending) download.download(url, format);
 
 		//Episode
@@ -230,7 +331,8 @@ function start(port = 3000) {
 	//*///////////////////////////////*//
 	app.get('/get/list/download', async (req, res, next) => {
 		
-		let downloads = DownloadEpisode.list;
+		let downloads = DownloadEpisode.toDownload;
+		let errorList = DownloadEpisode.list.filter(e => e.isError);
 
 		let current = {}
 
@@ -239,7 +341,7 @@ function start(port = 3000) {
 			let currentDlEpisode = DownloadEpisode.currentDownload.episode;	
 			current = {
 				progress: DownloadEpisode.currentDownload.progress,
-				episode: currentDlEpisode.anime.name + " - " + (currentDlEpisode.name || currentDlEpisode.episodeId)
+				episode: currentDlEpisode.anime.name + " : " + (currentDlEpisode.name || currentDlEpisode.episodeId)
 			}
 		}
 
@@ -247,8 +349,12 @@ function start(port = 3000) {
 		res.send(JSON.stringify({
 			current: current,
 			list : downloads.map( (d) => {
+				let e = d.downloadEpisode.episode;
+				return e.anime.name + " : " + (e.name || e.episodeId);
+			}),
+			error : errorList.map( (d) => {
 				let e = d.episode;
-				return e.anime.name + " - " + (e.name || e.episodeId);
+				return {episode: e.anime.name + " : " + (e.name || e.episodeId), error : d.error};
 			})
 		}));
 	});
@@ -299,11 +405,33 @@ function start(port = 3000) {
 	//*           Thumbnail           *//
 	//*///////////////////////////////*//
 	app.get("/asset/thumbnail/:text.png", async (req, res, next) => {
+		const commands = require("./image/imageWorkerCommands.js");
+
+		let fileExtension = commands.fileExtension;
+
 		let width 			= Number.parseInt	(req.query.width);
 		let height 			= Number.parseInt	(req.query.height);
 		let textSize 		= Number.parseFloat	(req.query.textSize);
 		let backgroundColor = req.query.backgroundColor;
 		let textColor 		= req.query.textColor;
+		let text 			= req.params.text;
+		
+		let thumbailsFolder = path.join(__root,"public/asset/thumbails");
+		let pathToTest = path.join(thumbailsFolder, `${text}.${fileExtension}`);
+		if (!fs.existsSync(thumbailsFolder)) 
+		{
+			fs.mkdirSync(thumbailsFolder);
+		}
+
+		//If keep thumbnails, send them
+		if (config.keepThumbnails) 
+		{
+			let thumbnlailExists = fs.existsSync(pathToTest);
+			if (thumbnlailExists) 
+			{
+				return loadAndSendFile(req, res, pathToTest);
+			}
+		}
 
 		/**
 		 * @type {imageWriter.ThumbailOption}
@@ -318,9 +446,13 @@ function start(port = 3000) {
 		if (width > 2000 || width <= 0) options.width = null;
 		if (height > 2000 || height <= 0) options.height = null;
 		
+		/**
+		 * @ignore
+		 * @type {string}
+		 */
 		let filePath;
 		try {
-			filePath = await imageWriter.getThumbail(req.params.text, options)
+			filePath = await imageWriter.getThumbail(text, options)
 		}
 		catch(e)
 		{
@@ -328,21 +460,35 @@ function start(port = 3000) {
 			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 			return;
 		}
+		
+		//This code is executed on succes
+		/////////////////////////////////
+
 		res.sendFile(filePath, (e) => {
 			if (e) {
 				console.error(e);
 				return;
 			}
-			console.log(`Removing temp file at path \"${filePath}\"...`);
-			fs.unlink(filePath, (err) => {
-				console.log(`Removed temp file`);
-				if (err) console.error(err);
-			});
+
+			if (config.keepThumbnails) 
+			{
+				//Keep thumbnail
+				let renamePath = pathToTest;
+				fs.rename(filePath, renamePath, () => {
+					console.log(`Saved thumbnail as \"${renamePath}\"`)
+				});
+			}
+			else 
+			{
+				//Remove thumbnail
+				console.log(`Removing temp file at path \"${filePath}\"...`);
+				fs.unlink(filePath, (err) => {
+					console.log(`Removed temp file`);
+					if (err) console.error(err);
+				});
+			}
 		});
 	});
-
-
-
 
 	app.listen(port, function () {
 		console.log(`App listening on port ${port}!`);

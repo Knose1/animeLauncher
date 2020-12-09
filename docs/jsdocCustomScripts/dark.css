@@ -1,0 +1,162 @@
+@media (prefers-color-scheme: dark) {
+	.toc .nav>li>a {
+		color: white;
+	}
+	
+	.toc .nav>li>a .name-signature, .toc .nav>li>a .signature-params 
+	{
+		color:white;
+	}
+
+	body {
+		background-color: #232323;
+		color: #fff;
+	}
+
+	.table-striped>tbody>tr:nth-of-type(odd) {
+		background-color: #3a3a3a;
+	}
+
+	code {
+		background-color: #3a3a3a;
+		color: #00ff00;
+	}
+
+	.access-filter .checkbox-inline.checked, .access-filter .checkbox-inline:focus, .access-filter .checkbox-inline:hover, a, a code {
+		color: #00c4ff;
+	}
+
+	.breadcrumb {
+		background-color: #3a3a3a;
+	}
+
+	.breadcrumb>.active {
+		color: #fff;
+	}
+
+	footer {
+		background-color: #2a2a2a;
+		border-top: solid 1px #ddd;
+		color: #f2f2f2;
+	}
+
+	html {
+		background-color: #2a2a2a;
+	}
+	
+	.access-filter {
+		background-color: #2a2a2a;
+	}
+
+	.btn-default {
+		border-color: #131313;
+		background-color: #1a1a1a;
+		color:#bbb;
+	}
+
+	.pagination>li>a, .pagination>li>span 
+	{
+		border-color: #131313;
+		background-color: #1a1a1a;
+		color:#bbb;
+	}
+	
+	.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover 
+	{
+		border-color: #2c2c2c;
+		background-color: #353535;
+		color:white;
+	}
+
+	.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover 
+	{
+		background-color: #cc8548;
+		border-color: #cc8548;
+		color:black;
+	}
+
+	.symbol-title .name-signature, .symbol-title .signature-params {
+		color: #EEE;
+	}
+
+	.access-filter .checkbox-inline, .access-filter .checkbox-inline:before {
+		color: #a0a0a0;
+	}
+
+	/* Source Code Colors */
+	:not(pre)>code[class*=language-], pre[class*=language-] {
+		background-color: #1A1A1A;
+	}
+	
+	pre.code-toolbar>.toolbar 
+	{
+		background-color:#282828;
+		color: #D5D5D5;
+	}
+	
+	code[class*=language-], pre[class*=language-] 
+	{
+		color: #D5D5D5;
+		font-size:15px;
+	
+	}
+	
+	.token.class-name, .token.boolean, .token.keyword
+	{
+		color:#00e7ff;
+	}
+	
+	.token.function
+	{
+		color:#ffd86b
+	
+	}
+	.token.constant, .token.operator, .token.punctuation, .token.selector
+	{
+		color:#D5D5D5;
+	}
+	
+	.token.builtin, .token.char, .token.inserted, .token.property, .token.string 
+	{
+		color:#55dc55
+	}
+	
+	.token.keyword, .token.tag 
+	{
+		color:#ffb459
+	
+	}
+	
+	.token.comment 
+	{
+		color:#939393
+	}
+	
+	.token.regex, .token.number
+	{
+		color:#47c4ff
+		
+	}
+
+	/* Search colors */
+	.modal-content {
+		background: #232323;
+	}
+
+	.modal-header, .modal-footer {
+		border-color: #131313;
+	}
+
+	.modal-body {
+		background: #303030;
+	}
+	
+	.close {
+		color:white;
+		text-shadow: 0 1px 0 #000;
+	}
+
+	.close:focus, .close:hover {
+		color:white;
+	}
+}

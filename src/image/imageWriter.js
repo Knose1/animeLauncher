@@ -11,8 +11,20 @@ drawWorker.on("error", (e) => {
 exports.init = function init()
 {
 	return new Promise(async (resolve, reject) => {
-		drawWorker.postMessage({command:commands.fetchFont})
-		drawWorker.once("message", () => {resolve()});
+		drawWorker.postMessage({command:commands.fetchFont});
+		drawWorker.on("message", ({log, message}) => {
+			if (log) {
+				console.log(message);
+			}
+		});
+		function lLog({log}) {
+			if (!log) 
+			{
+				drawWorker.off("message",lLog);
+				resolve();
+			}
+		}
+		drawWorker.on("message", lLog);
 	});
 }
 
@@ -23,11 +35,13 @@ exports.init = function init()
  * @property {number} [textSize=1000]
  * @property {string} [backgroundColor='rgba(5,5,5,1)']
  * @property {string} [textColor='rgba(255,255,255,1)']
+ * @memberof server.image
  */
 /**
  * @param {string} text
  * @param {ThumbailOption} [option]
  * @returns {Promise<string>} Return the path to the file
+ * @memberof server.image
  */
 exports.getThumbail = function getThumbail(text, option = {}) {
 	return new Promise((resolve, reject) => {

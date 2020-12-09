@@ -1,6 +1,7 @@
 /**
- * @namespace data.config
- * @typedef VideoPlayerConfig
+ * The config of a videoplayer
+ * @memberof server.data.config
+ * @typedef {Object} VideoPlayerConfig
  * @property {string} name
  * @property {string[]} prefix
  * @property {boolean} downloadable
@@ -10,17 +11,18 @@
  */
 
 /**
- * @namespace data.public
+ * The public informations of a video player
+ * @memberof server.data.public
  * @typedef {Object} PublicVideoPlayer
  * @property {string} name
  * @property {boolean} isNatif
  * @property {boolean} downloadable
  * @property {boolean} autoDownload
  * @property {number} id
- * id: this.id
  */ 
 /**
- * @namespace data.public
+ * The info of an URL
+ * @memberof server.data.public
  * @typedef {Object} PlayerInfo
  * @property {string} url
  * @property {string} [ytInfo]
@@ -31,16 +33,18 @@
  /*-****************************-*/
 
 /**
- * @namespace data.config
- * @typedef AnimeConfig
+ * The config of and anime
+ * @memberof server.data.config
+ * @typedef {Object} AnimeConfig
  * @property {string} name
  * @property {string} [thumbnailLink]
  * @property {EpisodeConfig[]} episodes
  */
 
 /**
- * @namespace data.public
- * @typedef PublicAnime
+ * The public informations of an anime
+ * @memberof server.data.public
+ * @typedef {Object} PublicAnime
  * @property {number} id
  * @property {PublicEpisode} episodes
  * @property {string} name
@@ -50,8 +54,9 @@
 /*-*****************************-*/
 
 /**
- * @namespace data.config
- * @typedef EpisodeConfig
+ * The config of an episode
+ * @memberof server.data.config
+ * @typedef {Object} EpisodeConfig
  * @property {string} [name]
  * @property {number} episodeId
  * @property {string} [posterLink]
@@ -59,15 +64,17 @@
  * @property {string} [localLink]
  */
 /**
- * @namespace data.public
- * @typedef PublicEpisode 
+ * The public informations of an episode
+ * @memberof server.data.public
+ * @typedef {Object} PublicEpisode 
  * @property {string} name The name of the episode
  * @property {number} animeId The unique id of the anime
  * @property {number} episodeId The unique id of the episode (define the order between episodes)
  * @property {string} posterLink The uri of the anime poster
  */
 /**
- * @namespace data.public
+ * The information of an episode (urls are mapped with {@link PlayerInfo PlayerInfo})
+ * @memberof server.data.public
  * @typedef {Object} EpisodeInfo
  * @property {string} name
  * @property {number} episodeId
@@ -78,8 +85,9 @@
  */
 
 /**
- * @namespace data
- * @typedef ReqDownloadData
+ * The data of a download
+ * @memberof data
+ * @typedef {Object} ReqDownloadData
  * @property {number} progress The download progress in %
  * @property {string} contentType
  * @property {string} fileName
@@ -94,11 +102,13 @@ var ytdl = require('ytdl-core');
 const pathNode = require("path");
 const mime = require("mime-types");
 const event = require("events");
+const { error } = require('console');
 const EventEmitter = event.EventEmitter;
 
 /**
  * Load and save a json file
  * @public
+ * @memberof server
  */
 class JsonObject {
 	/**
@@ -195,6 +205,7 @@ class JsonObject {
  * A class used to handle the events of {@link VideoPlayer#download VideoPlayer.download}.  
  * Ensure that there's only one download max by episode
  * @public
+ * @memberof server
  */
 class DownloadEpisode 
 {
@@ -215,13 +226,14 @@ class DownloadEpisode
 	 */
 
 	/**
-	 * @protected
+	 * @public
 	 * @type {ToDownloadItem[]}
 	 */
 	static get toDownload() {return DownloadEpisode._toDownload || (DownloadEpisode._toDownload = [])}
 	
 	/**
-	 * @protected
+	 * @public get
+	 * @protected set
 	 * @type {DownloadEpisode}
 	 */
 	static get currentDownload() {return DownloadEpisode._currentDownload || null}
@@ -283,6 +295,22 @@ class DownloadEpisode
 		 * @type {boolean}
 		 */
 		this.isDownloading = false;
+
+		/**
+		 * If there is an error
+		 * @public
+		 * @readonly
+		 * @type {boolean}
+		 */
+		this.isError = false;
+
+		/**
+		 * The error
+		 * @public
+		 * @readonly
+		 * @type {string}
+		 */
+		this.error = "";
 
 		/**
 		 * The progress of the download
@@ -399,14 +427,18 @@ class DownloadEpisode
 		(err) => {
 			DownloadEpisode.currentDownload = null;
 			this.isDownloading = false;
+			this.isError = true;
+			this.error = err;
 			console.error(err);
 			
-			this.destroy();
-
 			if (DownloadEpisode.toDownload.length > 0) DownloadEpisode.toDownload[0].func();
 		});
 	}
 
+	/**
+	 * Destroy the instance (Removes it from {@link DownloadEpisode#list DownloadEpisode.list}.)
+	 * @public
+	 */
 	destroy()
 	{
 		DownloadEpisode.list.splice( DownloadEpisode.list.indexOf(this), 1);
@@ -431,6 +463,7 @@ class DownloadEpisode
 /**
  * A class used to download a video.
  * @public
+ * @memberof server
  */
 class VideoPlayer {
 	/**
@@ -587,7 +620,7 @@ class VideoPlayer {
 		 */
 		let options = {
 			headers: {Accept: "video/webm, video/mpeg, video/ogg"},
-			timeout: 10000
+			timeout: 30000,
 		}
 
 		/**
@@ -617,6 +650,16 @@ class VideoPlayer {
 		}
 
 
+		request.setTimeout(30000, async () => {
+			request.abort();
+
+			file.close();
+			// Delete the file async. (But we don't check the result)
+			fs.unlink(fileName, () => {
+				this._dispatchOnError(emitter, "[Request Timeout] "+fileName);
+			}); 
+		});
+
 		request.on("response", async (response) => {
 			
 			let len = parseInt(response.headers['content-length'], 10);
@@ -642,30 +685,23 @@ class VideoPlayer {
 			})
 			
 			response.on('end', async () => {
+				// close() is async, call resolve after close completes.
+				file.close();
 				if (!response.complete) 
 				{
 					let err = 'The connection was terminated while the message was still being sent';
 					console.error(err);
-					this._dispatchOnError(emitter, err);
+					//this._dispatchOnError(emitter, err);
 					return;
 				}
 
-				// close() is async, call resolve after close completes.
-				file.close();
 				this._dispatchOnComplete(emitter, {progress:100, contentType, fileName});  
 			});
 		})
-		.on('timeout', async () => {
-			request.abort();
-
-			// Delete the file async. (But we don't check the result)
-			fs.unlink(fileName, () => {
-				this._dispatchOnError(emitter, "[Request Timeout] "+fileName);
-			}); 
-		})
 		// Handle errors
 		.on('error', async (err) => {
-			
+			file.close();
+
 			// Delete the file async. (But we don't check the result)
 			fs.unlink(fileName, () => {
 				this._dispatchOnError(emitter, err.message);
@@ -726,6 +762,7 @@ class VideoPlayer {
  * A class used to download a youtube video. It also get the video info.
  * @public
  * @extends VideoPlayer
+ * @memberof server
  */
 class YoutubePlayer extends VideoPlayer {
 	/**
@@ -802,15 +839,15 @@ class YoutubePlayer extends VideoPlayer {
 	getInfo(url)
 	{
 		return new Promise((resolve, reject) => {
-			ytdl.getInfo(url, {filter: "audioandvideo"}, (err, info) => {
-				if (err) 
-				{
-					console.error(`Error loading \"${url}\"`);
-					console.error(err);
-					reject(err);
-					return;
-				}
+			ytdl.getInfo(url, {filter: "audioandvideo"})
+			.then(info => {
 				resolve(info);
+			})
+			.catch(err => {
+				console.error(`Error loading \"${url}\"`);
+				console.error(err);
+				reject(err);
+				return;
 			});
 		});
 	}
@@ -819,6 +856,7 @@ class YoutubePlayer extends VideoPlayer {
 /**
  * Store the datas of an anime. Can update the index.json of the anime.
  * @public
+ * @memberof server
  */
 class Anime {
 	/**
@@ -1004,6 +1042,7 @@ class Anime {
 /**
  * Store the datas of an episode
  * @public
+ * @memberof server
  */
 class Episode {
 	/**
@@ -1114,8 +1153,13 @@ class Episode {
 			{
 				lToPush.isYoutube = true;
 				if (loadYoutubeInfo) {
-					let ytInfo = await videoPlayer.getInfo(url);
-					lToPush.ytInfo = ytInfo;
+					try {
+						let ytInfo = await videoPlayer.getInfo(url);
+						lToPush.ytInfo = ytInfo;
+					} catch (e) 
+					{
+						lToPush.ytInfo = {formats : []};
+					}
 				}
 			}
 

@@ -1,0 +1,1159 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>public/js/data/ScreenElement.js</title>
+		<link rel="icon" type="image/png" href="favicon.png"/>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="./jsdocCustomScripts/index.css">
+			<link type="text/css" rel="stylesheet" href="./jsdocCustomScripts/dark.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: hsl(150, 56%, 46%);
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: hsl(150, 56%, 46%);
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: hsl(150, 56%, 46%);
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: hsl(150, 56%, 46%);
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Anime Launcher","systemSummary":"Documentation","systemLogo":"img/ico_64.png","systemColor":"hsl(150, 56%, 46%)","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Anime Launcher is licensed under MIT <a href=\"https://github.com/Knose1/animeLauncher/blob/master/LICENSE\">license</a>. Copyright (c) 2020 <a href=\"https://github.com/Knose1/\">Knose1</a>","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":"favicon.png","stylesheets":["./jsdocCustomScripts/index.css","./jsdocCustomScripts/dark.css"],"scripts":["./jsdocCustomScripts/jsColorUtils.js","./jsdocCustomScripts/index.js"],"monospaceLinks":true,"cleverLinks":false,"useLongnameInNav":false};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand branding-logo" href="index.html" style="background-image: url(img/ico_64.png);">
+					Anime Launcher
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
+											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
+											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
+											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
+											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
+											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.AnimeElement.html">Public.Html.Elements.Personalised.AnimeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.DownloadAllButton.html">Public.Html.Elements.Personalised.DownloadAllButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeDlErrorProgress.html">Public.Html.Elements.Personalised.EpisodeDlErrorProgress</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeDlProgress.html">Public.Html.Elements.Personalised.EpisodeDlProgress</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeElement.html">Public.Html.Elements.Personalised.EpisodeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeInfoElement.html">Public.Html.Elements.Personalised.EpisodeInfoElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.EpisodeWatchButton.html">Public.Html.Elements.Personalised.EpisodeWatchButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.IframeDownloadPromiseElement.html">Public.Html.Elements.Personalised.IframeDownloadPromiseElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.PlayerInfoElement.html">Public.Html.Elements.Personalised.PlayerInfoElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.ReturnButton.html">Public.Html.Elements.Personalised.ReturnButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.YtDlFormatElement.html">Public.Html.Elements.Personalised.YtDlFormatElement</a></li>
+											<li><a href="Public.Html.Elements.ProgressBarIndicator.html">Public.Html.Elements.ProgressBarIndicator</a></li>
+											<li><a href="Public.Html.Elements.ProgressIndicator.html">Public.Html.Elements.ProgressIndicator</a></li>
+											<li><a href="Public.Html.Elements.ScreenElement.html">Public.Html.Elements.ScreenElement</a></li>
+											<li><a href="Public.Html.Elements.ScreenElementFromElement.html">Public.Html.Elements.ScreenElementFromElement</a></li>
+											<li><a href="Public.Html.Elements.ScreenElementManager.html">Public.Html.Elements.ScreenElementManager</a></li>
+											<li><a href="Public.Html.Elements.SrcElement.html">Public.Html.Elements.SrcElement</a></li>
+											<li><a href="Public.Html.HTMLManager.html">Public.Html.HTMLManager</a></li>
+											<li><a href="Public.Html.ScreenManager.html">Public.Html.ScreenManager</a></li>
+											<li><a href="Public.Loader.html">Public.Loader</a></li>
+											<li><a href="Public.Main.html">Public.Main</a></li>
+											<li><a href="server.Anime.html">server.Anime</a></li>
+											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
+											<li><a href="server.Episode.html">server.Episode</a></li>
+											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
+											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
+											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="Public.html">Public</a></li>
+											<li><a href="Public.Common.html">Public.Common</a></li>
+											<li><a href="Public.Html.html">Public.Html</a></li>
+											<li><a href="Public.Html.Elements.html">Public.Html.Elements</a></li>
+											<li><a href="Public.Html.Elements.Personalised.html">Public.Html.Elements.Personalised</a></li>
+											<li><a href="server.html">server</a></li>
+											<li><a href="server.data.html">server.data</a></li>
+											<li><a href="server.data.config.html">server.data.config</a></li>
+											<li><a href="server.data.public.html">server.data.public</a></li>
+											<li><a href="server.global.html">server.global</a></li>
+											<li><a href="server.https.html">server.https</a></li>
+											<li><a href="server.image.html">server.image</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">public/js/data/ScreenElement.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import HTMLManager from './HTMLManager.js';
+import Loader from '../Loader.js';
+
+/**
+ * @memberof Public.Html.Elements
+ */
+class ScreenElementManager {
+
+	/**
+	 * @typedef Listener
+	 * @property {ScreenElement} elm 
+	 * @property {string} type 
+	 * @property {function} handeler 
+	 * @property {boolean} isStatic 
+	 * @memberof ScreenElementManager
+	 */
+
+	/**
+	 * @type {Listener[]} 
+	 */
+	static get listeners() {return this._listeners || (this._listeners = [])};
+
+	/**
+	 * 
+	 * @param {ScreenElement} elm 
+	 * @param {string} type 
+	 * @param {function} handeler 
+	 * @param {boolean} isStatic 
+	 */
+	static addListener(elm, type, handeler, isStatic = false)
+	{
+		elm.element.addEventListener(type, handeler);
+		this.listeners.push({elm, type, handeler, isStatic});
+
+		return elm;
+	}
+
+	static allowStaticListener()
+	{
+		for (let i = this.listeners.length - 1; i >= 0; i--) {
+			let lElement = this.listeners[i];
+
+			if (!lElement.isStatic) 
+			{
+				continue;
+			}
+
+			lElement.elm.element.addEventListener(lElement.type, lElement.handeler);
+		}
+		
+		HTMLManager.overlay.addClass("disabled");
+	}
+
+	/**
+	 * 
+	 * @param {ScreenElement} elm
+	 */
+	static removeListeners(elm)
+	{
+		for (let i = this.listeners.length - 1; i >= 0; i--) {
+			let lElement = this.listeners[i];
+
+			if (lElement.elm != elm) continue;
+			
+			this.listeners.splice(i, 1);
+			lElement.elm.element.removeEventListener(lElement.type, lElement.handeler);
+		}
+
+		return elm;
+	}
+
+	/**
+	 * 
+	 * @param {ScreenElement} elm 
+	 * @param {string} type 
+	 */
+	static removeListener(elm, type)
+	{
+		for (let i = this.listeners.length - 1; i >= 0; i--) {
+			let lElement = this.listeners[i];
+
+			if (lElement.elm != elm &amp;&amp; lElement.type == type) continue;
+			
+			this.listeners.splice(i, 1);
+			lElement.elm.element.removeEventListener(lElement.type, lElement.handeler);
+		}
+	}
+
+	static removeListenersOnAllElements(removeStatic = false)
+	{
+		for (let i = this.listeners.length - 1; i >= 0; i--) {
+			let lElement = this.listeners[i];
+
+			if (!lElement.isStatic || removeStatic) 
+			{
+				this.listeners.splice(i, 1);
+			}
+
+			lElement.elm.element.removeEventListener(lElement.type, lElement.handeler);
+		}
+		
+		HTMLManager.overlay.removeClass("disabled");
+	}
+}
+
+/**
+ * Base class for any ScreenElement
+ * @example 
+ * let body = new ScreenElement("div");
+ * body.append( new ScreenElement("pre").setText("My text") );
+ * 
+ * @memberof Public.Html.Elements
+ */
+class ScreenElement {
+
+	/**
+	 * 
+	 * @param {string} tagName 
+	 */
+	constructor(tagName) 
+	{
+		/**
+		 * @type {HTMLElement}
+		 */
+		this.element = document.createElement(tagName);
+	}
+
+	/**
+	 * 
+	 * @param  {string} txt 
+	 */
+	setText(txt) 
+	{
+		this.element.innerText = txt;
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param  {(string | ScreenElement)[]} elements 
+	 * @param  {(string | ScreenElement | function)[]} [join]
+	 */
+	appendList(elements, join = undefined)
+	{
+		if (join != undefined) 
+		{
+			join = join.map(m => {
+				if (m instanceof Function) return m();
+				return m;
+			});
+
+			for (let i = elements.length - 2; i >= 1; i--) {
+				let joinArgs = Array.from(join)
+				joinArgs.unshift(i, 0);
+
+				let lElement = elements[i];
+				elements.splice.apply(elements, joinArgs);
+			}
+		}
+
+		this.append.apply(this, elements);
+		return this;
+	} 
+
+	/**
+	 * 
+	 * @param  {...string | ScreenElement} elements 
+	 */
+	append(...elements) 
+	{
+		for (let i = 0; i &lt; elements.length; i++)
+		{
+			let elm = elements[i];
+			this.element.append(typeof(elm) == "string" ? elm : elm.element);
+		}
+		return this;
+	}
+
+	
+
+	/**
+	 * 
+	 * @param  {string[]} classes 
+	 */
+	addClassList(classes)
+	{
+		this.append.addClass(this, classes);
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param  {...string} classes 
+	 */
+	addClass(...classes) 
+	{
+		for (let i = 0; i &lt; classes.length; i++)
+		{
+			this.element.classList.add(classes[i]);
+		}
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param  {...string} classes 
+	 */
+	removeClass(...classes) 
+	{
+		for (let i = 0; i &lt; classes.length; i++)
+		{
+			this.element.classList.remove(classes[i]);
+		}
+		return this;
+	}
+
+	setId(id)
+	{
+		this.element.id = id;
+		return this;
+	}
+
+	clear()
+	{
+		this.element.innerHTML = "";
+		return this;
+	}
+}
+
+/**
+ * Creates a ScreenElement using an HTMLElement
+ * @memberof Public.Html.Elements 
+ */
+class ScreenElementFromElement extends ScreenElement {
+	
+	/**
+	 * 
+	 * @param {HTMLElement} element 
+	 */
+	constructor(element)
+	{
+		super();
+		this.element = element;
+	}
+}
+
+/**
+ * Creates a screenElement that has a SRC attribute
+ * @memberof Public.Html.Elements 
+ */
+class SrcElement extends ScreenElement 
+{
+	constructor(tagName, src)
+	{
+		super(tagName);
+		this.setSrc(src);
+	}
+
+	setSrc(src)
+	{
+		this.element.src = src;
+	}
+
+	/**
+	 * 
+	 * @param {boolean} bool 
+	 */
+	setControls(bool)
+	{
+		this.element.controls = bool;
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param {boolean} bool 
+	 */
+	setAutoplay(bool)
+	{
+		this.element.autoplay = bool;
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param {string} src 
+	 */
+	setPoster(src)
+	{
+		this.element.poster = src;
+		return this;
+	}
+}
+
+/**
+ * Creates a button element listening to click event
+ * @memberof Public.Html.Elements 
+ */
+class ButtonElement extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {Function} handeler 
+	 * @param {boolean} [isStatic=false] 
+	 */
+	constructor(handeler, isStatic = false)
+	{
+		super("button");
+		this.handeler = handeler;
+		this.isStatic = isStatic;
+		this.listen();
+	}
+
+	setHandeler(handeler, isStatic = false)
+	{
+		this.unlisten();
+		this.handeler = handeler;
+		this.isStatic = isStatic;
+		this.listen();
+	}
+
+	unlisten() 
+	{
+		ScreenElementManager.removeListener(this, "click");
+	}
+
+	listen() 
+	{
+		ScreenElementManager.addListener(this, "click", this.handeler, this.isStatic);
+	}
+}
+
+/**
+ * Creates an input
+ * @memberof Public.Html.Elements 
+ */
+class InputElement extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {*} startValue 
+	 * @param {string} placeholder
+	 */
+	constructor(startValue, placeholder)
+	{
+		super("input");
+
+		/**
+		 * @type {HTMLInputElement}
+		 */
+		this.element;
+
+		this.setValue(startValue);
+		this.getValue();
+		this.setPlaceolder(placeholder);
+	}
+
+	setValue(value)
+	{
+		this.element.value = value;
+		return this;
+	}
+
+	getValue()
+	{
+		return this.element.value;
+	}
+
+	setPlaceolder(placeholder)
+	{
+		this.element.placeholder = placeholder;
+		return this;
+	}
+}
+
+/**
+ * Creates button in the main menu (top bar)
+ * @memberof Public.Html.Elements 
+ */
+class MenuButtonElement extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {Function} onclick
+	 * @param {string} name
+	 */
+	constructor(name, onclick)
+	{
+		super("li");
+		this.append(
+			new ButtonElement(onclick, true)
+			.append(
+				new ScreenElement("span").setText(name)
+			)
+		);
+	}
+}
+
+/**
+ * Creates a div with text that indicates progress
+ * @memberof Public.Html.Elements 
+ * @abstract
+ */
+class ProgressIndicator extends ScreenElement
+{
+	constructor()
+	{
+		super("div");
+
+		this.setUpProgress();
+
+		this.setProgress(0);
+	}
+
+	/**
+	 * @virtual
+	 * @protected
+	 * @abstract
+	 */
+	setUpProgress(){}
+
+	/**
+	 * 
+	 * @param {number} p Progress
+	 * @returns {this}
+	 */
+	setProgress(p) 
+	{
+		this.setText("Progress: "+parseInt(p*100)+"%");
+		return this;
+	}
+}
+
+/**
+ * Creates a div with a bar that indicates progress
+ * @memberof Public.Html.Elements
+ */
+class ProgressBarIndicator extends ProgressIndicator
+{
+	constructor()
+	{
+		super();
+	}
+
+	/**
+	 * @virtual
+	 * @protected
+	 */
+	setUpProgress()
+	{
+		this.addClass("external");
+		this.progressContent = new ScreenElement("div").addClass("content");
+
+		this.append(this.progressContent);
+	}
+
+	/**
+	 * 
+	 * @param {number} p Progress
+	 * @returns {this}
+	 */
+	setProgress(p) 
+	{
+		this.progressContent.element.style.width=`${p*100}%`;
+		return this;
+	}
+}
+
+
+/*//////////////////////////////////*/
+/*        PERSONALISED CLASS        */
+/*//////////////////////////////////*/
+
+/**
+ * An anime button in the anime list
+ * @memberof Public.Html.Elements.Personalised
+ */
+class AnimeElement extends ScreenElement
+{
+	/**
+	 * @param {*} anime
+	 * @param {Function} onclick
+	 */
+	constructor(anime, onclick)
+	{
+		super("li");
+
+		this.addClass("anime");
+		this.setId(anime.id);
+		
+		let btn = new ButtonElement(() => {onclick(anime);})
+		
+		if (anime.thumbnailLink) 
+			btn.append(new SrcElement("img", anime.thumbnailLink))
+		
+		btn.append(new ScreenElement("h1").setText(anime.name))
+		this.append(btn);
+	}
+}
+
+/**
+ * An episode button in the anime's episode list
+ * @memberof Public.Html.Elements.Personalised
+ */
+class EpisodeElement extends ScreenElement
+{
+	/**
+	 * @param {*} anime
+	 * @param {*} episode
+	 * @param {boolean} isEpisodeLocal
+	 * @param {Function} onclick
+	 */
+	constructor(anime, episode, isEpisodeLocal, listIsEpisodeLocal, onclick)
+	{
+		super("li");
+
+		this.addClass("episode");
+		this.setId(`episode ${anime.id}-${episode.episodeId}`);
+		
+		let btn = new ButtonElement(() => {onclick(anime, episode);})
+		
+		if (anime.thumbnailLink) 
+			btn.append(new SrcElement("img", episode.posterLink))
+		
+		btn.append(new ScreenElement("h2").setText(episode.name || "Episode " + episode.episodeId));
+		this.append(btn);
+
+		if (isEpisodeLocal)
+		{
+			this.append(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, "h2"));
+		}
+	}
+}
+
+/**
+ * A button to watch the episode
+ * @memberof Public.Html.Elements.Personalised
+ */
+class EpisodeWatchButton extends ButtonElement
+{
+	/**
+	 * @param {*} anime
+	 * @param {*} episode
+	 * @param {"h1" | "h2" | "h3" | "h4" | "h5" | "h6"} innerTextElementTag
+	 */
+	constructor(anime, episode, listIsEpisodeLocal, innerTextElementTag="h4")
+	{
+		super(() => {
+			ScreenElementManager.removeListeners();
+			Loader.loadLocalEpisode(anime.id, episode.episodeId, listIsEpisodeLocal);
+		});
+
+		this.addClass("watch");
+		this.append(new ScreenElement(innerTextElementTag).setText("Watch local"));
+	}
+}
+
+/**
+ * A button to return to previous screen 
+ * @memberof Public.Html.Elements.Personalised
+ */
+class ReturnButton extends ButtonElement
+{
+	/**
+	 * @param {Function} handeler
+	 */
+	constructor(handeler)
+	{
+		super(handeler);
+		this.addClass("return");
+		this.append(new ScreenElement("h4").setText("Return"));
+	}
+}
+
+/**
+ * A button to download all the episodes
+ * @memberof Public.Html.Elements.Personalised
+ * @deprecated
+ */
+class DownloadAllButton extends ButtonElement
+{
+	/**
+	 * @param {Function} handeler
+	 */
+	constructor(handeler)
+	{
+		super(handeler);
+		this.addClass("downloadAll");
+		this.append(new ScreenElement("h4").setText("Download All"));
+	}
+}
+
+/**
+ * A text that contains infos about the episode
+ * @memberof Public.Html.Elements.Personalised
+ */
+class EpisodeInfoElement extends ScreenElement
+{
+	/**
+	 * @param {*} anime
+	 * @param {Function} ondownload
+	 */
+	constructor(info, oncomplete, catchError)
+	{
+		super("div");
+
+		this.append(
+			`Name : ${info.name}`, new ScreenElement("br"),
+			`AnimeId : ${info.animeId}`, new ScreenElement("br"),
+			`EpisodeId : ${info.episodeId}`, new ScreenElement("br"),
+			`PosterLink : ${info.posterLink}`, new ScreenElement("br"),
+			`IsLocal : ${info.isLocal}`, new ScreenElement("br"),
+			`HasPoster : ${info.hasPoster}`, new ScreenElement("br")
+		)
+
+		for (let i = 0; i &lt; info.players.length; i++) {
+			const player = info.players[i];
+			this.append(new PlayerInfoElement(info, player, i, oncomplete, catchError));
+		}
+	}
+}
+
+/**
+ * A text that contains infos about the videoplayer
+ * @memberof Public.Html.Elements.Personalised
+ */
+class PlayerInfoElement extends ScreenElement
+{
+	/**
+	 * 
+	 * @param {string} src
+	 * @returns {IframeDownloadPromiseElement}
+	 */
+	static setCurrentIFrame(src) 
+	{
+		PlayerInfoElement.closeIframe();
+		
+		
+		PlayerInfoElement.currentIframe = new IframeDownloadPromiseElement(src);
+		PlayerInfoElement.currentIframe
+		.onEnd( () => {
+			PlayerInfoElement.closeIframe();
+		});
+
+		HTMLManager.iframeContainer.append(PlayerInfoElement.currentIframe);
+
+		return PlayerInfoElement.currentIframe;
+	}
+
+	constructor(info, player, id, oncomplete, catchError)
+	{
+		super("div");
+		this.addClass("tab-1");
+		this.append(
+			`URL : ${player.url}`, new ScreenElement("br"),
+			`isYoutube : ${Boolean(player.isYoutube)}`, new ScreenElement("br"),
+			`isNatif : ${player.player.isNatif}`, new ScreenElement("br"),
+			`downloadable : ${player.player.downloadable}`, new ScreenElement("br"),
+			`autoDownload : ${player.player.autoDownload}`, new ScreenElement("br"),
+			`id : ${player.player.id}`, new ScreenElement("br")
+		);
+
+		if (!player.player.downloadable)
+		{
+			this.append(
+				new ButtonElement(() => {
+					open(player.url, "_blank ", "toolbar=no,menubar=no", false)
+				})
+				.addClass("iframe-watch")
+				.setText("Watch in iFrame")
+			)
+		}
+		else if (player.ytInfo) 
+		{
+			let ytdlInfoList = [];
+			let formats = player.ytInfo.formats;
+
+			for (let index = 0; index &lt; formats.length; index++) {
+				const format = formats[index];
+				ytdlInfoList.push(new YtDlFormatElement(format, index, () => {
+					ScreenElementManager.removeListeners();
+					Loader.download(info.animeId, info.episodeId, player.player.id, player.url, format)
+					.then(oncomplete)
+					.catch(catchError);
+				}));
+			}
+
+			this.append(
+				new ScreenElement("div").addClass("ytInfo").appendList(ytdlInfoList, [new ScreenElement("br"),new ScreenElement("br")]),
+				new ScreenElement("br")
+			);
+		}
+		else if (player.player.autoDownload) {
+			this.append(
+				new ButtonElement( () => {
+					ScreenElementManager.removeListeners();
+					dlPromise = Loader.download(info.animeId, info.episodeId, player.player.id, player.url)
+					.then(oncomplete)
+					.catch(catchError); 
+				} )
+				.addClass("download","autoDownload")
+				.setId(`dl ${id}`)
+				.setText("Download")
+			);
+		}
+		else {
+			this.append(
+				new ButtonElement( () => { 
+					/*Iframe*/
+					PlayerInfoElement.setCurrentIFrame(player.url)
+					.onconfirm((it) => {
+						alert(`URL : "${it.inputElm.getValue()}"`);
+						Loader.download(info.animeId, info.episodeId, player.player.id, it.inputElm.getValue())
+						.then(oncomplete)
+						.catch(catchError);
+					});
+				})
+				.addClass("download")
+				.setId(`dl ${id}`)
+				.setText("Show iFrame for download")
+			);
+		}
+	}
+
+	static closeIframe()
+	{
+		if(PlayerInfoElement.currentIframe) PlayerInfoElement.currentIframe.removeHandelers();
+		PlayerInfoElement.currentIframe = null;
+		HTMLManager.iframeContainer.clear();
+	}
+}
+
+/**
+ * A text that formats ytdl string
+ * @memberof Public.Html.Elements.Personalised
+ */
+class YtDlFormatElement extends ScreenElement 
+{
+	constructor(format, index, ondownload) 
+	{
+		super("div");
+		
+		this.addClass("tab-1","code");
+		this.append(new ScreenElement("pre").addClass("tab-1").setText(JSON.stringify(format,"",3)));
+		this.append(
+			new ButtonElement( ondownload )
+				.addClass("download","yt")
+				.setId(index+"-yt")
+				.setText("Download")
+		);
+	}
+}
+
+/**
+ * An element that opens an Iframe and wait for user input
+ * @memberof Public.Html.Elements.Personalised
+ */
+class IframeDownloadPromiseElement extends ScreenElement 
+{
+	/**
+	 * @callback onConfirmCb
+	 * @param {IframeDownloadPromiseElement} th this
+	 * @returns {void}
+	 * @memberof IframeDownloadPromiseElement
+	 */
+	
+	 /**
+	 * @callback onCancelCb
+	 * @param {IframeDownloadPromiseElement} th this
+	 * @returns {void}
+	 * @memberof IframeDownloadPromiseElement
+	 */
+	
+	 /**
+	 * @callback onEndCb
+	 * @returns {void}
+	 * @memberof IframeDownloadPromiseElement
+	 */
+
+	/**
+	 * 
+	 * @param {string} src 
+	 */
+	constructor(src) 
+	{
+		super("div");
+		this.srcElm = new SrcElement("iframe", src);
+		this.inputElm = new InputElement("", "Video Url");
+		this.append(
+			this.srcElm,
+			this.inputElm,
+			new ButtonElement(() => {
+				//Confirm button
+				if (this._confirm) {
+					let arr = this._confirm;
+
+					for (let i = 0; i &lt; arr.length; i++) {
+						arr[i](this);
+					}
+				}
+				
+				this.sendOnEnd();
+			})
+			.append(
+				new ScreenElement("h4").setText("Confirm")
+			),
+			new ButtonElement(() => {
+				//Cansel button
+				if (this._cancel) {
+					let arr = this._cancel;
+	
+					for (let i = 0; i &lt; arr.length; i++) {
+						arr[i](this);
+					}
+				}
+
+				this.sendOnEnd();
+			})
+			.append(
+				new ScreenElement("h4").setText("Cansel")
+			),
+			new ButtonElement(() => {
+				open(src, "_blank ", "toolbar=no,menubar=no", false)
+			})
+			.append(
+				new ScreenElement("h4").setText("Open Iframe in new tab")
+			),
+			new ScreenElement("hr")
+		)
+	}
+
+	/**
+	 * 
+	 * @param {string} src 
+	 */
+	setSrc(src) 
+	{
+		this.srcElm.setSrc(src);
+	}
+
+	/**
+	 * 
+	 * @param {onConfirmCb} handeler 
+	 */
+	onconfirm(handeler) 
+	{
+		/**
+		 * @type {onConfirmCb[]}
+		 */
+		(this._confirm = this._confirm || []).push(handeler);
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param {onCancelCb} handeler 
+	 */
+	oncancel(handeler) 
+	{
+		/**
+		 * @type {onCancelCb[]}
+		 */
+		(this._cancel = this._cancel || []).push(handeler);
+		return this;
+	}
+
+	/**
+	 * 
+	 * @param {onEndCb} handeler 
+	 */
+	onEnd(handeler) 
+	{
+		/**
+		 * @type {onEndCb[]}
+		 */
+		(this._end = this._end || []).push(handeler);
+		return this;
+	}
+
+	/**
+	 * @protected
+	 */
+	sendOnEnd() 
+	{
+		if (!this._end) return;
+
+		let arr = this._end;
+
+		for (let i = 0; i &lt; arr.length; i++) {
+			arr[i]();
+		}
+	}
+
+	removeHandelers()
+	{
+		this._cancel = null;
+		this._confirm = null;
+		this._end = null;
+	}
+}
+
+/**
+ * A progressbar fo
+ * @memberof Public.Html.Elements.Personalised
+ */
+class EpisodeDlProgress extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {number} progress 
+	 */
+	constructor(name, progress)
+	{
+		super("div");
+		
+		this.progressBar = new ProgressBarIndicator().setProgress(progress); 
+		this.progressText = new ProgressIndicator().setProgress(progress);
+		
+		this.append(
+			this.progressBar,
+			this.progressText,
+			" - " + name
+		);
+	}
+}
+
+/**
+ * When an episode has errors
+ * @memberof Public.Html.Elements.Personalised
+ */
+class EpisodeDlErrorProgress extends ScreenElement 
+{
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {string} error 
+	 */
+	constructor(name, error)
+	{
+		super("div");
+		
+		this.nameElm = new ScreenElement("span").addClass("dlError").setText(name); 
+		this.errorElm = new ScreenElement("span").setText(error);
+		
+		this.append(
+			this.nameElm,
+			this.errorElm,
+		);
+	}
+}
+
+export 
+{
+	ScreenElementManager,
+	ScreenElement,
+	ScreenElementFromElement,
+	SrcElement,
+	ButtonElement,
+	InputElement,
+	MenuButtonElement,
+	ProgressIndicator,
+	ProgressBarIndicator,
+	AnimeElement,
+	EpisodeElement,
+	EpisodeWatchButton,
+	ReturnButton,
+	DownloadAllButton,
+	EpisodeInfoElement,
+	PlayerInfoElement,
+	YtDlFormatElement,
+	EpisodeDlProgress,
+	EpisodeDlErrorProgress
+};</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Anime Launcher is licensed under MIT <a href="https://github.com/Knose1/animeLauncher/blob/master/LICENSE">license</a>. Copyright (c) 2020 <a href="https://github.com/Knose1/">Knose1</a></div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 9th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="./jsdocCustomScripts/jsColorUtils.js"></script>
+		<script src="./jsdocCustomScripts/index.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

@@ -15,13 +15,14 @@
 	<link rel="stylesheet" type="text/css" href="./css/index.css">
 	<link rel="stylesheet" type="text/css" href="./css/head.css">
 	<link rel="stylesheet" type="text/css" href="./css/foot.css">
+	<link rel="stylesheet" type="text/css" href="./css/loaderLib.css">
 </head>
 <header>
 	<h1 class="title">
 		<div style="display: flex; justify-content: flex-start;">
 			<img src="./asset/ico/ico_64.png" alt="logo" />
 		</div>
-		<div style="align-self: center;">Anime</div>
+		<div id="title" style="align-self: center;">Anime</div>
 		<div></div>
 	</h1>
 	<div class="nav-parent">
@@ -33,8 +34,21 @@
 	<div id="downloadContainer"></div>
 	<div id="iframeContainer"></div>
 	<div id="body"></div>
+	<div id="overlay" class="disabled">
+		<div class="lds-grid">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
 </body>
-<footer>
+<!--<footer>
 	We use notification to tell you when your video is ready or when we needs the video url.
-</footer>
+</footer>-->
 </html>

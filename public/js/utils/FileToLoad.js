@@ -6,16 +6,32 @@ const TYPE_HTML = 3;
 /** 
  * @readonly
  * @enum {number}
+ * @memberof Public.Common.FileLoader.FileToLoad
  */
 let FileType = 
 {
+	/**
+	 * 0
+	 */
 	TYPE_TEXT,
+	/**
+	 * 1
+	 */
 	TYPE_BLOB,
+	/**
+	 * 2
+	 */
 	TYPE_JSON,
+	/**
+	 * 3
+	 */
 	TYPE_HTML
 }
 
-export default class FileToLoad {
+/**
+ * @memberof Public.Common.FileLoader
+ */
+class FileToLoad {
 	
 	/**
 	 * @returns {FileType}
@@ -57,3 +73,5 @@ export default class FileToLoad {
 		this.callback 	= pCallback;
 	}
 }
+
+export default FileToLoad;

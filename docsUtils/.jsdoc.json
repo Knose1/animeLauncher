@@ -1,0 +1,47 @@
+{
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": ["jsdoc"]
+	},
+	"source": {
+		"include": ["main.js","./src/","./public/js/"],
+		"includePattern": ".js$",
+		"excludePattern": "(node_modules/|docs/|docsUtils)"
+	},
+	"templates": {
+		"cleverLinks": false,
+		"monospaceLinks": true,
+		"useLongnameInNav": false,
+		"includeDate": true,
+		"search": true,
+		"copyright": "Anime Launcher is licensed under MIT <a href=\"https://github.com/Knose1/animeLauncher/blob/master/LICENSE\">license</a>. Copyright (c) 2020 <a href=\"https://github.com/Knose1/\">Knose1</a>",
+		"systemName": "Anime Launcher",
+		"systemSummary": "Documentation",
+		"systemLogo": "./public/asset/ico/ico_64.png",
+		"favicon": "./public/asset/ico/ico_64.png",
+		"systemColor": "hsl(150, 56%, 46%)",
+		"stylesheets": ["./jsdocCustomScripts/index.css", "./jsdocCustomScripts/dark.css"],
+		"scripts": ["./jsdocCustomScripts/jsColorUtils.js", "./jsdocCustomScripts/index.js"],
+		"navMembers": [
+			{"kind": "class", "title": "Classes", "summary": "All documented classes."},
+			{"kind": "external", "title": "Externals", "summary": "All documented external members."},
+			{"kind": "mixin", "title": "Mixins", "summary": "All documented mixins."},
+			{"kind": "interface", "title": "Interfaces", "summary": "All documented interfaces."},
+			{"kind": "module", "title": "Modules", "summary": "All documented modules."},
+			{"kind": "namespace", "title": "Namespaces", "summary": "All documented namespaces."},
+			{"kind": "tutorial", "title": "Tutorials", "summary": "All available tutorials."}
+		]
+	},
+	"opts": {
+		"destination": "./docs/",
+		"encoding": "utf8",
+		"private": true,
+		"recurse": true,
+		"template": "./node_modules/foodoc/template"
+	},
+	"plugins": ["plugins/markdown"],
+	"markdown": {
+		"hardwrap ": true,
+		"idInHeadings": true
+	}
+}
