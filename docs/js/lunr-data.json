@@ -186,57 +186,63 @@
           "main",
           "public.main"
         ],
-        "Public.ScreenManager.html": [
+        "Public.Html.ScreenManager.html": [
           "class",
+          "html.screenmanag",
           "manag",
-          "public.screenmanag",
+          "public.html.screenmanag",
           "screen",
           "screenmanag"
         ],
-        "Public.ScreenManager.html#.setTitle": [
+        "Public.Html.ScreenManager.html#.setTitle": [
           "function",
+          "html.screenmanager.settitl",
           "htmltitl",
           "lt;static&gt",
-          "public.screenmanager.settitl",
+          "public.html.screenmanager.settitl",
           "screenmanager.settitl",
           "settitl",
           "titl"
         ],
-        "Public.ScreenManager.html#.generateAnimeListHTML": [
+        "Public.Html.ScreenManager.html#.generateAnimeListHTML": [
           "anim",
           "function",
           "gener",
           "generateanimelisthtml",
+          "html.screenmanager.generateanimelisthtml",
           "list",
           "lt;static&gt",
-          "public.screenmanager.generateanimelisthtml",
+          "public.html.screenmanager.generateanimelisthtml",
           "screenmanager.generateanimelisthtml"
         ],
-        "Public.ScreenManager.html#.generateEpisodeInfoForDownload": [
+        "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": [
           "function",
           "generateepisodeinfofordownload",
+          "html.screenmanager.generateepisodeinfofordownload",
           "info",
           "lt;static&gt",
           "next",
-          "public.screenmanager.generateepisodeinfofordownload",
+          "public.html.screenmanager.generateepisodeinfofordownload",
           "screenmanager.generateepisodeinfofordownload"
         ],
-        "Public.ScreenManager.html#.showVideo": [
+        "Public.Html.ScreenManager.html#.showVideo": [
           "animeid",
           "episodeid",
           "function",
+          "html.screenmanager.showvideo",
           "lt;static&gt",
-          "public.screenmanager.showvideo",
+          "public.html.screenmanager.showvideo",
           "screenmanager.showvideo",
           "showvideo",
           "url"
         ],
-        "Public.ScreenManager.html#.downloadList": [
+        "Public.Html.ScreenManager.html#.downloadList": [
           "downloadlist",
           "function",
+          "html.screenmanager.downloadlist",
           "list",
           "lt;static&gt",
-          "public.screenmanager.downloadlist",
+          "public.html.screenmanager.downloadlist",
           "screenmanager.downloadlist"
         ],
         "Public.Common.FileLoader.html": [
@@ -2108,9 +2114,9 @@
                               "docs": {},
                               "t": {
                                 "docs": {
-                                  "Public.ScreenManager.html#.downloadList": {
-                                    "ref": "Public.ScreenManager.html#.downloadList",
-                                    "tf": 633.3333333333334
+                                  "Public.Html.ScreenManager.html#.downloadList": {
+                                    "ref": "Public.Html.ScreenManager.html#.downloadList",
+                                    "tf": 608.3333333333334
                                   }
                                 }
                               }
@@ -4927,6 +4933,288 @@
                         }
                       }
                     }
+                  },
+                  "s": {
+                    "docs": {},
+                    "c": {
+                      "docs": {},
+                      "r": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "m": {
+                                "docs": {},
+                                "a": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "g": {
+                                        "docs": {
+                                          "Public.Html.ScreenManager.html": {
+                                            "ref": "Public.Html.ScreenManager.html",
+                                            "tf": 100
+                                          }
+                                        },
+                                        "e": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            ".": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "t": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "l": {
+                                                            "docs": {
+                                                              "Public.Html.ScreenManager.html#.setTitle": {
+                                                                "ref": "Public.Html.ScreenManager.html#.setTitle",
+                                                                "tf": 75
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "h": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "w": {
+                                                      "docs": {},
+                                                      "v": {
+                                                        "docs": {},
+                                                        "i": {
+                                                          "docs": {},
+                                                          "d": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {
+                                                                  "Public.Html.ScreenManager.html#.showVideo": {
+                                                                    "ref": "Public.Html.ScreenManager.html#.showVideo",
+                                                                    "tf": 75
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "g": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "r": {
+                                                        "docs": {},
+                                                        "a": {
+                                                          "docs": {},
+                                                          "t": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "a": {
+                                                                "docs": {},
+                                                                "n": {
+                                                                  "docs": {},
+                                                                  "i": {
+                                                                    "docs": {},
+                                                                    "m": {
+                                                                      "docs": {},
+                                                                      "e": {
+                                                                        "docs": {},
+                                                                        "l": {
+                                                                          "docs": {},
+                                                                          "i": {
+                                                                            "docs": {},
+                                                                            "s": {
+                                                                              "docs": {},
+                                                                              "t": {
+                                                                                "docs": {},
+                                                                                "h": {
+                                                                                  "docs": {},
+                                                                                  "t": {
+                                                                                    "docs": {},
+                                                                                    "m": {
+                                                                                      "docs": {},
+                                                                                      "l": {
+                                                                                        "docs": {
+                                                                                          "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                                                                                            "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
+                                                                                            "tf": 75
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "e": {
+                                                                "docs": {},
+                                                                "p": {
+                                                                  "docs": {},
+                                                                  "i": {
+                                                                    "docs": {},
+                                                                    "s": {
+                                                                      "docs": {},
+                                                                      "o": {
+                                                                        "docs": {},
+                                                                        "d": {
+                                                                          "docs": {},
+                                                                          "e": {
+                                                                            "docs": {},
+                                                                            "i": {
+                                                                              "docs": {},
+                                                                              "n": {
+                                                                                "docs": {},
+                                                                                "f": {
+                                                                                  "docs": {},
+                                                                                  "o": {
+                                                                                    "docs": {},
+                                                                                    "f": {
+                                                                                      "docs": {},
+                                                                                      "o": {
+                                                                                        "docs": {},
+                                                                                        "r": {
+                                                                                          "docs": {},
+                                                                                          "d": {
+                                                                                            "docs": {},
+                                                                                            "o": {
+                                                                                              "docs": {},
+                                                                                              "w": {
+                                                                                                "docs": {},
+                                                                                                "n": {
+                                                                                                  "docs": {},
+                                                                                                  "l": {
+                                                                                                    "docs": {},
+                                                                                                    "o": {
+                                                                                                      "docs": {},
+                                                                                                      "a": {
+                                                                                                        "docs": {},
+                                                                                                        "d": {
+                                                                                                          "docs": {
+                                                                                                            "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+                                                                                                              "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
+                                                                                                              "tf": 75
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "d": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "w": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {},
+                                                      "l": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "d": {
+                                                              "docs": {},
+                                                              "l": {
+                                                                "docs": {},
+                                                                "i": {
+                                                                  "docs": {},
+                                                                  "s": {
+                                                                    "docs": {},
+                                                                    "t": {
+                                                                      "docs": {
+                                                                        "Public.Html.ScreenManager.html#.downloadList": {
+                                                                          "ref": "Public.Html.ScreenManager.html#.downloadList",
+                                                                          "tf": 75
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 },
                 "m": {
@@ -4983,8 +5271,8 @@
                       "docs": {},
                       "l": {
                         "docs": {
-                          "Public.ScreenManager.html#.setTitle": {
-                            "ref": "Public.ScreenManager.html#.setTitle",
+                          "Public.Html.ScreenManager.html#.setTitle": {
+                            "ref": "Public.Html.ScreenManager.html#.setTitle",
                             "tf": 25
                           }
                         }
@@ -5247,8 +5535,8 @@
               "docs": {},
               "o": {
                 "docs": {
-                  "Public.ScreenManager.html#.generateEpisodeInfoForDownload": {
-                    "ref": "Public.ScreenManager.html#.generateEpisodeInfoForDownload",
+                  "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+                    "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
                     "tf": 25
                   },
                   "Public.Html.Elements.Personalised.EpisodeInfoElement.html": {
@@ -6646,8 +6934,8 @@
                   "docs": {},
                   "n": {
                     "docs": {
-                      "Public.ScreenManager.html": {
-                        "ref": "Public.ScreenManager.html",
+                      "Public.Html.ScreenManager.html": {
+                        "ref": "Public.Html.ScreenManager.html",
                         "tf": 25
                       },
                       "Public.Html.Elements.Personalised.ReturnButton.html": {
@@ -7012,9 +7300,9 @@
                             "docs": {},
                             "g": {
                               "docs": {
-                                "Public.ScreenManager.html": {
-                                  "ref": "Public.ScreenManager.html",
-                                  "tf": 650
+                                "Public.Html.ScreenManager.html": {
+                                  "ref": "Public.Html.ScreenManager.html",
+                                  "tf": 600
                                 }
                               },
                               "e": {
@@ -7037,9 +7325,9 @@
                                                 "docs": {},
                                                 "l": {
                                                   "docs": {
-                                                    "Public.ScreenManager.html#.setTitle": {
-                                                      "ref": "Public.ScreenManager.html#.setTitle",
-                                                      "tf": 100
+                                                    "Public.Html.ScreenManager.html#.setTitle": {
+                                                      "ref": "Public.Html.ScreenManager.html#.setTitle",
+                                                      "tf": 75
                                                     }
                                                   }
                                                 }
@@ -7064,9 +7352,9 @@
                                                     "docs": {},
                                                     "o": {
                                                       "docs": {
-                                                        "Public.ScreenManager.html#.showVideo": {
-                                                          "ref": "Public.ScreenManager.html#.showVideo",
-                                                          "tf": 100
+                                                        "Public.Html.ScreenManager.html#.showVideo": {
+                                                          "ref": "Public.Html.ScreenManager.html#.showVideo",
+                                                          "tf": 75
                                                         }
                                                       }
                                                     }
@@ -7120,9 +7408,9 @@
                                                                             "docs": {},
                                                                             "l": {
                                                                               "docs": {
-                                                                                "Public.ScreenManager.html#.generateAnimeListHTML": {
-                                                                                  "ref": "Public.ScreenManager.html#.generateAnimeListHTML",
-                                                                                  "tf": 100
+                                                                                "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                                                                                  "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
+                                                                                  "tf": 75
                                                                                 }
                                                                               }
                                                                             }
@@ -7182,9 +7470,9 @@
                                                                                               "docs": {},
                                                                                               "d": {
                                                                                                 "docs": {
-                                                                                                  "Public.ScreenManager.html#.generateEpisodeInfoForDownload": {
-                                                                                                    "ref": "Public.ScreenManager.html#.generateEpisodeInfoForDownload",
-                                                                                                    "tf": 100
+                                                                                                  "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+                                                                                                    "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
+                                                                                                    "tf": 75
                                                                                                   }
                                                                                                 }
                                                                                               }
@@ -7241,9 +7529,9 @@
                                                           "docs": {},
                                                           "t": {
                                                             "docs": {
-                                                              "Public.ScreenManager.html#.downloadList": {
-                                                                "ref": "Public.ScreenManager.html#.downloadList",
-                                                                "tf": 100
+                                                              "Public.Html.ScreenManager.html#.downloadList": {
+                                                                "ref": "Public.Html.ScreenManager.html#.downloadList",
+                                                                "tf": 75
                                                               }
                                                             }
                                                           }
@@ -7308,9 +7596,9 @@
                     "docs": {},
                     "l": {
                       "docs": {
-                        "Public.ScreenManager.html#.setTitle": {
-                          "ref": "Public.ScreenManager.html#.setTitle",
-                          "tf": 625
+                        "Public.Html.ScreenManager.html#.setTitle": {
+                          "ref": "Public.Html.ScreenManager.html#.setTitle",
+                          "tf": 600
                         }
                       }
                     }
@@ -10627,9 +10915,9 @@
                         "docs": {},
                         "o": {
                           "docs": {
-                            "Public.ScreenManager.html#.showVideo": {
-                              "ref": "Public.ScreenManager.html#.showVideo",
-                              "tf": 620
+                            "Public.Html.ScreenManager.html#.showVideo": {
+                              "ref": "Public.Html.ScreenManager.html#.showVideo",
+                              "tf": 595
                             }
                           }
                         }
@@ -11076,8 +11364,8 @@
                 "docs": {},
                 "r": {
                   "docs": {
-                    "Public.ScreenManager.html#.generateAnimeListHTML": {
-                      "ref": "Public.ScreenManager.html#.generateAnimeListHTML",
+                    "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                      "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
                       "tf": 16.666666666666664
                     },
                     "server.Anime.html#updateJson": {
@@ -11121,9 +11409,9 @@
                                                 "docs": {},
                                                 "l": {
                                                   "docs": {
-                                                    "Public.ScreenManager.html#.generateAnimeListHTML": {
-                                                      "ref": "Public.ScreenManager.html#.generateAnimeListHTML",
-                                                      "tf": 650
+                                                    "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                                                      "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
+                                                      "tf": 625
                                                     }
                                                   }
                                                 }
@@ -11183,9 +11471,9 @@
                                                                   "docs": {},
                                                                   "d": {
                                                                     "docs": {
-                                                                      "Public.ScreenManager.html#.generateEpisodeInfoForDownload": {
-                                                                        "ref": "Public.ScreenManager.html#.generateEpisodeInfoForDownload",
-                                                                        "tf": 625
+                                                                      "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+                                                                        "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
+                                                                        "tf": 600
                                                                       }
                                                                     }
                                                                   }
@@ -11754,8 +12042,8 @@
                       "ref": "Public.Main.html",
                       "tf": 135
                     },
-                    "Public.ScreenManager.html": {
-                      "ref": "Public.ScreenManager.html",
+                    "Public.Html.ScreenManager.html": {
+                      "ref": "Public.Html.ScreenManager.html",
                       "tf": 110
                     },
                     "Public.Common.FileLoader.html": {
@@ -13067,12 +13355,12 @@
                     "ref": "Public.Loader.html#.defaultThumbnailList",
                     "tf": 12.5
                   },
-                  "Public.ScreenManager.html#.generateAnimeListHTML": {
-                    "ref": "Public.ScreenManager.html#.generateAnimeListHTML",
+                  "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                    "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
                     "tf": 16.666666666666664
                   },
-                  "Public.ScreenManager.html#.downloadList": {
-                    "ref": "Public.ScreenManager.html#.downloadList",
+                  "Public.Html.ScreenManager.html#.downloadList": {
+                    "ref": "Public.Html.ScreenManager.html#.downloadList",
                     "tf": 33.33333333333333
                   },
                   "server.DownloadEpisode.html#.list": {
@@ -13284,24 +13572,24 @@
                                     "ref": "Public.Loader.html#.loadLocalEpisode",
                                     "tf": 25
                                   },
-                                  "Public.ScreenManager.html#.setTitle": {
-                                    "ref": "Public.ScreenManager.html#.setTitle",
+                                  "Public.Html.ScreenManager.html#.setTitle": {
+                                    "ref": "Public.Html.ScreenManager.html#.setTitle",
                                     "tf": 25
                                   },
-                                  "Public.ScreenManager.html#.generateAnimeListHTML": {
-                                    "ref": "Public.ScreenManager.html#.generateAnimeListHTML",
+                                  "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                                    "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
                                     "tf": 50
                                   },
-                                  "Public.ScreenManager.html#.generateEpisodeInfoForDownload": {
-                                    "ref": "Public.ScreenManager.html#.generateEpisodeInfoForDownload",
+                                  "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+                                    "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
                                     "tf": 25
                                   },
-                                  "Public.ScreenManager.html#.showVideo": {
-                                    "ref": "Public.ScreenManager.html#.showVideo",
+                                  "Public.Html.ScreenManager.html#.showVideo": {
+                                    "ref": "Public.Html.ScreenManager.html#.showVideo",
                                     "tf": 20
                                   },
-                                  "Public.ScreenManager.html#.downloadList": {
-                                    "ref": "Public.ScreenManager.html#.downloadList",
+                                  "Public.Html.ScreenManager.html#.downloadList": {
+                                    "ref": "Public.Html.ScreenManager.html#.downloadList",
                                     "tf": 33.33333333333333
                                   },
                                   "Public.Common.FileLoader.html#.getInstance": {
@@ -14380,8 +14668,8 @@
               "docs": {},
               "t": {
                 "docs": {
-                  "Public.ScreenManager.html#.generateEpisodeInfoForDownload": {
-                    "ref": "Public.ScreenManager.html#.generateEpisodeInfoForDownload",
+                  "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+                    "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
                     "tf": 25
                   }
                 }
@@ -16888,6 +17176,288 @@
                                       }
                                     }
                                   }
+                                },
+                                "s": {
+                                  "docs": {},
+                                  "c": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "n": {
+                                            "docs": {},
+                                            "m": {
+                                              "docs": {},
+                                              "a": {
+                                                "docs": {},
+                                                "n": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "g": {
+                                                      "docs": {
+                                                        "Public.Html.ScreenManager.html": {
+                                                          "ref": "Public.Html.ScreenManager.html",
+                                                          "tf": 1200
+                                                        }
+                                                      },
+                                                      "e": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {},
+                                                          ".": {
+                                                            "docs": {},
+                                                            "s": {
+                                                              "docs": {},
+                                                              "e": {
+                                                                "docs": {},
+                                                                "t": {
+                                                                  "docs": {},
+                                                                  "t": {
+                                                                    "docs": {},
+                                                                    "i": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {},
+                                                                        "l": {
+                                                                          "docs": {
+                                                                            "Public.Html.ScreenManager.html#.setTitle": {
+                                                                              "ref": "Public.Html.ScreenManager.html#.setTitle",
+                                                                              "tf": 1075
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "h": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "w": {
+                                                                    "docs": {},
+                                                                    "v": {
+                                                                      "docs": {},
+                                                                      "i": {
+                                                                        "docs": {},
+                                                                        "d": {
+                                                                          "docs": {},
+                                                                          "e": {
+                                                                            "docs": {},
+                                                                            "o": {
+                                                                              "docs": {
+                                                                                "Public.Html.ScreenManager.html#.showVideo": {
+                                                                                  "ref": "Public.Html.ScreenManager.html#.showVideo",
+                                                                                  "tf": 1075
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "g": {
+                                                              "docs": {},
+                                                              "e": {
+                                                                "docs": {},
+                                                                "n": {
+                                                                  "docs": {},
+                                                                  "e": {
+                                                                    "docs": {},
+                                                                    "r": {
+                                                                      "docs": {},
+                                                                      "a": {
+                                                                        "docs": {},
+                                                                        "t": {
+                                                                          "docs": {},
+                                                                          "e": {
+                                                                            "docs": {},
+                                                                            "a": {
+                                                                              "docs": {},
+                                                                              "n": {
+                                                                                "docs": {},
+                                                                                "i": {
+                                                                                  "docs": {},
+                                                                                  "m": {
+                                                                                    "docs": {},
+                                                                                    "e": {
+                                                                                      "docs": {},
+                                                                                      "l": {
+                                                                                        "docs": {},
+                                                                                        "i": {
+                                                                                          "docs": {},
+                                                                                          "s": {
+                                                                                            "docs": {},
+                                                                                            "t": {
+                                                                                              "docs": {},
+                                                                                              "h": {
+                                                                                                "docs": {},
+                                                                                                "t": {
+                                                                                                  "docs": {},
+                                                                                                  "m": {
+                                                                                                    "docs": {},
+                                                                                                    "l": {
+                                                                                                      "docs": {
+                                                                                                        "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                                                                                                          "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
+                                                                                                          "tf": 1075
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            },
+                                                                            "e": {
+                                                                              "docs": {},
+                                                                              "p": {
+                                                                                "docs": {},
+                                                                                "i": {
+                                                                                  "docs": {},
+                                                                                  "s": {
+                                                                                    "docs": {},
+                                                                                    "o": {
+                                                                                      "docs": {},
+                                                                                      "d": {
+                                                                                        "docs": {},
+                                                                                        "e": {
+                                                                                          "docs": {},
+                                                                                          "i": {
+                                                                                            "docs": {},
+                                                                                            "n": {
+                                                                                              "docs": {},
+                                                                                              "f": {
+                                                                                                "docs": {},
+                                                                                                "o": {
+                                                                                                  "docs": {},
+                                                                                                  "f": {
+                                                                                                    "docs": {},
+                                                                                                    "o": {
+                                                                                                      "docs": {},
+                                                                                                      "r": {
+                                                                                                        "docs": {},
+                                                                                                        "d": {
+                                                                                                          "docs": {},
+                                                                                                          "o": {
+                                                                                                            "docs": {},
+                                                                                                            "w": {
+                                                                                                              "docs": {},
+                                                                                                              "n": {
+                                                                                                                "docs": {},
+                                                                                                                "l": {
+                                                                                                                  "docs": {},
+                                                                                                                  "o": {
+                                                                                                                    "docs": {},
+                                                                                                                    "a": {
+                                                                                                                      "docs": {},
+                                                                                                                      "d": {
+                                                                                                                        "docs": {
+                                                                                                                          "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+                                                                                                                            "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
+                                                                                                                            "tf": 1075
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            },
+                                                            "d": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {},
+                                                                "w": {
+                                                                  "docs": {},
+                                                                  "n": {
+                                                                    "docs": {},
+                                                                    "l": {
+                                                                      "docs": {},
+                                                                      "o": {
+                                                                        "docs": {},
+                                                                        "a": {
+                                                                          "docs": {},
+                                                                          "d": {
+                                                                            "docs": {},
+                                                                            "l": {
+                                                                              "docs": {},
+                                                                              "i": {
+                                                                                "docs": {},
+                                                                                "s": {
+                                                                                  "docs": {},
+                                                                                  "t": {
+                                                                                    "docs": {
+                                                                                      "Public.Html.ScreenManager.html#.downloadList": {
+                                                                                        "ref": "Public.Html.ScreenManager.html#.downloadList",
+                                                                                        "tf": 1075
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }
@@ -17726,288 +18296,6 @@
                                 "Public.Main.html": {
                                   "ref": "Public.Main.html",
                                   "tf": 1250
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "s": {
-                        "docs": {},
-                        "c": {
-                          "docs": {},
-                          "r": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "e": {
-                                "docs": {},
-                                "n": {
-                                  "docs": {},
-                                  "m": {
-                                    "docs": {},
-                                    "a": {
-                                      "docs": {},
-                                      "n": {
-                                        "docs": {},
-                                        "a": {
-                                          "docs": {},
-                                          "g": {
-                                            "docs": {
-                                              "Public.ScreenManager.html": {
-                                                "ref": "Public.ScreenManager.html",
-                                                "tf": 1250
-                                              }
-                                            },
-                                            "e": {
-                                              "docs": {},
-                                              "r": {
-                                                "docs": {},
-                                                ".": {
-                                                  "docs": {},
-                                                  "s": {
-                                                    "docs": {},
-                                                    "e": {
-                                                      "docs": {},
-                                                      "t": {
-                                                        "docs": {},
-                                                        "t": {
-                                                          "docs": {},
-                                                          "i": {
-                                                            "docs": {},
-                                                            "t": {
-                                                              "docs": {},
-                                                              "l": {
-                                                                "docs": {
-                                                                  "Public.ScreenManager.html#.setTitle": {
-                                                                    "ref": "Public.ScreenManager.html#.setTitle",
-                                                                    "tf": 1100
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    },
-                                                    "h": {
-                                                      "docs": {},
-                                                      "o": {
-                                                        "docs": {},
-                                                        "w": {
-                                                          "docs": {},
-                                                          "v": {
-                                                            "docs": {},
-                                                            "i": {
-                                                              "docs": {},
-                                                              "d": {
-                                                                "docs": {},
-                                                                "e": {
-                                                                  "docs": {},
-                                                                  "o": {
-                                                                    "docs": {
-                                                                      "Public.ScreenManager.html#.showVideo": {
-                                                                        "ref": "Public.ScreenManager.html#.showVideo",
-                                                                        "tf": 1100
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  },
-                                                  "g": {
-                                                    "docs": {},
-                                                    "e": {
-                                                      "docs": {},
-                                                      "n": {
-                                                        "docs": {},
-                                                        "e": {
-                                                          "docs": {},
-                                                          "r": {
-                                                            "docs": {},
-                                                            "a": {
-                                                              "docs": {},
-                                                              "t": {
-                                                                "docs": {},
-                                                                "e": {
-                                                                  "docs": {},
-                                                                  "a": {
-                                                                    "docs": {},
-                                                                    "n": {
-                                                                      "docs": {},
-                                                                      "i": {
-                                                                        "docs": {},
-                                                                        "m": {
-                                                                          "docs": {},
-                                                                          "e": {
-                                                                            "docs": {},
-                                                                            "l": {
-                                                                              "docs": {},
-                                                                              "i": {
-                                                                                "docs": {},
-                                                                                "s": {
-                                                                                  "docs": {},
-                                                                                  "t": {
-                                                                                    "docs": {},
-                                                                                    "h": {
-                                                                                      "docs": {},
-                                                                                      "t": {
-                                                                                        "docs": {},
-                                                                                        "m": {
-                                                                                          "docs": {},
-                                                                                          "l": {
-                                                                                            "docs": {
-                                                                                              "Public.ScreenManager.html#.generateAnimeListHTML": {
-                                                                                                "ref": "Public.ScreenManager.html#.generateAnimeListHTML",
-                                                                                                "tf": 1100
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  },
-                                                                  "e": {
-                                                                    "docs": {},
-                                                                    "p": {
-                                                                      "docs": {},
-                                                                      "i": {
-                                                                        "docs": {},
-                                                                        "s": {
-                                                                          "docs": {},
-                                                                          "o": {
-                                                                            "docs": {},
-                                                                            "d": {
-                                                                              "docs": {},
-                                                                              "e": {
-                                                                                "docs": {},
-                                                                                "i": {
-                                                                                  "docs": {},
-                                                                                  "n": {
-                                                                                    "docs": {},
-                                                                                    "f": {
-                                                                                      "docs": {},
-                                                                                      "o": {
-                                                                                        "docs": {},
-                                                                                        "f": {
-                                                                                          "docs": {},
-                                                                                          "o": {
-                                                                                            "docs": {},
-                                                                                            "r": {
-                                                                                              "docs": {},
-                                                                                              "d": {
-                                                                                                "docs": {},
-                                                                                                "o": {
-                                                                                                  "docs": {},
-                                                                                                  "w": {
-                                                                                                    "docs": {},
-                                                                                                    "n": {
-                                                                                                      "docs": {},
-                                                                                                      "l": {
-                                                                                                        "docs": {},
-                                                                                                        "o": {
-                                                                                                          "docs": {},
-                                                                                                          "a": {
-                                                                                                            "docs": {},
-                                                                                                            "d": {
-                                                                                                              "docs": {
-                                                                                                                "Public.ScreenManager.html#.generateEpisodeInfoForDownload": {
-                                                                                                                  "ref": "Public.ScreenManager.html#.generateEpisodeInfoForDownload",
-                                                                                                                  "tf": 1100
-                                                                                                                }
-                                                                                                              }
-                                                                                                            }
-                                                                                                          }
-                                                                                                        }
-                                                                                                      }
-                                                                                                    }
-                                                                                                  }
-                                                                                                }
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  },
-                                                  "d": {
-                                                    "docs": {},
-                                                    "o": {
-                                                      "docs": {},
-                                                      "w": {
-                                                        "docs": {},
-                                                        "n": {
-                                                          "docs": {},
-                                                          "l": {
-                                                            "docs": {},
-                                                            "o": {
-                                                              "docs": {},
-                                                              "a": {
-                                                                "docs": {},
-                                                                "d": {
-                                                                  "docs": {},
-                                                                  "l": {
-                                                                    "docs": {},
-                                                                    "i": {
-                                                                      "docs": {},
-                                                                      "s": {
-                                                                        "docs": {},
-                                                                        "t": {
-                                                                          "docs": {
-                                                                            "Public.ScreenManager.html#.downloadList": {
-                                                                              "ref": "Public.ScreenManager.html#.downloadList",
-                                                                              "tf": 1100
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
                                 }
                               }
                             }
@@ -20442,8 +20730,8 @@
                 "docs": {},
                 "g": {
                   "docs": {
-                    "Public.ScreenManager.html": {
-                      "ref": "Public.ScreenManager.html",
+                    "Public.Html.ScreenManager.html": {
+                      "ref": "Public.Html.ScreenManager.html",
                       "tf": 25
                     }
                   }
@@ -20506,8 +20794,8 @@
                     "ref": "Public.Html.HTMLManager.html#title",
                     "tf": 675
                   },
-                  "Public.ScreenManager.html#.setTitle": {
-                    "ref": "Public.ScreenManager.html#.setTitle",
+                  "Public.Html.ScreenManager.html#.setTitle": {
+                    "ref": "Public.Html.ScreenManager.html#.setTitle",
                     "tf": 25
                   }
                 }
@@ -22747,8 +23035,8 @@
                               "ref": "Public.Loader.html#.loadLocalEpisode",
                               "tf": 25
                             },
-                            "Public.ScreenManager.html#.showVideo": {
-                              "ref": "Public.ScreenManager.html#.showVideo",
+                            "Public.Html.ScreenManager.html#.showVideo": {
+                              "ref": "Public.Html.ScreenManager.html#.showVideo",
                               "tf": 20
                             },
                             "server.Anime.html#getEpisodeById": {
@@ -24248,8 +24536,8 @@
               "docs": {},
               "m": {
                 "docs": {
-                  "Public.ScreenManager.html#.generateAnimeListHTML": {
-                    "ref": "Public.ScreenManager.html#.generateAnimeListHTML",
+                  "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                    "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
                     "tf": 16.666666666666664
                   },
                   "Public.Html.Elements.Personalised.AnimeElement.html": {
@@ -24327,8 +24615,8 @@
                           "ref": "Public.Loader.html#.loadLocalEpisode",
                           "tf": 25
                         },
-                        "Public.ScreenManager.html#.showVideo": {
-                          "ref": "Public.ScreenManager.html#.showVideo",
+                        "Public.Html.ScreenManager.html#.showVideo": {
+                          "ref": "Public.Html.ScreenManager.html#.showVideo",
                           "tf": 20
                         },
                         "server.https.html#.start": {
@@ -25051,24 +25339,24 @@
                             "ref": "Public.Loader.html#.loadLocalEpisode",
                             "tf": 110
                           },
-                          "Public.ScreenManager.html#.setTitle": {
-                            "ref": "Public.ScreenManager.html#.setTitle",
+                          "Public.Html.ScreenManager.html#.setTitle": {
+                            "ref": "Public.Html.ScreenManager.html#.setTitle",
                             "tf": 110
                           },
-                          "Public.ScreenManager.html#.generateAnimeListHTML": {
-                            "ref": "Public.ScreenManager.html#.generateAnimeListHTML",
+                          "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+                            "ref": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
                             "tf": 110
                           },
-                          "Public.ScreenManager.html#.generateEpisodeInfoForDownload": {
-                            "ref": "Public.ScreenManager.html#.generateEpisodeInfoForDownload",
+                          "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+                            "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
                             "tf": 110
                           },
-                          "Public.ScreenManager.html#.showVideo": {
-                            "ref": "Public.ScreenManager.html#.showVideo",
+                          "Public.Html.ScreenManager.html#.showVideo": {
+                            "ref": "Public.Html.ScreenManager.html#.showVideo",
                             "tf": 110
                           },
-                          "Public.ScreenManager.html#.downloadList": {
-                            "ref": "Public.ScreenManager.html#.downloadList",
+                          "Public.Html.ScreenManager.html#.downloadList": {
+                            "ref": "Public.Html.ScreenManager.html#.downloadList",
                             "tf": 110
                           },
                           "Public.Common.FileLoader.html#.getInstance": {
@@ -26309,8 +26597,8 @@
                   "ref": "Public.Loader.html#.defaultThumbnailList",
                   "tf": 12.5
                 },
-                "Public.ScreenManager.html#.showVideo": {
-                  "ref": "Public.ScreenManager.html#.showVideo",
+                "Public.Html.ScreenManager.html#.showVideo": {
+                  "ref": "Public.Html.ScreenManager.html#.showVideo",
                   "tf": 20
                 },
                 "Public.Common.FileLoader.html#readAsBlob": {
@@ -28177,7 +28465,7 @@
           }
         }
       },
-      "length": 1565
+      "length": 1569
     },
     "corpusTokens": [
       "__logfil",
@@ -28540,6 +28828,12 @@
       "html.elements.srcelement#setpost",
       "html.htmlmanag",
       "html.htmlmanager#titl",
+      "html.screenmanag",
+      "html.screenmanager.downloadlist",
+      "html.screenmanager.generateanimelisthtml",
+      "html.screenmanager.generateepisodeinfofordownload",
+      "html.screenmanager.settitl",
+      "html.screenmanager.showvideo",
       "htmlelement",
       "htmlinputel",
       "htmlmanag",
@@ -28802,6 +29096,12 @@
       "public.html.elements~srcel",
       "public.html.htmlmanag",
       "public.html.htmlmanager#titl",
+      "public.html.screenmanag",
+      "public.html.screenmanager.downloadlist",
+      "public.html.screenmanager.generateanimelisthtml",
+      "public.html.screenmanager.generateepisodeinfofordownload",
+      "public.html.screenmanager.settitl",
+      "public.html.screenmanager.showvideo",
       "public.load",
       "public.loader.defaultthumbnaillist",
       "public.loader.loadlocalepisod",
@@ -28811,12 +29111,6 @@
       "public.publicanim",
       "public.publicepisod",
       "public.publicvideoplay",
-      "public.screenmanag",
-      "public.screenmanager.downloadlist",
-      "public.screenmanager.generateanimelisthtml",
-      "public.screenmanager.generateepisodeinfofordownload",
-      "public.screenmanager.settitl",
-      "public.screenmanager.showvideo",
       "publicanim",
       "publicepisod",
       "publiclist",
@@ -29249,64 +29543,64 @@
       "description": "Main class",
       "body": ""
     },
-    "Public.ScreenManager.html": {
-      "id": "Public.ScreenManager.html",
+    "Public.Html.ScreenManager.html": {
+      "id": "Public.Html.ScreenManager.html",
       "kind": "class",
-      "title": "Public.ScreenManager",
-      "longname": "Public.ScreenManager",
+      "title": "Public.Html.ScreenManager",
+      "longname": "Public.Html.ScreenManager",
       "name": "ScreenManager",
-      "tags": "Public.ScreenManager ScreenManager",
+      "tags": "Public.Html.ScreenManager Html.ScreenManager ScreenManager",
       "summary": "",
       "description": "Manage Screen",
       "body": ""
     },
-    "Public.ScreenManager.html#.setTitle": {
-      "id": "Public.ScreenManager.html#.setTitle",
+    "Public.Html.ScreenManager.html#.setTitle": {
+      "id": "Public.Html.ScreenManager.html#.setTitle",
       "kind": "function",
       "title": "&lt;static&gt; setTitle( title, htmlTitle )",
-      "longname": "Public.ScreenManager.setTitle",
+      "longname": "Public.Html.ScreenManager.setTitle",
       "name": "setTitle",
-      "tags": "Public.ScreenManager.setTitle ScreenManager.setTitle setTitle",
+      "tags": "Public.Html.ScreenManager.setTitle Html.ScreenManager.setTitle ScreenManager.setTitle setTitle",
       "summary": "",
       "description": ""
     },
-    "Public.ScreenManager.html#.generateAnimeListHTML": {
-      "id": "Public.ScreenManager.html#.generateAnimeListHTML",
+    "Public.Html.ScreenManager.html#.generateAnimeListHTML": {
+      "id": "Public.Html.ScreenManager.html#.generateAnimeListHTML",
       "kind": "function",
       "title": "&lt;static&gt; generateAnimeListHTML()",
-      "longname": "Public.ScreenManager.generateAnimeListHTML",
+      "longname": "Public.Html.ScreenManager.generateAnimeListHTML",
       "name": "generateAnimeListHTML",
-      "tags": "Public.ScreenManager.generateAnimeListHTML ScreenManager.generateAnimeListHTML generateAnimeListHTML",
+      "tags": "Public.Html.ScreenManager.generateAnimeListHTML Html.ScreenManager.generateAnimeListHTML ScreenManager.generateAnimeListHTML generateAnimeListHTML",
       "summary": "",
       "description": "Generate the list of animes"
     },
-    "Public.ScreenManager.html#.generateEpisodeInfoForDownload": {
-      "id": "Public.ScreenManager.html#.generateEpisodeInfoForDownload",
+    "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
+      "id": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
       "kind": "function",
       "title": "&lt;static&gt; generateEpisodeInfoForDownload( info, next )",
-      "longname": "Public.ScreenManager.generateEpisodeInfoForDownload",
+      "longname": "Public.Html.ScreenManager.generateEpisodeInfoForDownload",
       "name": "generateEpisodeInfoForDownload",
-      "tags": "Public.ScreenManager.generateEpisodeInfoForDownload ScreenManager.generateEpisodeInfoForDownload generateEpisodeInfoForDownload",
+      "tags": "Public.Html.ScreenManager.generateEpisodeInfoForDownload Html.ScreenManager.generateEpisodeInfoForDownload ScreenManager.generateEpisodeInfoForDownload generateEpisodeInfoForDownload",
       "summary": "",
       "description": ""
     },
-    "Public.ScreenManager.html#.showVideo": {
-      "id": "Public.ScreenManager.html#.showVideo",
+    "Public.Html.ScreenManager.html#.showVideo": {
+      "id": "Public.Html.ScreenManager.html#.showVideo",
       "kind": "function",
       "title": "&lt;static&gt; showVideo( url, animeId, episodeId )",
-      "longname": "Public.ScreenManager.showVideo",
+      "longname": "Public.Html.ScreenManager.showVideo",
       "name": "showVideo",
-      "tags": "Public.ScreenManager.showVideo ScreenManager.showVideo showVideo",
+      "tags": "Public.Html.ScreenManager.showVideo Html.ScreenManager.showVideo ScreenManager.showVideo showVideo",
       "summary": "",
       "description": ""
     },
-    "Public.ScreenManager.html#.downloadList": {
-      "id": "Public.ScreenManager.html#.downloadList",
+    "Public.Html.ScreenManager.html#.downloadList": {
+      "id": "Public.Html.ScreenManager.html#.downloadList",
       "kind": "function",
       "title": "&lt;static&gt; downloadList( list )",
-      "longname": "Public.ScreenManager.downloadList",
+      "longname": "Public.Html.ScreenManager.downloadList",
       "name": "downloadList",
-      "tags": "Public.ScreenManager.downloadList ScreenManager.downloadList downloadList",
+      "tags": "Public.Html.ScreenManager.downloadList Html.ScreenManager.downloadList ScreenManager.downloadList downloadList",
       "summary": "",
       "description": ""
     },

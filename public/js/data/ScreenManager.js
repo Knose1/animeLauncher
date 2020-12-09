@@ -31,12 +31,8 @@ const INFO = "Info";
 const WATCH = "Watch";
 
 /**
- * @namespace Public
- */
-
-/**
  * Manage Screen
- * @memberof Public
+ * @memberof Public.Html
  */
 class ScreenManager {
 
