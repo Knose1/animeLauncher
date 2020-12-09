@@ -2,10 +2,6 @@ import FileLoader from './utils/FileLoader.js';
 import ScreenManager from './data/ScreenManager.js';
 
 /**
- * @namespace Public
- */
-
-/**
  * @memberof Public 
  */
 class Loader 

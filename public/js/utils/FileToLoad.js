@@ -3,14 +3,6 @@ const TYPE_BLOB = 1;
 const TYPE_JSON = 2;
 const TYPE_HTML = 3;
 
-/**
- * @namespace Public
- */
-/**
- * @namespace Common
- * @memberof Public
- */
-
 /** 
  * @readonly
  * @enum {number}

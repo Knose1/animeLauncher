@@ -2,20 +2,7 @@ import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
 
 /**
- * @namespace Public
- */
-/**
- * @namespace Elements
- * @memberof Public
- */
-/**
- * @namespace Personalised
- * @memberof Public.Elements
- */
-
-
-/**
- * @memberof Public.Elements
+ * @memberof Public.Html.Elements
  */
 class ScreenElementManager {
 
@@ -122,7 +109,7 @@ class ScreenElementManager {
  * let body = new ScreenElement("div");
  * body.append( new ScreenElement("pre").setText("My text") );
  * 
- * @memberof Public.Elements
+ * @memberof Public.Html.Elements
  */
 class ScreenElement {
 
@@ -242,7 +229,7 @@ class ScreenElement {
 
 /**
  * Creates a ScreenElement using an HTMLElement
- * @memberof Public.Elements 
+ * @memberof Public.Html.Elements 
  */
 class ScreenElementFromElement extends ScreenElement {
 	
@@ -259,7 +246,7 @@ class ScreenElementFromElement extends ScreenElement {
 
 /**
  * Creates a screenElement that has a SRC attribute
- * @memberof Public.Elements 
+ * @memberof Public.Html.Elements 
  */
 class SrcElement extends ScreenElement 
 {
@@ -307,7 +294,7 @@ class SrcElement extends ScreenElement
 
 /**
  * Creates a button element listening to click event
- * @memberof Public.Elements 
+ * @memberof Public.Html.Elements 
  */
 class ButtonElement extends ScreenElement 
 {
@@ -345,7 +332,7 @@ class ButtonElement extends ScreenElement
 
 /**
  * Creates an input
- * @memberof Public.Elements 
+ * @memberof Public.Html.Elements 
  */
 class InputElement extends ScreenElement 
 {
@@ -388,7 +375,7 @@ class InputElement extends ScreenElement
 
 /**
  * Creates button in the main menu (top bar)
- * @memberof Public.Elements 
+ * @memberof Public.Html.Elements 
  */
 class MenuButtonElement extends ScreenElement 
 {
@@ -411,7 +398,7 @@ class MenuButtonElement extends ScreenElement
 
 /**
  * Creates a div with text that indicates progress
- * @memberof Public.Elements 
+ * @memberof Public.Html.Elements 
  * @abstract
  */
 class ProgressIndicator extends ScreenElement
@@ -446,7 +433,7 @@ class ProgressIndicator extends ScreenElement
 
 /**
  * Creates a div with a bar that indicates progress
- * @memberof Public.Elements
+ * @memberof Public.Html.Elements
  */
 class ProgressBarIndicator extends ProgressIndicator
 {
@@ -486,7 +473,7 @@ class ProgressBarIndicator extends ProgressIndicator
 
 /**
  * An anime button in the anime list
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class AnimeElement extends ScreenElement
 {
@@ -513,7 +500,7 @@ class AnimeElement extends ScreenElement
 
 /**
  * An episode button in the anime's episode list
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class EpisodeElement extends ScreenElement
 {
@@ -547,7 +534,7 @@ class EpisodeElement extends ScreenElement
 
 /**
  * A button to watch the episode
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class EpisodeWatchButton extends ButtonElement
 {
@@ -570,7 +557,7 @@ class EpisodeWatchButton extends ButtonElement
 
 /**
  * A button to return to previous screen 
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class ReturnButton extends ButtonElement
 {
@@ -587,7 +574,7 @@ class ReturnButton extends ButtonElement
 
 /**
  * A button to download all the episodes
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  * @deprecated
  */
 class DownloadAllButton extends ButtonElement
@@ -605,7 +592,7 @@ class DownloadAllButton extends ButtonElement
 
 /**
  * A text that contains infos about the episode
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class EpisodeInfoElement extends ScreenElement
 {
@@ -635,7 +622,7 @@ class EpisodeInfoElement extends ScreenElement
 
 /**
  * A text that contains infos about the videoplayer
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class PlayerInfoElement extends ScreenElement
 {
@@ -745,7 +732,7 @@ class PlayerInfoElement extends ScreenElement
 
 /**
  * A text that formats ytdl string
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class YtDlFormatElement extends ScreenElement 
 {
@@ -766,7 +753,7 @@ class YtDlFormatElement extends ScreenElement
 
 /**
  * An element that opens an Iframe and wait for user input
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class IframeDownloadPromiseElement extends ScreenElement 
 {
@@ -914,7 +901,7 @@ class IframeDownloadPromiseElement extends ScreenElement
 
 /**
  * A progressbar fo
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class EpisodeDlProgress extends ScreenElement 
 {
@@ -940,7 +927,7 @@ class EpisodeDlProgress extends ScreenElement
 
 /**
  * When an episode has errors
- * @memberof Public.Elements.Personalised
+ * @memberof Public.Html.Elements.Personalised
  */
 class EpisodeDlErrorProgress extends ScreenElement 
 {

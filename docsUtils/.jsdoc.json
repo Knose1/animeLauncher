@@ -4,9 +4,9 @@
 		"dictionaries": ["jsdoc"]
 	},
 	"source": {
-		"include": ["main.js","./src/"],
+		"include": ["main.js","./src/","./public/js/"],
 		"includePattern": ".js$",
-		"excludePattern": "(node_modules/|docs)"
+		"excludePattern": "(node_modules/|docs/|docsUtils)"
 	},
 	"templates": {
 		"cleverLinks": false,
@@ -17,8 +17,8 @@
 		"systemLogo": "./public/asset/ico/ico_64.png",
 		"favicon": "./public/asset/ico/ico_64.png",
 		"systemColor": "hsl(150, 56%, 46%)",
-		"stylesheets": ["./_jsdocCustomScripts/index.css", "./_jsdocCustomScripts/dark.css"],
-		"scripts": ["./_jsdocCustomScripts/jsColorUtils.js", "./_jsdocCustomScripts/index.js"]
+		"stylesheets": ["./jsdocCustomScripts/index.css", "./jsdocCustomScripts/dark.css"],
+		"scripts": ["./jsdocCustomScripts/jsColorUtils.js", "./jsdocCustomScripts/index.js"]
 	},
 	"opts": {
 		"destination": "./docs/",

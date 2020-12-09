@@ -1,12 +1,4 @@
 /**
- * @namespace Public
- */
-/**
- * @namespace Common
- * @memberof Public
- */
-
-/**
  * Classe qui permet de stocker les x / y et de comparer les valeurs avec d'autres points
  * @memberof Public.Common
 */

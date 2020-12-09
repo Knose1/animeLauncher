@@ -1,4 +1,5 @@
 _old/*
+_temp/*
 episode/*
 node_modules/*
 .vscode/*

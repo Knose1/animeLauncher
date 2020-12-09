@@ -6,8 +6,8 @@ const RESET = -2;
 const START = -1;
 
 /**
-	FileLoader s'occupe de charger les fichiers et transmettre les données à des callbacks.
-	Il peut charger du text ou générer un blob.
+	FileLoader can load files and send their responce using calbacks.
+	It can load text, json, html or blob. See : {@link FileToLoad FileToLoad} 
 	@example
 	<code type="javascript">
 		function init() {
@@ -19,20 +19,8 @@ const START = -1;
 			FileLoader.getInstance().start();
 		}
 	</code>
-*/
-
-/**
- * @namespace Public
- */
-/**
- * @namespace Common
- * @memberof Public
- */
-
-/**
- * Manage Screen
  * @memberof Public.Common
- */
+*/
 class FileLoader {
 	//static _instance;
 	//_currentLoadingItemIndex;

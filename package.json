@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "node main.js",
 		"test": "node --inspect main.js",
-		"generate-docs": "node _jsdocGenAndOpen.js .jsdoc.json docs/index.html",
+		"generate-docs": "node ./docsUtils/_jsdocGenAndOpen.js ./docsUtils/.jsdoc.json ./docsUtils/docIndex.html ./docs/index.html",
 		"build": "pkg --out-path ./build .",
 		"build-test": "pkg --debug --out-path ./build ."
 	},
