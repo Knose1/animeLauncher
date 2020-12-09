@@ -450,11 +450,13 @@ class ScreenManager {
 	 * @typedef DlCurrent
 	 * @property {string} episode
 	 * @property {number} progress
+	 * @memberof Public.Html.ScreenManager
 	 */
 	/**
 	 * @typedef DlError
 	 * @property {string} episode
 	 * @property {string} error
+	 * @memberof Public.Html.ScreenManager
 	 */
 
 	/**
@@ -462,6 +464,7 @@ class ScreenManager {
 	 * @property {DlCurrent} current
 	 * @property {string[]} list
 	 * @property {DlError[]} error
+	 * @memberof Public.Html.ScreenManager
 	 */
 
 	/**

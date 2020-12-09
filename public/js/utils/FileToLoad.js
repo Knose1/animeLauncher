@@ -6,18 +6,30 @@ const TYPE_HTML = 3;
 /** 
  * @readonly
  * @enum {number}
- * @memberof Public.Common
+ * @memberof Public.Common.FileLoader.FileToLoad
  */
 let FileType = 
 {
+	/**
+	 * 0
+	 */
 	TYPE_TEXT,
+	/**
+	 * 1
+	 */
 	TYPE_BLOB,
+	/**
+	 * 2
+	 */
 	TYPE_JSON,
+	/**
+	 * 3
+	 */
 	TYPE_HTML
 }
 
 /**
- * @memberof Public.Common
+ * @memberof Public.Common.FileLoader
  */
 class FileToLoad {
 	

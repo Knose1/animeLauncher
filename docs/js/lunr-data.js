@@ -245,6 +245,27 @@ window.lunrData = {
           "public.html.screenmanager.downloadlist",
           "screenmanager.downloadlist"
         ],
+        "Public.Html.ScreenManager.html#.DlCurrent": [
+          "dlcurrent",
+          "html.screenmanager.dlcurr",
+          "public.html.screenmanager.dlcurr",
+          "screenmanager.dlcurr",
+          "typedef"
+        ],
+        "Public.Html.ScreenManager.html#.DlError": [
+          "dlerror",
+          "html.screenmanager.dlerror",
+          "public.html.screenmanager.dlerror",
+          "screenmanager.dlerror",
+          "typedef"
+        ],
+        "Public.Html.ScreenManager.html#.DlList": [
+          "dllist",
+          "html.screenmanager.dllist",
+          "public.html.screenmanager.dllist",
+          "screenmanager.dllist",
+          "typedef"
+        ],
         "Public.Common.FileLoader.html": [
           "blob",
           "calback",
@@ -398,48 +419,157 @@ window.lunrData = {
           "url",
           "ver"
         ],
-        "Public.Common.FileToLoad.html": [
-          "class",
-          "common.filetoload",
-          "filetoload",
-          "public.common.filetoload",
-          "public.common~filetoload"
+        "Public.Common.FileLoader.html#.Next": [
+          "common.fileloader.next",
+          "fileloader.next",
+          "next",
+          "public.common.fileloader.next",
+          "typedef",
+          "void"
         ],
-        "Public.Common.FileToLoad.html#.getTYPE_TEXT": [
-          "common.filetoload.gettype_text",
+        "Public.Common.FileLoader.html#.Reset": [
+          "common.fileloader.reset",
+          "fileloader.reset",
+          "public.common.fileloader.reset",
+          "reset",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.html#.onerror": [
+          "common.fileloader.onerror",
+          "fileloader.onerror",
+          "onerror",
+          "pcurrentloadingitemindex",
+          "perr",
+          "pnext",
+          "preset",
+          "public.common.fileloader.onerror",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.html#.onparseerror": [
+          "common.fileloader.onparseerror",
+          "fileloader.onparseerror",
+          "onparseerror",
+          "pcurrentloadingitemindex",
+          "perr",
+          "pnext",
+          "preset",
+          "public.common.fileloader.onparseerror",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.html#.oncomplete": [
+          "common.fileloader.oncomplet",
+          "fileloader.oncomplet",
+          "oncomplet",
+          "public.common.fileloader.oncomplet",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.html#.onprogress": [
+          "common.fileloader.onprogress",
+          "fileloader.onprogress",
+          "onprogress",
+          "pprogress",
+          "public.common.fileloader.onprogress",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.html#.TextDataCallback": [
+          "common.fileloader.textdatacallback",
+          "fileloader.textdatacallback",
+          "pdata",
+          "public.common.fileloader.textdatacallback",
+          "textdatacallback",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.html#.JsonDataCallback": [
+          "common.fileloader.jsondatacallback",
+          "fileloader.jsondatacallback",
+          "jsondatacallback",
+          "pdata",
+          "public.common.fileloader.jsondatacallback",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.html#.HTMLDataCallback": [
+          "common.fileloader.htmldatacallback",
+          "fileloader.htmldatacallback",
+          "htmldatacallback",
+          "pdata",
+          "public.common.fileloader.htmldatacallback",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.html#.BlobDataCallback": [
+          "blobdatacallback",
+          "common.fileloader.blobdatacallback",
+          "fileloader.blobdatacallback",
+          "pdata",
+          "public.common.fileloader.blobdatacallback",
+          "typedef",
+          "void"
+        ],
+        "Public.Common.FileLoader.FileToLoad.html": [
+          "class",
+          "common.fileloader.filetoload",
+          "fileloader.filetoload",
+          "filetoload",
+          "public.common.fileloader.filetoload",
+          "public.common~fileloader~filetoload"
+        ],
+        "Public.Common.FileLoader.FileToLoad.html#.FileType": [
+          "common.fileloader.filetoload.filetyp",
+          "fileloader.filetoload.filetyp",
+          "filetoload.filetyp",
+          "filetyp",
+          "lt;static",
+          "member",
+          "number",
+          "public.common.fileloader.filetoload.filetyp",
+          "readonly&gt"
+        ],
+        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": [
+          "common.fileloader.filetoload.gettype_text",
+          "fileloader.filetoload.gettype_text",
           "filetoload.gettype_text",
           "filetyp",
           "function",
           "gettype_text",
           "lt;static&gt",
-          "public.common.filetoload.gettype_text"
+          "public.common.fileloader.filetoload.gettype_text"
         ],
-        "Public.Common.FileToLoad.html#.getTYPE_BLOB": [
-          "common.filetoload.gettype_blob",
+        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": [
+          "common.fileloader.filetoload.gettype_blob",
+          "fileloader.filetoload.gettype_blob",
           "filetoload.gettype_blob",
           "filetyp",
           "function",
           "gettype_blob",
           "lt;static&gt",
-          "public.common.filetoload.gettype_blob"
+          "public.common.fileloader.filetoload.gettype_blob"
         ],
-        "Public.Common.FileToLoad.html#.getTYPE_JSON": [
-          "common.filetoload.gettype_json",
+        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": [
+          "common.fileloader.filetoload.gettype_json",
+          "fileloader.filetoload.gettype_json",
           "filetoload.gettype_json",
           "filetyp",
           "function",
           "gettype_json",
           "lt;static&gt",
-          "public.common.filetoload.gettype_json"
+          "public.common.fileloader.filetoload.gettype_json"
         ],
-        "Public.Common.FileToLoad.html#.getTYPE_HTML": [
-          "common.filetoload.gettype_html",
+        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": [
+          "common.fileloader.filetoload.gettype_html",
+          "fileloader.filetoload.gettype_html",
           "filetoload.gettype_html",
           "filetyp",
           "function",
           "gettype_html",
           "lt;static&gt",
-          "public.common.filetoload.gettype_html"
+          "public.common.fileloader.filetoload.gettype_html"
         ],
         "server.JsonObject.html": [
           "class",
@@ -1828,15 +1958,6 @@ window.lunrData = {
           "namespac",
           "public.common"
         ],
-        "Public.Common.html#.FileType": [
-          "common.filetyp",
-          "filetyp",
-          "lt;static",
-          "member",
-          "number",
-          "public.common.filetyp",
-          "readonly&gt"
-        ],
         "server.image.html": [
           "imag",
           "namespac",
@@ -1981,7 +2102,7 @@ window.lunrData = {
           "url"
         ]
       },
-      "length": 186
+      "length": 199
     },
     "tokenStore": {
       "root": {
@@ -4022,6 +4143,72 @@ window.lunrData = {
               }
             }
           },
+          "l": {
+            "docs": {},
+            "c": {
+              "docs": {},
+              "u": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "t": {
+                          "docs": {
+                            "Public.Html.ScreenManager.html#.DlCurrent": {
+                              "ref": "Public.Html.ScreenManager.html#.DlCurrent",
+                              "tf": 675
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "e": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "r": {
+                      "docs": {
+                        "Public.Html.ScreenManager.html#.DlError": {
+                          "ref": "Public.Html.ScreenManager.html#.DlError",
+                          "tf": 675
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "l": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "s": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "Public.Html.ScreenManager.html#.DlList": {
+                        "ref": "Public.Html.ScreenManager.html#.DlList",
+                        "tf": 675
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
           "u": {
             "docs": {
               "Public.Common.FileLoader.html#readAsText": {
@@ -5521,6 +5708,10 @@ window.lunrData = {
                         "docs": {},
                         "c": {
                           "docs": {
+                            "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                              "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                              "tf": 25
+                            },
                             "server.DownloadEpisode.html#.list": {
                               "ref": "server.DownloadEpisode.html#.list",
                               "tf": 25
@@ -5535,10 +5726,6 @@ window.lunrData = {
                             },
                             "server.Anime.html#.list": {
                               "ref": "server.Anime.html#.list",
-                              "tf": 25
-                            },
-                            "Public.Common.html#.FileType": {
-                              "ref": "Public.Common.html#.FileType",
                               "tf": 25
                             }
                           },
@@ -5600,20 +5787,20 @@ window.lunrData = {
                                     "ref": "Public.Common.FileLoader.html#.getInstance",
                                     "tf": 33.33333333333333
                                   },
-                                  "Public.Common.FileToLoad.html#.getTYPE_TEXT": {
-                                    "ref": "Public.Common.FileToLoad.html#.getTYPE_TEXT",
+                                  "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
                                     "tf": 33.33333333333333
                                   },
-                                  "Public.Common.FileToLoad.html#.getTYPE_BLOB": {
-                                    "ref": "Public.Common.FileToLoad.html#.getTYPE_BLOB",
+                                  "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
                                     "tf": 33.33333333333333
                                   },
-                                  "Public.Common.FileToLoad.html#.getTYPE_JSON": {
-                                    "ref": "Public.Common.FileToLoad.html#.getTYPE_JSON",
+                                  "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
                                     "tf": 33.33333333333333
                                   },
-                                  "Public.Common.FileToLoad.html#.getTYPE_HTML": {
-                                    "ref": "Public.Common.FileToLoad.html#.getTYPE_HTML",
+                                  "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
                                     "tf": 33.33333333333333
                                   },
                                   "server.DownloadEpisode.html#.toDownload": {
@@ -6591,6 +6778,10 @@ window.lunrData = {
                             "docs": {},
                             "t": {
                               "docs": {
+                                "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                                  "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                                  "tf": 25
+                                },
                                 "server.DownloadEpisode.html#.list": {
                                   "ref": "server.DownloadEpisode.html#.list",
                                   "tf": 25
@@ -6621,10 +6812,6 @@ window.lunrData = {
                                 },
                                 "server.Anime.html#_path": {
                                   "ref": "server.Anime.html#_path",
-                                  "tf": 25
-                                },
-                                "Public.Common.html#.FileType": {
-                                  "ref": "Public.Common.html#.FileType",
                                   "tf": 25
                                 }
                               }
@@ -6724,6 +6911,17 @@ window.lunrData = {
                           "tf": 3.571428571428571
                         }
                       }
+                    }
+                  }
+                }
+              },
+              "e": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "Public.Common.FileLoader.html#.Reset": {
+                      "ref": "Public.Common.FileLoader.html#.Reset",
+                      "tf": 625
                     }
                   }
                 }
@@ -7382,9 +7580,9 @@ window.lunrData = {
                               "docs": {},
                               "t": {
                                 "docs": {
-                                  "Public.Common.FileToLoad.html#.getTYPE_TEXT": {
-                                    "ref": "Public.Common.FileToLoad.html#.getTYPE_TEXT",
-                                    "tf": 608.3333333333334
+                                  "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
+                                    "tf": 593.3333333333334
                                   }
                                 }
                               }
@@ -7399,9 +7597,9 @@ window.lunrData = {
                               "docs": {},
                               "b": {
                                 "docs": {
-                                  "Public.Common.FileToLoad.html#.getTYPE_BLOB": {
-                                    "ref": "Public.Common.FileToLoad.html#.getTYPE_BLOB",
-                                    "tf": 608.3333333333334
+                                  "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
+                                    "tf": 593.3333333333334
                                   }
                                 }
                               }
@@ -7416,9 +7614,9 @@ window.lunrData = {
                               "docs": {},
                               "n": {
                                 "docs": {
-                                  "Public.Common.FileToLoad.html#.getTYPE_JSON": {
-                                    "ref": "Public.Common.FileToLoad.html#.getTYPE_JSON",
-                                    "tf": 608.3333333333334
+                                  "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
+                                    "tf": 593.3333333333334
                                   }
                                 }
                               }
@@ -7433,9 +7631,9 @@ window.lunrData = {
                               "docs": {},
                               "l": {
                                 "docs": {
-                                  "Public.Common.FileToLoad.html#.getTYPE_HTML": {
-                                    "ref": "Public.Common.FileToLoad.html#.getTYPE_HTML",
-                                    "tf": 608.3333333333334
+                                  "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
+                                    "tf": 593.3333333333334
                                   }
                                 }
                               }
@@ -7871,8 +8069,8 @@ window.lunrData = {
                       "ref": "Public.Common.FileLoader.html",
                       "tf": 110
                     },
-                    "Public.Common.FileToLoad.html": {
-                      "ref": "Public.Common.FileToLoad.html",
+                    "Public.Common.FileLoader.FileToLoad.html": {
+                      "ref": "Public.Common.FileLoader.FileToLoad.html",
                       "tf": 110
                     },
                     "server.JsonObject.html": {
@@ -8413,111 +8611,511 @@ window.lunrData = {
                                                   }
                                                 }
                                               }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "t": {
-                                "docs": {},
-                                "o": {
-                                  "docs": {},
-                                  "l": {
-                                    "docs": {},
-                                    "o": {
-                                      "docs": {},
-                                      "a": {
-                                        "docs": {},
-                                        "d": {
-                                          "docs": {
-                                            "Public.Common.FileToLoad.html": {
-                                              "ref": "Public.Common.FileToLoad.html",
-                                              "tf": 100
-                                            }
-                                          },
-                                          ".": {
-                                            "docs": {},
-                                            "g": {
+                                            },
+                                            "n": {
                                               "docs": {},
                                               "e": {
                                                 "docs": {},
-                                                "t": {
+                                                "x": {
                                                   "docs": {},
                                                   "t": {
+                                                    "docs": {
+                                                      "Public.Common.FileLoader.html#.Next": {
+                                                        "ref": "Public.Common.FileLoader.html#.Next",
+                                                        "tf": 75
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "r": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "e": {
                                                     "docs": {},
-                                                    "y": {
+                                                    "t": {
+                                                      "docs": {
+                                                        "Public.Common.FileLoader.html#.Reset": {
+                                                          "ref": "Public.Common.FileLoader.html#.Reset",
+                                                          "tf": 75
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "o": {
+                                              "docs": {},
+                                              "n": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "r": {
+                                                    "docs": {},
+                                                    "r": {
                                                       "docs": {},
-                                                      "p": {
+                                                      "o": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {
+                                                            "Public.Common.FileLoader.html#.onerror": {
+                                                              "ref": "Public.Common.FileLoader.html#.onerror",
+                                                              "tf": 75
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "p": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "r": {
+                                                      "docs": {},
+                                                      "s": {
                                                         "docs": {},
                                                         "e": {
                                                           "docs": {},
-                                                          "_": {
+                                                          "e": {
                                                             "docs": {},
-                                                            "t": {
+                                                            "r": {
                                                               "docs": {},
-                                                              "e": {
-                                                                "docs": {},
-                                                                "x": {
-                                                                  "docs": {},
-                                                                  "t": {
-                                                                    "docs": {
-                                                                      "Public.Common.FileToLoad.html#.getTYPE_TEXT": {
-                                                                        "ref": "Public.Common.FileToLoad.html#.getTYPE_TEXT",
-                                                                        "tf": 75
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            },
-                                                            "b": {
-                                                              "docs": {},
-                                                              "l": {
+                                                              "r": {
                                                                 "docs": {},
                                                                 "o": {
                                                                   "docs": {},
-                                                                  "b": {
+                                                                  "r": {
                                                                     "docs": {
-                                                                      "Public.Common.FileToLoad.html#.getTYPE_BLOB": {
-                                                                        "ref": "Public.Common.FileToLoad.html#.getTYPE_BLOB",
+                                                                      "Public.Common.FileLoader.html#.onparseerror": {
+                                                                        "ref": "Public.Common.FileLoader.html#.onparseerror",
                                                                         "tf": 75
                                                                       }
                                                                     }
                                                                   }
                                                                 }
                                                               }
-                                                            },
-                                                            "j": {
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "r": {
+                                                    "docs": {},
+                                                    "o": {
+                                                      "docs": {},
+                                                      "g": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {},
+                                                          "e": {
+                                                            "docs": {},
+                                                            "s": {
                                                               "docs": {},
                                                               "s": {
+                                                                "docs": {
+                                                                  "Public.Common.FileLoader.html#.onprogress": {
+                                                                    "ref": "Public.Common.FileLoader.html#.onprogress",
+                                                                    "tf": 75
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "c": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "m": {
+                                                      "docs": {},
+                                                      "p": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {},
+                                                          "e": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {
+                                                                "Public.Common.FileLoader.html#.oncomplete": {
+                                                                  "ref": "Public.Common.FileLoader.html#.oncomplete",
+                                                                  "tf": 75
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "t": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "x": {
+                                                  "docs": {},
+                                                  "t": {
+                                                    "docs": {},
+                                                    "d": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "c": {
+                                                              "docs": {},
+                                                              "a": {
                                                                 "docs": {},
-                                                                "o": {
+                                                                "l": {
                                                                   "docs": {},
-                                                                  "n": {
-                                                                    "docs": {
-                                                                      "Public.Common.FileToLoad.html#.getTYPE_JSON": {
-                                                                        "ref": "Public.Common.FileToLoad.html#.getTYPE_JSON",
-                                                                        "tf": 75
+                                                                  "l": {
+                                                                    "docs": {},
+                                                                    "b": {
+                                                                      "docs": {},
+                                                                      "a": {
+                                                                        "docs": {},
+                                                                        "c": {
+                                                                          "docs": {},
+                                                                          "k": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.html#.TextDataCallback": {
+                                                                                "ref": "Public.Common.FileLoader.html#.TextDataCallback",
+                                                                                "tf": 75
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
                                                                       }
                                                                     }
                                                                   }
                                                                 }
                                                               }
-                                                            },
-                                                            "h": {
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "j": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "d": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "c": {
                                                               "docs": {},
-                                                              "t": {
+                                                              "a": {
                                                                 "docs": {},
-                                                                "m": {
+                                                                "l": {
                                                                   "docs": {},
                                                                   "l": {
-                                                                    "docs": {
-                                                                      "Public.Common.FileToLoad.html#.getTYPE_HTML": {
-                                                                        "ref": "Public.Common.FileToLoad.html#.getTYPE_HTML",
-                                                                        "tf": 75
+                                                                    "docs": {},
+                                                                    "b": {
+                                                                      "docs": {},
+                                                                      "a": {
+                                                                        "docs": {},
+                                                                        "c": {
+                                                                          "docs": {},
+                                                                          "k": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.html#.JsonDataCallback": {
+                                                                                "ref": "Public.Common.FileLoader.html#.JsonDataCallback",
+                                                                                "tf": 75
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "h": {
+                                              "docs": {},
+                                              "t": {
+                                                "docs": {},
+                                                "m": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {},
+                                                    "d": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "c": {
+                                                              "docs": {},
+                                                              "a": {
+                                                                "docs": {},
+                                                                "l": {
+                                                                  "docs": {},
+                                                                  "l": {
+                                                                    "docs": {},
+                                                                    "b": {
+                                                                      "docs": {},
+                                                                      "a": {
+                                                                        "docs": {},
+                                                                        "c": {
+                                                                          "docs": {},
+                                                                          "k": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.html#.HTMLDataCallback": {
+                                                                                "ref": "Public.Common.FileLoader.html#.HTMLDataCallback",
+                                                                                "tf": 75
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "b": {
+                                              "docs": {},
+                                              "l": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "b": {
+                                                    "docs": {},
+                                                    "d": {
+                                                      "docs": {},
+                                                      "a": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "c": {
+                                                              "docs": {},
+                                                              "a": {
+                                                                "docs": {},
+                                                                "l": {
+                                                                  "docs": {},
+                                                                  "l": {
+                                                                    "docs": {},
+                                                                    "b": {
+                                                                      "docs": {},
+                                                                      "a": {
+                                                                        "docs": {},
+                                                                        "c": {
+                                                                          "docs": {},
+                                                                          "k": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.html#.BlobDataCallback": {
+                                                                                "ref": "Public.Common.FileLoader.html#.BlobDataCallback",
+                                                                                "tf": 75
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "f": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {},
+                                                      "o": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {},
+                                                          "o": {
+                                                            "docs": {},
+                                                            "a": {
+                                                              "docs": {},
+                                                              "d": {
+                                                                "docs": {
+                                                                  "Public.Common.FileLoader.FileToLoad.html": {
+                                                                    "ref": "Public.Common.FileLoader.FileToLoad.html",
+                                                                    "tf": 75
+                                                                  }
+                                                                },
+                                                                ".": {
+                                                                  "docs": {},
+                                                                  "f": {
+                                                                    "docs": {},
+                                                                    "i": {
+                                                                      "docs": {},
+                                                                      "l": {
+                                                                        "docs": {},
+                                                                        "e": {
+                                                                          "docs": {},
+                                                                          "t": {
+                                                                            "docs": {},
+                                                                            "y": {
+                                                                              "docs": {},
+                                                                              "p": {
+                                                                                "docs": {
+                                                                                  "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                                                                                    "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                                                                                    "tf": 60
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  },
+                                                                  "g": {
+                                                                    "docs": {},
+                                                                    "e": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {},
+                                                                        "t": {
+                                                                          "docs": {},
+                                                                          "y": {
+                                                                            "docs": {},
+                                                                            "p": {
+                                                                              "docs": {},
+                                                                              "e": {
+                                                                                "docs": {},
+                                                                                "_": {
+                                                                                  "docs": {},
+                                                                                  "t": {
+                                                                                    "docs": {},
+                                                                                    "e": {
+                                                                                      "docs": {},
+                                                                                      "x": {
+                                                                                        "docs": {},
+                                                                                        "t": {
+                                                                                          "docs": {
+                                                                                            "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+                                                                                              "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
+                                                                                              "tf": 60
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                  "b": {
+                                                                                    "docs": {},
+                                                                                    "l": {
+                                                                                      "docs": {},
+                                                                                      "o": {
+                                                                                        "docs": {},
+                                                                                        "b": {
+                                                                                          "docs": {
+                                                                                            "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+                                                                                              "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
+                                                                                              "tf": 60
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                  "j": {
+                                                                                    "docs": {},
+                                                                                    "s": {
+                                                                                      "docs": {},
+                                                                                      "o": {
+                                                                                        "docs": {},
+                                                                                        "n": {
+                                                                                          "docs": {
+                                                                                            "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+                                                                                              "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
+                                                                                              "tf": 60
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  },
+                                                                                  "h": {
+                                                                                    "docs": {},
+                                                                                    "t": {
+                                                                                      "docs": {},
+                                                                                      "m": {
+                                                                                        "docs": {},
+                                                                                        "l": {
+                                                                                          "docs": {
+                                                                                            "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+                                                                                              "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
+                                                                                              "tf": 60
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
                                                                       }
                                                                     }
                                                                   }
@@ -8534,17 +9132,6 @@ window.lunrData = {
                                             }
                                           }
                                         }
-                                      }
-                                    }
-                                  }
-                                },
-                                "y": {
-                                  "docs": {},
-                                  "p": {
-                                    "docs": {
-                                      "Public.Common.html#.FileType": {
-                                        "ref": "Public.Common.html#.FileType",
-                                        "tf": 100
                                       }
                                     }
                                   }
@@ -9278,6 +9865,10 @@ window.lunrData = {
                         "ref": "Public.Loader.html#.preloadDefaultThumbnail",
                         "tf": 20
                       },
+                      "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                        "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                        "tf": 25
+                      },
                       "server.DownloadEpisode.html#id": {
                         "ref": "server.DownloadEpisode.html#id",
                         "tf": 33.33333333333333
@@ -9293,10 +9884,6 @@ window.lunrData = {
                       "server.Episode.html#episodeId": {
                         "ref": "server.Episode.html#episodeId",
                         "tf": 33.33333333333333
-                      },
-                      "Public.Common.html#.FileType": {
-                        "ref": "Public.Common.html#.FileType",
-                        "tf": 25
                       }
                     }
                   }
@@ -9313,6 +9900,10 @@ window.lunrData = {
                   "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload": {
                     "ref": "Public.Html.ScreenManager.html#.generateEpisodeInfoForDownload",
                     "tf": 25
+                  },
+                  "Public.Common.FileLoader.html#.Next": {
+                    "ref": "Public.Common.FileLoader.html#.Next",
+                    "tf": 625
                   }
                 }
               }
@@ -11339,6 +11930,63 @@ window.lunrData = {
                                                       }
                                                     }
                                                   }
+                                                },
+                                                "l": {
+                                                  "docs": {},
+                                                  "c": {
+                                                    "docs": {},
+                                                    "u": {
+                                                      "docs": {},
+                                                      "r": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {
+                                                            "Public.Html.ScreenManager.html#.DlCurrent": {
+                                                              "ref": "Public.Html.ScreenManager.html#.DlCurrent",
+                                                              "tf": 75
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "e": {
+                                                    "docs": {},
+                                                    "r": {
+                                                      "docs": {},
+                                                      "r": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "r": {
+                                                            "docs": {
+                                                              "Public.Html.ScreenManager.html#.DlError": {
+                                                                "ref": "Public.Html.ScreenManager.html#.DlError",
+                                                                "tf": 75
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "l": {
+                                                    "docs": {},
+                                                    "i": {
+                                                      "docs": {},
+                                                      "s": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {
+                                                            "Public.Html.ScreenManager.html#.DlList": {
+                                                              "ref": "Public.Html.ScreenManager.html#.DlList",
+                                                              "tf": 75
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
                                                 }
                                               }
                                             }
@@ -11413,6 +12061,47 @@ window.lunrData = {
                           "Public.Html.ScreenManager.html#.setTitle": {
                             "ref": "Public.Html.ScreenManager.html#.setTitle",
                             "tf": 25
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "d": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "c": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "l": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "k": {
+                                        "docs": {
+                                          "Public.Common.FileLoader.html#.HTMLDataCallback": {
+                                            "ref": "Public.Common.FileLoader.html#.HTMLDataCallback",
+                                            "tf": 608.3333333333334
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -14285,6 +14974,63 @@ window.lunrData = {
                                                                     }
                                                                   }
                                                                 }
+                                                              },
+                                                              "l": {
+                                                                "docs": {},
+                                                                "c": {
+                                                                  "docs": {},
+                                                                  "u": {
+                                                                    "docs": {},
+                                                                    "r": {
+                                                                      "docs": {},
+                                                                      "r": {
+                                                                        "docs": {
+                                                                          "Public.Html.ScreenManager.html#.DlCurrent": {
+                                                                            "ref": "Public.Html.ScreenManager.html#.DlCurrent",
+                                                                            "tf": 1075
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "r": {
+                                                                    "docs": {},
+                                                                    "r": {
+                                                                      "docs": {},
+                                                                      "o": {
+                                                                        "docs": {},
+                                                                        "r": {
+                                                                          "docs": {
+                                                                            "Public.Html.ScreenManager.html#.DlError": {
+                                                                              "ref": "Public.Html.ScreenManager.html#.DlError",
+                                                                              "tf": 1075
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "l": {
+                                                                  "docs": {},
+                                                                  "i": {
+                                                                    "docs": {},
+                                                                    "s": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {
+                                                                          "Public.Html.ScreenManager.html#.DlList": {
+                                                                            "ref": "Public.Html.ScreenManager.html#.DlList",
+                                                                            "tf": 1075
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
                                                               }
                                                             }
                                                           }
@@ -14904,111 +15650,511 @@ window.lunrData = {
                                                                 }
                                                               }
                                                             }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "t": {
-                                              "docs": {},
-                                              "o": {
-                                                "docs": {},
-                                                "l": {
-                                                  "docs": {},
-                                                  "o": {
-                                                    "docs": {},
-                                                    "a": {
-                                                      "docs": {},
-                                                      "d": {
-                                                        "docs": {
-                                                          "Public.Common.FileToLoad.html": {
-                                                            "ref": "Public.Common.FileToLoad.html",
-                                                            "tf": 1100
-                                                          }
-                                                        },
-                                                        ".": {
-                                                          "docs": {},
-                                                          "g": {
+                                                          },
+                                                          "n": {
                                                             "docs": {},
                                                             "e": {
                                                               "docs": {},
-                                                              "t": {
+                                                              "x": {
                                                                 "docs": {},
                                                                 "t": {
+                                                                  "docs": {
+                                                                    "Public.Common.FileLoader.html#.Next": {
+                                                                      "ref": "Public.Common.FileLoader.html#.Next",
+                                                                      "tf": 1075
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "r": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "s": {
+                                                                "docs": {},
+                                                                "e": {
                                                                   "docs": {},
-                                                                  "y": {
+                                                                  "t": {
+                                                                    "docs": {
+                                                                      "Public.Common.FileLoader.html#.Reset": {
+                                                                        "ref": "Public.Common.FileLoader.html#.Reset",
+                                                                        "tf": 1075
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "o": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {},
+                                                              "e": {
+                                                                "docs": {},
+                                                                "r": {
+                                                                  "docs": {},
+                                                                  "r": {
                                                                     "docs": {},
-                                                                    "p": {
+                                                                    "o": {
+                                                                      "docs": {},
+                                                                      "r": {
+                                                                        "docs": {
+                                                                          "Public.Common.FileLoader.html#.onerror": {
+                                                                            "ref": "Public.Common.FileLoader.html#.onerror",
+                                                                            "tf": 1075
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "p": {
+                                                                "docs": {},
+                                                                "a": {
+                                                                  "docs": {},
+                                                                  "r": {
+                                                                    "docs": {},
+                                                                    "s": {
                                                                       "docs": {},
                                                                       "e": {
                                                                         "docs": {},
-                                                                        "_": {
+                                                                        "e": {
                                                                           "docs": {},
-                                                                          "t": {
+                                                                          "r": {
                                                                             "docs": {},
-                                                                            "e": {
-                                                                              "docs": {},
-                                                                              "x": {
-                                                                                "docs": {},
-                                                                                "t": {
-                                                                                  "docs": {
-                                                                                    "Public.Common.FileToLoad.html#.getTYPE_TEXT": {
-                                                                                      "ref": "Public.Common.FileToLoad.html#.getTYPE_TEXT",
-                                                                                      "tf": 1075
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          },
-                                                                          "b": {
-                                                                            "docs": {},
-                                                                            "l": {
+                                                                            "r": {
                                                                               "docs": {},
                                                                               "o": {
                                                                                 "docs": {},
-                                                                                "b": {
+                                                                                "r": {
                                                                                   "docs": {
-                                                                                    "Public.Common.FileToLoad.html#.getTYPE_BLOB": {
-                                                                                      "ref": "Public.Common.FileToLoad.html#.getTYPE_BLOB",
+                                                                                    "Public.Common.FileLoader.html#.onparseerror": {
+                                                                                      "ref": "Public.Common.FileLoader.html#.onparseerror",
                                                                                       "tf": 1075
                                                                                     }
                                                                                   }
                                                                                 }
                                                                               }
                                                                             }
-                                                                          },
-                                                                          "j": {
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "r": {
+                                                                  "docs": {},
+                                                                  "o": {
+                                                                    "docs": {},
+                                                                    "g": {
+                                                                      "docs": {},
+                                                                      "r": {
+                                                                        "docs": {},
+                                                                        "e": {
+                                                                          "docs": {},
+                                                                          "s": {
                                                                             "docs": {},
                                                                             "s": {
+                                                                              "docs": {
+                                                                                "Public.Common.FileLoader.html#.onprogress": {
+                                                                                  "ref": "Public.Common.FileLoader.html#.onprogress",
+                                                                                  "tf": 1075
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "c": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "m": {
+                                                                    "docs": {},
+                                                                    "p": {
+                                                                      "docs": {},
+                                                                      "l": {
+                                                                        "docs": {},
+                                                                        "e": {
+                                                                          "docs": {},
+                                                                          "t": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.html#.oncomplete": {
+                                                                                "ref": "Public.Common.FileLoader.html#.oncomplete",
+                                                                                "tf": 1075
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "t": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "x": {
+                                                                "docs": {},
+                                                                "t": {
+                                                                  "docs": {},
+                                                                  "d": {
+                                                                    "docs": {},
+                                                                    "a": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {},
+                                                                        "a": {
+                                                                          "docs": {},
+                                                                          "c": {
+                                                                            "docs": {},
+                                                                            "a": {
                                                                               "docs": {},
-                                                                              "o": {
+                                                                              "l": {
                                                                                 "docs": {},
-                                                                                "n": {
-                                                                                  "docs": {
-                                                                                    "Public.Common.FileToLoad.html#.getTYPE_JSON": {
-                                                                                      "ref": "Public.Common.FileToLoad.html#.getTYPE_JSON",
-                                                                                      "tf": 1075
+                                                                                "l": {
+                                                                                  "docs": {},
+                                                                                  "b": {
+                                                                                    "docs": {},
+                                                                                    "a": {
+                                                                                      "docs": {},
+                                                                                      "c": {
+                                                                                        "docs": {},
+                                                                                        "k": {
+                                                                                          "docs": {
+                                                                                            "Public.Common.FileLoader.html#.TextDataCallback": {
+                                                                                              "ref": "Public.Common.FileLoader.html#.TextDataCallback",
+                                                                                              "tf": 1075
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
                                                                                     }
                                                                                   }
                                                                                 }
                                                                               }
                                                                             }
-                                                                          },
-                                                                          "h": {
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "j": {
+                                                            "docs": {},
+                                                            "s": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {},
+                                                                "n": {
+                                                                  "docs": {},
+                                                                  "d": {
+                                                                    "docs": {},
+                                                                    "a": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {},
+                                                                        "a": {
+                                                                          "docs": {},
+                                                                          "c": {
                                                                             "docs": {},
-                                                                            "t": {
+                                                                            "a": {
                                                                               "docs": {},
-                                                                              "m": {
+                                                                              "l": {
                                                                                 "docs": {},
                                                                                 "l": {
-                                                                                  "docs": {
-                                                                                    "Public.Common.FileToLoad.html#.getTYPE_HTML": {
-                                                                                      "ref": "Public.Common.FileToLoad.html#.getTYPE_HTML",
-                                                                                      "tf": 1075
+                                                                                  "docs": {},
+                                                                                  "b": {
+                                                                                    "docs": {},
+                                                                                    "a": {
+                                                                                      "docs": {},
+                                                                                      "c": {
+                                                                                        "docs": {},
+                                                                                        "k": {
+                                                                                          "docs": {
+                                                                                            "Public.Common.FileLoader.html#.JsonDataCallback": {
+                                                                                              "ref": "Public.Common.FileLoader.html#.JsonDataCallback",
+                                                                                              "tf": 1075
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "h": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {},
+                                                              "m": {
+                                                                "docs": {},
+                                                                "l": {
+                                                                  "docs": {},
+                                                                  "d": {
+                                                                    "docs": {},
+                                                                    "a": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {},
+                                                                        "a": {
+                                                                          "docs": {},
+                                                                          "c": {
+                                                                            "docs": {},
+                                                                            "a": {
+                                                                              "docs": {},
+                                                                              "l": {
+                                                                                "docs": {},
+                                                                                "l": {
+                                                                                  "docs": {},
+                                                                                  "b": {
+                                                                                    "docs": {},
+                                                                                    "a": {
+                                                                                      "docs": {},
+                                                                                      "c": {
+                                                                                        "docs": {},
+                                                                                        "k": {
+                                                                                          "docs": {
+                                                                                            "Public.Common.FileLoader.html#.HTMLDataCallback": {
+                                                                                              "ref": "Public.Common.FileLoader.html#.HTMLDataCallback",
+                                                                                              "tf": 1075
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "b": {
+                                                            "docs": {},
+                                                            "l": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {},
+                                                                "b": {
+                                                                  "docs": {},
+                                                                  "d": {
+                                                                    "docs": {},
+                                                                    "a": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {},
+                                                                        "a": {
+                                                                          "docs": {},
+                                                                          "c": {
+                                                                            "docs": {},
+                                                                            "a": {
+                                                                              "docs": {},
+                                                                              "l": {
+                                                                                "docs": {},
+                                                                                "l": {
+                                                                                  "docs": {},
+                                                                                  "b": {
+                                                                                    "docs": {},
+                                                                                    "a": {
+                                                                                      "docs": {},
+                                                                                      "c": {
+                                                                                        "docs": {},
+                                                                                        "k": {
+                                                                                          "docs": {
+                                                                                            "Public.Common.FileLoader.html#.BlobDataCallback": {
+                                                                                              "ref": "Public.Common.FileLoader.html#.BlobDataCallback",
+                                                                                              "tf": 1075
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "f": {
+                                                            "docs": {},
+                                                            "i": {
+                                                              "docs": {},
+                                                              "l": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "t": {
+                                                                    "docs": {},
+                                                                    "o": {
+                                                                      "docs": {},
+                                                                      "l": {
+                                                                        "docs": {},
+                                                                        "o": {
+                                                                          "docs": {},
+                                                                          "a": {
+                                                                            "docs": {},
+                                                                            "d": {
+                                                                              "docs": {
+                                                                                "Public.Common.FileLoader.FileToLoad.html": {
+                                                                                  "ref": "Public.Common.FileLoader.FileToLoad.html",
+                                                                                  "tf": 1075
+                                                                                }
+                                                                              },
+                                                                              ".": {
+                                                                                "docs": {},
+                                                                                "f": {
+                                                                                  "docs": {},
+                                                                                  "i": {
+                                                                                    "docs": {},
+                                                                                    "l": {
+                                                                                      "docs": {},
+                                                                                      "e": {
+                                                                                        "docs": {},
+                                                                                        "t": {
+                                                                                          "docs": {},
+                                                                                          "y": {
+                                                                                            "docs": {},
+                                                                                            "p": {
+                                                                                              "docs": {
+                                                                                                "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                                                                                                  "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                                                                                                  "tf": 1060
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                },
+                                                                                "g": {
+                                                                                  "docs": {},
+                                                                                  "e": {
+                                                                                    "docs": {},
+                                                                                    "t": {
+                                                                                      "docs": {},
+                                                                                      "t": {
+                                                                                        "docs": {},
+                                                                                        "y": {
+                                                                                          "docs": {},
+                                                                                          "p": {
+                                                                                            "docs": {},
+                                                                                            "e": {
+                                                                                              "docs": {},
+                                                                                              "_": {
+                                                                                                "docs": {},
+                                                                                                "t": {
+                                                                                                  "docs": {},
+                                                                                                  "e": {
+                                                                                                    "docs": {},
+                                                                                                    "x": {
+                                                                                                      "docs": {},
+                                                                                                      "t": {
+                                                                                                        "docs": {
+                                                                                                          "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+                                                                                                            "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
+                                                                                                            "tf": 1060
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                },
+                                                                                                "b": {
+                                                                                                  "docs": {},
+                                                                                                  "l": {
+                                                                                                    "docs": {},
+                                                                                                    "o": {
+                                                                                                      "docs": {},
+                                                                                                      "b": {
+                                                                                                        "docs": {
+                                                                                                          "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+                                                                                                            "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
+                                                                                                            "tf": 1060
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                },
+                                                                                                "j": {
+                                                                                                  "docs": {},
+                                                                                                  "s": {
+                                                                                                    "docs": {},
+                                                                                                    "o": {
+                                                                                                      "docs": {},
+                                                                                                      "n": {
+                                                                                                        "docs": {
+                                                                                                          "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+                                                                                                            "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
+                                                                                                            "tf": 1060
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                },
+                                                                                                "h": {
+                                                                                                  "docs": {},
+                                                                                                  "t": {
+                                                                                                    "docs": {},
+                                                                                                    "m": {
+                                                                                                      "docs": {},
+                                                                                                      "l": {
+                                                                                                        "docs": {
+                                                                                                          "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+                                                                                                            "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
+                                                                                                            "tf": 1060
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
                                                                                     }
                                                                                   }
                                                                                 }
@@ -15025,17 +16171,6 @@ window.lunrData = {
                                                           }
                                                         }
                                                       }
-                                                    }
-                                                  }
-                                                }
-                                              },
-                                              "y": {
-                                                "docs": {},
-                                                "p": {
-                                                  "docs": {
-                                                    "Public.Common.html#.FileType": {
-                                                      "ref": "Public.Common.html#.FileType",
-                                                      "tf": 1100
                                                     }
                                                   }
                                                 }
@@ -15088,26 +16223,47 @@ window.lunrData = {
                                                         "ref": "Public.Common.FileLoader.html",
                                                         "tf": 100
                                                       }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            },
-                                            "t": {
-                                              "docs": {},
-                                              "o": {
-                                                "docs": {},
-                                                "l": {
-                                                  "docs": {},
-                                                  "o": {
-                                                    "docs": {},
-                                                    "a": {
+                                                    },
+                                                    "e": {
                                                       "docs": {},
-                                                      "d": {
-                                                        "docs": {
-                                                          "Public.Common.FileToLoad.html": {
-                                                            "ref": "Public.Common.FileToLoad.html",
-                                                            "tf": 100
+                                                      "r": {
+                                                        "docs": {},
+                                                        "~": {
+                                                          "docs": {},
+                                                          "f": {
+                                                            "docs": {},
+                                                            "i": {
+                                                              "docs": {},
+                                                              "l": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "t": {
+                                                                    "docs": {},
+                                                                    "o": {
+                                                                      "docs": {},
+                                                                      "l": {
+                                                                        "docs": {},
+                                                                        "o": {
+                                                                          "docs": {},
+                                                                          "a": {
+                                                                            "docs": {},
+                                                                            "d": {
+                                                                              "docs": {
+                                                                                "Public.Common.FileLoader.FileToLoad.html": {
+                                                                                  "ref": "Public.Common.FileLoader.FileToLoad.html",
+                                                                                  "tf": 100
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
                                                           }
                                                         }
                                                       }
@@ -15498,6 +16654,24 @@ window.lunrData = {
                             }
                           }
                         }
+                      }
+                    }
+                  }
+                }
+              },
+              "s": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "Public.Common.FileLoader.html#.onerror": {
+                        "ref": "Public.Common.FileLoader.html#.onerror",
+                        "tf": 16.666666666666664
+                      },
+                      "Public.Common.FileLoader.html#.onparseerror": {
+                        "ref": "Public.Common.FileLoader.html#.onparseerror",
+                        "tf": 16.666666666666664
                       }
                     }
                   }
@@ -16165,6 +17339,18 @@ window.lunrData = {
                         "tf": 3.125
                       }
                     }
+                  }
+                }
+              },
+              "r": {
+                "docs": {
+                  "Public.Common.FileLoader.html#.onerror": {
+                    "ref": "Public.Common.FileLoader.html#.onerror",
+                    "tf": 16.666666666666664
+                  },
+                  "Public.Common.FileLoader.html#.onparseerror": {
+                    "ref": "Public.Common.FileLoader.html#.onparseerror",
+                    "tf": 16.666666666666664
                   }
                 }
               },
@@ -16980,6 +18166,160 @@ window.lunrData = {
                   }
                 }
               }
+            },
+            "u": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "t": {
+                        "docs": {},
+                        "l": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "d": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "g": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "m": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "n": {
+                                                  "docs": {},
+                                                  "d": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "x": {
+                                                        "docs": {
+                                                          "Public.Common.FileLoader.html#.onerror": {
+                                                            "ref": "Public.Common.FileLoader.html#.onerror",
+                                                            "tf": 16.666666666666664
+                                                          },
+                                                          "Public.Common.FileLoader.html#.onparseerror": {
+                                                            "ref": "Public.Common.FileLoader.html#.onparseerror",
+                                                            "tf": 16.666666666666664
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "n": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "x": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "Public.Common.FileLoader.html#.onerror": {
+                      "ref": "Public.Common.FileLoader.html#.onerror",
+                      "tf": 16.666666666666664
+                    },
+                    "Public.Common.FileLoader.html#.onparseerror": {
+                      "ref": "Public.Common.FileLoader.html#.onparseerror",
+                      "tf": 16.666666666666664
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "p": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "g": {
+                  "docs": {},
+                  "r": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "s": {
+                        "docs": {},
+                        "s": {
+                          "docs": {
+                            "Public.Common.FileLoader.html#.onprogress": {
+                              "ref": "Public.Common.FileLoader.html#.onprogress",
+                              "tf": 33.33333333333333
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "d": {
+            "docs": {},
+            "a": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "a": {
+                  "docs": {
+                    "Public.Common.FileLoader.html#.TextDataCallback": {
+                      "ref": "Public.Common.FileLoader.html#.TextDataCallback",
+                      "tf": 33.33333333333333
+                    },
+                    "Public.Common.FileLoader.html#.JsonDataCallback": {
+                      "ref": "Public.Common.FileLoader.html#.JsonDataCallback",
+                      "tf": 33.33333333333333
+                    },
+                    "Public.Common.FileLoader.html#.HTMLDataCallback": {
+                      "ref": "Public.Common.FileLoader.html#.HTMLDataCallback",
+                      "tf": 33.33333333333333
+                    },
+                    "Public.Common.FileLoader.html#.BlobDataCallback": {
+                      "ref": "Public.Common.FileLoader.html#.BlobDataCallback",
+                      "tf": 33.33333333333333
+                    }
+                  }
+                }
+              }
             }
           },
           "l": {
@@ -17306,6 +18646,10 @@ window.lunrData = {
                         "ref": "Public.Common.FileLoader.html#loadList",
                         "tf": 110
                       },
+                      "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                        "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                        "tf": 110
+                      },
                       "Public.Html.Elements.ScreenElement.html#element": {
                         "ref": "Public.Html.Elements.ScreenElement.html#element",
                         "tf": 110
@@ -17476,10 +18820,6 @@ window.lunrData = {
                       },
                       "server.global.html#.__tempFolder": {
                         "ref": "server.global.html#.__tempFolder",
-                        "tf": 110
-                      },
-                      "Public.Common.html#.FileType": {
-                        "ref": "Public.Common.html#.FileType",
                         "tf": 110
                       }
                     }
@@ -17665,6 +19005,58 @@ window.lunrData = {
                     "docs": {},
                     "f": {
                       "docs": {
+                        "Public.Html.ScreenManager.html#.DlCurrent": {
+                          "ref": "Public.Html.ScreenManager.html#.DlCurrent",
+                          "tf": 110
+                        },
+                        "Public.Html.ScreenManager.html#.DlError": {
+                          "ref": "Public.Html.ScreenManager.html#.DlError",
+                          "tf": 110
+                        },
+                        "Public.Html.ScreenManager.html#.DlList": {
+                          "ref": "Public.Html.ScreenManager.html#.DlList",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.Next": {
+                          "ref": "Public.Common.FileLoader.html#.Next",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.Reset": {
+                          "ref": "Public.Common.FileLoader.html#.Reset",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.onerror": {
+                          "ref": "Public.Common.FileLoader.html#.onerror",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.onparseerror": {
+                          "ref": "Public.Common.FileLoader.html#.onparseerror",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.oncomplete": {
+                          "ref": "Public.Common.FileLoader.html#.oncomplete",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.onprogress": {
+                          "ref": "Public.Common.FileLoader.html#.onprogress",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.TextDataCallback": {
+                          "ref": "Public.Common.FileLoader.html#.TextDataCallback",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.JsonDataCallback": {
+                          "ref": "Public.Common.FileLoader.html#.JsonDataCallback",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.HTMLDataCallback": {
+                          "ref": "Public.Common.FileLoader.html#.HTMLDataCallback",
+                          "tf": 110
+                        },
+                        "Public.Common.FileLoader.html#.BlobDataCallback": {
+                          "ref": "Public.Common.FileLoader.html#.BlobDataCallback",
+                          "tf": 110
+                        },
                         "server.image.html#.ThumbailOption": {
                           "ref": "server.image.html#.ThumbailOption",
                           "tf": 110
@@ -17880,6 +19272,47 @@ window.lunrData = {
                   "server.image.html#.exports.getThumbail": {
                     "ref": "server.image.html#.exports.getThumbail",
                     "tf": 20
+                  }
+                },
+                "d": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "c": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "l": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "k": {
+                                        "docs": {
+                                          "Public.Common.FileLoader.html#.TextDataCallback": {
+                                            "ref": "Public.Common.FileLoader.html#.TextDataCallback",
+                                            "tf": 608.3333333333334
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 },
                 "c": {
@@ -21540,6 +22973,63 @@ window.lunrData = {
                                                         }
                                                       }
                                                     }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "l": {
+                                        "docs": {},
+                                        "c": {
+                                          "docs": {},
+                                          "u": {
+                                            "docs": {},
+                                            "r": {
+                                              "docs": {},
+                                              "r": {
+                                                "docs": {
+                                                  "Public.Html.ScreenManager.html#.DlCurrent": {
+                                                    "ref": "Public.Html.ScreenManager.html#.DlCurrent",
+                                                    "tf": 75
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "e": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "r": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "r": {
+                                                  "docs": {
+                                                    "Public.Html.ScreenManager.html#.DlError": {
+                                                      "ref": "Public.Html.ScreenManager.html#.DlError",
+                                                      "tf": 75
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "l": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "s": {
+                                              "docs": {},
+                                              "t": {
+                                                "docs": {
+                                                  "Public.Html.ScreenManager.html#.DlList": {
+                                                    "ref": "Public.Html.ScreenManager.html#.DlList",
+                                                    "tf": 75
                                                   }
                                                 }
                                               }
@@ -25364,20 +26854,20 @@ window.lunrData = {
                             "ref": "Public.Common.FileLoader.html#readAsBlob",
                             "tf": 110
                           },
-                          "Public.Common.FileToLoad.html#.getTYPE_TEXT": {
-                            "ref": "Public.Common.FileToLoad.html#.getTYPE_TEXT",
+                          "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+                            "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
                             "tf": 110
                           },
-                          "Public.Common.FileToLoad.html#.getTYPE_BLOB": {
-                            "ref": "Public.Common.FileToLoad.html#.getTYPE_BLOB",
+                          "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+                            "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
                             "tf": 110
                           },
-                          "Public.Common.FileToLoad.html#.getTYPE_JSON": {
-                            "ref": "Public.Common.FileToLoad.html#.getTYPE_JSON",
+                          "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+                            "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
                             "tf": 110
                           },
-                          "Public.Common.FileToLoad.html#.getTYPE_HTML": {
-                            "ref": "Public.Common.FileToLoad.html#.getTYPE_HTML",
+                          "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+                            "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
                             "tf": 110
                           },
                           "server.JsonObject.html#loadSync": {
@@ -25971,6 +27461,524 @@ window.lunrData = {
                                     }
                                   }
                                 }
+                              },
+                              "n": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "x": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {
+                                        "Public.Common.FileLoader.html#.Next": {
+                                          "ref": "Public.Common.FileLoader.html#.Next",
+                                          "tf": 75
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "r": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {
+                                          "Public.Common.FileLoader.html#.Reset": {
+                                            "ref": "Public.Common.FileLoader.html#.Reset",
+                                            "tf": 75
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "o": {
+                                "docs": {},
+                                "n": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {
+                                              "Public.Common.FileLoader.html#.onerror": {
+                                                "ref": "Public.Common.FileLoader.html#.onerror",
+                                                "tf": 75
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "p": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "r": {
+                                                "docs": {},
+                                                "r": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "r": {
+                                                      "docs": {
+                                                        "Public.Common.FileLoader.html#.onparseerror": {
+                                                          "ref": "Public.Common.FileLoader.html#.onparseerror",
+                                                          "tf": 75
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "r": {
+                                      "docs": {},
+                                      "o": {
+                                        "docs": {},
+                                        "g": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {
+                                                    "Public.Common.FileLoader.html#.onprogress": {
+                                                      "ref": "Public.Common.FileLoader.html#.onprogress",
+                                                      "tf": 75
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "c": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "m": {
+                                        "docs": {},
+                                        "p": {
+                                          "docs": {},
+                                          "l": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "t": {
+                                                "docs": {
+                                                  "Public.Common.FileLoader.html#.oncomplete": {
+                                                    "ref": "Public.Common.FileLoader.html#.oncomplete",
+                                                    "tf": 75
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "t": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "x": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {},
+                                      "d": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "a": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "b": {
+                                                        "docs": {},
+                                                        "a": {
+                                                          "docs": {},
+                                                          "c": {
+                                                            "docs": {},
+                                                            "k": {
+                                                              "docs": {
+                                                                "Public.Common.FileLoader.html#.TextDataCallback": {
+                                                                  "ref": "Public.Common.FileLoader.html#.TextDataCallback",
+                                                                  "tf": 75
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "j": {
+                                "docs": {},
+                                "s": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "d": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "a": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "b": {
+                                                        "docs": {},
+                                                        "a": {
+                                                          "docs": {},
+                                                          "c": {
+                                                            "docs": {},
+                                                            "k": {
+                                                              "docs": {
+                                                                "Public.Common.FileLoader.html#.JsonDataCallback": {
+                                                                  "ref": "Public.Common.FileLoader.html#.JsonDataCallback",
+                                                                  "tf": 75
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "h": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {},
+                                  "m": {
+                                    "docs": {},
+                                    "l": {
+                                      "docs": {},
+                                      "d": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "a": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "b": {
+                                                        "docs": {},
+                                                        "a": {
+                                                          "docs": {},
+                                                          "c": {
+                                                            "docs": {},
+                                                            "k": {
+                                                              "docs": {
+                                                                "Public.Common.FileLoader.html#.HTMLDataCallback": {
+                                                                  "ref": "Public.Common.FileLoader.html#.HTMLDataCallback",
+                                                                  "tf": 75
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "b": {
+                                "docs": {},
+                                "l": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "b": {
+                                      "docs": {},
+                                      "d": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "a": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "b": {
+                                                        "docs": {},
+                                                        "a": {
+                                                          "docs": {},
+                                                          "c": {
+                                                            "docs": {},
+                                                            "k": {
+                                                              "docs": {
+                                                                "Public.Common.FileLoader.html#.BlobDataCallback": {
+                                                                  "ref": "Public.Common.FileLoader.html#.BlobDataCallback",
+                                                                  "tf": 75
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "f": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "l": {
+                                            "docs": {},
+                                            "o": {
+                                              "docs": {},
+                                              "a": {
+                                                "docs": {},
+                                                "d": {
+                                                  "docs": {
+                                                    "Public.Common.FileLoader.FileToLoad.html": {
+                                                      "ref": "Public.Common.FileLoader.FileToLoad.html",
+                                                      "tf": 75
+                                                    }
+                                                  },
+                                                  ".": {
+                                                    "docs": {},
+                                                    "f": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {},
+                                                          "e": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {},
+                                                              "y": {
+                                                                "docs": {},
+                                                                "p": {
+                                                                  "docs": {
+                                                                    "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                                                                      "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                                                                      "tf": 60
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "g": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "t": {
+                                                            "docs": {},
+                                                            "y": {
+                                                              "docs": {},
+                                                              "p": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "_": {
+                                                                    "docs": {},
+                                                                    "t": {
+                                                                      "docs": {},
+                                                                      "e": {
+                                                                        "docs": {},
+                                                                        "x": {
+                                                                          "docs": {},
+                                                                          "t": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+                                                                                "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
+                                                                                "tf": 60
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "b": {
+                                                                      "docs": {},
+                                                                      "l": {
+                                                                        "docs": {},
+                                                                        "o": {
+                                                                          "docs": {},
+                                                                          "b": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+                                                                                "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
+                                                                                "tf": 60
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "j": {
+                                                                      "docs": {},
+                                                                      "s": {
+                                                                        "docs": {},
+                                                                        "o": {
+                                                                          "docs": {},
+                                                                          "n": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+                                                                                "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
+                                                                                "tf": 60
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "h": {
+                                                                      "docs": {},
+                                                                      "t": {
+                                                                        "docs": {},
+                                                                        "m": {
+                                                                          "docs": {},
+                                                                          "l": {
+                                                                            "docs": {
+                                                                              "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+                                                                                "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
+                                                                                "tf": 60
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
                               }
                             }
                           }
@@ -25995,13 +28003,39 @@ window.lunrData = {
                                 "ref": "Public.Common.FileLoader.html",
                                 "tf": 3.571428571428571
                               },
-                              "Public.Common.FileToLoad.html": {
-                                "ref": "Public.Common.FileToLoad.html",
-                                "tf": 600
+                              "Public.Common.FileLoader.FileToLoad.html": {
+                                "ref": "Public.Common.FileLoader.FileToLoad.html",
+                                "tf": 575
                               }
                             },
                             ".": {
                               "docs": {},
+                              "f": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "y": {
+                                          "docs": {},
+                                          "p": {
+                                            "docs": {
+                                              "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                                                "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                                                "tf": 60
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
                               "g": {
                                 "docs": {},
                                 "e": {
@@ -26026,9 +28060,9 @@ window.lunrData = {
                                                     "docs": {},
                                                     "t": {
                                                       "docs": {
-                                                        "Public.Common.FileToLoad.html#.getTYPE_TEXT": {
-                                                          "ref": "Public.Common.FileToLoad.html#.getTYPE_TEXT",
-                                                          "tf": 75
+                                                        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+                                                          "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
+                                                          "tf": 60
                                                         }
                                                       }
                                                     }
@@ -26043,9 +28077,9 @@ window.lunrData = {
                                                     "docs": {},
                                                     "b": {
                                                       "docs": {
-                                                        "Public.Common.FileToLoad.html#.getTYPE_BLOB": {
-                                                          "ref": "Public.Common.FileToLoad.html#.getTYPE_BLOB",
-                                                          "tf": 75
+                                                        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+                                                          "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
+                                                          "tf": 60
                                                         }
                                                       }
                                                     }
@@ -26060,9 +28094,9 @@ window.lunrData = {
                                                     "docs": {},
                                                     "n": {
                                                       "docs": {
-                                                        "Public.Common.FileToLoad.html#.getTYPE_JSON": {
-                                                          "ref": "Public.Common.FileToLoad.html#.getTYPE_JSON",
-                                                          "tf": 75
+                                                        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+                                                          "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
+                                                          "tf": 60
                                                         }
                                                       }
                                                     }
@@ -26077,9 +28111,9 @@ window.lunrData = {
                                                     "docs": {},
                                                     "l": {
                                                       "docs": {
-                                                        "Public.Common.FileToLoad.html#.getTYPE_HTML": {
-                                                          "ref": "Public.Common.FileToLoad.html#.getTYPE_HTML",
-                                                          "tf": 75
+                                                        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+                                                          "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
+                                                          "tf": 60
                                                         }
                                                       }
                                                     }
@@ -26104,25 +28138,25 @@ window.lunrData = {
                     "docs": {},
                     "p": {
                       "docs": {
-                        "Public.Common.FileToLoad.html#.getTYPE_TEXT": {
-                          "ref": "Public.Common.FileToLoad.html#.getTYPE_TEXT",
+                        "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+                          "ref": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+                          "tf": 585
+                        },
+                        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+                          "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
                           "tf": 33.33333333333333
                         },
-                        "Public.Common.FileToLoad.html#.getTYPE_BLOB": {
-                          "ref": "Public.Common.FileToLoad.html#.getTYPE_BLOB",
+                        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+                          "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
                           "tf": 33.33333333333333
                         },
-                        "Public.Common.FileToLoad.html#.getTYPE_JSON": {
-                          "ref": "Public.Common.FileToLoad.html#.getTYPE_JSON",
+                        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+                          "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
                           "tf": 33.33333333333333
                         },
-                        "Public.Common.FileToLoad.html#.getTYPE_HTML": {
-                          "ref": "Public.Common.FileToLoad.html#.getTYPE_HTML",
+                        "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+                          "ref": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
                           "tf": 33.33333333333333
-                        },
-                        "Public.Common.html#.FileType": {
-                          "ref": "Public.Common.html#.FileType",
-                          "tf": 625
                         }
                       }
                     }
@@ -26341,6 +28375,47 @@ window.lunrData = {
                   "Public.Common.FileLoader.html#readAsBlob": {
                     "ref": "Public.Common.FileLoader.html#readAsBlob",
                     "tf": 4.545454545454546
+                  }
+                },
+                "d": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "c": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "l": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "k": {
+                                        "docs": {
+                                          "Public.Common.FileLoader.html#.BlobDataCallback": {
+                                            "ref": "Public.Common.FileLoader.html#.BlobDataCallback",
+                                            "tf": 608.3333333333334
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -26822,6 +28897,10 @@ window.lunrData = {
                             "Public.Common.FileLoader.html#oncomplete": {
                               "ref": "Public.Common.FileLoader.html#oncomplete",
                               "tf": 675
+                            },
+                            "Public.Common.FileLoader.html#.oncomplete": {
+                              "ref": "Public.Common.FileLoader.html#.oncomplete",
+                              "tf": 625
                             }
                           }
                         }
@@ -26894,6 +28973,10 @@ window.lunrData = {
                               "Public.Common.FileLoader.html#onprogress": {
                                 "ref": "Public.Common.FileLoader.html#onprogress",
                                 "tf": 675
+                              },
+                              "Public.Common.FileLoader.html#.onprogress": {
+                                "ref": "Public.Common.FileLoader.html#.onprogress",
+                                "tf": 608.3333333333334
                               }
                             }
                           }
@@ -26924,6 +29007,10 @@ window.lunrData = {
                                   "Public.Common.FileLoader.html#onparseerror": {
                                     "ref": "Public.Common.FileLoader.html#onparseerror",
                                     "tf": 675
+                                  },
+                                  "Public.Common.FileLoader.html#.onparseerror": {
+                                    "ref": "Public.Common.FileLoader.html#.onparseerror",
+                                    "tf": 591.6666666666666
                                   }
                                 }
                               }
@@ -26949,6 +29036,10 @@ window.lunrData = {
                         "Public.Common.FileLoader.html#onerror": {
                           "ref": "Public.Common.FileLoader.html#onerror",
                           "tf": 675
+                        },
+                        "Public.Common.FileLoader.html#.onerror": {
+                          "ref": "Public.Common.FileLoader.html#.onerror",
+                          "tf": 591.6666666666666
                         }
                       }
                     }
@@ -27157,6 +29248,56 @@ window.lunrData = {
                 "Public.Common.FileLoader.html#readAsBlob": {
                   "ref": "Public.Common.FileLoader.html#readAsBlob",
                   "tf": 4.545454545454546
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "d": {
+                "docs": {
+                  "Public.Common.FileLoader.html#.Next": {
+                    "ref": "Public.Common.FileLoader.html#.Next",
+                    "tf": 50
+                  },
+                  "Public.Common.FileLoader.html#.Reset": {
+                    "ref": "Public.Common.FileLoader.html#.Reset",
+                    "tf": 50
+                  },
+                  "Public.Common.FileLoader.html#.onerror": {
+                    "ref": "Public.Common.FileLoader.html#.onerror",
+                    "tf": 16.666666666666664
+                  },
+                  "Public.Common.FileLoader.html#.onparseerror": {
+                    "ref": "Public.Common.FileLoader.html#.onparseerror",
+                    "tf": 16.666666666666664
+                  },
+                  "Public.Common.FileLoader.html#.oncomplete": {
+                    "ref": "Public.Common.FileLoader.html#.oncomplete",
+                    "tf": 50
+                  },
+                  "Public.Common.FileLoader.html#.onprogress": {
+                    "ref": "Public.Common.FileLoader.html#.onprogress",
+                    "tf": 33.33333333333333
+                  },
+                  "Public.Common.FileLoader.html#.TextDataCallback": {
+                    "ref": "Public.Common.FileLoader.html#.TextDataCallback",
+                    "tf": 33.33333333333333
+                  },
+                  "Public.Common.FileLoader.html#.JsonDataCallback": {
+                    "ref": "Public.Common.FileLoader.html#.JsonDataCallback",
+                    "tf": 33.33333333333333
+                  },
+                  "Public.Common.FileLoader.html#.HTMLDataCallback": {
+                    "ref": "Public.Common.FileLoader.html#.HTMLDataCallback",
+                    "tf": 33.33333333333333
+                  },
+                  "Public.Common.FileLoader.html#.BlobDataCallback": {
+                    "ref": "Public.Common.FileLoader.html#.BlobDataCallback",
+                    "tf": 33.33333333333333
+                  }
                 }
               }
             }
@@ -27973,6 +30114,47 @@ window.lunrData = {
                     "tf": 7.142857142857142
                   }
                 },
+                "d": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "t": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "c": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "l": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "k": {
+                                        "docs": {
+                                          "Public.Common.FileLoader.html#.JsonDataCallback": {
+                                            "ref": "Public.Common.FileLoader.html#.JsonDataCallback",
+                                            "tf": 608.3333333333334
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
                 "o": {
                   "docs": {},
                   "b": {
@@ -28446,7 +30628,7 @@ window.lunrData = {
           }
         }
       },
-      "length": 1569
+      "length": 1664
     },
     "corpusTokens": [
       "__logfil",
@@ -28505,6 +30687,7 @@ window.lunrData = {
       "base",
       "between",
       "blob",
+      "blobdatacallback",
       "bool",
       "boolean",
       "button",
@@ -28531,13 +30714,23 @@ window.lunrData = {
       "common.fileloader#readashtml",
       "common.fileloader#readasjson",
       "common.fileloader#readastext",
+      "common.fileloader.blobdatacallback",
+      "common.fileloader.filetoload",
+      "common.fileloader.filetoload.filetyp",
+      "common.fileloader.filetoload.gettype_blob",
+      "common.fileloader.filetoload.gettype_html",
+      "common.fileloader.filetoload.gettype_json",
+      "common.fileloader.filetoload.gettype_text",
       "common.fileloader.getinst",
-      "common.filetoload",
-      "common.filetoload.gettype_blob",
-      "common.filetoload.gettype_html",
-      "common.filetoload.gettype_json",
-      "common.filetoload.gettype_text",
-      "common.filetyp",
+      "common.fileloader.htmldatacallback",
+      "common.fileloader.jsondatacallback",
+      "common.fileloader.next",
+      "common.fileloader.oncomplet",
+      "common.fileloader.onerror",
+      "common.fileloader.onparseerror",
+      "common.fileloader.onprogress",
+      "common.fileloader.reset",
+      "common.fileloader.textdatacallback",
       "common.point",
       "compar",
       "complet",
@@ -28577,6 +30770,9 @@ window.lunrData = {
       "defin",
       "destroy",
       "div",
+      "dlcurrent",
+      "dlerror",
+      "dllist",
       "document",
       "done",
       "download",
@@ -28706,9 +30902,26 @@ window.lunrData = {
       "fileloader#readashtml",
       "fileloader#readasjson",
       "fileloader#readastext",
+      "fileloader.blobdatacallback",
+      "fileloader.filetoload",
+      "fileloader.filetoload.filetyp",
+      "fileloader.filetoload.gettype_blob",
+      "fileloader.filetoload.gettype_html",
+      "fileloader.filetoload.gettype_json",
+      "fileloader.filetoload.gettype_text",
       "fileloader.getinst",
+      "fileloader.htmldatacallback",
+      "fileloader.jsondatacallback",
+      "fileloader.next",
+      "fileloader.oncomplet",
+      "fileloader.onerror",
+      "fileloader.onparseerror",
+      "fileloader.onprogress",
+      "fileloader.reset",
+      "fileloader.textdatacallback",
       "filenam",
       "filetoload",
+      "filetoload.filetyp",
       "filetoload.gettype_blob",
       "filetoload.gettype_html",
       "filetoload.gettype_json",
@@ -28809,11 +31022,15 @@ window.lunrData = {
       "html.htmlmanag",
       "html.htmlmanager#titl",
       "html.screenmanag",
+      "html.screenmanager.dlcurr",
+      "html.screenmanager.dlerror",
+      "html.screenmanager.dllist",
       "html.screenmanager.downloadlist",
       "html.screenmanager.generateanimelisthtml",
       "html.screenmanager.generateepisodeinfofordownload",
       "html.screenmanager.settitl",
       "html.screenmanager.showvideo",
+      "htmldatacallback",
       "htmlelement",
       "htmlinputel",
       "htmlmanag",
@@ -28857,6 +31074,7 @@ window.lunrData = {
       "join",
       "js",
       "json",
+      "jsondatacallback",
       "jsonobject",
       "jsonobject#load",
       "jsonobject#loadsync",
@@ -28936,8 +31154,11 @@ window.lunrData = {
       "path.join($this.anime.path",
       "pathtofil",
       "pcallback",
+      "pcurrentloadingitemindex",
+      "pdata",
       "pend",
       "permet",
+      "perr",
       "personalis",
       "personalised.animeel",
       "personalised.downloadallbutton",
@@ -28960,13 +31181,16 @@ window.lunrData = {
       "playerinfo",
       "playerinfoel",
       "playerinfoelement.setcurrentifram",
+      "pnext",
       "point",
       "pointant",
       "poster",
       "posterlink",
+      "pprogress",
       "prefix",
       "prefix(",
       "preloaddefaultthumbnail",
+      "preset",
       "previou",
       "progress",
       "progress\":downloadepisode.progress",
@@ -28997,16 +31221,26 @@ window.lunrData = {
       "public.common.fileloader#readashtml",
       "public.common.fileloader#readasjson",
       "public.common.fileloader#readastext",
+      "public.common.fileloader.blobdatacallback",
+      "public.common.fileloader.filetoload",
+      "public.common.fileloader.filetoload.filetyp",
+      "public.common.fileloader.filetoload.gettype_blob",
+      "public.common.fileloader.filetoload.gettype_html",
+      "public.common.fileloader.filetoload.gettype_json",
+      "public.common.fileloader.filetoload.gettype_text",
       "public.common.fileloader.getinst",
-      "public.common.filetoload",
-      "public.common.filetoload.gettype_blob",
-      "public.common.filetoload.gettype_html",
-      "public.common.filetoload.gettype_json",
-      "public.common.filetoload.gettype_text",
-      "public.common.filetyp",
+      "public.common.fileloader.htmldatacallback",
+      "public.common.fileloader.jsondatacallback",
+      "public.common.fileloader.next",
+      "public.common.fileloader.oncomplet",
+      "public.common.fileloader.onerror",
+      "public.common.fileloader.onparseerror",
+      "public.common.fileloader.onprogress",
+      "public.common.fileloader.reset",
+      "public.common.fileloader.textdatacallback",
       "public.common.point",
       "public.common~fileload",
-      "public.common~filetoload",
+      "public.common~fileloader~filetoload",
       "public.common~point",
       "public.episodeinfo",
       "public.html",
@@ -29078,6 +31312,9 @@ window.lunrData = {
       "public.html.htmlmanag",
       "public.html.htmlmanager#titl",
       "public.html.screenmanag",
+      "public.html.screenmanager.dlcurr",
+      "public.html.screenmanager.dlerror",
+      "public.html.screenmanager.dllist",
       "public.html.screenmanager.downloadlist",
       "public.html.screenmanager.generateanimelisthtml",
       "public.html.screenmanager.generateepisodeinfofordownload",
@@ -29112,6 +31349,7 @@ window.lunrData = {
       "removelisten",
       "renvoi",
       "replac",
+      "reset",
       "responc",
       "return",
       "returnbutton",
@@ -29131,6 +31369,9 @@ window.lunrData = {
       "screenelementmanager.listen",
       "screenelementmanager.removelisten",
       "screenmanag",
+      "screenmanager.dlcurr",
+      "screenmanager.dlerror",
+      "screenmanager.dllist",
       "screenmanager.downloadlist",
       "screenmanager.generateanimelisthtml",
       "screenmanager.generateepisodeinfofordownload",
@@ -29273,6 +31514,7 @@ window.lunrData = {
       "temp",
       "text",
       "textcolor",
+      "textdatacallback",
       "textsiz",
       "there'",
       "this.episodeid",
@@ -29320,6 +31562,7 @@ window.lunrData = {
       "videoplayer.list",
       "videoplayerconfig",
       "videoplayerid",
+      "void",
       "wait",
       "want",
       "watch",
@@ -29584,6 +31827,36 @@ window.lunrData = {
       "summary": "",
       "description": ""
     },
+    "Public.Html.ScreenManager.html#.DlCurrent": {
+      "id": "Public.Html.ScreenManager.html#.DlCurrent",
+      "kind": "typedef",
+      "title": "DlCurrent",
+      "longname": "Public.Html.ScreenManager.DlCurrent",
+      "name": "DlCurrent",
+      "tags": "Public.Html.ScreenManager.DlCurrent Html.ScreenManager.DlCurrent ScreenManager.DlCurrent DlCurrent",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Html.ScreenManager.html#.DlError": {
+      "id": "Public.Html.ScreenManager.html#.DlError",
+      "kind": "typedef",
+      "title": "DlError",
+      "longname": "Public.Html.ScreenManager.DlError",
+      "name": "DlError",
+      "tags": "Public.Html.ScreenManager.DlError Html.ScreenManager.DlError ScreenManager.DlError DlError",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Html.ScreenManager.html#.DlList": {
+      "id": "Public.Html.ScreenManager.html#.DlList",
+      "kind": "typedef",
+      "title": "DlList",
+      "longname": "Public.Html.ScreenManager.DlList",
+      "name": "DlList",
+      "tags": "Public.Html.ScreenManager.DlList Html.ScreenManager.DlList ScreenManager.DlList DlList",
+      "summary": "",
+      "description": ""
+    },
     "Public.Common.FileLoader.html": {
       "id": "Public.Common.FileLoader.html",
       "kind": "class",
@@ -29715,54 +31988,164 @@ window.lunrData = {
       "summary": "",
       "description": "Renvoie un url blob pointant vers le fichier stocké en cache"
     },
-    "Public.Common.FileToLoad.html": {
-      "id": "Public.Common.FileToLoad.html",
+    "Public.Common.FileLoader.html#.Next": {
+      "id": "Public.Common.FileLoader.html#.Next",
+      "kind": "typedef",
+      "title": "Next() → {void}",
+      "longname": "Public.Common.FileLoader.Next",
+      "name": "Next",
+      "tags": "Public.Common.FileLoader.Next Common.FileLoader.Next FileLoader.Next Next",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.Reset": {
+      "id": "Public.Common.FileLoader.html#.Reset",
+      "kind": "typedef",
+      "title": "Reset() → {void}",
+      "longname": "Public.Common.FileLoader.Reset",
+      "name": "Reset",
+      "tags": "Public.Common.FileLoader.Reset Common.FileLoader.Reset FileLoader.Reset Reset",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.onerror": {
+      "id": "Public.Common.FileLoader.html#.onerror",
+      "kind": "typedef",
+      "title": "onerror( pErr, pNext, pReset, pCurrentLoadingItemIndex ) → {void}",
+      "longname": "Public.Common.FileLoader.onerror",
+      "name": "onerror",
+      "tags": "Public.Common.FileLoader.onerror Common.FileLoader.onerror FileLoader.onerror onerror",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.onparseerror": {
+      "id": "Public.Common.FileLoader.html#.onparseerror",
+      "kind": "typedef",
+      "title": "onparseerror( pErr, pNext, pReset, pCurrentLoadingItemIndex ) → {void}",
+      "longname": "Public.Common.FileLoader.onparseerror",
+      "name": "onparseerror",
+      "tags": "Public.Common.FileLoader.onparseerror Common.FileLoader.onparseerror FileLoader.onparseerror onparseerror",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.oncomplete": {
+      "id": "Public.Common.FileLoader.html#.oncomplete",
+      "kind": "typedef",
+      "title": "oncomplete() → {void}",
+      "longname": "Public.Common.FileLoader.oncomplete",
+      "name": "oncomplete",
+      "tags": "Public.Common.FileLoader.oncomplete Common.FileLoader.oncomplete FileLoader.oncomplete oncomplete",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.onprogress": {
+      "id": "Public.Common.FileLoader.html#.onprogress",
+      "kind": "typedef",
+      "title": "onprogress( pProgress ) → {void}",
+      "longname": "Public.Common.FileLoader.onprogress",
+      "name": "onprogress",
+      "tags": "Public.Common.FileLoader.onprogress Common.FileLoader.onprogress FileLoader.onprogress onprogress",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.TextDataCallback": {
+      "id": "Public.Common.FileLoader.html#.TextDataCallback",
+      "kind": "typedef",
+      "title": "TextDataCallback( pData ) → {void}",
+      "longname": "Public.Common.FileLoader.TextDataCallback",
+      "name": "TextDataCallback",
+      "tags": "Public.Common.FileLoader.TextDataCallback Common.FileLoader.TextDataCallback FileLoader.TextDataCallback TextDataCallback",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.JsonDataCallback": {
+      "id": "Public.Common.FileLoader.html#.JsonDataCallback",
+      "kind": "typedef",
+      "title": "JsonDataCallback( pData ) → {void}",
+      "longname": "Public.Common.FileLoader.JsonDataCallback",
+      "name": "JsonDataCallback",
+      "tags": "Public.Common.FileLoader.JsonDataCallback Common.FileLoader.JsonDataCallback FileLoader.JsonDataCallback JsonDataCallback",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.HTMLDataCallback": {
+      "id": "Public.Common.FileLoader.html#.HTMLDataCallback",
+      "kind": "typedef",
+      "title": "HTMLDataCallback( pData ) → {void}",
+      "longname": "Public.Common.FileLoader.HTMLDataCallback",
+      "name": "HTMLDataCallback",
+      "tags": "Public.Common.FileLoader.HTMLDataCallback Common.FileLoader.HTMLDataCallback FileLoader.HTMLDataCallback HTMLDataCallback",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.html#.BlobDataCallback": {
+      "id": "Public.Common.FileLoader.html#.BlobDataCallback",
+      "kind": "typedef",
+      "title": "BlobDataCallback( pData ) → {void}",
+      "longname": "Public.Common.FileLoader.BlobDataCallback",
+      "name": "BlobDataCallback",
+      "tags": "Public.Common.FileLoader.BlobDataCallback Common.FileLoader.BlobDataCallback FileLoader.BlobDataCallback BlobDataCallback",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.FileToLoad.html": {
+      "id": "Public.Common.FileLoader.FileToLoad.html",
       "kind": "class",
-      "title": "Public.Common~FileToLoad",
-      "longname": "Public.Common.FileToLoad",
+      "title": "Public.Common~FileLoader~FileToLoad",
+      "longname": "Public.Common.FileLoader.FileToLoad",
       "name": "FileToLoad",
-      "tags": "Public.Common.FileToLoad Common.FileToLoad FileToLoad",
+      "tags": "Public.Common.FileLoader.FileToLoad Common.FileLoader.FileToLoad FileLoader.FileToLoad FileToLoad",
       "summary": "",
       "description": "",
       "body": ""
     },
-    "Public.Common.FileToLoad.html#.getTYPE_TEXT": {
-      "id": "Public.Common.FileToLoad.html#.getTYPE_TEXT",
+    "Public.Common.FileLoader.FileToLoad.html#.FileType": {
+      "id": "Public.Common.FileLoader.FileToLoad.html#.FileType",
+      "kind": "member",
+      "title": "&lt;static, readonly&gt; FileType :number",
+      "longname": "Public.Common.FileLoader.FileToLoad.FileType",
+      "name": "FileType",
+      "tags": "Public.Common.FileLoader.FileToLoad.FileType Common.FileLoader.FileToLoad.FileType FileLoader.FileToLoad.FileType FileToLoad.FileType FileType",
+      "summary": "",
+      "description": ""
+    },
+    "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT": {
+      "id": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_TEXT",
       "kind": "function",
       "title": "&lt;static&gt; getTYPE_TEXT() → {FileType}",
-      "longname": "Public.Common.FileToLoad.getTYPE_TEXT",
+      "longname": "Public.Common.FileLoader.FileToLoad.getTYPE_TEXT",
       "name": "getTYPE_TEXT",
-      "tags": "Public.Common.FileToLoad.getTYPE_TEXT Common.FileToLoad.getTYPE_TEXT FileToLoad.getTYPE_TEXT getTYPE_TEXT",
+      "tags": "Public.Common.FileLoader.FileToLoad.getTYPE_TEXT Common.FileLoader.FileToLoad.getTYPE_TEXT FileLoader.FileToLoad.getTYPE_TEXT FileToLoad.getTYPE_TEXT getTYPE_TEXT",
       "summary": "",
       "description": ""
     },
-    "Public.Common.FileToLoad.html#.getTYPE_BLOB": {
-      "id": "Public.Common.FileToLoad.html#.getTYPE_BLOB",
+    "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB": {
+      "id": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_BLOB",
       "kind": "function",
       "title": "&lt;static&gt; getTYPE_BLOB() → {FileType}",
-      "longname": "Public.Common.FileToLoad.getTYPE_BLOB",
+      "longname": "Public.Common.FileLoader.FileToLoad.getTYPE_BLOB",
       "name": "getTYPE_BLOB",
-      "tags": "Public.Common.FileToLoad.getTYPE_BLOB Common.FileToLoad.getTYPE_BLOB FileToLoad.getTYPE_BLOB getTYPE_BLOB",
+      "tags": "Public.Common.FileLoader.FileToLoad.getTYPE_BLOB Common.FileLoader.FileToLoad.getTYPE_BLOB FileLoader.FileToLoad.getTYPE_BLOB FileToLoad.getTYPE_BLOB getTYPE_BLOB",
       "summary": "",
       "description": ""
     },
-    "Public.Common.FileToLoad.html#.getTYPE_JSON": {
-      "id": "Public.Common.FileToLoad.html#.getTYPE_JSON",
+    "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON": {
+      "id": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_JSON",
       "kind": "function",
       "title": "&lt;static&gt; getTYPE_JSON() → {FileType}",
-      "longname": "Public.Common.FileToLoad.getTYPE_JSON",
+      "longname": "Public.Common.FileLoader.FileToLoad.getTYPE_JSON",
       "name": "getTYPE_JSON",
-      "tags": "Public.Common.FileToLoad.getTYPE_JSON Common.FileToLoad.getTYPE_JSON FileToLoad.getTYPE_JSON getTYPE_JSON",
+      "tags": "Public.Common.FileLoader.FileToLoad.getTYPE_JSON Common.FileLoader.FileToLoad.getTYPE_JSON FileLoader.FileToLoad.getTYPE_JSON FileToLoad.getTYPE_JSON getTYPE_JSON",
       "summary": "",
       "description": ""
     },
-    "Public.Common.FileToLoad.html#.getTYPE_HTML": {
-      "id": "Public.Common.FileToLoad.html#.getTYPE_HTML",
+    "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML": {
+      "id": "Public.Common.FileLoader.FileToLoad.html#.getTYPE_HTML",
       "kind": "function",
       "title": "&lt;static&gt; getTYPE_HTML() → {FileType}",
-      "longname": "Public.Common.FileToLoad.getTYPE_HTML",
+      "longname": "Public.Common.FileLoader.FileToLoad.getTYPE_HTML",
       "name": "getTYPE_HTML",
-      "tags": "Public.Common.FileToLoad.getTYPE_HTML Common.FileToLoad.getTYPE_HTML FileToLoad.getTYPE_HTML getTYPE_HTML",
+      "tags": "Public.Common.FileLoader.FileToLoad.getTYPE_HTML Common.FileLoader.FileToLoad.getTYPE_HTML FileLoader.FileToLoad.getTYPE_HTML FileToLoad.getTYPE_HTML getTYPE_HTML",
       "summary": "",
       "description": ""
     },
@@ -31055,16 +33438,6 @@ window.lunrData = {
       "summary": "",
       "description": "",
       "body": ""
-    },
-    "Public.Common.html#.FileType": {
-      "id": "Public.Common.html#.FileType",
-      "kind": "member",
-      "title": "&lt;static, readonly&gt; FileType :number",
-      "longname": "Public.Common.FileType",
-      "name": "FileType",
-      "tags": "Public.Common.FileType Common.FileType FileType",
-      "summary": "",
-      "description": ""
     },
     "server.image.html": {
       "id": "server.image.html",

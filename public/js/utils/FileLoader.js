@@ -52,10 +52,12 @@ class FileLoader {
 		/**
 		 * @callback Next
 		 * @returns {void}
+		 * @memberof Public.Common.FileLoader
 		 */
 		/**
 		 * @callback Reset
 		 * @returns {void}
+		 * @memberof Public.Common.FileLoader
 		 */
 
 		/** 
@@ -65,7 +67,8 @@ class FileLoader {
 		 * @param {Reset} pReset
 		 * @param {number} pCurrentLoadingItemIndex
 		 * @returns {void}
-		*/
+		 * @memberof Public.Common.FileLoader
+		 */
 		/**
 		 * @type {onerror}
 		 */
@@ -78,7 +81,8 @@ class FileLoader {
 		 * @param {Reset} pReset
 		 * @param {number} pCurrentLoadingItemIndex
 		 * @returns {void}
-		*/
+		 * @memberof Public.Common.FileLoader
+		 */
 		/**
 		 * @type {onparseerror}
 		 */
@@ -87,7 +91,8 @@ class FileLoader {
 		/** 
 		 * @callback oncomplete
 		 * @returns {void}
-		*/
+		 * @memberof Public.Common.FileLoader
+		 */
 		/**
 		 * @type {oncomplete}
 		 */
@@ -97,7 +102,8 @@ class FileLoader {
 		 * @callback onprogress
 		 * @param {number} pProgress
 		 * @returns {void}
-		*/
+		 * @memberof Public.Common.FileLoader
+		 */
 		/**
 		 * @type {onprogress}
 		 */
@@ -122,10 +128,10 @@ class FileLoader {
 	}
 	
 	/**
-	 * @namespace FileLoader
 	 * @callback TextDataCallback
 	 * @param {string} pData
 	 * @return {void}
+	 * @memberof Public.Common.FileLoader
 	 */
 
 	/**
@@ -145,10 +151,10 @@ class FileLoader {
 
 
 	/**
-	 * @namespace FileLoader
 	 * @callback JsonDataCallback
 	 * @param {*} pData
 	 * @return {void}
+	 * @memberof Public.Common.FileLoader
 	 */
 
 	/**
@@ -168,10 +174,10 @@ class FileLoader {
 
 
 	/**
-	 * @namespace FileLoader
 	 * @callback HTMLDataCallback
 	 * @param {Document} pData
 	 * @return {void}
+	 * @memberof Public.Common.FileLoader
 	 */
 
 	/**
@@ -189,10 +195,10 @@ class FileLoader {
 	}
 
 	/**
-	 * @namespace FileLoader
 	 * @callback BlobDataCallback
 	 * @param {string} pData
 	 * @return {void}
+	 * @memberof Public.Common.FileLoader
 	 */
 
 	/**
