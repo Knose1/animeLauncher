@@ -10,6 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	observeAndGetFirstHrChildInDl();
 
 	document.querySelectorAll(".pre").forEach((elm) => ReplaceTag(elm, "pre"));
+	
+	//Correct title
+	{
+		s = document.createElement("span");
+		s.innerHTML = document.title;
+		document.title = s.innerText;
+	}
 });
 
 
