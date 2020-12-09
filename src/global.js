@@ -114,6 +114,7 @@ console.log = (message, ...optionalParams) =>
 /**
  * @example nameof({myVar}); //return "myVar"
  * @param {Object} varObject 
+ * @memberof server.global
  */
 function nameof(varObject) {
     return Object.keys(varObject)[0];
@@ -122,46 +123,56 @@ global.nameof = nameof;
 
 /**
  * The folder of the node.js projet
- * @global
  * @type {string}
+ * @memberof server.global
  */
 var __root = path.resolve(__dirname, "../");//we are in /src so we must go up to real root
 global.__root = __root;
 
 /**
  * The path to the logfile
- * @global
  * @type {string}
+ * @memberof server.global
  */
 var __logFile = "";
 global.__logFile = __logFile;
 
 /**
  * The temp folder of the node.js projet
- * @global
  * @type {string}
+ * @memberof server.global
  */
 var __tempFolder = path.join(__root, '_temp');
 global.__tempFolder = __tempFolder;
 
 let logText = "";
 
-module.exports.createLogFile = createLogFile;
+/**
+ * Create a new log file (with an unique name) in the log folder
+ * @memberof server
+ */
 function createLogFile() 
 {
 	let lLogFolder = path.join(__root, "log");
-		if (!fs.existsSync(lLogFolder)) 
-		{
-			fs.mkdirSync(lLogFolder);
-		}
-		let lFileName = `${new Date(Date.now()).toISOString()}_Log.txt`;
-		lFileName = lFileName.replace(/\\|\/|:|\*|\?|"|\<|\>|\|/g, "-");
-		__logFile = path.join(lLogFolder, lFileName);
-		global.__logFile = __logFile;
-		writeLog("============");
-		writeLog(new Date(Date.now()).toString());
+	if (!fs.existsSync(lLogFolder)) 
+	{
+		fs.mkdirSync(lLogFolder);
+	}
+	let lFileName = `${new Date(Date.now()).toISOString()}_Log.txt`;
+	lFileName = toFileName(lFileName);
+	__logFile = path.join(lLogFolder, lFileName);
+	global.__logFile = __logFile;
+	writeLog("============");
+	writeLog(new Date(Date.now()).toString());
 }
+module.exports.createLogFile = createLogFile;
 
+/**
+ * Override last line in the logfile
+ * @param {string} message 
+ * @param {boolean} newLine 
+ * @memberof server.global
+ */
 function overrideLine(message, newLine = true) {
 	let line = logText.lastIndexOf(CRLF);
 	
@@ -175,7 +186,14 @@ function overrideLine(message, newLine = true) {
 
 	fs.writeFileSync(__logFile, logText);
 }
+global.overrideLine = overrideLine;
 
+/**
+ * Write a line in the logfile
+ * @param {string} message 
+ * @param {boolean} newLine 
+ * @memberof server.global
+ */
 function writeLog(message, newLine = true) {
 	
 	let m = (newLine && logText.length > 0 ? CRLF : "")+message;
@@ -186,3 +204,15 @@ global.writeLog = writeLog;
 
 console.newLine = function() {console.log(CRLF)};
 //*//////////////////////////////*//
+
+/**
+ * 
+ * @param {string} fileName 
+ * @param {string} replacer 
+ * @memberof server.global
+ */
+function toFileName(fileName, replacer="-") 
+{
+	return fileName.replace(/\\|\/|:|\*|\?|"|\<|\>|\|/g, replacer)
+}
+global.toFileName = toFileName;

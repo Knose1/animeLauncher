@@ -69,41 +69,30 @@
 								<li class="dropdown">
 									<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Globals<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="global.html#__logFile">__logFile</a></li>
-											<li><a href="global.html#__root">__root</a></li>
-											<li><a href="global.html#__tempFolder">__tempFolder</a></li>
-											<li><a href="global.html#AnimeConfig">AnimeConfig</a></li>
-											<li><a href="global.html#Config">Config</a></li>
-											<li><a href="global.html#EpisodeConfig">EpisodeConfig</a></li>
-											<li><a href="global.html#EpisodeInfo">EpisodeInfo</a></li>
-											<li><a href="global.html#getThumbail">getThumbail</a></li>
 											<li><a href="global.html#http">http</a></li>
-											<li><a href="global.html#nameof">nameof</a></li>
-											<li><a href="global.html#PlayerInfo">PlayerInfo</a></li>
-											<li><a href="global.html#PublicAnime">PublicAnime</a></li>
-											<li><a href="global.html#PublicEpisode">PublicEpisode</a></li>
-											<li><a href="global.html#PublicVideoPlayer">PublicVideoPlayer</a></li>
-											<li><a href="global.html#ReqDownloadData">ReqDownloadData</a></li>
-											<li><a href="global.html#ThumbailOption">ThumbailOption</a></li>
-											<li><a href="global.html#tokenGenerator">tokenGenerator</a></li>
-											<li><a href="global.html#VideoPlayerConfig">VideoPlayerConfig</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="Anime.html">Anime</a></li>
-											<li><a href="DownloadEpisode.html">DownloadEpisode</a></li>
-											<li><a href="Episode.html">Episode</a></li>
-											<li><a href="JsonObject.html">JsonObject</a></li>
-											<li><a href="VideoPlayer.html">VideoPlayer</a></li>
-											<li><a href="YoutubePlayer.html">YoutubePlayer</a></li>
+											<li><a href="server.Anime.html">server.Anime</a></li>
+											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
+											<li><a href="server.Episode.html">server.Episode</a></li>
+											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
+											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
+											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="server.html">server</a></li>
+											<li><a href="server.data.html">server.data</a></li>
+											<li><a href="server.data.config.html">server.data.config</a></li>
+											<li><a href="server.data.public.html">server.data.public</a></li>
+											<li><a href="server.global.html">server.global</a></li>
+											<li><a href="server.https.html">server.https</a></li>
+											<li><a href="server.image.html">server.image</a></li>
 									</ul>
 								</li>
 				</ul>
@@ -132,13 +121,18 @@
 			<div class="col-md-12 main-content">
 		<section class="source-section">
 			<article></article>
-			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">let tabCount = 0;
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">const CRLF = "\r\n";
+const path = require("path");
+const fs = require('fs');
+
+let tabCount = 0;
 let group = console.group;
 let groupEnd = console.groupEnd;
 
 
 let log = console.log;
 let dir = console.dir;
+let error = console.error;
 
 let lastStringLog = null;
 let lastStringLogCount = 0;
@@ -148,6 +142,19 @@ console.dir = (item, options) =>
 	writeLog(JSON.stringify(item, null, 1));
 	dir(item,options)
 }
+
+console.error = (message, ...optionalParams) =>
+{
+	writeLog("===ERROR===");
+	writeLog(message);
+	writeLog("===========");
+
+	let args = [message];
+	args.push.apply(args, optionalParams);
+
+	error.apply(console, args);
+}
+
 console.log = (message, ...optionalParams) =>
 {
 
@@ -222,9 +229,6 @@ console.log = (message, ...optionalParams) =>
 	log.apply(console, args);
 }
 
-const { json } = require("express");
-const path = require("path");
-const { stdout } = require("process");
 
 //*//////////////////////////////*//
 //*       Global variables       *//
@@ -233,6 +237,7 @@ const { stdout } = require("process");
 /**
  * @example nameof({myVar}); //return "myVar"
  * @param {Object} varObject 
+ * @memberof server.global
  */
 function nameof(varObject) {
     return Object.keys(varObject)[0];
@@ -241,62 +246,106 @@ global.nameof = nameof;
 
 /**
  * The folder of the node.js projet
- * @global
  * @type {string}
+ * @memberof server.global
  */
 var __root = path.resolve(__dirname, "../");//we are in /src so we must go up to real root
 global.__root = __root;
 
 /**
  * The path to the logfile
- * @global
  * @type {string}
+ * @memberof server.global
  */
-var __logFile = path.join(__root, "animeLog.txt");
+var __logFile = "";
 global.__logFile = __logFile;
 
 /**
  * The temp folder of the node.js projet
- * @global
  * @type {string}
+ * @memberof server.global
  */
 var __tempFolder = path.join(__root, '_temp');
 global.__tempFolder = __tempFolder;
 
-const fs = require('fs');
-let logText = fs.readFileSync(__logFile);
-let lastIndexOfLine = logText.length;
+let logText = "";
 
+/**
+ * Create a new log file (with an unique name) in the log folder
+ * @memberof server
+ */
+function createLogFile() 
+{
+	let lLogFolder = path.join(__root, "log");
+	if (!fs.existsSync(lLogFolder)) 
+	{
+		fs.mkdirSync(lLogFolder);
+	}
+	let lFileName = `${new Date(Date.now()).toISOString()}_Log.txt`;
+	lFileName = toFileName(lFileName);
+	__logFile = path.join(lLogFolder, lFileName);
+	global.__logFile = __logFile;
+	writeLog("============");
+	writeLog(new Date(Date.now()).toString());
+}
+module.exports.createLogFile = createLogFile;
+
+/**
+ * Override last line in the logfile
+ * @param {string} message 
+ * @param {boolean} newLine 
+ * @memberof server.global
+ */
 function overrideLine(message, newLine = true) {
 	let line = logText.lastIndexOf(CRLF);
-	logText = logText.slice(0, line);
 	
-	let m = message+(newLine ? CRLF : "");
-	lastIndexOfLine += m.length;
+	if (line == -1) return writeLog(message,newLine);
+
+	logText = logText.slice(0, line);
+
+	let m = (newLine ? CRLF : "")+message;
 
 	logText += m;
 
 	fs.writeFileSync(__logFile, logText);
 }
+global.overrideLine = overrideLine;
+
+/**
+ * Write a line in the logfile
+ * @param {string} message 
+ * @param {boolean} newLine 
+ * @memberof server.global
+ */
 function writeLog(message, newLine = true) {
-	let m = message+(newLine ? CRLF : "");
-	lastIndexOfLine += m.length;
+	
+	let m = (newLine &amp;&amp; logText.length > 0 ? CRLF : "")+message;
 	logText += m;
 	fs.appendFileSync(__logFile, m);
 }
 global.writeLog = writeLog;
 
-const CRLF = "\r\n";
 console.newLine = function() {console.log(CRLF)};
 //*//////////////////////////////*//
-</code></pre>
+
+/**
+ * 
+ * @param {string} fileName 
+ * @param {string} replacer 
+ * @memberof server.global
+ */
+function toFileName(fileName, replacer="-") 
+{
+	return fileName.replace(/\\|\/|:|\*|\?|"|\&lt;|\>|\|/g, replacer)
+}
+global.toFileName = toFileName;</code></pre>
 		</section>
 			</div>
 		</div>
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 30th Nov 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 8th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

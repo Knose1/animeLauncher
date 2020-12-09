@@ -1,6 +1,7 @@
 /**
- * @namespace data.config
- * @typedef VideoPlayerConfig
+ * The config of a videoplayer
+ * @memberof server.data.config
+ * @typedef {Object} VideoPlayerConfig
  * @property {string} name
  * @property {string[]} prefix
  * @property {boolean} downloadable
@@ -10,17 +11,18 @@
  */
 
 /**
- * @namespace data.public
+ * The public informations of a video player
+ * @memberof server.data.public
  * @typedef {Object} PublicVideoPlayer
  * @property {string} name
  * @property {boolean} isNatif
  * @property {boolean} downloadable
  * @property {boolean} autoDownload
  * @property {number} id
- * id: this.id
  */ 
 /**
- * @namespace data.public
+ * The info of an URL
+ * @memberof server.data.public
  * @typedef {Object} PlayerInfo
  * @property {string} url
  * @property {string} [ytInfo]
@@ -31,16 +33,18 @@
  /*-****************************-*/
 
 /**
- * @namespace data.config
- * @typedef AnimeConfig
+ * The config of and anime
+ * @memberof server.data.config
+ * @typedef {Object} AnimeConfig
  * @property {string} name
  * @property {string} [thumbnailLink]
  * @property {EpisodeConfig[]} episodes
  */
 
 /**
- * @namespace data.public
- * @typedef PublicAnime
+ * The public informations of an anime
+ * @memberof server.data.public
+ * @typedef {Object} PublicAnime
  * @property {number} id
  * @property {PublicEpisode} episodes
  * @property {string} name
@@ -50,8 +54,9 @@
 /*-*****************************-*/
 
 /**
- * @namespace data.config
- * @typedef EpisodeConfig
+ * The config of an episode
+ * @memberof server.data.config
+ * @typedef {Object} EpisodeConfig
  * @property {string} [name]
  * @property {number} episodeId
  * @property {string} [posterLink]
@@ -59,15 +64,17 @@
  * @property {string} [localLink]
  */
 /**
- * @namespace data.public
- * @typedef PublicEpisode 
+ * The public informations of an episode
+ * @memberof server.data.public
+ * @typedef {Object} PublicEpisode 
  * @property {string} name The name of the episode
  * @property {number} animeId The unique id of the anime
  * @property {number} episodeId The unique id of the episode (define the order between episodes)
  * @property {string} posterLink The uri of the anime poster
  */
 /**
- * @namespace data.public
+ * The information of an episode (urls are mapped with {@link PlayerInfo PlayerInfo})
+ * @memberof server.data.public
  * @typedef {Object} EpisodeInfo
  * @property {string} name
  * @property {number} episodeId
@@ -78,8 +85,9 @@
  */
 
 /**
- * @namespace data
- * @typedef ReqDownloadData
+ * The data of a download
+ * @memberof data
+ * @typedef {Object} ReqDownloadData
  * @property {number} progress The download progress in %
  * @property {string} contentType
  * @property {string} fileName
@@ -100,6 +108,7 @@ const EventEmitter = event.EventEmitter;
 /**
  * Load and save a json file
  * @public
+ * @memberof server
  */
 class JsonObject {
 	/**
@@ -196,6 +205,7 @@ class JsonObject {
  * A class used to handle the events of {@link VideoPlayer#download VideoPlayer.download}.  
  * Ensure that there's only one download max by episode
  * @public
+ * @memberof server
  */
 class DownloadEpisode 
 {
@@ -453,6 +463,7 @@ class DownloadEpisode
 /**
  * A class used to download a video.
  * @public
+ * @memberof server
  */
 class VideoPlayer {
 	/**
@@ -609,7 +620,7 @@ class VideoPlayer {
 		 */
 		let options = {
 			headers: {Accept: "video/webm, video/mpeg, video/ogg"},
-			timeout: 10000
+			timeout: 30000,
 		}
 
 		/**
@@ -751,6 +762,7 @@ class VideoPlayer {
  * A class used to download a youtube video. It also get the video info.
  * @public
  * @extends VideoPlayer
+ * @memberof server
  */
 class YoutubePlayer extends VideoPlayer {
 	/**
@@ -844,6 +856,7 @@ class YoutubePlayer extends VideoPlayer {
 /**
  * Store the datas of an anime. Can update the index.json of the anime.
  * @public
+ * @memberof server
  */
 class Anime {
 	/**
@@ -1029,6 +1042,7 @@ class Anime {
 /**
  * Store the datas of an episode
  * @public
+ * @memberof server
  */
 class Episode {
 	/**

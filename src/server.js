@@ -6,6 +6,9 @@ const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
 const imageWriter = require("./image/imageWriter");
 
+const ANIME_FOLDER = "episode";
+const JSON_ANIME = "index.json";
+
 let JsonObject = dataManager.JsonObject;
 let DownloadEpisode = dataManager.DownloadEpisode;
 let VideoPlayer = dataManager.VideoPlayer;
@@ -19,6 +22,14 @@ let Episode = dataManager.Episode;
  * ------------------  
  * Server links :  
  * [USE] `*` - Used to do consoleGroup  
+ * <br/><br/>  
+ * [GET] `/new/anime?` - Add a new anime  
+ * &ensp;&ensp;&ensp;Param : `name` - The name of the anime  
+ * &ensp;&ensp;&ensp;Param : `thumbnailLink` - The path to the thumbnail  
+ * &ensp;&ensp;&ensp;Send : {"id":Anime Id}  
+ * <br/>  
+ * [GET] `/new/episode?` - Add a new episode to an anime  
+ * &ensp;&ensp;&ensp;Send : {"id":Anime Id}  
  * <br/>  
  * [GET] `/get/list` - Get the anime list  
  * &ensp;&ensp;&ensp;Send : {@link Anime.publicList Anime.publicList}  
@@ -37,23 +48,23 @@ let Episode = dataManager.Episode;
  * &ensp;&ensp;&ensp;Send : {"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}}  
  * <br/>
  * [GET] `/get/list/download` - Get download list  
- * ```json
- * Send: {
- * 	"current": {
- * 		"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}
- * 		"episode": Episode's name
- * 	},
- * 	"list": [
- * 		Episodes's name
- * 	],
- * 	"error": [
- * 		{
- * 			"episode": Episode's name
- * 			"error": Error
- * 		}
- * 	]
+ * <code class="prettyprint source language-json code-toolbar pre">
+ * Send: {  
+ * &ensp;&ensp;&ensp;"current": {  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name  
+ * &ensp;&ensp;&ensp;},  
+ * &ensp;&ensp;&ensp;"list": [  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Episodes's name  
+ * &ensp;&ensp;&ensp;],  
+ * &ensp;&ensp;&ensp;"error": [  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"episode": Episode's name  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"error": Error  
+ * &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}  
+ * &ensp;&ensp;&ensp;]  
  * }
- * ```
+ * </code>
  * <br/>  
  * [GET] `/` - Index.html  
  * <br/>  
@@ -69,18 +80,17 @@ let Episode = dataManager.Episode;
  * <br/>  
  * [GET] `/episode/:animeId/:episodeId` - Get a local episode in folder episode  
  * &ensp;&ensp;&ensp;Param : `animeId` - The id of the anime  
- * &ensp;&ensp;&ensp;Param : `episodeId` - The id of the episode in the anime  
+ * &ensp;&ensp;&ensp;Param : `episodeId` - The id of the episode in the anime   
  * <br/>  
- * [GET] `/asset/thumbnail/:text.png` - Generate an image  
+ * [GET] `/asset/thumbnail/:text.png` - Generate an image or return a generated image
  * &ensp;&ensp;&ensp;Param : `text` - The text to show on the image  
  * &ensp;&ensp;&ensp;Param : `width` - The image width  
  * &ensp;&ensp;&ensp;Param : `height` - The image height  
  * &ensp;&ensp;&ensp;Param : `textSize` - The text size  
  * &ensp;&ensp;&ensp;Param : `backgroundColor` - The background color  
  * &ensp;&ensp;&ensp;Param : `textColor` - The text color  
- * 
  * @protected
- * @namespace server
+ * @memberof server.https
  * @param {Config} config
 */
 function start(config) {
@@ -106,8 +116,60 @@ function start(config) {
 			console.groupEnd();
 		});
 	});
+	
+	//*///////////////////////////////*//
+	//*           New Anime           *//
+	//*///////////////////////////////*//
+	app.get('/new/anime', (req, res, next) => {
+		let animeName = req.query.name;
+		let animeThumbnailLink = req.query.thumbnailLink;
+		
+		/**
+		 * @ignore
+		 * @type {import("./dataManager").AnimeConfig}
+		 */
+		let animeData = {"name":animeName, "episodes":[]}
+		if (animeThumbnailLink) 
+		{
+			animeData.thumbnailLink = animeThumbnailLink;
+		}
 
+		let animeFolderName = global.toFileName(req.name.animeName, "-").replace(/\ /g,"_");
+		let animeFolder = path.join(__root, ANIME_FOLDER, animeFolderName); 
+		let jsonFile = path.join(animeFolderName, JSON_ANIME); 
 
+		fs.mkdir(animeFolderName, () => {
+			fs.writeFile(jsonFile, JSON.stringify(animeData), () => {
+				let jsonObj = new JsonObject(jsonFile);
+				jsonObj.value = animeData;
+				
+				let anime = new Anime(jsonObj, animeFolder);
+				res.send(JSON.stringify({'id': anime.id}));
+			});
+		});
+	});
+
+	//*///////////////////////////////*//
+	//*          New Episode          *//
+	//*///////////////////////////////*//
+	app.get('/new/episode', (req, res, next) => {
+		let animeId = req.query.animeId;
+		let episodeName = req.query.name;
+		let posterLink = req.query.posterLink;
+
+		let anime = tryToGetAnimeOrSendStatus(animeId)
+		if (!anime) return;
+
+		/**
+		 * @type {import("./dataManager").EpisodeConfig}
+		 */
+		let epConfig = {"episodeId":anime.episodes.length,"links":[],"name":episodeName,"posterLink":posterLink};
+		let ep = new Episode(epConfig, anime);
+
+		anime.episodes.push(ep);
+
+		res.send(JSON.stringify({'id': ep.episodeId}));
+	});
 
 
 	//*///////////////////////////////*//
@@ -121,6 +183,27 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*        Get Episode Info       *//
 	//*///////////////////////////////*//
+	function tryToGetAnimeOrSendStatus(res, animeId)
+	{
+		//Arguments checking
+		if (!Number.isSafeInteger(animeId)) {
+			
+			console.log("[Missing Argument]");
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		//Anime finding
+		let lAnime = Anime.list[animeId]
+		if (!lAnime) {
+			console.log("[Anime not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		return lAnime;
+	}
+	
 	function tryToGetEpisodeOrSendStatus(res, animeId, episodeId)
 	{
 		//Arguments checking

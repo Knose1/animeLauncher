@@ -35,11 +35,13 @@ exports.init = function init()
  * @property {number} [textSize=1000]
  * @property {string} [backgroundColor='rgba(5,5,5,1)']
  * @property {string} [textColor='rgba(255,255,255,1)']
+ * @memberof server.image
  */
 /**
  * @param {string} text
  * @param {ThumbailOption} [option]
  * @returns {Promise<string>} Return the path to the file
+ * @memberof server.image
  */
 exports.getThumbail = function getThumbail(text, option = {}) {
 	return new Promise((resolve, reject) => {

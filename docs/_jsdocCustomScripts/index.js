@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	getSetCSSRootColors();
 	observeAndGetFirstHrChildInDl();
+
+	document.querySelectorAll(".pre").forEach((elm) => ReplaceTag(elm, "pre"));
 });
 
 
@@ -98,4 +100,8 @@ function observeAndGetFirstHrChildInDl()
 
 function addMoreAttribute(){
 	
+}
+
+function ReplaceTag(elm, tag) {
+	elm.outerHTML = elm.outerHTML.replace(/^\<\w+/g,`<${tag}`).replace(/\w+\>$/g,`${tag}>`);
 }

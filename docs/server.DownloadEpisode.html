@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>VideoPlayer</title>
+		<title>server~DownloadEpisode</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -68,26 +68,18 @@
 								<li class="dropdown">
 									<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Globals<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="global.html#__logFile">__logFile</a></li>
-											<li><a href="global.html#__root">__root</a></li>
-											<li><a href="global.html#__tempFolder">__tempFolder</a></li>
-											<li><a href="global.html#getThumbail">getThumbail</a></li>
 											<li><a href="global.html#http">http</a></li>
-											<li><a href="global.html#nameof">nameof</a></li>
-											<li><a href="global.html#ThumbailOption">ThumbailOption</a></li>
-											<li><a href="global.html#toFileName">toFileName</a></li>
-											<li><a href="global.html#tokenGenerator">tokenGenerator</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="Anime.html">Anime</a></li>
-											<li><a href="DownloadEpisode.html">DownloadEpisode</a></li>
-											<li><a href="Episode.html">Episode</a></li>
-											<li><a href="JsonObject.html">JsonObject</a></li>
-											<li><a href="VideoPlayer.html">VideoPlayer</a></li>
-											<li><a href="YoutubePlayer.html">YoutubePlayer</a></li>
+											<li><a href="server.Anime.html">server.Anime</a></li>
+											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
+											<li><a href="server.Episode.html">server.Episode</a></li>
+											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
+											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
+											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -99,6 +91,7 @@
 											<li><a href="server.data.public.html">server.data.public</a></li>
 											<li><a href="server.global.html">server.global</a></li>
 											<li><a href="server.https.html">server.https</a></li>
+											<li><a href="server.image.html">server.image</a></li>
 									</ul>
 								</li>
 				</ul>
@@ -119,7 +112,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
-				<h1><span class="name">VideoPlayer</span></h1>
+				<h1><span class="ancestors"><a href="server.html">server</a>~</span><span class="name">DownloadEpisode</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -128,7 +121,7 @@
 						<ol class="breadcrumb">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="list_class.html">Classes</a></li>
-							<li class="active">VideoPlayer</li>
+							<li class="active"><a href="server.html">server</a>~DownloadEpisode</li>
 						</ol>
 						<div class="access-filter">
 								<label class="checkbox-inline">
@@ -139,15 +132,20 @@
 									<input class="toggle-protected" type="checkbox" value="" checked>
 									Protected
 								</label>
+								<label class="checkbox-inline">
+									<input class="toggle-private" type="checkbox" value="" checked>
+									Private
+								</label>
 						</div>
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">VideoPlayer</span><span class="signature-params">( <span class="signature-param">config</span>&nbsp;)</span><span class="signature-type"></span></h2>
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">DownloadEpisode</span><span class="signature-params">( <span class="signature-param">episode</span>, <span class="signature-param">videoPlayerId</span>&nbsp;)</span><span class="signature-type"></span></h2>
 </dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>A class used to download a video.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>A class used to handle the events of <code>VideoPlayer.download</code>.<br>
+			Ensure that there's only one download max by episode</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -160,8 +158,14 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>config</code></td>
-							<td><span class="param-type">VideoPlayerConfig</span></td>
+								<td><code>episode</code></td>
+							<td><span class="param-type">Episode</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>videoPlayerId</code></td>
+							<td><span class="param-type">number</span></td>
 							<td class="last">
 							</td>
 						</tr>
@@ -188,11 +192,18 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-479">line 479</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-248">line 248</a></p>
 								</div>
 							</div>
 			
 			
+							<!-- see -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">See</label>
+								<div class="col-sm-9">
+										<p class="form-control-static"><code>Videoplayer#id</code></p>
+								</div>
+							</div>
 			
 			
 					</form>
@@ -204,18 +215,17 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id=".list" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">list</span><span class="signature-type"> :Array.&lt;<a href="VideoPlayer.html">VideoPlayer</a>></span></h4>
+			<h4 id=".list" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">list</span><span class="signature-type"> :Array.&lt;<a href="DownloadEpisode.html">DownloadEpisode</a>></span></h4>
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The list of VideoPlayer</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">Array.&lt;<a href="VideoPlayer.html">VideoPlayer</a>></span></div>
+									<div class="form-control-static type-names"><span class="param-type">Array.&lt;<a href="DownloadEpisode.html">DownloadEpisode</a>></span></div>
 								</div>
 							</div>
 			
@@ -236,7 +246,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-472">line 472</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-218">line 218</a></p>
 								</div>
 							</div>
 			
@@ -248,11 +258,412 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="name" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">name</span><span class="signature-type"> :string</span></h4>
+			<h4 id=".toDownload" class="member public"><span class="signature-attribs">&lt;static> </span><span class="name">toDownload</span><span class="signature-type"> :Array.&lt;ToDownloadItem></span></h4>
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The name of the videoPlayer</p></div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">Array.&lt;ToDownloadItem></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-232">line 232</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member protected collapsible-symbol">
+			<h4 id=".currentDownload" class="member protected"><span class="signature-attribs">&lt;protected, static> </span><span class="name">currentDownload</span><span class="signature-type"> :<a href="DownloadEpisode.html">DownloadEpisode</a></span></h4>
+		</dt>
+<dd class="symbol-details member protected  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type"><a href="DownloadEpisode.html">DownloadEpisode</a></span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-239">line 239</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="episode" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">episode</span><span class="signature-type"> :Episode</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The episode we want to download</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">Episode</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-256">line 256</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="id" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">id</span><span class="signature-type"> :number</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The unique id of the DownloadEpisode instance</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-264">line 264</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member private collapsible-symbol">
+			<h4 id="player" class="member private"><span class="signature-attribs">&lt;private, readonly> </span><span class="name">player</span><span class="signature-type"> :VideoPlayer</span></h4>
+		</dt>
+<dd class="symbol-details member private  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The player used to download the video (epsode)</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">VideoPlayer</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-272">line 272</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member private collapsible-symbol">
+			<h4 id="isReady" class="member private"><span class="signature-attribs">&lt;private, readonly> </span><span class="name">isReady</span><span class="signature-type"> :boolean</span></h4>
+		</dt>
+<dd class="symbol-details member private  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>If the download is done and the json saved</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-281">line 281</a></p>
+								</div>
+							</div>
+			
+			
+							<!-- see -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">See</label>
+								<div class="col-sm-9">
+										<p class="form-control-static"><code>DownloadEpisode#download</code>, <code>DownloadEpisode#_setLocalPath</code></p>
+								</div>
+							</div>
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="isPending" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">isPending</span><span class="signature-type"> :boolean</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>If the download is pending</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-289">line 289</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="isDownloading" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">isDownloading</span><span class="signature-type"> :boolean</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>If the download is ongoing</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-297">line 297</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="isError" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">isError</span><span class="signature-type"> :boolean</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>If there is an error</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-305">line 305</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="error" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">error</span><span class="signature-type"> :string</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The error</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
@@ -280,7 +691,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-487">line 487</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-313">line 313</a></p>
 								</div>
 							</div>
 			
@@ -292,18 +703,18 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="isNatif" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">isNatif</span><span class="signature-type"> :boolean</span></h4>
+			<h4 id="progress" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">progress</span><span class="signature-type"> :number</span></h4>
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>If true, the VideoPlayer wront be available for edit</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The progress of the download</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+									<div class="form-control-static type-names"><span class="param-type">number</span></div>
 								</div>
 							</div>
 			
@@ -324,183 +735,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-495">line 495</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="prefix" class="member public"><span class="name">prefix</span><span class="signature-type"> :Array.&lt;string></span></h4>
-		</dt>
-<dd class="symbol-details member public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The prefix(s) for matching the url</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">Array.&lt;string></span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-503">line 503</a></p>
-								</div>
-							</div>
-			
-			
-							<!-- see -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">See</label>
-								<div class="col-sm-9">
-										<p class="form-control-static"><code>Videoplayer#getPlayer</code>, <code>Videoplayer#hasPrefix</code></p>
-								</div>
-							</div>
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="downloadable" class="member public"><span class="name">downloadable</span><span class="signature-type"> :boolean</span></h4>
-		</dt>
-<dd class="symbol-details member public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Tell if the server can download</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-510">line 510</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="autoDownload" class="member public"><span class="name">autoDownload</span><span class="signature-type"> :boolean</span></h4>
-		</dt>
-<dd class="symbol-details member public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Tell if the url used for downloading is an url in <a href="Episode.html#links"><code>Episode.links</code></a></p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
-								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-517">line 517</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id="id" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">id</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details member public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The unique id of the videoPlayer</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-524">line 524</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-321">line 321</a></p>
 								</div>
 							</div>
 			
@@ -514,57 +749,12 @@
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="toPublic" class="function public"><span class="name">toPublic</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{PublicVideoPlayer}</span></h4>
+											<dt class="symbol-title function private collapsible-symbol">
+			<h4 id="_setLocalPath" class="function private"><span class="signature-attribs">&lt;private> </span><span class="name">_setLocalPath</span><span class="signature-params">( <span class="signature-param">pathToFile</span>&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
+<dd class="symbol-details function private  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Return the public information of the VideoPlayer (= the informations to give to the client)</p></div>
-			</div>			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">PublicVideoPlayer</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-533">line 533</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function protected collapsible-symbol">
-			<h4 id="_dispatchOnComplete" class="function protected"><span class="signature-attribs">&lt;protected> </span><span class="name">_dispatchOnComplete</span><span class="signature-params">( <span class="signature-param">emitter</span>, <span class="signature-param">recDownloadData</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function protected  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Fire the event &quot;complete&quot; on the emitter</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Call <code>Episode#setLocalPath</code> and set itself ready when it's done</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -577,139 +767,7 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>emitter</code></td>
-							<td><span class="param-type">event.EventEmitter</span></td>
-							<td class="last">
-							</td>
-						</tr>
-						<tr>
-								<td><code>recDownloadData</code></td>
-							<td><span class="param-type">ReqDownloadData</span></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-551">line 551</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function protected collapsible-symbol">
-			<h4 id="_dispatchOnProgress" class="function protected"><span class="signature-attribs">&lt;protected> </span><span class="name">_dispatchOnProgress</span><span class="signature-params">( <span class="signature-param">emitter</span>, <span class="signature-param">recDownloadData</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function protected  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Fire the event &quot;progress&quot; on the emitter</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>emitter</code></td>
-							<td><span class="param-type">event.EventEmitter</span></td>
-							<td class="last">
-							</td>
-						</tr>
-						<tr>
-								<td><code>recDownloadData</code></td>
-							<td><span class="param-type">ReqDownloadData</span></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-566">line 566</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function protected collapsible-symbol">
-			<h4 id="_dispatchOnError" class="function protected"><span class="signature-attribs">&lt;protected> </span><span class="name">_dispatchOnError</span><span class="signature-params">( <span class="signature-param">emitter</span>, <span class="signature-param">err</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function protected  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Fire the event &quot;error&quot; on the emitter</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>emitter</code></td>
-							<td><span class="param-type">event.EventEmitter</span></td>
-							<td class="last">
-							</td>
-						</tr>
-						<tr>
-								<td><code>err</code></td>
+								<td><code>pathToFile</code></td>
 							<td><span class="param-type">string</span></td>
 							<td class="last">
 							</td>
@@ -717,15 +775,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-warning"><h5>Fires</h5>		<form class="form-horizontal fires">
-							<div class="form-group">
-								<label class="col-sm-3 control-label fires-event"><a href="global.html#undefinedevent:error">error</a></label>
-								<div class="col-sm-9">
-									<div class="form-control-static fires-summary"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -745,11 +795,18 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-583">line 583</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-334">line 334</a></p>
 								</div>
 							</div>
 			
 			
+							<!-- see -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">See</label>
+								<div class="col-sm-9">
+										<p class="form-control-static"><code>Episode#setLocalPath</code></p>
+								</div>
+							</div>
 			
 			
 					</form>
@@ -757,11 +814,11 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="download" class="function public"><span class="name">download</span><span class="signature-params">( <span class="signature-param">downloadUrl</span>, <span class="signature-param">format</span>, <span class="signature-param">fileName</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{EventEmitter}</span></h4>
+			<h4 id="download" class="function public"><span class="name">download</span><span class="signature-params">( <span class="signature-param">url</span>, <span class="signature-param">format</span>&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Download the video using the given link (async)</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Launch the download</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -774,7 +831,7 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>downloadUrl</code></td>
+								<td><code>url</code></td>
 							<td><span class="param-type">string</span></td>
 							<td class="last">
 							</td>
@@ -783,47 +840,12 @@
 								<td><code>format</code></td>
 							<td><span class="param-type">object</span></td>
 							<td class="last">
-									<p>unused</p>
-							</td>
-						</tr>
-						<tr>
-								<td><code>fileName</code></td>
-							<td><span class="param-type">string</span></td>
-							<td class="last">
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">EventEmitter</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-warning"><h5>Fires</h5>		<form class="form-horizontal fires">
-							<div class="form-group">
-								<label class="col-sm-3 control-label fires-event"><a href="global.html#undefinedevent:complete">complete</a></label>
-								<div class="col-sm-9">
-									<div class="form-control-static fires-summary"></div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label fires-event"><a href="global.html#undefinedevent:progress">progress</a></label>
-								<div class="col-sm-9">
-									<div class="form-control-static fires-summary"></div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label fires-event"><a href="global.html#undefinedevent:error">error</a></label>
-								<div class="col-sm-9">
-									<div class="form-control-static fires-summary"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -843,72 +865,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-603">line 603</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="hasPrefix" class="function public"><span class="name">hasPrefix</span><span class="signature-params">( <span class="signature-param">url</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
-		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Compare the url with the prefix and return true if the url match a prefix in the prefix list</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>url</code></td>
-							<td><span class="param-type">string</span></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>Return true if the url match a prefix in the prefix list</p></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-718">line 718</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-352">line 352</a></p>
 								</div>
 							</div>
 			
@@ -917,7 +874,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">See</label>
 								<div class="col-sm-9">
-										<p class="form-control-static"><code>Videoplayer.prefix</code></p>
+										<p class="form-control-static"><code>DownloadEpisode#_setEvents</code></p>
 								</div>
 							</div>
 			
@@ -926,12 +883,12 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".getPlayer" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getPlayer</span><span class="signature-params">( <span class="signature-param">url</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="VideoPlayer.html">VideoPlayer</a>}</span></h4>
+											<dt class="symbol-title function private collapsible-symbol">
+			<h4 id="_setEvents" class="function private"><span class="signature-attribs">&lt;private> </span><span class="name">_setEvents</span><span class="signature-params">( <span class="signature-param">emitter</span>&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
+<dd class="symbol-details function private  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Return the first Videoplayer with its prefix matching the url</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Set the events of the emitter</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -944,23 +901,15 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>url</code></td>
-							<td><span class="param-type">string</span></td>
+								<td><code>emitter</code></td>
+							<td><span class="param-type">event.EventEmitter</span></td>
 							<td class="last">
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="VideoPlayer.html">VideoPlayer</a></span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
-								</div>
-							</div>
-					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -980,7 +929,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-736">line 736</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-398">line 398</a></p>
 								</div>
 							</div>
 			
@@ -989,7 +938,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">See</label>
 								<div class="col-sm-9">
-										<p class="form-control-static"><code>Videoplayer.prefix</code></p>
+										<p class="form-control-static"><code>DownloadEpisode#download</code></p>
 								</div>
 							</div>
 			
@@ -999,39 +948,11 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".getVideoPlayerById" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getVideoPlayerById</span><span class="signature-params">( <span class="signature-param">id</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="VideoPlayer.html">VideoPlayer</a>}</span></h4>
+			<h4 id="destroy" class="function public"><span class="name">destroy</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Return the video player corrisponding</p></div>
-			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>id</code></td>
-							<td><span class="param-type">number</span></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="VideoPlayer.html">VideoPlayer</a></span></label>
-								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
-								</div>
-							</div>
-					</form>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Destroy the instance (Removes it from <code>DownloadEpisode.list</code>.)</p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -1052,7 +973,63 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-752">line 752</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-442">line 442</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".getFromEpisode" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getFromEpisode</span><span class="signature-params">( <span class="signature-param">episode</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>episode</code></td>
+							<td><span class="param-type">Episode</span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-451">line 451</a></p>
 								</div>
 							</div>
 			

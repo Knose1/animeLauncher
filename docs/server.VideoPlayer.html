@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>VideoPlayer</title>
+		<title>server~VideoPlayer</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -68,26 +68,18 @@
 								<li class="dropdown">
 									<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Globals<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="global.html#__logFile">__logFile</a></li>
-											<li><a href="global.html#__root">__root</a></li>
-											<li><a href="global.html#__tempFolder">__tempFolder</a></li>
-											<li><a href="global.html#getThumbail">getThumbail</a></li>
 											<li><a href="global.html#http">http</a></li>
-											<li><a href="global.html#nameof">nameof</a></li>
-											<li><a href="global.html#ThumbailOption">ThumbailOption</a></li>
-											<li><a href="global.html#toFileName">toFileName</a></li>
-											<li><a href="global.html#tokenGenerator">tokenGenerator</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="Anime.html">Anime</a></li>
-											<li><a href="DownloadEpisode.html">DownloadEpisode</a></li>
-											<li><a href="Episode.html">Episode</a></li>
-											<li><a href="JsonObject.html">JsonObject</a></li>
-											<li><a href="VideoPlayer.html">VideoPlayer</a></li>
-											<li><a href="YoutubePlayer.html">YoutubePlayer</a></li>
+											<li><a href="server.Anime.html">server.Anime</a></li>
+											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
+											<li><a href="server.Episode.html">server.Episode</a></li>
+											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
+											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
+											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -99,6 +91,7 @@
 											<li><a href="server.data.public.html">server.data.public</a></li>
 											<li><a href="server.global.html">server.global</a></li>
 											<li><a href="server.https.html">server.https</a></li>
+											<li><a href="server.image.html">server.image</a></li>
 									</ul>
 								</li>
 				</ul>
@@ -119,7 +112,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
-				<h1><span class="name">VideoPlayer</span></h1>
+				<h1><span class="ancestors"><a href="server.html">server</a>~</span><span class="name">VideoPlayer</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -128,7 +121,7 @@
 						<ol class="breadcrumb">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="list_class.html">Classes</a></li>
-							<li class="active">VideoPlayer</li>
+							<li class="active"><a href="server.html">server</a>~VideoPlayer</li>
 						</ol>
 						<div class="access-filter">
 								<label class="checkbox-inline">
@@ -188,7 +181,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-479">line 479</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-482">line 482</a></p>
 								</div>
 							</div>
 			
@@ -204,7 +197,7 @@
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
-			<h4 id=".list" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">list</span><span class="signature-type"> :Array.&lt;<a href="VideoPlayer.html">VideoPlayer</a>></span></h4>
+			<h4 id=".list" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">list</span><span class="signature-type"> :Array.&lt;VideoPlayer></span></h4>
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -215,7 +208,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">Array.&lt;<a href="VideoPlayer.html">VideoPlayer</a>></span></div>
+									<div class="form-control-static type-names"><span class="param-type">Array.&lt;VideoPlayer></span></div>
 								</div>
 							</div>
 			
@@ -236,7 +229,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-472">line 472</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-475">line 475</a></p>
 								</div>
 							</div>
 			
@@ -280,7 +273,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-487">line 487</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-490">line 490</a></p>
 								</div>
 							</div>
 			
@@ -324,7 +317,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-495">line 495</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-498">line 498</a></p>
 								</div>
 							</div>
 			
@@ -368,7 +361,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-503">line 503</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-506">line 506</a></p>
 								</div>
 							</div>
 			
@@ -419,7 +412,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-510">line 510</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-513">line 513</a></p>
 								</div>
 							</div>
 			
@@ -435,7 +428,7 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Tell if the url used for downloading is an url in <a href="Episode.html#links"><code>Episode.links</code></a></p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Tell if the url used for downloading is an url in <code>Episode.links</code></p></div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
@@ -463,7 +456,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-517">line 517</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-520">line 520</a></p>
 								</div>
 							</div>
 			
@@ -500,7 +493,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-524">line 524</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-527">line 527</a></p>
 								</div>
 							</div>
 			
@@ -548,7 +541,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-533">line 533</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-536">line 536</a></p>
 								</div>
 							</div>
 			
@@ -611,7 +604,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-551">line 551</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-554">line 554</a></p>
 								</div>
 							</div>
 			
@@ -674,7 +667,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-566">line 566</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-569">line 569</a></p>
 								</div>
 							</div>
 			
@@ -745,7 +738,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-583">line 583</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-586">line 586</a></p>
 								</div>
 							</div>
 			
@@ -843,7 +836,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-603">line 603</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-606">line 606</a></p>
 								</div>
 							</div>
 			
@@ -908,7 +901,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-718">line 718</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-721">line 721</a></p>
 								</div>
 							</div>
 			
@@ -927,7 +920,7 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".getPlayer" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getPlayer</span><span class="signature-params">( <span class="signature-param">url</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="VideoPlayer.html">VideoPlayer</a>}</span></h4>
+			<h4 id=".getPlayer" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getPlayer</span><span class="signature-params">( <span class="signature-param">url</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{VideoPlayer}</span></h4>
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -954,7 +947,7 @@
 			</div>
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="VideoPlayer.html">VideoPlayer</a></span></label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">VideoPlayer</span></label>
 								<div class="col-sm-9">
 									<div class="form-control-static returns-description"></div>
 								</div>
@@ -980,7 +973,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-736">line 736</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-739">line 739</a></p>
 								</div>
 							</div>
 			
@@ -999,7 +992,7 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".getVideoPlayerById" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getVideoPlayerById</span><span class="signature-params">( <span class="signature-param">id</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="VideoPlayer.html">VideoPlayer</a>}</span></h4>
+			<h4 id=".getVideoPlayerById" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getVideoPlayerById</span><span class="signature-params">( <span class="signature-param">id</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{VideoPlayer}</span></h4>
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -1026,7 +1019,7 @@
 			</div>
 			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type"><a href="VideoPlayer.html">VideoPlayer</a></span></label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">VideoPlayer</span></label>
 								<div class="col-sm-9">
 									<div class="form-control-static returns-description"></div>
 								</div>
@@ -1052,7 +1045,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-752">line 752</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-755">line 755</a></p>
 								</div>
 							</div>
 			

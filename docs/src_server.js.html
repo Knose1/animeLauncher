@@ -69,41 +69,30 @@
 								<li class="dropdown">
 									<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Globals<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="global.html#__logFile">__logFile</a></li>
-											<li><a href="global.html#__root">__root</a></li>
-											<li><a href="global.html#__tempFolder">__tempFolder</a></li>
-											<li><a href="global.html#AnimeConfig">AnimeConfig</a></li>
-											<li><a href="global.html#Config">Config</a></li>
-											<li><a href="global.html#EpisodeConfig">EpisodeConfig</a></li>
-											<li><a href="global.html#EpisodeInfo">EpisodeInfo</a></li>
-											<li><a href="global.html#getThumbail">getThumbail</a></li>
 											<li><a href="global.html#http">http</a></li>
-											<li><a href="global.html#nameof">nameof</a></li>
-											<li><a href="global.html#PlayerInfo">PlayerInfo</a></li>
-											<li><a href="global.html#PublicAnime">PublicAnime</a></li>
-											<li><a href="global.html#PublicEpisode">PublicEpisode</a></li>
-											<li><a href="global.html#PublicVideoPlayer">PublicVideoPlayer</a></li>
-											<li><a href="global.html#ReqDownloadData">ReqDownloadData</a></li>
-											<li><a href="global.html#ThumbailOption">ThumbailOption</a></li>
-											<li><a href="global.html#tokenGenerator">tokenGenerator</a></li>
-											<li><a href="global.html#VideoPlayerConfig">VideoPlayerConfig</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="Anime.html">Anime</a></li>
-											<li><a href="DownloadEpisode.html">DownloadEpisode</a></li>
-											<li><a href="Episode.html">Episode</a></li>
-											<li><a href="JsonObject.html">JsonObject</a></li>
-											<li><a href="VideoPlayer.html">VideoPlayer</a></li>
-											<li><a href="YoutubePlayer.html">YoutubePlayer</a></li>
+											<li><a href="server.Anime.html">server.Anime</a></li>
+											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
+											<li><a href="server.Episode.html">server.Episode</a></li>
+											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
+											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
+											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
 									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 											<li><a href="server.html">server</a></li>
+											<li><a href="server.data.html">server.data</a></li>
+											<li><a href="server.data.config.html">server.data.config</a></li>
+											<li><a href="server.data.public.html">server.data.public</a></li>
+											<li><a href="server.global.html">server.global</a></li>
+											<li><a href="server.https.html">server.https</a></li>
+											<li><a href="server.image.html">server.image</a></li>
 									</ul>
 								</li>
 				</ul>
@@ -140,6 +129,8 @@ const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
 const imageWriter = require("./image/imageWriter");
 
+const ANIME_FOLDER = "episode";
+
 let JsonObject = dataManager.JsonObject;
 let DownloadEpisode = dataManager.DownloadEpisode;
 let VideoPlayer = dataManager.VideoPlayer;
@@ -153,6 +144,14 @@ let Episode = dataManager.Episode;
  * ------------------  
  * Server links :  
  * [USE] `*` - Used to do consoleGroup  
+ * &lt;br/>&lt;br/>  
+ * [GET] `/new/anime?` - Add a new anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `name` - The name of the anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `thumbnailLink` - The path to the thumbnail  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Send : {"id":Anime Id}  
+ * &lt;br/>  
+ * [GET] `/new/episode?` - Add a new episode to an anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Send : {"id":Anime Id}  
  * &lt;br/>  
  * [GET] `/get/list` - Get the anime list  
  * &amp;ensp;&amp;ensp;&amp;ensp;Send : {@link Anime.publicList Anime.publicList}  
@@ -171,23 +170,23 @@ let Episode = dataManager.Episode;
  * &amp;ensp;&amp;ensp;&amp;ensp;Send : {"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}}  
  * &lt;br/>
  * [GET] `/get/list/download` - Get download list  
- * ```json
- * Send: {
- * 	"current": {
- * 		"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}
- * 		"episode": Episode's name
- * 	},
- * 	"list": [
- * 		Episodes's name
- * 	],
- * 	"error": [
- * 		{
- * 			"episode": Episode's name
- * 			"error": Error
- * 		}
- * 	]
+ * &lt;code class="prettyprint source language-json code-toolbar pre">
+ * Send: {  
+ * &amp;ensp;&amp;ensp;&amp;ensp;"current": {  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;"progress":{@link DownloadEpisode#progress DownloadEpisode.progress}  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;"episode": Episode's name  
+ * &amp;ensp;&amp;ensp;&amp;ensp;},  
+ * &amp;ensp;&amp;ensp;&amp;ensp;"list": [  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;Episodes's name  
+ * &amp;ensp;&amp;ensp;&amp;ensp;],  
+ * &amp;ensp;&amp;ensp;&amp;ensp;"error": [  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;{  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;"episode": Episode's name  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;"error": Error  
+ * &amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;}  
+ * &amp;ensp;&amp;ensp;&amp;ensp;]  
  * }
- * ```
+ * &lt;/code>
  * &lt;br/>  
  * [GET] `/` - Index.html  
  * &lt;br/>  
@@ -203,18 +202,17 @@ let Episode = dataManager.Episode;
  * &lt;br/>  
  * [GET] `/episode/:animeId/:episodeId` - Get a local episode in folder episode  
  * &amp;ensp;&amp;ensp;&amp;ensp;Param : `animeId` - The id of the anime  
- * &amp;ensp;&amp;ensp;&amp;ensp;Param : `episodeId` - The id of the episode in the anime  
+ * &amp;ensp;&amp;ensp;&amp;ensp;Param : `episodeId` - The id of the episode in the anime   
  * &lt;br/>  
- * [GET] `/asset/thumbnail/:text.png` - Generate an image  
+ * [GET] `/asset/thumbnail/:text.png` - Generate an image or return a generated image
  * &amp;ensp;&amp;ensp;&amp;ensp;Param : `text` - The text to show on the image  
  * &amp;ensp;&amp;ensp;&amp;ensp;Param : `width` - The image width  
  * &amp;ensp;&amp;ensp;&amp;ensp;Param : `height` - The image height  
  * &amp;ensp;&amp;ensp;&amp;ensp;Param : `textSize` - The text size  
  * &amp;ensp;&amp;ensp;&amp;ensp;Param : `backgroundColor` - The background color  
  * &amp;ensp;&amp;ensp;&amp;ensp;Param : `textColor` - The text color  
- * 
  * @protected
- * @namespace server
+ * @memberof server.https
  * @param {Config} config
 */
 function start(config) {
@@ -240,8 +238,38 @@ function start(config) {
 			console.groupEnd();
 		});
 	});
+	
+	//*///////////////////////////////*//
+	//*           New Anime           *//
+	//*///////////////////////////////*//
+	app.get('/new/anime', (req, res, next) => {
+		let animeName = req.query.name;
+		let animeThumbnailLink = req.query.thumbnailLink;
+		
+		/**
+		 * @ignore
+		 * @type {import("./dataManager").AnimeConfig}
+		 */
+		let animeData = {"name":animeName, "episodes":[]}
+		if (animeThumbnailLink) 
+		{
+			animeData.thumbnailLink = animeThumbnailLink;
+		}
 
+		let animeFolderName = global.toFileName(req.name.animeName, "-").replace(/\ /g,"_");
 
+		let episodeFolder = path.join(__root, ANIME_FOLDER, animeName); 
+		let jsonObj = new JsonObject(episodeFolder);
+		let anime = new Anime(jsonObj, episodeFolder);
+		res.send(JSON.stringify({'id':0}))
+	});
+
+	//*///////////////////////////////*//
+	//*          New Episode          *//
+	//*///////////////////////////////*//
+	app.get('/new/episode', (req, res, next) => {
+	
+	});
 
 
 	//*///////////////////////////////*//
@@ -554,7 +582,7 @@ module.exports = start;</code></pre>
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 30th Nov 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 8th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

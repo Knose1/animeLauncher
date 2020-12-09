@@ -3,6 +3,10 @@ code[class*=language-], pre[class*=language-]
 	font-size:15px;   
 }
 
+a code {
+	font-style: italic;
+}
+
 .page-header .signature-attribs {
     color: #1A1A1A;
 }
@@ -42,5 +46,3 @@ hr {
 .signature-type {
     color: #337ab7;
 }
-
-/* Nice to have : darktheme*/

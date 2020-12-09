@@ -22,8 +22,7 @@
 		color: #00ff00;
 	}
 
-	.access-filter .checkbox-inline.checked, .access-filter .checkbox-inline:focus, .access-filter .checkbox-inline:hover,
-	a {
+	.access-filter .checkbox-inline.checked, .access-filter .checkbox-inline:focus, .access-filter .checkbox-inline:hover, a, a code {
 		color: #00c4ff;
 	}
 

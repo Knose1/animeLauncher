@@ -1,3 +1,31 @@
+/**
+ * @namespace server
+ */
+/**
+ * @namespace https
+ * @memberof server
+ */
+/**
+ * @namespace global
+ * @memberof server
+ */
+/**
+ * @namespace image
+ * @memberof server
+ */
+/**
+ * @namespace data
+ * @memberof server
+ */
+/**
+ * @namespace config
+ * @memberof server.data
+ */
+/**
+ * @namespace public
+ * @memberof server.data
+ */
+
 const inspector = require("inspector");
 try {
 	inspector.waitForDebugger();
@@ -22,6 +50,7 @@ const YoutubePlayer = dataManager.YoutubePlayer;
 const Anime = dataManager.Anime;
 
 /**
+ * @memberof server.data.config
  * @typedef Config
  * @property {number} port
  * @property {boolean} keepThumbnails

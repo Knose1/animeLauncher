@@ -62,32 +62,37 @@ window.lunrData = {
           "list:namespac",
           "namespac"
         ],
-        "JsonObject.html": [
+        "server.JsonObject.html": [
           "class",
           "file",
           "json",
           "jsonobject",
           "load",
-          "save"
+          "save",
+          "server.jsonobject",
+          "server~jsonobject"
         ],
-        "JsonObject.html#loadSync": [
+        "server.JsonObject.html#loadSync": [
           "func",
           "function",
           "jsonobject#loadsync",
-          "loadsync"
+          "loadsync",
+          "server.jsonobject#loadsync"
         ],
-        "JsonObject.html#load": [
+        "server.JsonObject.html#load": [
           "function",
           "jsonobject#load",
-          "load"
+          "load",
+          "server.jsonobject#load"
         ],
-        "JsonObject.html#save": [
+        "server.JsonObject.html#save": [
           "function",
           "jsonobject#sav",
           "promise.&lt;void&gt",
-          "save"
+          "save",
+          "server.jsonobject#sav"
         ],
-        "DownloadEpisode.html": [
+        "server.DownloadEpisode.html": [
           "class",
           "download",
           "downloadepisod",
@@ -97,42 +102,48 @@ window.lunrData = {
           "handl",
           "max",
           "on",
+          "server.downloadepisod",
+          "server~downloadepisod",
           "there'",
           "us",
           "videoplayer.download"
         ],
-        "DownloadEpisode.html#.list": [
+        "server.DownloadEpisode.html#.list": [
           "array.&lt;downloadepisode&gt",
           "downloadepisode.list",
           "list",
           "lt;static",
           "member",
-          "readonly&gt"
+          "readonly&gt",
+          "server.downloadepisode.list"
         ],
-        "DownloadEpisode.html#.toDownload": [
+        "server.DownloadEpisode.html#.toDownload": [
           "array.&lt;todownloaditem&gt",
           "downloadepisode.todownload",
           "lt;static&gt",
           "member",
+          "server.downloadepisode.todownload",
           "todownload"
         ],
-        "DownloadEpisode.html#.currentDownload": [
+        "server.DownloadEpisode.html#.currentDownload": [
           "currentdownload",
           "downloadepisod",
           "downloadepisode.currentdownload",
           "lt;protect",
           "member",
+          "server.downloadepisode.currentdownload",
           "static&gt"
         ],
-        "DownloadEpisode.html#episode": [
+        "server.DownloadEpisode.html#episode": [
           "download",
           "downloadepisode#episod",
           "episod",
           "lt;readonly&gt",
           "member",
+          "server.downloadepisode#episod",
           "want"
         ],
-        "DownloadEpisode.html#id": [
+        "server.DownloadEpisode.html#id": [
           "downloadepisod",
           "downloadepisode#id",
           "id",
@@ -140,9 +151,10 @@ window.lunrData = {
           "lt;readonly&gt",
           "member",
           "number",
+          "server.downloadepisode#id",
           "uniqu"
         ],
-        "DownloadEpisode.html#player": [
+        "server.DownloadEpisode.html#player": [
           "download",
           "downloadepisode#play",
           "epsod",
@@ -150,11 +162,12 @@ window.lunrData = {
           "member",
           "player",
           "readonly&gt",
+          "server.downloadepisode#play",
           "us",
           "video",
           "videoplay"
         ],
-        "DownloadEpisode.html#isReady": [
+        "server.DownloadEpisode.html#isReady": [
           "boolean",
           "done",
           "download",
@@ -164,50 +177,56 @@ window.lunrData = {
           "lt;privat",
           "member",
           "readonly&gt",
-          "save"
+          "save",
+          "server.downloadepisode#isreadi"
         ],
-        "DownloadEpisode.html#isPending": [
+        "server.DownloadEpisode.html#isPending": [
           "boolean",
           "download",
           "downloadepisode#ispend",
           "ispend",
           "lt;readonly&gt",
           "member",
-          "pend"
+          "pend",
+          "server.downloadepisode#ispend"
         ],
-        "DownloadEpisode.html#isDownloading": [
+        "server.DownloadEpisode.html#isDownloading": [
           "boolean",
           "download",
           "downloadepisode#isdownload",
           "isdownload",
           "lt;readonly&gt",
           "member",
-          "ongo"
+          "ongo",
+          "server.downloadepisode#isdownload"
         ],
-        "DownloadEpisode.html#isError": [
+        "server.DownloadEpisode.html#isError": [
           "boolean",
           "downloadepisode#iserror",
           "error",
           "iserror",
           "lt;readonly&gt",
-          "member"
+          "member",
+          "server.downloadepisode#iserror"
         ],
-        "DownloadEpisode.html#error": [
+        "server.DownloadEpisode.html#error": [
           "downloadepisode#error",
           "error",
           "lt;readonly&gt",
           "member",
+          "server.downloadepisode#error",
           "string"
         ],
-        "DownloadEpisode.html#progress": [
+        "server.DownloadEpisode.html#progress": [
           "download",
           "downloadepisode#progress",
           "lt;readonly&gt",
           "member",
           "number",
-          "progress"
+          "progress",
+          "server.downloadepisode#progress"
         ],
-        "DownloadEpisode.html#_setLocalPath": [
+        "server.DownloadEpisode.html#_setLocalPath": [
           "_setlocalpath",
           "call",
           "done",
@@ -219,118 +238,127 @@ window.lunrData = {
           "lt;private&gt",
           "pathtofil",
           "readi",
+          "server.downloadepisode#_setlocalpath",
           "set"
         ],
-        "DownloadEpisode.html#download": [
+        "server.DownloadEpisode.html#download": [
           "download",
           "downloadepisode#download",
           "format",
           "function",
           "launch",
+          "server.downloadepisode#download",
           "url"
         ],
-        "DownloadEpisode.html#_setEvents": [
+        "server.DownloadEpisode.html#_setEvents": [
           "_setev",
           "downloadepisode#_setev",
           "emitt",
           "event",
           "function",
           "lt;private&gt",
+          "server.downloadepisode#_setev",
           "set"
         ],
-        "DownloadEpisode.html#destroy": [
+        "server.DownloadEpisode.html#destroy": [
           "destroy",
           "downloadepisode#destroy",
           "downloadepisode.list",
           "function",
           "instanc",
-          "remov"
+          "remov",
+          "server.downloadepisode#destroy"
         ],
-        "DownloadEpisode.html#.getFromEpisode": [
+        "server.DownloadEpisode.html#.getFromEpisode": [
           "downloadepisode.getfromepisod",
           "episod",
           "function",
           "getfromepisod",
-          "lt;static&gt"
+          "lt;static&gt",
+          "server.downloadepisode.getfromepisod"
         ],
-        "DownloadEpisode.html#.ToDownloadItem": [
-          "downloadepisode.todownloaditem",
-          "todownloaditem",
-          "typedef"
-        ],
-        "VideoPlayer.html": [
+        "server.VideoPlayer.html": [
           "class",
           "download",
+          "server.videoplay",
+          "server~videoplay",
           "us",
           "video",
           "videoplay"
         ],
-        "VideoPlayer.html#.list": [
+        "server.VideoPlayer.html#.list": [
           "array.&lt;videoplayer&gt",
           "list",
           "lt;static",
           "member",
           "readonly&gt",
+          "server.videoplayer.list",
           "videoplay",
           "videoplayer.list"
         ],
-        "VideoPlayer.html#name": [
+        "server.VideoPlayer.html#name": [
           "lt;readonly&gt",
           "member",
           "name",
+          "server.videoplayer#nam",
           "string",
           "videoplay",
           "videoplayer#nam"
         ],
-        "VideoPlayer.html#isNatif": [
+        "server.VideoPlayer.html#isNatif": [
           "avail",
           "boolean",
           "edit",
           "isnatif",
           "lt;readonly&gt",
           "member",
+          "server.videoplayer#isnatif",
           "true",
           "videoplay",
           "videoplayer#isnatif",
           "wront"
         ],
-        "VideoPlayer.html#prefix": [
+        "server.VideoPlayer.html#prefix": [
           "array.&lt;string&gt",
           "match",
           "member",
           "prefix",
           "prefix(",
+          "server.videoplayer#prefix",
           "url",
           "videoplayer#prefix"
         ],
-        "VideoPlayer.html#downloadable": [
+        "server.VideoPlayer.html#downloadable": [
           "boolean",
           "download",
           "member",
           "server",
+          "server.videoplayer#download",
           "tell",
           "videoplayer#download"
         ],
-        "VideoPlayer.html#autoDownload": [
+        "server.VideoPlayer.html#autoDownload": [
           "autodownload",
           "boolean",
           "download",
           "episode.link",
           "member",
+          "server.videoplayer#autodownload",
           "tell",
           "url",
           "us",
           "videoplayer#autodownload"
         ],
-        "VideoPlayer.html#id": [
+        "server.VideoPlayer.html#id": [
           "id",
           "lt;readonly&gt",
           "member",
+          "server.videoplayer#id",
           "uniqu",
           "videoplay",
           "videoplayer#id"
         ],
-        "VideoPlayer.html#toPublic": [
+        "server.VideoPlayer.html#toPublic": [
           "client",
           "function",
           "give",
@@ -338,11 +366,12 @@ window.lunrData = {
           "public",
           "publicvideoplay",
           "return",
+          "server.videoplayer#topubl",
           "topubl",
           "videoplay",
           "videoplayer#topubl"
         ],
-        "VideoPlayer.html#_dispatchOnComplete": [
+        "server.VideoPlayer.html#_dispatchOnComplete": [
           "_dispatchoncomplet",
           "complet",
           "emitt",
@@ -351,9 +380,10 @@ window.lunrData = {
           "function",
           "lt;protected&gt",
           "recdownloaddata",
+          "server.videoplayer#_dispatchoncomplet",
           "videoplayer#_dispatchoncomplet"
         ],
-        "VideoPlayer.html#_dispatchOnProgress": [
+        "server.VideoPlayer.html#_dispatchOnProgress": [
           "_dispatchonprogress",
           "emitt",
           "event",
@@ -362,9 +392,10 @@ window.lunrData = {
           "lt;protected&gt",
           "progress",
           "recdownloaddata",
+          "server.videoplayer#_dispatchonprogress",
           "videoplayer#_dispatchonprogress"
         ],
-        "VideoPlayer.html#_dispatchOnError": [
+        "server.VideoPlayer.html#_dispatchOnError": [
           "_dispatchonerror",
           "emitt",
           "err",
@@ -373,9 +404,10 @@ window.lunrData = {
           "fire",
           "function",
           "lt;protected&gt",
+          "server.videoplayer#_dispatchonerror",
           "videoplayer#_dispatchonerror"
         ],
-        "VideoPlayer.html#download": [
+        "server.VideoPlayer.html#download": [
           "async",
           "download",
           "downloadurl",
@@ -385,11 +417,12 @@ window.lunrData = {
           "function",
           "given",
           "link",
+          "server.videoplayer#download",
           "us",
           "video",
           "videoplayer#download"
         ],
-        "VideoPlayer.html#hasPrefix": [
+        "server.VideoPlayer.html#hasPrefix": [
           "boolean",
           "compar",
           "function",
@@ -398,11 +431,12 @@ window.lunrData = {
           "match",
           "prefix",
           "return",
+          "server.videoplayer#hasprefix",
           "true",
           "url",
           "videoplayer#hasprefix"
         ],
-        "VideoPlayer.html#.getPlayer": [
+        "server.VideoPlayer.html#.getPlayer": [
           "first",
           "function",
           "getplay",
@@ -410,11 +444,12 @@ window.lunrData = {
           "match",
           "prefix",
           "return",
+          "server.videoplayer.getplay",
           "url",
           "videoplay",
           "videoplayer.getplay"
         ],
-        "VideoPlayer.html#.getVideoPlayerById": [
+        "server.VideoPlayer.html#.getVideoPlayerById": [
           "corrispond",
           "function",
           "getvideoplayerbyid",
@@ -422,143 +457,33 @@ window.lunrData = {
           "lt;static&gt",
           "player",
           "return",
+          "server.videoplayer.getvideoplayerbyid",
           "video",
           "videoplay",
           "videoplayer.getvideoplayerbyid"
         ],
-        "YoutubePlayer.html": [
+        "server.YoutubePlayer.html": [
           "class",
           "download",
           "info",
+          "server.youtubeplay",
+          "server~youtubeplay",
           "us",
           "video",
           "youtub",
           "youtubeplay"
         ],
-        "YoutubePlayer.html#name": [
-          "lt;readonly&gt",
-          "member",
-          "name",
-          "string",
-          "videoplay",
-          "youtubeplayer#nam"
-        ],
-        "YoutubePlayer.html#isNatif": [
-          "avail",
-          "boolean",
-          "edit",
-          "isnatif",
-          "lt;readonly&gt",
-          "member",
-          "true",
-          "videoplay",
-          "wront",
-          "youtubeplayer#isnatif"
-        ],
-        "YoutubePlayer.html#prefix": [
-          "array.&lt;string&gt",
-          "match",
-          "member",
-          "prefix",
-          "prefix(",
-          "url",
-          "youtubeplayer#prefix"
-        ],
-        "YoutubePlayer.html#downloadable": [
-          "boolean",
-          "download",
-          "member",
-          "server",
-          "tell",
-          "youtubeplayer#download"
-        ],
-        "YoutubePlayer.html#autoDownload": [
-          "autodownload",
-          "boolean",
-          "download",
-          "episode.link",
-          "member",
-          "tell",
-          "url",
-          "us",
-          "youtubeplayer#autodownload"
-        ],
-        "YoutubePlayer.html#id": [
-          "id",
-          "lt;readonly&gt",
-          "member",
-          "uniqu",
-          "videoplay",
-          "youtubeplayer#id"
-        ],
-        "YoutubePlayer.html#.instance": [
+        "server.YoutubePlayer.html#.instance": [
           "class",
           "instanc",
           "lt;static",
           "member",
           "readonly&gt",
+          "server.youtubeplayer.inst",
           "uniqu",
           "youtubeplayer.inst"
         ],
-        "YoutubePlayer.html#toPublic": [
-          "client",
-          "function",
-          "give",
-          "inform",
-          "public",
-          "publicvideoplay",
-          "return",
-          "topubl",
-          "videoplay",
-          "youtubeplayer#topubl"
-        ],
-        "YoutubePlayer.html#_dispatchOnComplete": [
-          "_dispatchoncomplet",
-          "complet",
-          "emitt",
-          "event",
-          "fire",
-          "function",
-          "lt;protected&gt",
-          "recdownloaddata",
-          "youtubeplayer#_dispatchoncomplet"
-        ],
-        "YoutubePlayer.html#_dispatchOnProgress": [
-          "_dispatchonprogress",
-          "emitt",
-          "event",
-          "fire",
-          "function",
-          "lt;protected&gt",
-          "progress",
-          "recdownloaddata",
-          "youtubeplayer#_dispatchonprogress"
-        ],
-        "YoutubePlayer.html#_dispatchOnError": [
-          "_dispatchonerror",
-          "emitt",
-          "err",
-          "error",
-          "event",
-          "fire",
-          "function",
-          "lt;protected&gt",
-          "youtubeplayer#_dispatchonerror"
-        ],
-        "YoutubePlayer.html#hasPrefix": [
-          "boolean",
-          "compar",
-          "function",
-          "hasprefix",
-          "list",
-          "match",
-          "prefix",
-          "return",
-          "true",
-          "url",
-          "youtubeplayer#hasprefix"
-        ],
-        "YoutubePlayer.html#download": [
+        "server.YoutubePlayer.html#download": [
           "async",
           "download",
           "downloadurl",
@@ -566,39 +491,44 @@ window.lunrData = {
           "format",
           "function",
           "localfilewithoutextens",
+          "server.youtubeplayer#download",
           "video",
           "youtub",
           "youtubeplayer#download"
         ],
-        "YoutubePlayer.html#getInfo": [
+        "server.YoutubePlayer.html#getInfo": [
           "fetch",
           "function",
           "getinfo",
           "inform",
           "promise.&lt;ytdl.videoinfo&gt",
+          "server.youtubeplayer#getinfo",
           "url",
           "video",
           "youtub",
           "youtubeplayer#getinfo"
         ],
-        "Anime.html": [
+        "server.Anime.html": [
           "anim",
           "class",
           "data",
           "index.json",
+          "server.anim",
+          "server~anim",
           "store",
           "updat"
         ],
-        "Anime.html#.list": [
+        "server.Anime.html#.list": [
           "anim",
           "anime.list",
           "array.&lt;anime&gt",
           "list",
           "lt;static",
           "member",
-          "readonly&gt"
+          "readonly&gt",
+          "server.anime.list"
         ],
-        "Anime.html#.publicList": [
+        "server.Anime.html#.publicList": [
           "anim",
           "anime.publiclist",
           "inform",
@@ -607,9 +537,10 @@ window.lunrData = {
           "map",
           "member",
           "public",
-          "publiclist"
+          "publiclist",
+          "server.anime.publiclist"
         ],
-        "Anime.html#jsonObject": [
+        "server.Anime.html#jsonObject": [
           "anim",
           "anime#jsonobject",
           "data",
@@ -620,26 +551,29 @@ window.lunrData = {
           "member",
           "object",
           "readonly&gt",
+          "server.anime#jsonobject",
           "store",
           "us"
         ],
-        "Anime.html#name": [
+        "server.Anime.html#name": [
           "anim",
           "anime#nam",
           "member",
           "name",
+          "server.anime#nam",
           "string"
         ],
-        "Anime.html#thumbnailLink": [
+        "server.Anime.html#thumbnailLink": [
           "anim",
           "anime#thumbnaillink",
           "member",
           "poster",
+          "server.anime#thumbnaillink",
           "string",
           "thumbnaillink",
           "uri"
         ],
-        "Anime.html#_path": [
+        "server.Anime.html#_path": [
           "_path",
           "anime#_path",
           "anime'",
@@ -648,34 +582,38 @@ window.lunrData = {
           "member",
           "path",
           "readonly&gt",
+          "server.anime#_path",
           "string"
         ],
-        "Anime.html#episodes": [
+        "server.Anime.html#episodes": [
           "anime#episod",
           "array.&lt;episode&gt",
           "episod",
           "list",
-          "member"
+          "member",
+          "server.anime#episod"
         ],
-        "Anime.html#id": [
+        "server.Anime.html#id": [
           "anim",
           "anime#id",
           "id",
           "lt;readonly&gt",
           "member",
           "number",
+          "server.anime#id",
           "uniqu"
         ],
-        "Anime.html#path": [
+        "server.Anime.html#path": [
           "anim",
           "anime#path",
           "folder",
           "lt;readonly&gt",
           "member",
           "path",
-          "return"
+          "return",
+          "server.anime#path"
         ],
-        "Anime.html#toPublic": [
+        "server.Anime.html#toPublic": [
           "anim",
           "anime#topubl",
           "client",
@@ -685,9 +623,10 @@ window.lunrData = {
           "public",
           "publicanim",
           "return",
+          "server.anime#topubl",
           "topubl"
         ],
-        "Anime.html#getEpisodeById": [
+        "server.Anime.html#getEpisodeById": [
           "anime#getepisodebyid",
           "anime'",
           "episod",
@@ -695,9 +634,10 @@ window.lunrData = {
           "episode|nul",
           "function",
           "getepisodebyid",
-          "id"
+          "id",
+          "server.anime#getepisodebyid"
         ],
-        "Anime.html#updateJson": [
+        "server.Anime.html#updateJson": [
           "anime#updatejson",
           "animeconfig",
           "episod",
@@ -707,31 +647,36 @@ window.lunrData = {
           "get",
           "json",
           "promise.&lt;void&gt",
+          "server.anime#updatejson",
           "updat",
           "updatejson"
         ],
-        "Anime.html#toAnimeConfig": [
+        "server.Anime.html#toAnimeConfig": [
           "anim",
           "anime#toanimeconfig",
           "animeconfig",
           "function",
           "return",
+          "server.anime#toanimeconfig",
           "toanimeconfig"
         ],
-        "Episode.html": [
+        "server.Episode.html": [
           "class",
           "data",
           "episod",
+          "server.episod",
+          "server~episod",
           "store"
         ],
-        "Episode.html#name": [
+        "server.Episode.html#name": [
           "episod",
           "episode#nam",
           "member",
           "name",
+          "server.episode#nam",
           "string"
         ],
-        "Episode.html#episodeId": [
+        "server.Episode.html#episodeId": [
           "between",
           "defin",
           "episod",
@@ -742,26 +687,29 @@ window.lunrData = {
           "member",
           "number",
           "order",
+          "server.episode#episodeid",
           "uniqu"
         ],
-        "Episode.html#posterLink": [
+        "server.Episode.html#posterLink": [
           "episod",
           "episode#posterlink",
           "member",
           "poster",
           "posterlink",
+          "server.episode#posterlink",
           "string",
           "uri"
         ],
-        "Episode.html#links": [
+        "server.Episode.html#links": [
           "array.&lt;string&gt",
           "episode#link",
           "episode'",
           "link",
           "member",
+          "server.episode#link",
           "stream"
         ],
-        "Episode.html#localLink": [
+        "server.Episode.html#localLink": [
           "episode#locallink",
           "episode'",
           "episode.locallink",
@@ -773,35 +721,39 @@ window.lunrData = {
           "member",
           "path",
           "see",
+          "server.episode#locallink",
           "set",
           "string"
         ],
-        "Episode.html#anime": [
+        "server.Episode.html#anime": [
           "anim",
           "episode#anim",
           "lt;readonly&gt",
           "member",
-          "refer"
+          "refer",
+          "server.episode#anim"
         ],
-        "Episode.html#isLocal": [
+        "server.Episode.html#isLocal": [
           "boolean",
           "episode#isloc",
           "isloc",
           "locallink",
           "member",
+          "server.episode#isloc",
           "set",
           "true"
         ],
-        "Episode.html#hasPoster": [
+        "server.Episode.html#hasPoster": [
           "boolean",
           "episode#haspost",
           "haspost",
           "member",
           "posterlink",
+          "server.episode#haspost",
           "set",
           "true"
         ],
-        "Episode.html#path": [
+        "server.Episode.html#path": [
           "default",
           "episode#path",
           "file",
@@ -809,11 +761,12 @@ window.lunrData = {
           "member",
           "path",
           "path.join($this.anime.path",
+          "server.episode#path",
           "string",
           "this.episodeid",
           "us"
         ],
-        "Episode.html#toPublic": [
+        "server.Episode.html#toPublic": [
           "client",
           "episod",
           "episode#topubl",
@@ -823,9 +776,10 @@ window.lunrData = {
           "public",
           "publicepisod",
           "return",
+          "server.episode#topubl",
           "topubl"
         ],
-        "Episode.html#getInfo": [
+        "server.Episode.html#getInfo": [
           "episod",
           "episode#getinfo",
           "function",
@@ -833,39 +787,66 @@ window.lunrData = {
           "info",
           "loadyoutubeinfo",
           "lt;async&gt",
-          "promise.&lt;episodeinfo&gt"
+          "promise.&lt;episodeinfo&gt",
+          "server.episode#getinfo"
         ],
-        "Episode.html#getUrlByPlayer": [
+        "server.Episode.html#getUrlByPlayer": [
           "correspond",
           "episode#geturlbyplay",
           "first",
           "function",
           "geturlbyplay",
           "player",
+          "server.episode#geturlbyplay",
           "string",
           "url",
           "videoplay"
         ],
-        "Episode.html#setLocalPath": [
+        "server.Episode.html#setLocalPath": [
           "anim",
           "episode#setlocalpath",
           "episode.locallink",
           "function",
           "path",
           "promise.&lt;void&gt",
+          "server.episode#setlocalpath",
           "set",
           "setlocalpath",
           "updat"
         ],
-        "Episode.html#toEpisodeConfig": [
+        "server.Episode.html#toEpisodeConfig": [
           "episod",
           "episode#toepisodeconfig",
           "episodeconfig",
           "function",
           "return",
+          "server.episode#toepisodeconfig",
           "toepisodeconfig"
         ],
         "server.html": [
+          "namespac",
+          "server"
+        ],
+        "server.html#.createLogFile": [
+          "creat",
+          "createlogfil",
+          "file",
+          "folder",
+          "function",
+          "log",
+          "lt;static&gt",
+          "name",
+          "new",
+          "server.createlogfil",
+          "uniqu"
+        ],
+        "server.https.html": [
+          "http",
+          "namespac",
+          "server.http"
+        ],
+        "server.https.html#.start": [
+          "add",
           "anim",
           "anime.publiclist",
           "animeid",
@@ -875,6 +856,7 @@ window.lunrData = {
           "background",
           "backgroundcolor",
           "color",
+          "config",
           "consolegroup",
           "css",
           "current",
@@ -889,6 +871,7 @@ window.lunrData = {
           "folder",
           "font",
           "format",
+          "function",
           "gener",
           "get/episode/download",
           "get/episode/info",
@@ -896,8 +879,10 @@ window.lunrData = {
           "get/list/download",
           "height",
           "html",
+          "https.start",
           "ico",
           "id",
+          "id\":anim",
           "imag",
           "index.html",
           "info",
@@ -905,25 +890,247 @@ window.lunrData = {
           "link",
           "list",
           "local",
+          "lt;protect",
           "name",
-          "namespac",
+          "new",
+          "new/anim",
+          "new/episod",
           "param",
+          "path",
           "progress\":downloadepisode.progress",
+          "return",
           "send",
           "server",
+          "server.https.start",
           "show",
           "size",
           "start",
+          "static&gt",
           "text",
           "textcolor",
           "textsiz",
+          "thumbnail",
+          "thumbnaillink",
           "url",
           "us",
           "videoplayerid",
           "width"
+        ],
+        "server.global.html": [
+          "global",
+          "namespac",
+          "server.glob"
+        ],
+        "server.global.html#.__root": [
+          "__root",
+          "folder",
+          "global.__root",
+          "lt;static&gt",
+          "member",
+          "node.j",
+          "projet",
+          "server.global.__root",
+          "string"
+        ],
+        "server.global.html#.__logFile": [
+          "__logfil",
+          "global.__logfil",
+          "logfil",
+          "lt;static&gt",
+          "member",
+          "path",
+          "server.global.__logfil",
+          "string"
+        ],
+        "server.global.html#.__tempFolder": [
+          "__tempfold",
+          "folder",
+          "global.__tempfold",
+          "lt;static&gt",
+          "member",
+          "node.j",
+          "projet",
+          "server.global.__tempfold",
+          "string",
+          "temp"
+        ],
+        "server.global.html#.GUIDGenerator": [
+          "function",
+          "global.guidgener",
+          "guidgener",
+          "lt;static&gt",
+          "server.global.guidgener",
+          "string"
+        ],
+        "server.global.html#.nameof": [
+          "function",
+          "global.nameof",
+          "lt;static&gt",
+          "nameof",
+          "server.global.nameof",
+          "varobject"
+        ],
+        "server.global.html#.overrideLine": [
+          "function",
+          "global.overridelin",
+          "last",
+          "line",
+          "logfil",
+          "lt;static&gt",
+          "messag",
+          "newlin",
+          "overrid",
+          "overridelin",
+          "server.global.overridelin"
+        ],
+        "server.global.html#.writeLog": [
+          "function",
+          "global.writelog",
+          "line",
+          "logfil",
+          "lt;static&gt",
+          "messag",
+          "newlin",
+          "server.global.writelog",
+          "write",
+          "writelog"
+        ],
+        "server.global.html#.toFileName": [
+          "filenam",
+          "function",
+          "global.tofilenam",
+          "lt;static&gt",
+          "replac",
+          "server.global.tofilenam",
+          "tofilenam"
+        ],
+        "server.image.html": [
+          "imag",
+          "namespac",
+          "server.imag"
+        ],
+        "server.image.html#.exports.getThumbail": [
+          "exports.getthumbail",
+          "function",
+          "getthumbail",
+          "image.exports.getthumbail",
+          "lt;static&gt",
+          "option",
+          "promise.&lt;string&gt",
+          "server.image.exports.getthumbail",
+          "text"
+        ],
+        "server.image.html#.ThumbailOption": [
+          "image.thumbailopt",
+          "server.image.thumbailopt",
+          "thumbailopt",
+          "typedef"
+        ],
+        "server.data.html": [
+          "data",
+          "namespac",
+          "server.data"
+        ],
+        "server.data.config.html": [
+          "config",
+          "data.config",
+          "namespac",
+          "server.data.config"
+        ],
+        "server.data.config.html#.VideoPlayerConfig": [
+          "config",
+          "config.videoplayerconfig",
+          "data.config.videoplayerconfig",
+          "server.data.config.videoplayerconfig",
+          "typedef",
+          "videoplay",
+          "videoplayerconfig"
+        ],
+        "server.data.config.html#.AnimeConfig": [
+          "anim",
+          "animeconfig",
+          "config",
+          "config.animeconfig",
+          "data.config.animeconfig",
+          "server.data.config.animeconfig",
+          "typedef"
+        ],
+        "server.data.config.html#.Config": [
+          "config",
+          "config.config",
+          "data.config.config",
+          "server.data.config.config",
+          "typedef"
+        ],
+        "server.data.config.html#.EpisodeConfig": [
+          "config",
+          "config.episodeconfig",
+          "data.config.episodeconfig",
+          "episod",
+          "episodeconfig",
+          "server.data.config.episodeconfig",
+          "typedef"
+        ],
+        "server.data.public.html": [
+          "data.publ",
+          "namespac",
+          "public",
+          "server.data.publ"
+        ],
+        "server.data.public.html#.PublicVideoPlayer": [
+          "data.public.publicvideoplay",
+          "inform",
+          "player",
+          "public",
+          "public.publicvideoplay",
+          "publicvideoplay",
+          "server.data.public.publicvideoplay",
+          "typedef",
+          "video"
+        ],
+        "server.data.public.html#.PlayerInfo": [
+          "data.public.playerinfo",
+          "info",
+          "playerinfo",
+          "public.playerinfo",
+          "server.data.public.playerinfo",
+          "typedef",
+          "url"
+        ],
+        "server.data.public.html#.PublicAnime": [
+          "anim",
+          "data.public.publicanim",
+          "inform",
+          "public",
+          "public.publicanim",
+          "publicanim",
+          "server.data.public.publicanim",
+          "typedef"
+        ],
+        "server.data.public.html#.PublicEpisode": [
+          "data.public.publicepisod",
+          "episod",
+          "inform",
+          "public",
+          "public.publicepisod",
+          "publicepisod",
+          "server.data.public.publicepisod",
+          "typedef"
+        ],
+        "server.data.public.html#.EpisodeInfo": [
+          "data.public.episodeinfo",
+          "episod",
+          "episodeinfo",
+          "inform",
+          "map",
+          "playerinfo",
+          "public.episodeinfo",
+          "server.data.public.episodeinfo",
+          "typedef",
+          "url"
         ]
       },
-      "length": 88
+      "length": 103
     },
     "tokenStore": {
       "root": {
@@ -979,73 +1186,65 @@ window.lunrData = {
                       "docs": {},
                       "d": {
                         "docs": {
-                          "DownloadEpisode.html": {
-                            "ref": "DownloadEpisode.html",
+                          "server.DownloadEpisode.html": {
+                            "ref": "server.DownloadEpisode.html",
                             "tf": 4.545454545454546
                           },
-                          "DownloadEpisode.html#episode": {
-                            "ref": "DownloadEpisode.html#episode",
+                          "server.DownloadEpisode.html#episode": {
+                            "ref": "server.DownloadEpisode.html#episode",
                             "tf": 16.666666666666664
                           },
-                          "DownloadEpisode.html#player": {
-                            "ref": "DownloadEpisode.html#player",
+                          "server.DownloadEpisode.html#player": {
+                            "ref": "server.DownloadEpisode.html#player",
                             "tf": 10
                           },
-                          "DownloadEpisode.html#isReady": {
-                            "ref": "DownloadEpisode.html#isReady",
+                          "server.DownloadEpisode.html#isReady": {
+                            "ref": "server.DownloadEpisode.html#isReady",
                             "tf": 12.5
                           },
-                          "DownloadEpisode.html#isPending": {
-                            "ref": "DownloadEpisode.html#isPending",
+                          "server.DownloadEpisode.html#isPending": {
+                            "ref": "server.DownloadEpisode.html#isPending",
                             "tf": 25
                           },
-                          "DownloadEpisode.html#isDownloading": {
-                            "ref": "DownloadEpisode.html#isDownloading",
+                          "server.DownloadEpisode.html#isDownloading": {
+                            "ref": "server.DownloadEpisode.html#isDownloading",
                             "tf": 25
                           },
-                          "DownloadEpisode.html#progress": {
-                            "ref": "DownloadEpisode.html#progress",
+                          "server.DownloadEpisode.html#progress": {
+                            "ref": "server.DownloadEpisode.html#progress",
                             "tf": 25
                           },
-                          "DownloadEpisode.html#download": {
-                            "ref": "DownloadEpisode.html#download",
-                            "tf": 708.3333333333334
+                          "server.DownloadEpisode.html#download": {
+                            "ref": "server.DownloadEpisode.html#download",
+                            "tf": 658.3333333333334
                           },
-                          "VideoPlayer.html": {
-                            "ref": "VideoPlayer.html",
+                          "server.VideoPlayer.html": {
+                            "ref": "server.VideoPlayer.html",
                             "tf": 12.5
                           },
-                          "VideoPlayer.html#downloadable": {
-                            "ref": "VideoPlayer.html#downloadable",
-                            "tf": 716.6666666666666
+                          "server.VideoPlayer.html#downloadable": {
+                            "ref": "server.VideoPlayer.html#downloadable",
+                            "tf": 666.6666666666666
                           },
-                          "VideoPlayer.html#autoDownload": {
-                            "ref": "VideoPlayer.html#autoDownload",
+                          "server.VideoPlayer.html#autoDownload": {
+                            "ref": "server.VideoPlayer.html#autoDownload",
                             "tf": 8.333333333333332
                           },
-                          "VideoPlayer.html#download": {
-                            "ref": "VideoPlayer.html#download",
-                            "tf": 678.3333333333334
+                          "server.VideoPlayer.html#download": {
+                            "ref": "server.VideoPlayer.html#download",
+                            "tf": 628.3333333333334
                           },
-                          "YoutubePlayer.html": {
-                            "ref": "YoutubePlayer.html",
+                          "server.YoutubePlayer.html": {
+                            "ref": "server.YoutubePlayer.html",
                             "tf": 7.142857142857142
                           },
-                          "YoutubePlayer.html#downloadable": {
-                            "ref": "YoutubePlayer.html#downloadable",
-                            "tf": 716.6666666666666
+                          "server.YoutubePlayer.html#download": {
+                            "ref": "server.YoutubePlayer.html#download",
+                            "tf": 632.5
                           },
-                          "YoutubePlayer.html#autoDownload": {
-                            "ref": "YoutubePlayer.html#autoDownload",
-                            "tf": 8.333333333333332
-                          },
-                          "YoutubePlayer.html#download": {
-                            "ref": "YoutubePlayer.html#download",
-                            "tf": 682.5
-                          },
-                          "server.html": {
-                            "ref": "server.html",
-                            "tf": 0.847457627118644
+                          "server.https.html#.start": {
+                            "ref": "server.https.html#.start",
+                            "tf": 0.6944444444444444
                           }
                         },
                         "e": {
@@ -1060,16 +1259,16 @@ window.lunrData = {
                                   "docs": {},
                                   "d": {
                                     "docs": {
-                                      "DownloadEpisode.html": {
-                                        "ref": "DownloadEpisode.html",
-                                        "tf": 1900
+                                      "server.DownloadEpisode.html": {
+                                        "ref": "server.DownloadEpisode.html",
+                                        "tf": 650
                                       },
-                                      "DownloadEpisode.html#.currentDownload": {
-                                        "ref": "DownloadEpisode.html#.currentDownload",
+                                      "server.DownloadEpisode.html#.currentDownload": {
+                                        "ref": "server.DownloadEpisode.html#.currentDownload",
                                         "tf": 25
                                       },
-                                      "DownloadEpisode.html#id": {
-                                        "ref": "DownloadEpisode.html#id",
+                                      "server.DownloadEpisode.html#id": {
+                                        "ref": "server.DownloadEpisode.html#id",
                                         "tf": 12.5
                                       }
                                     },
@@ -1085,12 +1284,12 @@ window.lunrData = {
                                               "docs": {},
                                               "t": {
                                                 "docs": {
-                                                  "DownloadEpisode.html#.list": {
-                                                    "ref": "DownloadEpisode.html#.list",
-                                                    "tf": 1150
+                                                  "server.DownloadEpisode.html#.list": {
+                                                    "ref": "server.DownloadEpisode.html#.list",
+                                                    "tf": 100
                                                   },
-                                                  "DownloadEpisode.html#destroy": {
-                                                    "ref": "DownloadEpisode.html#destroy",
+                                                  "server.DownloadEpisode.html#destroy": {
+                                                    "ref": "server.DownloadEpisode.html#destroy",
                                                     "tf": 12.5
                                                   }
                                                 }
@@ -1118,26 +1317,9 @@ window.lunrData = {
                                                           "docs": {},
                                                           "d": {
                                                             "docs": {
-                                                              "DownloadEpisode.html#.toDownload": {
-                                                                "ref": "DownloadEpisode.html#.toDownload",
-                                                                "tf": 1150
-                                                              }
-                                                            },
-                                                            "i": {
-                                                              "docs": {},
-                                                              "t": {
-                                                                "docs": {},
-                                                                "e": {
-                                                                  "docs": {},
-                                                                  "m": {
-                                                                    "docs": {
-                                                                      "DownloadEpisode.html#.ToDownloadItem": {
-                                                                        "ref": "DownloadEpisode.html#.ToDownloadItem",
-                                                                        "tf": 1150
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
+                                                              "server.DownloadEpisode.html#.toDownload": {
+                                                                "ref": "server.DownloadEpisode.html#.toDownload",
+                                                                "tf": 100
                                                               }
                                                             }
                                                           }
@@ -1180,9 +1362,9 @@ window.lunrData = {
                                                                     "docs": {},
                                                                     "d": {
                                                                       "docs": {
-                                                                        "DownloadEpisode.html#.currentDownload": {
-                                                                          "ref": "DownloadEpisode.html#.currentDownload",
-                                                                          "tf": 1150
+                                                                        "server.DownloadEpisode.html#.currentDownload": {
+                                                                          "ref": "server.DownloadEpisode.html#.currentDownload",
+                                                                          "tf": 100
                                                                         }
                                                                       }
                                                                     }
@@ -1226,9 +1408,9 @@ window.lunrData = {
                                                                 "docs": {},
                                                                 "d": {
                                                                   "docs": {
-                                                                    "DownloadEpisode.html#.getFromEpisode": {
-                                                                      "ref": "DownloadEpisode.html#.getFromEpisode",
-                                                                      "tf": 1150
+                                                                    "server.DownloadEpisode.html#.getFromEpisode": {
+                                                                      "ref": "server.DownloadEpisode.html#.getFromEpisode",
+                                                                      "tf": 100
                                                                     }
                                                                   }
                                                                 }
@@ -1259,9 +1441,9 @@ window.lunrData = {
                                                   "docs": {},
                                                   "d": {
                                                     "docs": {
-                                                      "DownloadEpisode.html#episode": {
-                                                        "ref": "DownloadEpisode.html#episode",
-                                                        "tf": 1150
+                                                      "server.DownloadEpisode.html#episode": {
+                                                        "ref": "server.DownloadEpisode.html#episode",
+                                                        "tf": 100
                                                       }
                                                     }
                                                   }
@@ -1277,9 +1459,9 @@ window.lunrData = {
                                                 "docs": {},
                                                 "r": {
                                                   "docs": {
-                                                    "DownloadEpisode.html#error": {
-                                                      "ref": "DownloadEpisode.html#error",
-                                                      "tf": 1150
+                                                    "server.DownloadEpisode.html#error": {
+                                                      "ref": "server.DownloadEpisode.html#error",
+                                                      "tf": 100
                                                     }
                                                   }
                                                 }
@@ -1291,9 +1473,9 @@ window.lunrData = {
                                           "docs": {},
                                           "d": {
                                             "docs": {
-                                              "DownloadEpisode.html#id": {
-                                                "ref": "DownloadEpisode.html#id",
-                                                "tf": 1150
+                                              "server.DownloadEpisode.html#id": {
+                                                "ref": "server.DownloadEpisode.html#id",
+                                                "tf": 100
                                               }
                                             }
                                           },
@@ -1309,9 +1491,9 @@ window.lunrData = {
                                                     "docs": {},
                                                     "i": {
                                                       "docs": {
-                                                        "DownloadEpisode.html#isReady": {
-                                                          "ref": "DownloadEpisode.html#isReady",
-                                                          "tf": 1150
+                                                        "server.DownloadEpisode.html#isReady": {
+                                                          "ref": "server.DownloadEpisode.html#isReady",
+                                                          "tf": 100
                                                         }
                                                       }
                                                     }
@@ -1327,9 +1509,9 @@ window.lunrData = {
                                                   "docs": {},
                                                   "d": {
                                                     "docs": {
-                                                      "DownloadEpisode.html#isPending": {
-                                                        "ref": "DownloadEpisode.html#isPending",
-                                                        "tf": 1150
+                                                      "server.DownloadEpisode.html#isPending": {
+                                                        "ref": "server.DownloadEpisode.html#isPending",
+                                                        "tf": 100
                                                       }
                                                     }
                                                   }
@@ -1352,9 +1534,9 @@ window.lunrData = {
                                                           "docs": {},
                                                           "d": {
                                                             "docs": {
-                                                              "DownloadEpisode.html#isDownloading": {
-                                                                "ref": "DownloadEpisode.html#isDownloading",
-                                                                "tf": 1150
+                                                              "server.DownloadEpisode.html#isDownloading": {
+                                                                "ref": "server.DownloadEpisode.html#isDownloading",
+                                                                "tf": 100
                                                               }
                                                             }
                                                           }
@@ -1375,9 +1557,9 @@ window.lunrData = {
                                                     "docs": {},
                                                     "r": {
                                                       "docs": {
-                                                        "DownloadEpisode.html#isError": {
-                                                          "ref": "DownloadEpisode.html#isError",
-                                                          "tf": 1150
+                                                        "server.DownloadEpisode.html#isError": {
+                                                          "ref": "server.DownloadEpisode.html#isError",
+                                                          "tf": 100
                                                         }
                                                       }
                                                     }
@@ -1395,9 +1577,9 @@ window.lunrData = {
                                               "docs": {},
                                               "y": {
                                                 "docs": {
-                                                  "DownloadEpisode.html#player": {
-                                                    "ref": "DownloadEpisode.html#player",
-                                                    "tf": 1150
+                                                  "server.DownloadEpisode.html#player": {
+                                                    "ref": "server.DownloadEpisode.html#player",
+                                                    "tf": 100
                                                   }
                                                 }
                                               }
@@ -1417,9 +1599,9 @@ window.lunrData = {
                                                       "docs": {},
                                                       "s": {
                                                         "docs": {
-                                                          "DownloadEpisode.html#progress": {
-                                                            "ref": "DownloadEpisode.html#progress",
-                                                            "tf": 1150
+                                                          "server.DownloadEpisode.html#progress": {
+                                                            "ref": "server.DownloadEpisode.html#progress",
+                                                            "tf": 100
                                                           }
                                                         }
                                                       }
@@ -1456,9 +1638,9 @@ window.lunrData = {
                                                                 "docs": {},
                                                                 "h": {
                                                                   "docs": {
-                                                                    "DownloadEpisode.html#_setLocalPath": {
-                                                                      "ref": "DownloadEpisode.html#_setLocalPath",
-                                                                      "tf": 1150
+                                                                    "server.DownloadEpisode.html#_setLocalPath": {
+                                                                      "ref": "server.DownloadEpisode.html#_setLocalPath",
+                                                                      "tf": 100
                                                                     }
                                                                   }
                                                                 }
@@ -1474,9 +1656,9 @@ window.lunrData = {
                                                   "docs": {},
                                                   "v": {
                                                     "docs": {
-                                                      "DownloadEpisode.html#_setEvents": {
-                                                        "ref": "DownloadEpisode.html#_setEvents",
-                                                        "tf": 1150
+                                                      "server.DownloadEpisode.html#_setEvents": {
+                                                        "ref": "server.DownloadEpisode.html#_setEvents",
+                                                        "tf": 100
                                                       }
                                                     }
                                                   }
@@ -1501,9 +1683,9 @@ window.lunrData = {
                                                       "docs": {},
                                                       "d": {
                                                         "docs": {
-                                                          "DownloadEpisode.html#download": {
-                                                            "ref": "DownloadEpisode.html#download",
-                                                            "tf": 1150
+                                                          "server.DownloadEpisode.html#download": {
+                                                            "ref": "server.DownloadEpisode.html#download",
+                                                            "tf": 100
                                                           }
                                                         }
                                                       }
@@ -1525,9 +1707,9 @@ window.lunrData = {
                                                     "docs": {},
                                                     "y": {
                                                       "docs": {
-                                                        "DownloadEpisode.html#destroy": {
-                                                          "ref": "DownloadEpisode.html#destroy",
-                                                          "tf": 1150
+                                                        "server.DownloadEpisode.html#destroy": {
+                                                          "ref": "server.DownloadEpisode.html#destroy",
+                                                          "tf": 100
                                                         }
                                                       }
                                                     }
@@ -1551,12 +1733,12 @@ window.lunrData = {
                             "docs": {},
                             "l": {
                               "docs": {
-                                "VideoPlayer.html#download": {
-                                  "ref": "VideoPlayer.html#download",
+                                "server.VideoPlayer.html#download": {
+                                  "ref": "server.VideoPlayer.html#download",
                                   "tf": 20
                                 },
-                                "YoutubePlayer.html#download": {
-                                  "ref": "YoutubePlayer.html#download",
+                                "server.YoutubePlayer.html#download": {
+                                  "ref": "server.YoutubePlayer.html#download",
                                   "tf": 20
                                 }
                               }
@@ -1573,12 +1755,12 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "DownloadEpisode.html#isReady": {
-                    "ref": "DownloadEpisode.html#isReady",
+                  "server.DownloadEpisode.html#isReady": {
+                    "ref": "server.DownloadEpisode.html#isReady",
                     "tf": 12.5
                   },
-                  "DownloadEpisode.html#_setLocalPath": {
-                    "ref": "DownloadEpisode.html#_setLocalPath",
+                  "server.DownloadEpisode.html#_setLocalPath": {
+                    "ref": "server.DownloadEpisode.html#_setLocalPath",
                     "tf": 7.142857142857142
                   }
                 }
@@ -1597,9 +1779,9 @@ window.lunrData = {
                     "docs": {},
                     "y": {
                       "docs": {
-                        "DownloadEpisode.html#destroy": {
-                          "ref": "DownloadEpisode.html#destroy",
-                          "tf": 762.5
+                        "server.DownloadEpisode.html#destroy": {
+                          "ref": "server.DownloadEpisode.html#destroy",
+                          "tf": 712.5
                         }
                       }
                     }
@@ -1613,8 +1795,8 @@ window.lunrData = {
                 "docs": {},
                 "n": {
                   "docs": {
-                    "Episode.html#episodeId": {
-                      "ref": "Episode.html#episodeId",
+                    "server.Episode.html#episodeId": {
+                      "ref": "server.Episode.html#episodeId",
                       "tf": 7.142857142857142
                     }
                   }
@@ -1628,8 +1810,8 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "Episode.html#path": {
-                          "ref": "Episode.html#path",
+                        "server.Episode.html#path": {
+                          "ref": "server.Episode.html#path",
                           "tf": 4.545454545454546
                         }
                       }
@@ -1645,17 +1827,397 @@ window.lunrData = {
               "docs": {},
               "a": {
                 "docs": {
-                  "Anime.html": {
-                    "ref": "Anime.html",
+                  "server.Anime.html": {
+                    "ref": "server.Anime.html",
                     "tf": 8.333333333333332
                   },
-                  "Anime.html#jsonObject": {
-                    "ref": "Anime.html#jsonObject",
+                  "server.Anime.html#jsonObject": {
+                    "ref": "server.Anime.html#jsonObject",
                     "tf": 6.25
                   },
-                  "Episode.html": {
-                    "ref": "Episode.html",
+                  "server.Episode.html": {
+                    "ref": "server.Episode.html",
                     "tf": 16.666666666666664
+                  },
+                  "server.data.html": {
+                    "ref": "server.data.html",
+                    "tf": 650
+                  }
+                },
+                ".": {
+                  "docs": {},
+                  "c": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "f": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "g": {
+                              "docs": {
+                                "server.data.config.html": {
+                                  "ref": "server.data.config.html",
+                                  "tf": 100
+                                }
+                              },
+                              ".": {
+                                "docs": {},
+                                "v": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "d": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "p": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {},
+                                              "a": {
+                                                "docs": {},
+                                                "y": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "r": {
+                                                      "docs": {},
+                                                      "c": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "n": {
+                                                            "docs": {},
+                                                            "f": {
+                                                              "docs": {},
+                                                              "i": {
+                                                                "docs": {},
+                                                                "g": {
+                                                                  "docs": {
+                                                                    "server.data.config.html#.VideoPlayerConfig": {
+                                                                      "ref": "server.data.config.html#.VideoPlayerConfig",
+                                                                      "tf": 75
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "a": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "m": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "o": {
+                                              "docs": {},
+                                              "n": {
+                                                "docs": {},
+                                                "f": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "g": {
+                                                      "docs": {
+                                                        "server.data.config.html#.AnimeConfig": {
+                                                          "ref": "server.data.config.html#.AnimeConfig",
+                                                          "tf": 75
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "c": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "f": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {
+                                              "server.data.config.html#.Config": {
+                                                "ref": "server.data.config.html#.Config",
+                                                "tf": 75
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "e": {
+                                  "docs": {},
+                                  "p": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "s": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "d": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "f": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "g": {
+                                                          "docs": {
+                                                            "server.data.config.html#.EpisodeConfig": {
+                                                              "ref": "server.data.config.html#.EpisodeConfig",
+                                                              "tf": 75
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "p": {
+                    "docs": {},
+                    "u": {
+                      "docs": {},
+                      "b": {
+                        "docs": {},
+                        "l": {
+                          "docs": {
+                            "server.data.public.html": {
+                              "ref": "server.data.public.html",
+                              "tf": 100
+                            }
+                          },
+                          "i": {
+                            "docs": {},
+                            "c": {
+                              "docs": {},
+                              ".": {
+                                "docs": {},
+                                "p": {
+                                  "docs": {},
+                                  "u": {
+                                    "docs": {},
+                                    "b": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "v": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "d": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "o": {
+                                                      "docs": {},
+                                                      "p": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "y": {
+                                                              "docs": {
+                                                                "server.data.public.html#.PublicVideoPlayer": {
+                                                                  "ref": "server.data.public.html#.PublicVideoPlayer",
+                                                                  "tf": 75
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "a": {
+                                              "docs": {},
+                                              "n": {
+                                                "docs": {},
+                                                "i": {
+                                                  "docs": {},
+                                                  "m": {
+                                                    "docs": {
+                                                      "server.data.public.html#.PublicAnime": {
+                                                        "ref": "server.data.public.html#.PublicAnime",
+                                                        "tf": 75
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "e": {
+                                              "docs": {},
+                                              "p": {
+                                                "docs": {},
+                                                "i": {
+                                                  "docs": {},
+                                                  "s": {
+                                                    "docs": {},
+                                                    "o": {
+                                                      "docs": {},
+                                                      "d": {
+                                                        "docs": {
+                                                          "server.data.public.html#.PublicEpisode": {
+                                                            "ref": "server.data.public.html#.PublicEpisode",
+                                                            "tf": 75
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "l": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "y": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "i": {
+                                              "docs": {},
+                                              "n": {
+                                                "docs": {},
+                                                "f": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {
+                                                      "server.data.public.html#.PlayerInfo": {
+                                                        "ref": "server.data.public.html#.PlayerInfo",
+                                                        "tf": 75
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "e": {
+                                  "docs": {},
+                                  "p": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "s": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "d": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "n": {
+                                                  "docs": {},
+                                                  "f": {
+                                                    "docs": {},
+                                                    "o": {
+                                                      "docs": {
+                                                        "server.data.public.html#.EpisodeInfo": {
+                                                          "ref": "server.data.public.html#.EpisodeInfo",
+                                                          "tf": 75
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -1691,9 +2253,9 @@ window.lunrData = {
                   "docs": {},
                   "t": {
                     "docs": {
-                      "server.html": {
-                        "ref": "server.html",
-                        "tf": 0.847457627118644
+                      "server.https.html#.start": {
+                        "ref": "server.https.html#.start",
+                        "tf": 0.6944444444444444
                       }
                     }
                   }
@@ -1709,8 +2271,8 @@ window.lunrData = {
                 "docs": {},
                 "l": {
                   "docs": {
-                    "DownloadEpisode.html": {
-                      "ref": "DownloadEpisode.html",
+                    "server.DownloadEpisode.html": {
+                      "ref": "server.DownloadEpisode.html",
                       "tf": 4.545454545454546
                     }
                   }
@@ -1731,13 +2293,9 @@ window.lunrData = {
                         "docs": {},
                         "x": {
                           "docs": {
-                            "VideoPlayer.html#hasPrefix": {
-                              "ref": "VideoPlayer.html#hasPrefix",
-                              "tf": 683.3333333333334
-                            },
-                            "YoutubePlayer.html#hasPrefix": {
-                              "ref": "YoutubePlayer.html#hasPrefix",
-                              "tf": 683.3333333333334
+                            "server.VideoPlayer.html#hasPrefix": {
+                              "ref": "server.VideoPlayer.html#hasPrefix",
+                              "tf": 633.3333333333334
                             }
                           }
                         }
@@ -1751,9 +2309,9 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "Episode.html#hasPoster": {
-                          "ref": "Episode.html#hasPoster",
-                          "tf": 700
+                        "server.Episode.html#hasPoster": {
+                          "ref": "server.Episode.html#hasPoster",
+                          "tf": 650
                         }
                       }
                     }
@@ -1764,13 +2322,50 @@ window.lunrData = {
           },
           "t": {
             "docs": {},
+            "t": {
+              "docs": {},
+              "p": {
+                "docs": {
+                  "server.https.html": {
+                    "ref": "server.https.html",
+                    "tf": 650
+                  }
+                },
+                "s": {
+                  "docs": {},
+                  ".": {
+                    "docs": {},
+                    "s": {
+                      "docs": {},
+                      "t": {
+                        "docs": {},
+                        "a": {
+                          "docs": {},
+                          "r": {
+                            "docs": {},
+                            "t": {
+                              "docs": {
+                                "server.https.html#.start": {
+                                  "ref": "server.https.html#.start",
+                                  "tf": 100
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "m": {
               "docs": {},
               "l": {
                 "docs": {
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 0.847457627118644
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 0.6944444444444444
                   }
                 }
               }
@@ -1802,12 +2397,12 @@ window.lunrData = {
                           "docs": {},
                           "n": {
                             "docs": {
-                              "Anime.html": {
-                                "ref": "Anime.html",
+                              "server.Anime.html": {
+                                "ref": "server.Anime.html",
                                 "tf": 8.333333333333332
                               },
-                              "Anime.html#jsonObject": {
-                                "ref": "Anime.html#jsonObject",
+                              "server.Anime.html#jsonObject": {
+                                "ref": "server.Anime.html#jsonObject",
                                 "tf": 6.25
                               }
                             }
@@ -1823,9 +2418,9 @@ window.lunrData = {
                           "docs": {},
                           "l": {
                             "docs": {
-                              "server.html": {
-                                "ref": "server.html",
-                                "tf": 0.423728813559322
+                              "server.https.html#.start": {
+                                "ref": "server.https.html#.start",
+                                "tf": 0.3472222222222222
                               }
                             }
                           }
@@ -1846,17 +2441,17 @@ window.lunrData = {
                     "docs": {},
                     "c": {
                       "docs": {
-                        "DownloadEpisode.html#id": {
-                          "ref": "DownloadEpisode.html#id",
+                        "server.DownloadEpisode.html#id": {
+                          "ref": "server.DownloadEpisode.html#id",
                           "tf": 12.5
                         },
-                        "DownloadEpisode.html#destroy": {
-                          "ref": "DownloadEpisode.html#destroy",
+                        "server.DownloadEpisode.html#destroy": {
+                          "ref": "server.DownloadEpisode.html#destroy",
                           "tf": 12.5
                         },
-                        "YoutubePlayer.html#.instance": {
-                          "ref": "YoutubePlayer.html#.instance",
-                          "tf": 700
+                        "server.YoutubePlayer.html#.instance": {
+                          "ref": "server.YoutubePlayer.html#.instance",
+                          "tf": 650
                         }
                       }
                     }
@@ -1868,46 +2463,62 @@ window.lunrData = {
               "docs": {},
               "o": {
                 "docs": {
-                  "YoutubePlayer.html": {
-                    "ref": "YoutubePlayer.html",
+                  "server.YoutubePlayer.html": {
+                    "ref": "server.YoutubePlayer.html",
                     "tf": 7.142857142857142
                   },
-                  "Episode.html#getInfo": {
-                    "ref": "Episode.html#getInfo",
+                  "server.Episode.html#getInfo": {
+                    "ref": "server.Episode.html#getInfo",
                     "tf": 25
                   },
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 0.423728813559322
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 0.3472222222222222
+                  },
+                  "server.data.public.html#.PlayerInfo": {
+                    "ref": "server.data.public.html#.PlayerInfo",
+                    "tf": 25
                   }
                 },
                 "r": {
                   "docs": {},
                   "m": {
                     "docs": {
-                      "VideoPlayer.html#toPublic": {
-                        "ref": "VideoPlayer.html#toPublic",
+                      "server.VideoPlayer.html#toPublic": {
+                        "ref": "server.VideoPlayer.html#toPublic",
                         "tf": 14.285714285714285
                       },
-                      "YoutubePlayer.html#toPublic": {
-                        "ref": "YoutubePlayer.html#toPublic",
-                        "tf": 14.285714285714285
-                      },
-                      "YoutubePlayer.html#getInfo": {
-                        "ref": "YoutubePlayer.html#getInfo",
+                      "server.YoutubePlayer.html#getInfo": {
+                        "ref": "server.YoutubePlayer.html#getInfo",
                         "tf": 12.5
                       },
-                      "Anime.html#.publicList": {
-                        "ref": "Anime.html#.publicList",
+                      "server.Anime.html#.publicList": {
+                        "ref": "server.Anime.html#.publicList",
                         "tf": 10
                       },
-                      "Anime.html#toPublic": {
-                        "ref": "Anime.html#toPublic",
+                      "server.Anime.html#toPublic": {
+                        "ref": "server.Anime.html#toPublic",
                         "tf": 14.285714285714285
                       },
-                      "Episode.html#toPublic": {
-                        "ref": "Episode.html#toPublic",
+                      "server.Episode.html#toPublic": {
+                        "ref": "server.Episode.html#toPublic",
                         "tf": 14.285714285714285
+                      },
+                      "server.data.public.html#.PublicVideoPlayer": {
+                        "ref": "server.data.public.html#.PublicVideoPlayer",
+                        "tf": 12.5
+                      },
+                      "server.data.public.html#.PublicAnime": {
+                        "ref": "server.data.public.html#.PublicAnime",
+                        "tf": 16.666666666666664
+                      },
+                      "server.data.public.html#.PublicEpisode": {
+                        "ref": "server.data.public.html#.PublicEpisode",
+                        "tf": 16.666666666666664
+                      },
+                      "server.data.public.html#.EpisodeInfo": {
+                        "ref": "server.data.public.html#.EpisodeInfo",
+                        "tf": 10
                       }
                     }
                   }
@@ -1917,37 +2528,56 @@ window.lunrData = {
           },
           "d": {
             "docs": {
-              "DownloadEpisode.html#id": {
-                "ref": "DownloadEpisode.html#id",
-                "tf": 695.8333333333334
+              "server.DownloadEpisode.html#id": {
+                "ref": "server.DownloadEpisode.html#id",
+                "tf": 645.8333333333334
               },
-              "VideoPlayer.html#id": {
-                "ref": "VideoPlayer.html#id",
-                "tf": 716.6666666666666
+              "server.VideoPlayer.html#id": {
+                "ref": "server.VideoPlayer.html#id",
+                "tf": 666.6666666666666
               },
-              "VideoPlayer.html#.getVideoPlayerById": {
-                "ref": "VideoPlayer.html#.getVideoPlayerById",
+              "server.VideoPlayer.html#.getVideoPlayerById": {
+                "ref": "server.VideoPlayer.html#.getVideoPlayerById",
                 "tf": 25
               },
-              "YoutubePlayer.html#id": {
-                "ref": "YoutubePlayer.html#id",
-                "tf": 716.6666666666666
+              "server.Anime.html#id": {
+                "ref": "server.Anime.html#id",
+                "tf": 650
               },
-              "Anime.html#id": {
-                "ref": "Anime.html#id",
-                "tf": 700
-              },
-              "Anime.html#getEpisodeById": {
-                "ref": "Anime.html#getEpisodeById",
+              "server.Anime.html#getEpisodeById": {
+                "ref": "server.Anime.html#getEpisodeById",
                 "tf": 16.666666666666664
               },
-              "Episode.html#episodeId": {
-                "ref": "Episode.html#episodeId",
+              "server.Episode.html#episodeId": {
+                "ref": "server.Episode.html#episodeId",
                 "tf": 7.142857142857142
               },
-              "server.html": {
-                "ref": "server.html",
-                "tf": 1.694915254237288
+              "server.https.html#.start": {
+                "ref": "server.https.html#.start",
+                "tf": 2.083333333333333
+              }
+            },
+            "\"": {
+              "docs": {},
+              ":": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "m": {
+                        "docs": {
+                          "server.https.html#.start": {
+                            "ref": "server.https.html#.start",
+                            "tf": 0.6944444444444444
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           },
@@ -1963,9 +2593,9 @@ window.lunrData = {
                     "docs": {},
                     "i": {
                       "docs": {
-                        "DownloadEpisode.html#isReady": {
-                          "ref": "DownloadEpisode.html#isReady",
-                          "tf": 675
+                        "server.DownloadEpisode.html#isReady": {
+                          "ref": "server.DownloadEpisode.html#isReady",
+                          "tf": 625
                         }
                       }
                     }
@@ -1981,9 +2611,9 @@ window.lunrData = {
                   "docs": {},
                   "d": {
                     "docs": {
-                      "DownloadEpisode.html#isPending": {
-                        "ref": "DownloadEpisode.html#isPending",
-                        "tf": 683.3333333333334
+                      "server.DownloadEpisode.html#isPending": {
+                        "ref": "server.DownloadEpisode.html#isPending",
+                        "tf": 633.3333333333334
                       }
                     }
                   }
@@ -2006,9 +2636,9 @@ window.lunrData = {
                           "docs": {},
                           "d": {
                             "docs": {
-                              "DownloadEpisode.html#isDownloading": {
-                                "ref": "DownloadEpisode.html#isDownloading",
-                                "tf": 683.3333333333334
+                              "server.DownloadEpisode.html#isDownloading": {
+                                "ref": "server.DownloadEpisode.html#isDownloading",
+                                "tf": 633.3333333333334
                               }
                             }
                           }
@@ -2029,9 +2659,9 @@ window.lunrData = {
                     "docs": {},
                     "r": {
                       "docs": {
-                        "DownloadEpisode.html#isError": {
-                          "ref": "DownloadEpisode.html#isError",
-                          "tf": 683.3333333333334
+                        "server.DownloadEpisode.html#isError": {
+                          "ref": "server.DownloadEpisode.html#isError",
+                          "tf": 633.3333333333334
                         }
                       }
                     }
@@ -2049,13 +2679,9 @@ window.lunrData = {
                     "docs": {},
                     "f": {
                       "docs": {
-                        "VideoPlayer.html#isNatif": {
-                          "ref": "VideoPlayer.html#isNatif",
-                          "tf": 683.3333333333334
-                        },
-                        "YoutubePlayer.html#isNatif": {
-                          "ref": "YoutubePlayer.html#isNatif",
-                          "tf": 683.3333333333334
+                        "server.VideoPlayer.html#isNatif": {
+                          "ref": "server.VideoPlayer.html#isNatif",
+                          "tf": 633.3333333333334
                         }
                       }
                     }
@@ -2069,9 +2695,9 @@ window.lunrData = {
                 "docs": {},
                 "c": {
                   "docs": {
-                    "Episode.html#isLocal": {
-                      "ref": "Episode.html#isLocal",
-                      "tf": 700
+                    "server.Episode.html#isLocal": {
+                      "ref": "server.Episode.html#isLocal",
+                      "tf": 650
                     }
                   }
                 }
@@ -2082,8 +2708,8 @@ window.lunrData = {
             "docs": {},
             "'": {
               "docs": {
-                "DownloadEpisode.html#_setLocalPath": {
-                  "ref": "DownloadEpisode.html#_setLocalPath",
+                "server.DownloadEpisode.html#_setLocalPath": {
+                  "ref": "server.DownloadEpisode.html#_setLocalPath",
                   "tf": 7.142857142857142
                 }
               }
@@ -2096,8 +2722,8 @@ window.lunrData = {
                   "docs": {},
                   "f": {
                     "docs": {
-                      "DownloadEpisode.html#_setLocalPath": {
-                        "ref": "DownloadEpisode.html#_setLocalPath",
+                      "server.DownloadEpisode.html#_setLocalPath": {
+                        "ref": "server.DownloadEpisode.html#_setLocalPath",
                         "tf": 7.142857142857142
                       }
                     }
@@ -2110,9 +2736,9 @@ window.lunrData = {
             "docs": {},
             "o": {
               "docs": {
-                "server.html": {
-                  "ref": "server.html",
-                  "tf": 0.423728813559322
+                "server.https.html#.start": {
+                  "ref": "server.https.html#.start",
+                  "tf": 0.3472222222222222
                 }
               }
             }
@@ -2123,9 +2749,119 @@ window.lunrData = {
               "docs": {},
               "g": {
                 "docs": {
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 1.694915254237288
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 1.7361111111111112
+                  },
+                  "server.image.html": {
+                    "ref": "server.image.html",
+                    "tf": 650
+                  }
+                },
+                "e": {
+                  "docs": {},
+                  ".": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "x": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "r": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "s": {
+                                  "docs": {},
+                                  ".": {
+                                    "docs": {},
+                                    "g": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "h": {
+                                              "docs": {},
+                                              "u": {
+                                                "docs": {},
+                                                "m": {
+                                                  "docs": {},
+                                                  "b": {
+                                                    "docs": {},
+                                                    "a": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {
+                                                            "server.image.html#.exports.getThumbail": {
+                                                              "ref": "server.image.html#.exports.getThumbail",
+                                                              "tf": 75
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "t": {
+                      "docs": {},
+                      "h": {
+                        "docs": {},
+                        "u": {
+                          "docs": {},
+                          "m": {
+                            "docs": {},
+                            "b": {
+                              "docs": {},
+                              "a": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {
+                                            "server.image.html#.ThumbailOption": {
+                                              "ref": "server.image.html#.ThumbailOption",
+                                              "tf": 100
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -2162,36 +2898,36 @@ window.lunrData = {
                             "docs": {},
                             "t": {
                               "docs": {
-                                "DownloadEpisode.html#.list": {
-                                  "ref": "DownloadEpisode.html#.list",
+                                "server.DownloadEpisode.html#.list": {
+                                  "ref": "server.DownloadEpisode.html#.list",
                                   "tf": 25
                                 },
-                                "DownloadEpisode.html#player": {
-                                  "ref": "DownloadEpisode.html#player",
+                                "server.DownloadEpisode.html#player": {
+                                  "ref": "server.DownloadEpisode.html#player",
                                   "tf": 25
                                 },
-                                "DownloadEpisode.html#isReady": {
-                                  "ref": "DownloadEpisode.html#isReady",
+                                "server.DownloadEpisode.html#isReady": {
+                                  "ref": "server.DownloadEpisode.html#isReady",
                                   "tf": 25
                                 },
-                                "VideoPlayer.html#.list": {
-                                  "ref": "VideoPlayer.html#.list",
+                                "server.VideoPlayer.html#.list": {
+                                  "ref": "server.VideoPlayer.html#.list",
                                   "tf": 25
                                 },
-                                "YoutubePlayer.html#.instance": {
-                                  "ref": "YoutubePlayer.html#.instance",
+                                "server.YoutubePlayer.html#.instance": {
+                                  "ref": "server.YoutubePlayer.html#.instance",
                                   "tf": 33.33333333333333
                                 },
-                                "Anime.html#.list": {
-                                  "ref": "Anime.html#.list",
+                                "server.Anime.html#.list": {
+                                  "ref": "server.Anime.html#.list",
                                   "tf": 25
                                 },
-                                "Anime.html#jsonObject": {
-                                  "ref": "Anime.html#jsonObject",
+                                "server.Anime.html#jsonObject": {
+                                  "ref": "server.Anime.html#jsonObject",
                                   "tf": 25
                                 },
-                                "Anime.html#_path": {
-                                  "ref": "Anime.html#_path",
+                                "server.Anime.html#_path": {
+                                  "ref": "server.Anime.html#_path",
                                   "tf": 25
                                 }
                               }
@@ -2204,8 +2940,8 @@ window.lunrData = {
                 },
                 "i": {
                   "docs": {
-                    "DownloadEpisode.html#_setLocalPath": {
-                      "ref": "DownloadEpisode.html#_setLocalPath",
+                    "server.DownloadEpisode.html#_setLocalPath": {
+                      "ref": "server.DownloadEpisode.html#_setLocalPath",
                       "tf": 7.142857142857142
                     }
                   }
@@ -2218,8 +2954,8 @@ window.lunrData = {
                 "docs": {},
                 "v": {
                   "docs": {
-                    "DownloadEpisode.html#destroy": {
-                      "ref": "DownloadEpisode.html#destroy",
+                    "server.DownloadEpisode.html#destroy": {
+                      "ref": "server.DownloadEpisode.html#destroy",
                       "tf": 12.5
                     }
                   }
@@ -2234,49 +2970,45 @@ window.lunrData = {
                   "docs": {},
                   "n": {
                     "docs": {
-                      "VideoPlayer.html#toPublic": {
-                        "ref": "VideoPlayer.html#toPublic",
+                      "server.VideoPlayer.html#toPublic": {
+                        "ref": "server.VideoPlayer.html#toPublic",
                         "tf": 7.142857142857142
                       },
-                      "VideoPlayer.html#hasPrefix": {
-                        "ref": "VideoPlayer.html#hasPrefix",
+                      "server.VideoPlayer.html#hasPrefix": {
+                        "ref": "server.VideoPlayer.html#hasPrefix",
                         "tf": 5
                       },
-                      "VideoPlayer.html#.getPlayer": {
-                        "ref": "VideoPlayer.html#.getPlayer",
+                      "server.VideoPlayer.html#.getPlayer": {
+                        "ref": "server.VideoPlayer.html#.getPlayer",
                         "tf": 8.333333333333332
                       },
-                      "VideoPlayer.html#.getVideoPlayerById": {
-                        "ref": "VideoPlayer.html#.getVideoPlayerById",
+                      "server.VideoPlayer.html#.getVideoPlayerById": {
+                        "ref": "server.VideoPlayer.html#.getVideoPlayerById",
                         "tf": 12.5
                       },
-                      "YoutubePlayer.html#toPublic": {
-                        "ref": "YoutubePlayer.html#toPublic",
-                        "tf": 7.142857142857142
-                      },
-                      "YoutubePlayer.html#hasPrefix": {
-                        "ref": "YoutubePlayer.html#hasPrefix",
-                        "tf": 5
-                      },
-                      "Anime.html#path": {
-                        "ref": "Anime.html#path",
+                      "server.Anime.html#path": {
+                        "ref": "server.Anime.html#path",
                         "tf": 12.5
                       },
-                      "Anime.html#toPublic": {
-                        "ref": "Anime.html#toPublic",
+                      "server.Anime.html#toPublic": {
+                        "ref": "server.Anime.html#toPublic",
                         "tf": 7.142857142857142
                       },
-                      "Anime.html#toAnimeConfig": {
-                        "ref": "Anime.html#toAnimeConfig",
+                      "server.Anime.html#toAnimeConfig": {
+                        "ref": "server.Anime.html#toAnimeConfig",
                         "tf": 16.666666666666664
                       },
-                      "Episode.html#toPublic": {
-                        "ref": "Episode.html#toPublic",
+                      "server.Episode.html#toPublic": {
+                        "ref": "server.Episode.html#toPublic",
                         "tf": 7.142857142857142
                       },
-                      "Episode.html#toEpisodeConfig": {
-                        "ref": "Episode.html#toEpisodeConfig",
+                      "server.Episode.html#toEpisodeConfig": {
+                        "ref": "server.Episode.html#toEpisodeConfig",
                         "tf": 16.666666666666664
+                      },
+                      "server.https.html#.start": {
+                        "ref": "server.https.html#.start",
+                        "tf": 0.3472222222222222
                       }
                     }
                   }
@@ -2309,20 +3041,12 @@ window.lunrData = {
                                     "docs": {},
                                     "a": {
                                       "docs": {
-                                        "VideoPlayer.html#_dispatchOnComplete": {
-                                          "ref": "VideoPlayer.html#_dispatchOnComplete",
+                                        "server.VideoPlayer.html#_dispatchOnComplete": {
+                                          "ref": "server.VideoPlayer.html#_dispatchOnComplete",
                                           "tf": 25
                                         },
-                                        "VideoPlayer.html#_dispatchOnProgress": {
-                                          "ref": "VideoPlayer.html#_dispatchOnProgress",
-                                          "tf": 25
-                                        },
-                                        "YoutubePlayer.html#_dispatchOnComplete": {
-                                          "ref": "YoutubePlayer.html#_dispatchOnComplete",
-                                          "tf": 25
-                                        },
-                                        "YoutubePlayer.html#_dispatchOnProgress": {
-                                          "ref": "YoutubePlayer.html#_dispatchOnProgress",
+                                        "server.VideoPlayer.html#_dispatchOnProgress": {
+                                          "ref": "server.VideoPlayer.html#_dispatchOnProgress",
                                           "tf": 25
                                         }
                                       }
@@ -2345,9 +3069,26 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
-                    "Episode.html#anime": {
-                      "ref": "Episode.html#anime",
+                    "server.Episode.html#anime": {
+                      "ref": "server.Episode.html#anime",
                       "tf": 25
+                    }
+                  }
+                }
+              }
+            },
+            "p": {
+              "docs": {},
+              "l": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "c": {
+                    "docs": {
+                      "server.global.html#.toFileName": {
+                        "ref": "server.global.html#.toFileName",
+                        "tf": 25
+                      }
                     }
                   }
                 }
@@ -2367,8 +3108,8 @@ window.lunrData = {
                   "docs": {},
                   "m": {
                     "docs": {
-                      "Episode.html#links": {
-                        "ref": "Episode.html#links",
+                      "server.Episode.html#links": {
+                        "ref": "server.Episode.html#links",
                         "tf": 16.666666666666664
                       }
                     },
@@ -2398,48 +3139,60 @@ window.lunrData = {
                   "docs": {},
                   "g": {
                     "docs": {
-                      "DownloadEpisode.html#error": {
-                        "ref": "DownloadEpisode.html#error",
+                      "server.DownloadEpisode.html#error": {
+                        "ref": "server.DownloadEpisode.html#error",
                         "tf": 33.33333333333333
                       },
-                      "VideoPlayer.html#name": {
-                        "ref": "VideoPlayer.html#name",
+                      "server.VideoPlayer.html#name": {
+                        "ref": "server.VideoPlayer.html#name",
                         "tf": 33.33333333333333
                       },
-                      "YoutubePlayer.html#name": {
-                        "ref": "YoutubePlayer.html#name",
-                        "tf": 33.33333333333333
-                      },
-                      "Anime.html#name": {
-                        "ref": "Anime.html#name",
+                      "server.Anime.html#name": {
+                        "ref": "server.Anime.html#name",
                         "tf": 50
                       },
-                      "Anime.html#thumbnailLink": {
-                        "ref": "Anime.html#thumbnailLink",
+                      "server.Anime.html#thumbnailLink": {
+                        "ref": "server.Anime.html#thumbnailLink",
                         "tf": 50
                       },
-                      "Anime.html#_path": {
-                        "ref": "Anime.html#_path",
+                      "server.Anime.html#_path": {
+                        "ref": "server.Anime.html#_path",
                         "tf": 25
                       },
-                      "Episode.html#name": {
-                        "ref": "Episode.html#name",
+                      "server.Episode.html#name": {
+                        "ref": "server.Episode.html#name",
                         "tf": 50
                       },
-                      "Episode.html#posterLink": {
-                        "ref": "Episode.html#posterLink",
+                      "server.Episode.html#posterLink": {
+                        "ref": "server.Episode.html#posterLink",
                         "tf": 50
                       },
-                      "Episode.html#localLink": {
-                        "ref": "Episode.html#localLink",
+                      "server.Episode.html#localLink": {
+                        "ref": "server.Episode.html#localLink",
                         "tf": 33.33333333333333
                       },
-                      "Episode.html#path": {
-                        "ref": "Episode.html#path",
+                      "server.Episode.html#path": {
+                        "ref": "server.Episode.html#path",
                         "tf": 50
                       },
-                      "Episode.html#getUrlByPlayer": {
-                        "ref": "Episode.html#getUrlByPlayer",
+                      "server.Episode.html#getUrlByPlayer": {
+                        "ref": "server.Episode.html#getUrlByPlayer",
+                        "tf": 33.33333333333333
+                      },
+                      "server.global.html#.__root": {
+                        "ref": "server.global.html#.__root",
+                        "tf": 33.33333333333333
+                      },
+                      "server.global.html#.__logFile": {
+                        "ref": "server.global.html#.__logFile",
+                        "tf": 33.33333333333333
+                      },
+                      "server.global.html#.__tempFolder": {
+                        "ref": "server.global.html#.__tempFolder",
+                        "tf": 33.33333333333333
+                      },
+                      "server.global.html#.GUIDGenerator": {
+                        "ref": "server.global.html#.GUIDGenerator",
                         "tf": 33.33333333333333
                       }
                     }
@@ -2461,8 +3214,12 @@ window.lunrData = {
                         "docs": {},
                         "t": {
                           "docs": {
-                            "DownloadEpisode.html#.currentDownload": {
-                              "ref": "DownloadEpisode.html#.currentDownload",
+                            "server.DownloadEpisode.html#.currentDownload": {
+                              "ref": "server.DownloadEpisode.html#.currentDownload",
+                              "tf": 25
+                            },
+                            "server.https.html#.start": {
+                              "ref": "server.https.html#.start",
                               "tf": 25
                             }
                           }
@@ -2476,9 +3233,9 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "server.html": {
-                      "ref": "server.html",
-                      "tf": 0.423728813559322
+                    "server.https.html#.start": {
+                      "ref": "server.https.html#.start",
+                      "tf": 625.3472222222222
                     }
                   }
                 }
@@ -2490,16 +3247,16 @@ window.lunrData = {
                 "docs": {},
                 "e": {
                   "docs": {
-                    "Anime.html": {
-                      "ref": "Anime.html",
+                    "server.Anime.html": {
+                      "ref": "server.Anime.html",
                       "tf": 8.333333333333332
                     },
-                    "Anime.html#jsonObject": {
-                      "ref": "Anime.html#jsonObject",
+                    "server.Anime.html#jsonObject": {
+                      "ref": "server.Anime.html#jsonObject",
                       "tf": 6.25
                     },
-                    "Episode.html": {
-                      "ref": "Episode.html",
+                    "server.Episode.html": {
+                      "ref": "server.Episode.html",
                       "tf": 16.666666666666664
                     }
                   }
@@ -2513,16 +3270,16 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "JsonObject.html": {
-                    "ref": "JsonObject.html",
+                  "server.JsonObject.html": {
+                    "ref": "server.JsonObject.html",
                     "tf": 12.5
                   },
-                  "JsonObject.html#save": {
-                    "ref": "JsonObject.html#save",
-                    "tf": 700
+                  "server.JsonObject.html#save": {
+                    "ref": "server.JsonObject.html#save",
+                    "tf": 650
                   },
-                  "DownloadEpisode.html#isReady": {
-                    "ref": "DownloadEpisode.html#isReady",
+                  "server.DownloadEpisode.html#isReady": {
+                    "ref": "server.DownloadEpisode.html#isReady",
                     "tf": 12.5
                   }
                 }
@@ -2531,30 +3288,3031 @@ window.lunrData = {
           },
           "e": {
             "docs": {},
+            "r": {
+              "docs": {},
+              "v": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "server.VideoPlayer.html#downloadable": {
+                        "ref": "server.VideoPlayer.html#downloadable",
+                        "tf": 16.666666666666664
+                      },
+                      "server.html": {
+                        "ref": "server.html",
+                        "tf": 1900
+                      },
+                      "server.https.html#.start": {
+                        "ref": "server.https.html#.start",
+                        "tf": 0.6944444444444444
+                      }
+                    },
+                    ".": {
+                      "docs": {},
+                      "j": {
+                        "docs": {},
+                        "s": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "j": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "c": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {
+                                            "server.JsonObject.html": {
+                                              "ref": "server.JsonObject.html",
+                                              "tf": 1150
+                                            }
+                                          },
+                                          "#": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "d": {
+                                                    "docs": {
+                                                      "server.JsonObject.html#load": {
+                                                        "ref": "server.JsonObject.html#load",
+                                                        "tf": 1100
+                                                      }
+                                                    },
+                                                    "s": {
+                                                      "docs": {},
+                                                      "y": {
+                                                        "docs": {},
+                                                        "n": {
+                                                          "docs": {},
+                                                          "c": {
+                                                            "docs": {
+                                                              "server.JsonObject.html#loadSync": {
+                                                                "ref": "server.JsonObject.html#loadSync",
+                                                                "tf": 1100
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "s": {
+                                              "docs": {},
+                                              "a": {
+                                                "docs": {},
+                                                "v": {
+                                                  "docs": {
+                                                    "server.JsonObject.html#save": {
+                                                      "ref": "server.JsonObject.html#save",
+                                                      "tf": 1100
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "d": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "w": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "d": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "p": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "s": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "d": {
+                                                  "docs": {
+                                                    "server.DownloadEpisode.html": {
+                                                      "ref": "server.DownloadEpisode.html",
+                                                      "tf": 1150
+                                                    }
+                                                  },
+                                                  "e": {
+                                                    "docs": {},
+                                                    ".": {
+                                                      "docs": {},
+                                                      "l": {
+                                                        "docs": {},
+                                                        "i": {
+                                                          "docs": {},
+                                                          "s": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {
+                                                                "server.DownloadEpisode.html#.list": {
+                                                                  "ref": "server.DownloadEpisode.html#.list",
+                                                                  "tf": 1100
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "t": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "d": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "w": {
+                                                                "docs": {},
+                                                                "n": {
+                                                                  "docs": {},
+                                                                  "l": {
+                                                                    "docs": {},
+                                                                    "o": {
+                                                                      "docs": {},
+                                                                      "a": {
+                                                                        "docs": {},
+                                                                        "d": {
+                                                                          "docs": {
+                                                                            "server.DownloadEpisode.html#.toDownload": {
+                                                                              "ref": "server.DownloadEpisode.html#.toDownload",
+                                                                              "tf": 1100
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "c": {
+                                                        "docs": {},
+                                                        "u": {
+                                                          "docs": {},
+                                                          "r": {
+                                                            "docs": {},
+                                                            "r": {
+                                                              "docs": {},
+                                                              "e": {
+                                                                "docs": {},
+                                                                "n": {
+                                                                  "docs": {},
+                                                                  "t": {
+                                                                    "docs": {},
+                                                                    "d": {
+                                                                      "docs": {},
+                                                                      "o": {
+                                                                        "docs": {},
+                                                                        "w": {
+                                                                          "docs": {},
+                                                                          "n": {
+                                                                            "docs": {},
+                                                                            "l": {
+                                                                              "docs": {},
+                                                                              "o": {
+                                                                                "docs": {},
+                                                                                "a": {
+                                                                                  "docs": {},
+                                                                                  "d": {
+                                                                                    "docs": {
+                                                                                      "server.DownloadEpisode.html#.currentDownload": {
+                                                                                        "ref": "server.DownloadEpisode.html#.currentDownload",
+                                                                                        "tf": 1100
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "g": {
+                                                        "docs": {},
+                                                        "e": {
+                                                          "docs": {},
+                                                          "t": {
+                                                            "docs": {},
+                                                            "f": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "m": {
+                                                                    "docs": {},
+                                                                    "e": {
+                                                                      "docs": {},
+                                                                      "p": {
+                                                                        "docs": {},
+                                                                        "i": {
+                                                                          "docs": {},
+                                                                          "s": {
+                                                                            "docs": {},
+                                                                            "o": {
+                                                                              "docs": {},
+                                                                              "d": {
+                                                                                "docs": {
+                                                                                  "server.DownloadEpisode.html#.getFromEpisode": {
+                                                                                    "ref": "server.DownloadEpisode.html#.getFromEpisode",
+                                                                                    "tf": 1100
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "#": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "p": {
+                                                          "docs": {},
+                                                          "i": {
+                                                            "docs": {},
+                                                            "s": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {},
+                                                                "d": {
+                                                                  "docs": {
+                                                                    "server.DownloadEpisode.html#episode": {
+                                                                      "ref": "server.DownloadEpisode.html#episode",
+                                                                      "tf": 1100
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "r": {
+                                                          "docs": {},
+                                                          "r": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {
+                                                                  "server.DownloadEpisode.html#error": {
+                                                                    "ref": "server.DownloadEpisode.html#error",
+                                                                    "tf": 1100
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "i": {
+                                                        "docs": {},
+                                                        "d": {
+                                                          "docs": {
+                                                            "server.DownloadEpisode.html#id": {
+                                                              "ref": "server.DownloadEpisode.html#id",
+                                                              "tf": 1100
+                                                            }
+                                                          }
+                                                        },
+                                                        "s": {
+                                                          "docs": {},
+                                                          "r": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "a": {
+                                                                "docs": {},
+                                                                "d": {
+                                                                  "docs": {},
+                                                                  "i": {
+                                                                    "docs": {
+                                                                      "server.DownloadEpisode.html#isReady": {
+                                                                        "ref": "server.DownloadEpisode.html#isReady",
+                                                                        "tf": 1100
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "p": {
+                                                            "docs": {},
+                                                            "e": {
+                                                              "docs": {},
+                                                              "n": {
+                                                                "docs": {},
+                                                                "d": {
+                                                                  "docs": {
+                                                                    "server.DownloadEpisode.html#isPending": {
+                                                                      "ref": "server.DownloadEpisode.html#isPending",
+                                                                      "tf": 1100
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "d": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "w": {
+                                                                "docs": {},
+                                                                "n": {
+                                                                  "docs": {},
+                                                                  "l": {
+                                                                    "docs": {},
+                                                                    "o": {
+                                                                      "docs": {},
+                                                                      "a": {
+                                                                        "docs": {},
+                                                                        "d": {
+                                                                          "docs": {
+                                                                            "server.DownloadEpisode.html#isDownloading": {
+                                                                              "ref": "server.DownloadEpisode.html#isDownloading",
+                                                                              "tf": 1100
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "e": {
+                                                            "docs": {},
+                                                            "r": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "r": {
+                                                                    "docs": {
+                                                                      "server.DownloadEpisode.html#isError": {
+                                                                        "ref": "server.DownloadEpisode.html#isError",
+                                                                        "tf": 1100
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "p": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "y": {
+                                                              "docs": {
+                                                                "server.DownloadEpisode.html#player": {
+                                                                  "ref": "server.DownloadEpisode.html#player",
+                                                                  "tf": 1100
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "r": {
+                                                          "docs": {},
+                                                          "o": {
+                                                            "docs": {},
+                                                            "g": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "s": {
+                                                                    "docs": {},
+                                                                    "s": {
+                                                                      "docs": {
+                                                                        "server.DownloadEpisode.html#progress": {
+                                                                          "ref": "server.DownloadEpisode.html#progress",
+                                                                          "tf": 1100
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "_": {
+                                                        "docs": {},
+                                                        "s": {
+                                                          "docs": {},
+                                                          "e": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {},
+                                                              "l": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "c": {
+                                                                    "docs": {},
+                                                                    "a": {
+                                                                      "docs": {},
+                                                                      "l": {
+                                                                        "docs": {},
+                                                                        "p": {
+                                                                          "docs": {},
+                                                                          "a": {
+                                                                            "docs": {},
+                                                                            "t": {
+                                                                              "docs": {},
+                                                                              "h": {
+                                                                                "docs": {
+                                                                                  "server.DownloadEpisode.html#_setLocalPath": {
+                                                                                    "ref": "server.DownloadEpisode.html#_setLocalPath",
+                                                                                    "tf": 1100
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              },
+                                                              "e": {
+                                                                "docs": {},
+                                                                "v": {
+                                                                  "docs": {
+                                                                    "server.DownloadEpisode.html#_setEvents": {
+                                                                      "ref": "server.DownloadEpisode.html#_setEvents",
+                                                                      "tf": 1100
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      },
+                                                      "d": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "w": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {},
+                                                              "l": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "a": {
+                                                                    "docs": {},
+                                                                    "d": {
+                                                                      "docs": {
+                                                                        "server.DownloadEpisode.html#download": {
+                                                                          "ref": "server.DownloadEpisode.html#download",
+                                                                          "tf": 1100
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        },
+                                                        "e": {
+                                                          "docs": {},
+                                                          "s": {
+                                                            "docs": {},
+                                                            "t": {
+                                                              "docs": {},
+                                                              "r": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "y": {
+                                                                    "docs": {
+                                                                      "server.DownloadEpisode.html#destroy": {
+                                                                        "ref": "server.DownloadEpisode.html#destroy",
+                                                                        "tf": 1100
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "a": {
+                          "docs": {},
+                          "t": {
+                            "docs": {},
+                            "a": {
+                              "docs": {
+                                "server.data.html": {
+                                  "ref": "server.data.html",
+                                  "tf": 1250
+                                }
+                              },
+                              ".": {
+                                "docs": {},
+                                "c": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "f": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {
+                                              "server.data.config.html": {
+                                                "ref": "server.data.config.html",
+                                                "tf": 1200
+                                              }
+                                            },
+                                            ".": {
+                                              "docs": {},
+                                              "v": {
+                                                "docs": {},
+                                                "i": {
+                                                  "docs": {},
+                                                  "d": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "o": {
+                                                        "docs": {},
+                                                        "p": {
+                                                          "docs": {},
+                                                          "l": {
+                                                            "docs": {},
+                                                            "a": {
+                                                              "docs": {},
+                                                              "y": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "r": {
+                                                                    "docs": {},
+                                                                    "c": {
+                                                                      "docs": {},
+                                                                      "o": {
+                                                                        "docs": {},
+                                                                        "n": {
+                                                                          "docs": {},
+                                                                          "f": {
+                                                                            "docs": {},
+                                                                            "i": {
+                                                                              "docs": {},
+                                                                              "g": {
+                                                                                "docs": {
+                                                                                  "server.data.config.html#.VideoPlayerConfig": {
+                                                                                    "ref": "server.data.config.html#.VideoPlayerConfig",
+                                                                                    "tf": 1075
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "a": {
+                                                "docs": {},
+                                                "n": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "m": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "c": {
+                                                          "docs": {},
+                                                          "o": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {},
+                                                              "f": {
+                                                                "docs": {},
+                                                                "i": {
+                                                                  "docs": {},
+                                                                  "g": {
+                                                                    "docs": {
+                                                                      "server.data.config.html#.AnimeConfig": {
+                                                                        "ref": "server.data.config.html#.AnimeConfig",
+                                                                        "tf": 1075
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "c": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "f": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "g": {
+                                                          "docs": {
+                                                            "server.data.config.html#.Config": {
+                                                              "ref": "server.data.config.html#.Config",
+                                                              "tf": 1075
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "e": {
+                                                "docs": {},
+                                                "p": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "s": {
+                                                      "docs": {},
+                                                      "o": {
+                                                        "docs": {},
+                                                        "d": {
+                                                          "docs": {},
+                                                          "e": {
+                                                            "docs": {},
+                                                            "c": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {},
+                                                                "n": {
+                                                                  "docs": {},
+                                                                  "f": {
+                                                                    "docs": {},
+                                                                    "i": {
+                                                                      "docs": {},
+                                                                      "g": {
+                                                                        "docs": {
+                                                                          "server.data.config.html#.EpisodeConfig": {
+                                                                            "ref": "server.data.config.html#.EpisodeConfig",
+                                                                            "tf": 1075
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "p": {
+                                  "docs": {},
+                                  "u": {
+                                    "docs": {},
+                                    "b": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {
+                                          "server.data.public.html": {
+                                            "ref": "server.data.public.html",
+                                            "tf": 1200
+                                          }
+                                        },
+                                        "i": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            ".": {
+                                              "docs": {},
+                                              "p": {
+                                                "docs": {},
+                                                "u": {
+                                                  "docs": {},
+                                                  "b": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "c": {
+                                                          "docs": {},
+                                                          "v": {
+                                                            "docs": {},
+                                                            "i": {
+                                                              "docs": {},
+                                                              "d": {
+                                                                "docs": {},
+                                                                "e": {
+                                                                  "docs": {},
+                                                                  "o": {
+                                                                    "docs": {},
+                                                                    "p": {
+                                                                      "docs": {},
+                                                                      "l": {
+                                                                        "docs": {},
+                                                                        "a": {
+                                                                          "docs": {},
+                                                                          "y": {
+                                                                            "docs": {
+                                                                              "server.data.public.html#.PublicVideoPlayer": {
+                                                                                "ref": "server.data.public.html#.PublicVideoPlayer",
+                                                                                "tf": 1075
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "a": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {},
+                                                              "i": {
+                                                                "docs": {},
+                                                                "m": {
+                                                                  "docs": {
+                                                                    "server.data.public.html#.PublicAnime": {
+                                                                      "ref": "server.data.public.html#.PublicAnime",
+                                                                      "tf": 1075
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          },
+                                                          "e": {
+                                                            "docs": {},
+                                                            "p": {
+                                                              "docs": {},
+                                                              "i": {
+                                                                "docs": {},
+                                                                "s": {
+                                                                  "docs": {},
+                                                                  "o": {
+                                                                    "docs": {},
+                                                                    "d": {
+                                                                      "docs": {
+                                                                        "server.data.public.html#.PublicEpisode": {
+                                                                          "ref": "server.data.public.html#.PublicEpisode",
+                                                                          "tf": 1075
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "l": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "y": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "r": {
+                                                          "docs": {},
+                                                          "i": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {},
+                                                              "f": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {
+                                                                    "server.data.public.html#.PlayerInfo": {
+                                                                      "ref": "server.data.public.html#.PlayerInfo",
+                                                                      "tf": 1075
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "e": {
+                                                "docs": {},
+                                                "p": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "s": {
+                                                      "docs": {},
+                                                      "o": {
+                                                        "docs": {},
+                                                        "d": {
+                                                          "docs": {},
+                                                          "e": {
+                                                            "docs": {},
+                                                            "i": {
+                                                              "docs": {},
+                                                              "n": {
+                                                                "docs": {},
+                                                                "f": {
+                                                                  "docs": {},
+                                                                  "o": {
+                                                                    "docs": {
+                                                                      "server.data.public.html#.EpisodeInfo": {
+                                                                        "ref": "server.data.public.html#.EpisodeInfo",
+                                                                        "tf": 1075
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "v": {
+                        "docs": {},
+                        "i": {
+                          "docs": {},
+                          "d": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "p": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "y": {
+                                        "docs": {
+                                          "server.VideoPlayer.html": {
+                                            "ref": "server.VideoPlayer.html",
+                                            "tf": 1150
+                                          }
+                                        },
+                                        "e": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            ".": {
+                                              "docs": {},
+                                              "l": {
+                                                "docs": {},
+                                                "i": {
+                                                  "docs": {},
+                                                  "s": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {
+                                                        "server.VideoPlayer.html#.list": {
+                                                          "ref": "server.VideoPlayer.html#.list",
+                                                          "tf": 1100
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "g": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "t": {
+                                                    "docs": {},
+                                                    "p": {
+                                                      "docs": {},
+                                                      "l": {
+                                                        "docs": {},
+                                                        "a": {
+                                                          "docs": {},
+                                                          "y": {
+                                                            "docs": {
+                                                              "server.VideoPlayer.html#.getPlayer": {
+                                                                "ref": "server.VideoPlayer.html#.getPlayer",
+                                                                "tf": 1100
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    },
+                                                    "v": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "d": {
+                                                          "docs": {},
+                                                          "e": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "p": {
+                                                                "docs": {},
+                                                                "l": {
+                                                                  "docs": {},
+                                                                  "a": {
+                                                                    "docs": {},
+                                                                    "y": {
+                                                                      "docs": {},
+                                                                      "e": {
+                                                                        "docs": {},
+                                                                        "r": {
+                                                                          "docs": {},
+                                                                          "b": {
+                                                                            "docs": {},
+                                                                            "y": {
+                                                                              "docs": {},
+                                                                              "i": {
+                                                                                "docs": {},
+                                                                                "d": {
+                                                                                  "docs": {
+                                                                                    "server.VideoPlayer.html#.getVideoPlayerById": {
+                                                                                      "ref": "server.VideoPlayer.html#.getVideoPlayerById",
+                                                                                      "tf": 1100
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "#": {
+                                              "docs": {},
+                                              "n": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "m": {
+                                                    "docs": {
+                                                      "server.VideoPlayer.html#name": {
+                                                        "ref": "server.VideoPlayer.html#name",
+                                                        "tf": 1100
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "i": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "n": {
+                                                    "docs": {},
+                                                    "a": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {},
+                                                        "i": {
+                                                          "docs": {},
+                                                          "f": {
+                                                            "docs": {
+                                                              "server.VideoPlayer.html#isNatif": {
+                                                                "ref": "server.VideoPlayer.html#isNatif",
+                                                                "tf": 1100
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "d": {
+                                                  "docs": {
+                                                    "server.VideoPlayer.html#id": {
+                                                      "ref": "server.VideoPlayer.html#id",
+                                                      "tf": 1100
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "p": {
+                                                "docs": {},
+                                                "r": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "f": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "x": {
+                                                          "docs": {
+                                                            "server.VideoPlayer.html#prefix": {
+                                                              "ref": "server.VideoPlayer.html#prefix",
+                                                              "tf": 1100
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "d": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "w": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {},
+                                                      "l": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "d": {
+                                                              "docs": {
+                                                                "server.VideoPlayer.html#downloadable": {
+                                                                  "ref": "server.VideoPlayer.html#downloadable",
+                                                                  "tf": 1100
+                                                                },
+                                                                "server.VideoPlayer.html#download": {
+                                                                  "ref": "server.VideoPlayer.html#download",
+                                                                  "tf": 1100
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "a": {
+                                                "docs": {},
+                                                "u": {
+                                                  "docs": {},
+                                                  "t": {
+                                                    "docs": {},
+                                                    "o": {
+                                                      "docs": {},
+                                                      "d": {
+                                                        "docs": {},
+                                                        "o": {
+                                                          "docs": {},
+                                                          "w": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {},
+                                                              "l": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "a": {
+                                                                    "docs": {},
+                                                                    "d": {
+                                                                      "docs": {
+                                                                        "server.VideoPlayer.html#autoDownload": {
+                                                                          "ref": "server.VideoPlayer.html#autoDownload",
+                                                                          "tf": 1100
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "t": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "p": {
+                                                    "docs": {},
+                                                    "u": {
+                                                      "docs": {},
+                                                      "b": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {
+                                                            "server.VideoPlayer.html#toPublic": {
+                                                              "ref": "server.VideoPlayer.html#toPublic",
+                                                              "tf": 1100
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "_": {
+                                                "docs": {},
+                                                "d": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "s": {
+                                                      "docs": {},
+                                                      "p": {
+                                                        "docs": {},
+                                                        "a": {
+                                                          "docs": {},
+                                                          "t": {
+                                                            "docs": {},
+                                                            "c": {
+                                                              "docs": {},
+                                                              "h": {
+                                                                "docs": {},
+                                                                "o": {
+                                                                  "docs": {},
+                                                                  "n": {
+                                                                    "docs": {},
+                                                                    "c": {
+                                                                      "docs": {},
+                                                                      "o": {
+                                                                        "docs": {},
+                                                                        "m": {
+                                                                          "docs": {},
+                                                                          "p": {
+                                                                            "docs": {},
+                                                                            "l": {
+                                                                              "docs": {},
+                                                                              "e": {
+                                                                                "docs": {},
+                                                                                "t": {
+                                                                                  "docs": {
+                                                                                    "server.VideoPlayer.html#_dispatchOnComplete": {
+                                                                                      "ref": "server.VideoPlayer.html#_dispatchOnComplete",
+                                                                                      "tf": 1100
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "p": {
+                                                                      "docs": {},
+                                                                      "r": {
+                                                                        "docs": {},
+                                                                        "o": {
+                                                                          "docs": {},
+                                                                          "g": {
+                                                                            "docs": {},
+                                                                            "r": {
+                                                                              "docs": {},
+                                                                              "e": {
+                                                                                "docs": {},
+                                                                                "s": {
+                                                                                  "docs": {},
+                                                                                  "s": {
+                                                                                    "docs": {
+                                                                                      "server.VideoPlayer.html#_dispatchOnProgress": {
+                                                                                        "ref": "server.VideoPlayer.html#_dispatchOnProgress",
+                                                                                        "tf": 1100
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    },
+                                                                    "e": {
+                                                                      "docs": {},
+                                                                      "r": {
+                                                                        "docs": {},
+                                                                        "r": {
+                                                                          "docs": {},
+                                                                          "o": {
+                                                                            "docs": {},
+                                                                            "r": {
+                                                                              "docs": {
+                                                                                "server.VideoPlayer.html#_dispatchOnError": {
+                                                                                  "ref": "server.VideoPlayer.html#_dispatchOnError",
+                                                                                  "tf": 1100
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "h": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "s": {
+                                                    "docs": {},
+                                                    "p": {
+                                                      "docs": {},
+                                                      "r": {
+                                                        "docs": {},
+                                                        "e": {
+                                                          "docs": {},
+                                                          "f": {
+                                                            "docs": {},
+                                                            "i": {
+                                                              "docs": {},
+                                                              "x": {
+                                                                "docs": {
+                                                                  "server.VideoPlayer.html#hasPrefix": {
+                                                                    "ref": "server.VideoPlayer.html#hasPrefix",
+                                                                    "tf": 1100
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "y": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "u": {
+                            "docs": {},
+                            "t": {
+                              "docs": {},
+                              "u": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "p": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "y": {
+                                            "docs": {
+                                              "server.YoutubePlayer.html": {
+                                                "ref": "server.YoutubePlayer.html",
+                                                "tf": 1150
+                                              }
+                                            },
+                                            "e": {
+                                              "docs": {},
+                                              "r": {
+                                                "docs": {},
+                                                ".": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {},
+                                                      "s": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {
+                                                            "server.YoutubePlayer.html#.instance": {
+                                                              "ref": "server.YoutubePlayer.html#.instance",
+                                                              "tf": 1100
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "#": {
+                                                  "docs": {},
+                                                  "d": {
+                                                    "docs": {},
+                                                    "o": {
+                                                      "docs": {},
+                                                      "w": {
+                                                        "docs": {},
+                                                        "n": {
+                                                          "docs": {},
+                                                          "l": {
+                                                            "docs": {},
+                                                            "o": {
+                                                              "docs": {},
+                                                              "a": {
+                                                                "docs": {},
+                                                                "d": {
+                                                                  "docs": {
+                                                                    "server.YoutubePlayer.html#download": {
+                                                                      "ref": "server.YoutubePlayer.html#download",
+                                                                      "tf": 1100
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  },
+                                                  "g": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {},
+                                                        "i": {
+                                                          "docs": {},
+                                                          "n": {
+                                                            "docs": {},
+                                                            "f": {
+                                                              "docs": {},
+                                                              "o": {
+                                                                "docs": {
+                                                                  "server.YoutubePlayer.html#getInfo": {
+                                                                    "ref": "server.YoutubePlayer.html#getInfo",
+                                                                    "tf": 1100
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "a": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "m": {
+                              "docs": {
+                                "server.Anime.html": {
+                                  "ref": "server.Anime.html",
+                                  "tf": 1150
+                                }
+                              },
+                              "e": {
+                                "docs": {},
+                                ".": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "s": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {
+                                            "server.Anime.html#.list": {
+                                              "ref": "server.Anime.html#.list",
+                                              "tf": 1100
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "p": {
+                                    "docs": {},
+                                    "u": {
+                                      "docs": {},
+                                      "b": {
+                                        "docs": {},
+                                        "l": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "c": {
+                                              "docs": {},
+                                              "l": {
+                                                "docs": {},
+                                                "i": {
+                                                  "docs": {},
+                                                  "s": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {
+                                                        "server.Anime.html#.publicList": {
+                                                          "ref": "server.Anime.html#.publicList",
+                                                          "tf": 1100
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "#": {
+                                  "docs": {},
+                                  "j": {
+                                    "docs": {},
+                                    "s": {
+                                      "docs": {},
+                                      "o": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "b": {
+                                              "docs": {},
+                                              "j": {
+                                                "docs": {},
+                                                "e": {
+                                                  "docs": {},
+                                                  "c": {
+                                                    "docs": {},
+                                                    "t": {
+                                                      "docs": {
+                                                        "server.Anime.html#jsonObject": {
+                                                          "ref": "server.Anime.html#jsonObject",
+                                                          "tf": 1100
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "n": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "m": {
+                                        "docs": {
+                                          "server.Anime.html#name": {
+                                            "ref": "server.Anime.html#name",
+                                            "tf": 1100
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "t": {
+                                    "docs": {},
+                                    "h": {
+                                      "docs": {},
+                                      "u": {
+                                        "docs": {},
+                                        "m": {
+                                          "docs": {},
+                                          "b": {
+                                            "docs": {},
+                                            "n": {
+                                              "docs": {},
+                                              "a": {
+                                                "docs": {},
+                                                "i": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "n": {
+                                                          "docs": {},
+                                                          "k": {
+                                                            "docs": {
+                                                              "server.Anime.html#thumbnailLink": {
+                                                                "ref": "server.Anime.html#thumbnailLink",
+                                                                "tf": 1100
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "o": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {},
+                                        "u": {
+                                          "docs": {},
+                                          "b": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {
+                                                "server.Anime.html#toPublic": {
+                                                  "ref": "server.Anime.html#toPublic",
+                                                  "tf": 1100
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "a": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "m": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "c": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {},
+                                                      "f": {
+                                                        "docs": {},
+                                                        "i": {
+                                                          "docs": {},
+                                                          "g": {
+                                                            "docs": {
+                                                              "server.Anime.html#toAnimeConfig": {
+                                                                "ref": "server.Anime.html#toAnimeConfig",
+                                                                "tf": 1100
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "_": {
+                                    "docs": {},
+                                    "p": {
+                                      "docs": {},
+                                      "a": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {},
+                                          "h": {
+                                            "docs": {
+                                              "server.Anime.html#_path": {
+                                                "ref": "server.Anime.html#_path",
+                                                "tf": 1100
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "e": {
+                                    "docs": {},
+                                    "p": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "d": {
+                                              "docs": {
+                                                "server.Anime.html#episodes": {
+                                                  "ref": "server.Anime.html#episodes",
+                                                  "tf": 1100
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "i": {
+                                    "docs": {},
+                                    "d": {
+                                      "docs": {
+                                        "server.Anime.html#id": {
+                                          "ref": "server.Anime.html#id",
+                                          "tf": 1100
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "p": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "h": {
+                                          "docs": {
+                                            "server.Anime.html#path": {
+                                              "ref": "server.Anime.html#path",
+                                              "tf": 1100
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "g": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "t": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "p": {
+                                            "docs": {},
+                                            "i": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "d": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "b": {
+                                                        "docs": {},
+                                                        "y": {
+                                                          "docs": {},
+                                                          "i": {
+                                                            "docs": {},
+                                                            "d": {
+                                                              "docs": {
+                                                                "server.Anime.html#getEpisodeById": {
+                                                                  "ref": "server.Anime.html#getEpisodeById",
+                                                                  "tf": 1100
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "u": {
+                                    "docs": {},
+                                    "p": {
+                                      "docs": {},
+                                      "d": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "j": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {
+                                                        "server.Anime.html#updateJson": {
+                                                          "ref": "server.Anime.html#updateJson",
+                                                          "tf": 1100
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "e": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "d": {
+                                  "docs": {
+                                    "server.Episode.html": {
+                                      "ref": "server.Episode.html",
+                                      "tf": 1150
+                                    }
+                                  },
+                                  "e": {
+                                    "docs": {},
+                                    "#": {
+                                      "docs": {},
+                                      "n": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "m": {
+                                            "docs": {
+                                              "server.Episode.html#name": {
+                                                "ref": "server.Episode.html#name",
+                                                "tf": 1100
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "e": {
+                                        "docs": {},
+                                        "p": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "s": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "d": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "i": {
+                                                      "docs": {},
+                                                      "d": {
+                                                        "docs": {
+                                                          "server.Episode.html#episodeId": {
+                                                            "ref": "server.Episode.html#episodeId",
+                                                            "tf": 1100
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "p": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "s": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "r": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {},
+                                                    "i": {
+                                                      "docs": {},
+                                                      "n": {
+                                                        "docs": {},
+                                                        "k": {
+                                                          "docs": {
+                                                            "server.Episode.html#posterLink": {
+                                                              "ref": "server.Episode.html#posterLink",
+                                                              "tf": 1100
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "a": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "h": {
+                                              "docs": {
+                                                "server.Episode.html#path": {
+                                                  "ref": "server.Episode.html#path",
+                                                  "tf": 1100
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "l": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "n": {
+                                            "docs": {},
+                                            "k": {
+                                              "docs": {
+                                                "server.Episode.html#links": {
+                                                  "ref": "server.Episode.html#links",
+                                                  "tf": 1100
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "o": {
+                                          "docs": {},
+                                          "c": {
+                                            "docs": {},
+                                            "a": {
+                                              "docs": {},
+                                              "l": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "i": {
+                                                    "docs": {},
+                                                    "n": {
+                                                      "docs": {},
+                                                      "k": {
+                                                        "docs": {
+                                                          "server.Episode.html#localLink": {
+                                                            "ref": "server.Episode.html#localLink",
+                                                            "tf": 1100
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "a": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "m": {
+                                              "docs": {
+                                                "server.Episode.html#anime": {
+                                                  "ref": "server.Episode.html#anime",
+                                                  "tf": 1100
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "i": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "l": {
+                                            "docs": {},
+                                            "o": {
+                                              "docs": {},
+                                              "c": {
+                                                "docs": {
+                                                  "server.Episode.html#isLocal": {
+                                                    "ref": "server.Episode.html#isLocal",
+                                                    "tf": 1100
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "h": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "s": {
+                                            "docs": {},
+                                            "p": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "t": {
+                                                    "docs": {
+                                                      "server.Episode.html#hasPoster": {
+                                                        "ref": "server.Episode.html#hasPoster",
+                                                        "tf": 1100
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "t": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "p": {
+                                            "docs": {},
+                                            "u": {
+                                              "docs": {},
+                                              "b": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {
+                                                    "server.Episode.html#toPublic": {
+                                                      "ref": "server.Episode.html#toPublic",
+                                                      "tf": 1100
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          },
+                                          "e": {
+                                            "docs": {},
+                                            "p": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "s": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "d": {
+                                                      "docs": {},
+                                                      "e": {
+                                                        "docs": {},
+                                                        "c": {
+                                                          "docs": {},
+                                                          "o": {
+                                                            "docs": {},
+                                                            "n": {
+                                                              "docs": {},
+                                                              "f": {
+                                                                "docs": {},
+                                                                "i": {
+                                                                  "docs": {},
+                                                                  "g": {
+                                                                    "docs": {
+                                                                      "server.Episode.html#toEpisodeConfig": {
+                                                                        "ref": "server.Episode.html#toEpisodeConfig",
+                                                                        "tf": 1100
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "g": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "i": {
+                                              "docs": {},
+                                              "n": {
+                                                "docs": {},
+                                                "f": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {
+                                                      "server.Episode.html#getInfo": {
+                                                        "ref": "server.Episode.html#getInfo",
+                                                        "tf": 1100
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            },
+                                            "u": {
+                                              "docs": {},
+                                              "r": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "b": {
+                                                    "docs": {},
+                                                    "y": {
+                                                      "docs": {},
+                                                      "p": {
+                                                        "docs": {},
+                                                        "l": {
+                                                          "docs": {},
+                                                          "a": {
+                                                            "docs": {},
+                                                            "y": {
+                                                              "docs": {
+                                                                "server.Episode.html#getUrlByPlayer": {
+                                                                  "ref": "server.Episode.html#getUrlByPlayer",
+                                                                  "tf": 1100
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "s": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "c": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "p": {
+                                                        "docs": {},
+                                                        "a": {
+                                                          "docs": {},
+                                                          "t": {
+                                                            "docs": {},
+                                                            "h": {
+                                                              "docs": {
+                                                                "server.Episode.html#setLocalPath": {
+                                                                  "ref": "server.Episode.html#setLocalPath",
+                                                                  "tf": 1100
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "c": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "g": {
+                                        "docs": {},
+                                        "f": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {
+                                                "server.html#.createLogFile": {
+                                                  "ref": "server.html#.createLogFile",
+                                                  "tf": 1150
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "h": {
+                        "docs": {},
+                        "t": {
+                          "docs": {},
+                          "t": {
+                            "docs": {},
+                            "p": {
+                              "docs": {
+                                "server.https.html": {
+                                  "ref": "server.https.html",
+                                  "tf": 1250
+                                }
+                              },
+                              "s": {
+                                "docs": {},
+                                ".": {
+                                  "docs": {},
+                                  "s": {
+                                    "docs": {},
+                                    "t": {
+                                      "docs": {},
+                                      "a": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {
+                                              "server.https.html#.start": {
+                                                "ref": "server.https.html#.start",
+                                                "tf": 1100
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "g": {
+                        "docs": {},
+                        "l": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "b": {
+                              "docs": {
+                                "server.global.html": {
+                                  "ref": "server.global.html",
+                                  "tf": 1250
+                                }
+                              },
+                              "a": {
+                                "docs": {},
+                                "l": {
+                                  "docs": {},
+                                  ".": {
+                                    "docs": {},
+                                    "_": {
+                                      "docs": {},
+                                      "_": {
+                                        "docs": {},
+                                        "r": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "o": {
+                                              "docs": {},
+                                              "t": {
+                                                "docs": {
+                                                  "server.global.html#.__root": {
+                                                    "ref": "server.global.html#.__root",
+                                                    "tf": 1100
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "l": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "g": {
+                                              "docs": {},
+                                              "f": {
+                                                "docs": {},
+                                                "i": {
+                                                  "docs": {},
+                                                  "l": {
+                                                    "docs": {
+                                                      "server.global.html#.__logFile": {
+                                                        "ref": "server.global.html#.__logFile",
+                                                        "tf": 1100
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        },
+                                        "t": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "m": {
+                                              "docs": {},
+                                              "p": {
+                                                "docs": {},
+                                                "f": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "d": {
+                                                        "docs": {
+                                                          "server.global.html#.__tempFolder": {
+                                                            "ref": "server.global.html#.__tempFolder",
+                                                            "tf": 1100
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "g": {
+                                      "docs": {},
+                                      "u": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "d": {
+                                            "docs": {},
+                                            "g": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "n": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "r": {
+                                                      "docs": {
+                                                        "server.global.html#.GUIDGenerator": {
+                                                          "ref": "server.global.html#.GUIDGenerator",
+                                                          "tf": 1100
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "n": {
+                                      "docs": {},
+                                      "a": {
+                                        "docs": {},
+                                        "m": {
+                                          "docs": {},
+                                          "e": {
+                                            "docs": {},
+                                            "o": {
+                                              "docs": {},
+                                              "f": {
+                                                "docs": {
+                                                  "server.global.html#.nameof": {
+                                                    "ref": "server.global.html#.nameof",
+                                                    "tf": 1100
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "o": {
+                                      "docs": {},
+                                      "v": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "r": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "d": {
+                                                  "docs": {},
+                                                  "e": {
+                                                    "docs": {},
+                                                    "l": {
+                                                      "docs": {},
+                                                      "i": {
+                                                        "docs": {},
+                                                        "n": {
+                                                          "docs": {
+                                                            "server.global.html#.overrideLine": {
+                                                              "ref": "server.global.html#.overrideLine",
+                                                              "tf": 1100
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "w": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "t": {
+                                            "docs": {},
+                                            "e": {
+                                              "docs": {},
+                                              "l": {
+                                                "docs": {},
+                                                "o": {
+                                                  "docs": {},
+                                                  "g": {
+                                                    "docs": {
+                                                      "server.global.html#.writeLog": {
+                                                        "ref": "server.global.html#.writeLog",
+                                                        "tf": 1100
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "t": {
+                                      "docs": {},
+                                      "o": {
+                                        "docs": {},
+                                        "f": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {},
+                                              "e": {
+                                                "docs": {},
+                                                "n": {
+                                                  "docs": {},
+                                                  "a": {
+                                                    "docs": {},
+                                                    "m": {
+                                                      "docs": {
+                                                        "server.global.html#.toFileName": {
+                                                          "ref": "server.global.html#.toFileName",
+                                                          "tf": 1100
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "i": {
+                        "docs": {},
+                        "m": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "g": {
+                              "docs": {
+                                "server.image.html": {
+                                  "ref": "server.image.html",
+                                  "tf": 1250
+                                }
+                              },
+                              "e": {
+                                "docs": {},
+                                ".": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "x": {
+                                      "docs": {},
+                                      "p": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "t": {
+                                              "docs": {},
+                                              "s": {
+                                                "docs": {},
+                                                ".": {
+                                                  "docs": {},
+                                                  "g": {
+                                                    "docs": {},
+                                                    "e": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {},
+                                                        "t": {
+                                                          "docs": {},
+                                                          "h": {
+                                                            "docs": {},
+                                                            "u": {
+                                                              "docs": {},
+                                                              "m": {
+                                                                "docs": {},
+                                                                "b": {
+                                                                  "docs": {},
+                                                                  "a": {
+                                                                    "docs": {},
+                                                                    "i": {
+                                                                      "docs": {},
+                                                                      "l": {
+                                                                        "docs": {
+                                                                          "server.image.html#.exports.getThumbail": {
+                                                                            "ref": "server.image.html#.exports.getThumbail",
+                                                                            "tf": 1075
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "t": {
+                                    "docs": {},
+                                    "h": {
+                                      "docs": {},
+                                      "u": {
+                                        "docs": {},
+                                        "m": {
+                                          "docs": {},
+                                          "b": {
+                                            "docs": {},
+                                            "a": {
+                                              "docs": {},
+                                              "i": {
+                                                "docs": {},
+                                                "l": {
+                                                  "docs": {},
+                                                  "o": {
+                                                    "docs": {},
+                                                    "p": {
+                                                      "docs": {},
+                                                      "t": {
+                                                        "docs": {
+                                                          "server.image.html#.ThumbailOption": {
+                                                            "ref": "server.image.html#.ThumbailOption",
+                                                            "tf": 1100
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "~": {
+                      "docs": {},
+                      "j": {
+                        "docs": {},
+                        "s": {
+                          "docs": {},
+                          "o": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "j": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "c": {
+                                        "docs": {},
+                                        "t": {
+                                          "docs": {
+                                            "server.JsonObject.html": {
+                                              "ref": "server.JsonObject.html",
+                                              "tf": 100
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "d": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "w": {
+                            "docs": {},
+                            "n": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "a": {
+                                    "docs": {},
+                                    "d": {
+                                      "docs": {},
+                                      "e": {
+                                        "docs": {},
+                                        "p": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "s": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "d": {
+                                                  "docs": {
+                                                    "server.DownloadEpisode.html": {
+                                                      "ref": "server.DownloadEpisode.html",
+                                                      "tf": 100
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "v": {
+                        "docs": {},
+                        "i": {
+                          "docs": {},
+                          "d": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "p": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "y": {
+                                        "docs": {
+                                          "server.VideoPlayer.html": {
+                                            "ref": "server.VideoPlayer.html",
+                                            "tf": 100
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "y": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "u": {
+                            "docs": {},
+                            "t": {
+                              "docs": {},
+                              "u": {
+                                "docs": {},
+                                "b": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "p": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "y": {
+                                            "docs": {
+                                              "server.YoutubePlayer.html": {
+                                                "ref": "server.YoutubePlayer.html",
+                                                "tf": 100
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "a": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "m": {
+                              "docs": {
+                                "server.Anime.html": {
+                                  "ref": "server.Anime.html",
+                                  "tf": 100
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "e": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "d": {
+                                  "docs": {
+                                    "server.Episode.html": {
+                                      "ref": "server.Episode.html",
+                                      "tf": 100
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
             "t": {
               "docs": {
-                "DownloadEpisode.html#_setLocalPath": {
-                  "ref": "DownloadEpisode.html#_setLocalPath",
+                "server.DownloadEpisode.html#_setLocalPath": {
+                  "ref": "server.DownloadEpisode.html#_setLocalPath",
                   "tf": 7.142857142857142
                 },
-                "DownloadEpisode.html#_setEvents": {
-                  "ref": "DownloadEpisode.html#_setEvents",
+                "server.DownloadEpisode.html#_setEvents": {
+                  "ref": "server.DownloadEpisode.html#_setEvents",
                   "tf": 16.666666666666664
                 },
-                "Episode.html#localLink": {
-                  "ref": "Episode.html#localLink",
+                "server.Episode.html#localLink": {
+                  "ref": "server.Episode.html#localLink",
                   "tf": 6.25
                 },
-                "Episode.html#isLocal": {
-                  "ref": "Episode.html#isLocal",
+                "server.Episode.html#isLocal": {
+                  "ref": "server.Episode.html#isLocal",
                   "tf": 16.666666666666664
                 },
-                "Episode.html#hasPoster": {
-                  "ref": "Episode.html#hasPoster",
+                "server.Episode.html#hasPoster": {
+                  "ref": "server.Episode.html#hasPoster",
                   "tf": 16.666666666666664
                 },
-                "Episode.html#setLocalPath": {
-                  "ref": "Episode.html#setLocalPath",
+                "server.Episode.html#setLocalPath": {
+                  "ref": "server.Episode.html#setLocalPath",
                   "tf": 12.5
                 }
               },
@@ -2576,9 +6334,9 @@ window.lunrData = {
                               "docs": {},
                               "h": {
                                 "docs": {
-                                  "Episode.html#setLocalPath": {
-                                    "ref": "Episode.html#setLocalPath",
-                                    "tf": 683.3333333333334
+                                  "server.Episode.html#setLocalPath": {
+                                    "ref": "server.Episode.html#setLocalPath",
+                                    "tf": 633.3333333333334
                                   }
                                 }
                               }
@@ -2591,35 +6349,10 @@ window.lunrData = {
                 }
               }
             },
-            "r": {
-              "docs": {},
-              "v": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "VideoPlayer.html#downloadable": {
-                        "ref": "VideoPlayer.html#downloadable",
-                        "tf": 16.666666666666664
-                      },
-                      "YoutubePlayer.html#downloadable": {
-                        "ref": "YoutubePlayer.html#downloadable",
-                        "tf": 16.666666666666664
-                      },
-                      "server.html": {
-                        "ref": "server.html",
-                        "tf": 1900.8474576271187
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "e": {
               "docs": {
-                "Episode.html#localLink": {
-                  "ref": "Episode.html#localLink",
+                "server.Episode.html#localLink": {
+                  "ref": "server.Episode.html#localLink",
                   "tf": 6.25
                 }
               }
@@ -2628,9 +6361,9 @@ window.lunrData = {
               "docs": {},
               "d": {
                 "docs": {
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 1.694915254237288
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 2.083333333333333
                   }
                 }
               }
@@ -2642,9 +6375,9 @@ window.lunrData = {
               "docs": {},
               "w": {
                 "docs": {
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 0.423728813559322
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 0.3472222222222222
                   }
                 }
               }
@@ -2656,9 +6389,9 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 0.423728813559322
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 0.3472222222222222
                   }
                 }
               }
@@ -2680,6 +6413,242 @@ window.lunrData = {
                       "global.html": {
                         "ref": "global.html",
                         "tf": 2045
+                      },
+                      "server.global.html": {
+                        "ref": "server.global.html",
+                        "tf": 650
+                      }
+                    },
+                    ".": {
+                      "docs": {},
+                      "_": {
+                        "docs": {},
+                        "_": {
+                          "docs": {},
+                          "r": {
+                            "docs": {},
+                            "o": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "t": {
+                                  "docs": {
+                                    "server.global.html#.__root": {
+                                      "ref": "server.global.html#.__root",
+                                      "tf": 100
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "l": {
+                            "docs": {},
+                            "o": {
+                              "docs": {},
+                              "g": {
+                                "docs": {},
+                                "f": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "l": {
+                                      "docs": {
+                                        "server.global.html#.__logFile": {
+                                          "ref": "server.global.html#.__logFile",
+                                          "tf": 100
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "t": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "m": {
+                                "docs": {},
+                                "p": {
+                                  "docs": {},
+                                  "f": {
+                                    "docs": {},
+                                    "o": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "d": {
+                                          "docs": {
+                                            "server.global.html#.__tempFolder": {
+                                              "ref": "server.global.html#.__tempFolder",
+                                              "tf": 100
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "g": {
+                        "docs": {},
+                        "u": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "d": {
+                              "docs": {},
+                              "g": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "r": {
+                                        "docs": {
+                                          "server.global.html#.GUIDGenerator": {
+                                            "ref": "server.global.html#.GUIDGenerator",
+                                            "tf": 100
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "n": {
+                        "docs": {},
+                        "a": {
+                          "docs": {},
+                          "m": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "f": {
+                                  "docs": {
+                                    "server.global.html#.nameof": {
+                                      "ref": "server.global.html#.nameof",
+                                      "tf": 100
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "o": {
+                        "docs": {},
+                        "v": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "r": {
+                              "docs": {},
+                              "r": {
+                                "docs": {},
+                                "i": {
+                                  "docs": {},
+                                  "d": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "l": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "n": {
+                                            "docs": {
+                                              "server.global.html#.overrideLine": {
+                                                "ref": "server.global.html#.overrideLine",
+                                                "tf": 100
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "w": {
+                        "docs": {},
+                        "r": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "t": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "l": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "g": {
+                                      "docs": {
+                                        "server.global.html#.writeLog": {
+                                          "ref": "server.global.html#.writeLog",
+                                          "tf": 100
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "t": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "f": {
+                            "docs": {},
+                            "i": {
+                              "docs": {},
+                              "l": {
+                                "docs": {},
+                                "e": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "m": {
+                                        "docs": {
+                                          "server.global.html#.toFileName": {
+                                            "ref": "server.global.html#.toFileName",
+                                            "tf": 100
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -2691,8 +6660,8 @@ window.lunrData = {
             "docs": {},
             "t": {
               "docs": {
-                "Anime.html#updateJson": {
-                  "ref": "Anime.html#updateJson",
+                "server.Anime.html#updateJson": {
+                  "ref": "server.Anime.html#updateJson",
                   "tf": 7.142857142857142
                 }
               },
@@ -2716,9 +6685,9 @@ window.lunrData = {
                                 "docs": {},
                                 "d": {
                                   "docs": {
-                                    "DownloadEpisode.html#.getFromEpisode": {
-                                      "ref": "DownloadEpisode.html#.getFromEpisode",
-                                      "tf": 683.3333333333334
+                                    "server.DownloadEpisode.html#.getFromEpisode": {
+                                      "ref": "server.DownloadEpisode.html#.getFromEpisode",
+                                      "tf": 633.3333333333334
                                     }
                                   }
                                 }
@@ -2739,9 +6708,9 @@ window.lunrData = {
                     "docs": {},
                     "y": {
                       "docs": {
-                        "VideoPlayer.html#.getPlayer": {
-                          "ref": "VideoPlayer.html#.getPlayer",
-                          "tf": 675
+                        "server.VideoPlayer.html#.getPlayer": {
+                          "ref": "server.VideoPlayer.html#.getPlayer",
+                          "tf": 625
                         }
                       }
                     }
@@ -2778,9 +6747,9 @@ window.lunrData = {
                                           "docs": {},
                                           "d": {
                                             "docs": {
-                                              "VideoPlayer.html#.getVideoPlayerById": {
-                                                "ref": "VideoPlayer.html#.getVideoPlayerById",
-                                                "tf": 675
+                                              "server.VideoPlayer.html#.getVideoPlayerById": {
+                                                "ref": "server.VideoPlayer.html#.getVideoPlayerById",
+                                                "tf": 625
                                               }
                                             }
                                           }
@@ -2806,13 +6775,13 @@ window.lunrData = {
                     "docs": {},
                     "o": {
                       "docs": {
-                        "YoutubePlayer.html#getInfo": {
-                          "ref": "YoutubePlayer.html#getInfo",
-                          "tf": 683.3333333333334
+                        "server.YoutubePlayer.html#getInfo": {
+                          "ref": "server.YoutubePlayer.html#getInfo",
+                          "tf": 633.3333333333334
                         },
-                        "Episode.html#getInfo": {
-                          "ref": "Episode.html#getInfo",
-                          "tf": 675
+                        "server.Episode.html#getInfo": {
+                          "ref": "server.Episode.html#getInfo",
+                          "tf": 625
                         }
                       }
                     }
@@ -2841,9 +6810,9 @@ window.lunrData = {
                                   "docs": {},
                                   "d": {
                                     "docs": {
-                                      "Anime.html#getEpisodeById": {
-                                        "ref": "Anime.html#getEpisodeById",
-                                        "tf": 683.3333333333334
+                                      "server.Anime.html#getEpisodeById": {
+                                        "ref": "server.Anime.html#getEpisodeById",
+                                        "tf": 633.3333333333334
                                       }
                                     }
                                   }
@@ -2875,9 +6844,9 @@ window.lunrData = {
                               "docs": {},
                               "y": {
                                 "docs": {
-                                  "Episode.html#getUrlByPlayer": {
-                                    "ref": "Episode.html#getUrlByPlayer",
-                                    "tf": 683.3333333333334
+                                  "server.Episode.html#getUrlByPlayer": {
+                                    "ref": "server.Episode.html#getUrlByPlayer",
+                                    "tf": 633.3333333333334
                                   }
                                 }
                               }
@@ -2923,9 +6892,9 @@ window.lunrData = {
                                               "docs": {},
                                               "d": {
                                                 "docs": {
-                                                  "server.html": {
-                                                    "ref": "server.html",
-                                                    "tf": 0.423728813559322
+                                                  "server.https.html#.start": {
+                                                    "ref": "server.https.html#.start",
+                                                    "tf": 0.3472222222222222
                                                   }
                                                 }
                                               }
@@ -2944,9 +6913,9 @@ window.lunrData = {
                                       "docs": {},
                                       "o": {
                                         "docs": {
-                                          "server.html": {
-                                            "ref": "server.html",
-                                            "tf": 0.423728813559322
+                                          "server.https.html#.start": {
+                                            "ref": "server.https.html#.start",
+                                            "tf": 0.3472222222222222
                                           }
                                         }
                                       }
@@ -2969,9 +6938,9 @@ window.lunrData = {
                       "docs": {},
                       "t": {
                         "docs": {
-                          "server.html": {
-                            "ref": "server.html",
-                            "tf": 0.423728813559322
+                          "server.https.html#.start": {
+                            "ref": "server.https.html#.start",
+                            "tf": 0.3472222222222222
                           }
                         },
                         "/": {
@@ -2992,15 +6961,44 @@ window.lunrData = {
                                         "docs": {},
                                         "d": {
                                           "docs": {
-                                            "server.html": {
-                                              "ref": "server.html",
-                                              "tf": 0.423728813559322
+                                            "server.https.html#.start": {
+                                              "ref": "server.https.html#.start",
+                                              "tf": 0.3472222222222222
                                             }
                                           }
                                         }
                                       }
                                     }
                                   }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "t": {
+                "docs": {},
+                "h": {
+                  "docs": {},
+                  "u": {
+                    "docs": {},
+                    "m": {
+                      "docs": {},
+                      "b": {
+                        "docs": {},
+                        "a": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "l": {
+                              "docs": {
+                                "server.image.html#.exports.getThumbail": {
+                                  "ref": "server.image.html#.exports.getThumbail",
+                                  "tf": 75
                                 }
                               }
                             }
@@ -3018,13 +7016,13 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
-                    "Anime.html#updateJson": {
-                      "ref": "Anime.html#updateJson",
+                    "server.Anime.html#updateJson": {
+                      "ref": "server.Anime.html#updateJson",
                       "tf": 7.142857142857142
                     },
-                    "server.html": {
-                      "ref": "server.html",
-                      "tf": 0.423728813559322
+                    "server.https.html#.start": {
+                      "ref": "server.https.html#.start",
+                      "tf": 0.6944444444444444
                     }
                   }
                 }
@@ -3037,28 +7035,53 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "VideoPlayer.html#toPublic": {
-                    "ref": "VideoPlayer.html#toPublic",
+                  "server.VideoPlayer.html#toPublic": {
+                    "ref": "server.VideoPlayer.html#toPublic",
                     "tf": 7.142857142857142
                   },
-                  "YoutubePlayer.html#toPublic": {
-                    "ref": "YoutubePlayer.html#toPublic",
+                  "server.Anime.html#toPublic": {
+                    "ref": "server.Anime.html#toPublic",
                     "tf": 7.142857142857142
                   },
-                  "Anime.html#toPublic": {
-                    "ref": "Anime.html#toPublic",
-                    "tf": 7.142857142857142
-                  },
-                  "Episode.html#toPublic": {
-                    "ref": "Episode.html#toPublic",
+                  "server.Episode.html#toPublic": {
+                    "ref": "server.Episode.html#toPublic",
                     "tf": 7.142857142857142
                   }
                 },
                 "n": {
                   "docs": {
-                    "VideoPlayer.html#download": {
-                      "ref": "VideoPlayer.html#download",
+                    "server.VideoPlayer.html#download": {
+                      "ref": "server.VideoPlayer.html#download",
                       "tf": 8.333333333333332
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "u": {
+            "docs": {},
+            "i": {
+              "docs": {},
+              "d": {
+                "docs": {},
+                "g": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "r": {
+                          "docs": {
+                            "server.global.html#.GUIDGenerator": {
+                              "ref": "server.global.html#.GUIDGenerator",
+                              "tf": 633.3333333333334
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -3080,32 +7103,32 @@ window.lunrData = {
                       "ref": "list_class.html",
                       "tf": 635
                     },
-                    "JsonObject.html": {
-                      "ref": "JsonObject.html",
+                    "server.JsonObject.html": {
+                      "ref": "server.JsonObject.html",
                       "tf": 110
                     },
-                    "DownloadEpisode.html": {
-                      "ref": "DownloadEpisode.html",
+                    "server.DownloadEpisode.html": {
+                      "ref": "server.DownloadEpisode.html",
                       "tf": 114.54545454545455
                     },
-                    "VideoPlayer.html": {
-                      "ref": "VideoPlayer.html",
+                    "server.VideoPlayer.html": {
+                      "ref": "server.VideoPlayer.html",
                       "tf": 122.5
                     },
-                    "YoutubePlayer.html": {
-                      "ref": "YoutubePlayer.html",
+                    "server.YoutubePlayer.html": {
+                      "ref": "server.YoutubePlayer.html",
                       "tf": 117.14285714285714
                     },
-                    "YoutubePlayer.html#.instance": {
-                      "ref": "YoutubePlayer.html#.instance",
+                    "server.YoutubePlayer.html#.instance": {
+                      "ref": "server.YoutubePlayer.html#.instance",
                       "tf": 16.666666666666664
                     },
-                    "Anime.html": {
-                      "ref": "Anime.html",
+                    "server.Anime.html": {
+                      "ref": "server.Anime.html",
                       "tf": 110
                     },
-                    "Episode.html": {
-                      "ref": "Episode.html",
+                    "server.Episode.html": {
+                      "ref": "server.Episode.html",
                       "tf": 110
                     }
                   }
@@ -3120,20 +7143,16 @@ window.lunrData = {
                   "docs": {},
                   "t": {
                     "docs": {
-                      "VideoPlayer.html#toPublic": {
-                        "ref": "VideoPlayer.html#toPublic",
+                      "server.VideoPlayer.html#toPublic": {
+                        "ref": "server.VideoPlayer.html#toPublic",
                         "tf": 7.142857142857142
                       },
-                      "YoutubePlayer.html#toPublic": {
-                        "ref": "YoutubePlayer.html#toPublic",
+                      "server.Anime.html#toPublic": {
+                        "ref": "server.Anime.html#toPublic",
                         "tf": 7.142857142857142
                       },
-                      "Anime.html#toPublic": {
-                        "ref": "Anime.html#toPublic",
-                        "tf": 7.142857142857142
-                      },
-                      "Episode.html#toPublic": {
-                        "ref": "Episode.html#toPublic",
+                      "server.Episode.html#toPublic": {
+                        "ref": "server.Episode.html#toPublic",
                         "tf": 7.142857142857142
                       }
                     }
@@ -3154,9 +7173,9 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "server.html": {
-                          "ref": "server.html",
-                          "tf": 0.423728813559322
+                        "server.https.html#.start": {
+                          "ref": "server.https.html#.start",
+                          "tf": 0.3472222222222222
                         }
                       },
                       "d": {
@@ -3175,9 +7194,9 @@ window.lunrData = {
                                     "docs": {},
                                     "d": {
                                       "docs": {
-                                        "DownloadEpisode.html#.currentDownload": {
-                                          "ref": "DownloadEpisode.html#.currentDownload",
-                                          "tf": 675
+                                        "server.DownloadEpisode.html#.currentDownload": {
+                                          "ref": "server.DownloadEpisode.html#.currentDownload",
+                                          "tf": 625
                                         }
                                       }
                                     }
@@ -3200,8 +7219,8 @@ window.lunrData = {
               "docs": {},
               "l": {
                 "docs": {
-                  "DownloadEpisode.html#_setLocalPath": {
-                    "ref": "DownloadEpisode.html#_setLocalPath",
+                  "server.DownloadEpisode.html#_setLocalPath": {
+                    "ref": "server.DownloadEpisode.html#_setLocalPath",
                     "tf": 7.142857142857142
                   }
                 }
@@ -3220,12 +7239,8 @@ window.lunrData = {
                     "docs": {},
                     "t": {
                       "docs": {
-                        "VideoPlayer.html#_dispatchOnComplete": {
-                          "ref": "VideoPlayer.html#_dispatchOnComplete",
-                          "tf": 12.5
-                        },
-                        "YoutubePlayer.html#_dispatchOnComplete": {
-                          "ref": "YoutubePlayer.html#_dispatchOnComplete",
+                        "server.VideoPlayer.html#_dispatchOnComplete": {
+                          "ref": "server.VideoPlayer.html#_dispatchOnComplete",
                           "tf": 12.5
                         }
                       }
@@ -3236,12 +7251,8 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
-                      "VideoPlayer.html#hasPrefix": {
-                        "ref": "VideoPlayer.html#hasPrefix",
-                        "tf": 5
-                      },
-                      "YoutubePlayer.html#hasPrefix": {
-                        "ref": "YoutubePlayer.html#hasPrefix",
+                      "server.VideoPlayer.html#hasPrefix": {
+                        "ref": "server.VideoPlayer.html#hasPrefix",
                         "tf": 5
                       }
                     }
@@ -3265,8 +7276,8 @@ window.lunrData = {
                           "docs": {},
                           "d": {
                             "docs": {
-                              "VideoPlayer.html#.getVideoPlayerById": {
-                                "ref": "VideoPlayer.html#.getVideoPlayerById",
+                              "server.VideoPlayer.html#.getVideoPlayerById": {
+                                "ref": "server.VideoPlayer.html#.getVideoPlayerById",
                                 "tf": 12.5
                               }
                             }
@@ -3288,8 +7299,8 @@ window.lunrData = {
                           "docs": {},
                           "d": {
                             "docs": {
-                              "Episode.html#getUrlByPlayer": {
-                                "ref": "Episode.html#getUrlByPlayer",
+                              "server.Episode.html#getUrlByPlayer": {
+                                "ref": "server.Episode.html#getUrlByPlayer",
                                 "tf": 12.5
                               }
                             }
@@ -3307,9 +7318,9 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
-                    "server.html": {
-                      "ref": "server.html",
-                      "tf": 0.847457627118644
+                    "server.https.html#.start": {
+                      "ref": "server.https.html#.start",
+                      "tf": 0.6944444444444444
                     }
                   }
                 }
@@ -3317,6 +7328,204 @@ window.lunrData = {
             },
             "n": {
               "docs": {},
+              "f": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "g": {
+                    "docs": {
+                      "server.https.html#.start": {
+                        "ref": "server.https.html#.start",
+                        "tf": 25
+                      },
+                      "server.data.config.html": {
+                        "ref": "server.data.config.html",
+                        "tf": 600
+                      },
+                      "server.data.config.html#.VideoPlayerConfig": {
+                        "ref": "server.data.config.html#.VideoPlayerConfig",
+                        "tf": 25
+                      },
+                      "server.data.config.html#.AnimeConfig": {
+                        "ref": "server.data.config.html#.AnimeConfig",
+                        "tf": 25
+                      },
+                      "server.data.config.html#.Config": {
+                        "ref": "server.data.config.html#.Config",
+                        "tf": 675
+                      },
+                      "server.data.config.html#.EpisodeConfig": {
+                        "ref": "server.data.config.html#.EpisodeConfig",
+                        "tf": 25
+                      }
+                    },
+                    ".": {
+                      "docs": {},
+                      "v": {
+                        "docs": {},
+                        "i": {
+                          "docs": {},
+                          "d": {
+                            "docs": {},
+                            "e": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "p": {
+                                  "docs": {},
+                                  "l": {
+                                    "docs": {},
+                                    "a": {
+                                      "docs": {},
+                                      "y": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "r": {
+                                            "docs": {},
+                                            "c": {
+                                              "docs": {},
+                                              "o": {
+                                                "docs": {},
+                                                "n": {
+                                                  "docs": {},
+                                                  "f": {
+                                                    "docs": {},
+                                                    "i": {
+                                                      "docs": {},
+                                                      "g": {
+                                                        "docs": {
+                                                          "server.data.config.html#.VideoPlayerConfig": {
+                                                            "ref": "server.data.config.html#.VideoPlayerConfig",
+                                                            "tf": 75
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "a": {
+                        "docs": {},
+                        "n": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "m": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "c": {
+                                  "docs": {},
+                                  "o": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "f": {
+                                        "docs": {},
+                                        "i": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {
+                                              "server.data.config.html#.AnimeConfig": {
+                                                "ref": "server.data.config.html#.AnimeConfig",
+                                                "tf": 75
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "c": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "n": {
+                            "docs": {},
+                            "f": {
+                              "docs": {},
+                              "i": {
+                                "docs": {},
+                                "g": {
+                                  "docs": {
+                                    "server.data.config.html#.Config": {
+                                      "ref": "server.data.config.html#.Config",
+                                      "tf": 75
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "e": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "d": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "c": {
+                                      "docs": {},
+                                      "o": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {},
+                                          "f": {
+                                            "docs": {},
+                                            "i": {
+                                              "docs": {},
+                                              "g": {
+                                                "docs": {
+                                                  "server.data.config.html#.EpisodeConfig": {
+                                                    "ref": "server.data.config.html#.EpisodeConfig",
+                                                    "tf": 75
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
               "s": {
                 "docs": {},
                 "o": {
@@ -3335,9 +7544,52 @@ window.lunrData = {
                               "docs": {},
                               "p": {
                                 "docs": {
-                                  "server.html": {
-                                    "ref": "server.html",
-                                    "tf": 0.423728813559322
+                                  "server.https.html#.start": {
+                                    "ref": "server.https.html#.start",
+                                    "tf": 0.3472222222222222
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "r": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "t": {
+                  "docs": {
+                    "server.html#.createLogFile": {
+                      "ref": "server.html#.createLogFile",
+                      "tf": 6.25
+                    }
+                  },
+                  "e": {
+                    "docs": {},
+                    "l": {
+                      "docs": {},
+                      "o": {
+                        "docs": {},
+                        "g": {
+                          "docs": {},
+                          "f": {
+                            "docs": {},
+                            "i": {
+                              "docs": {},
+                              "l": {
+                                "docs": {
+                                  "server.html#.createLogFile": {
+                                    "ref": "server.html#.createLogFile",
+                                    "tf": 700
                                   }
                                 }
                               }
@@ -3355,9 +7607,9 @@ window.lunrData = {
             "docs": {},
             "s": {
               "docs": {
-                "server.html": {
-                  "ref": "server.html",
-                  "tf": 0.847457627118644
+                "server.https.html#.start": {
+                  "ref": "server.https.html#.start",
+                  "tf": 0.6944444444444444
                 }
               }
             }
@@ -3379,37 +7631,33 @@ window.lunrData = {
                     "ref": "list_namespace.html",
                     "tf": 110
                   },
-                  "DownloadEpisode.html#.list": {
-                    "ref": "DownloadEpisode.html#.list",
-                    "tf": 675
+                  "server.DownloadEpisode.html#.list": {
+                    "ref": "server.DownloadEpisode.html#.list",
+                    "tf": 625
                   },
-                  "VideoPlayer.html#.list": {
-                    "ref": "VideoPlayer.html#.list",
-                    "tf": 700
+                  "server.VideoPlayer.html#.list": {
+                    "ref": "server.VideoPlayer.html#.list",
+                    "tf": 650
                   },
-                  "VideoPlayer.html#hasPrefix": {
-                    "ref": "VideoPlayer.html#hasPrefix",
+                  "server.VideoPlayer.html#hasPrefix": {
+                    "ref": "server.VideoPlayer.html#hasPrefix",
                     "tf": 5
                   },
-                  "YoutubePlayer.html#hasPrefix": {
-                    "ref": "YoutubePlayer.html#hasPrefix",
-                    "tf": 5
+                  "server.Anime.html#.list": {
+                    "ref": "server.Anime.html#.list",
+                    "tf": 650
                   },
-                  "Anime.html#.list": {
-                    "ref": "Anime.html#.list",
-                    "tf": 700
-                  },
-                  "Anime.html#.publicList": {
-                    "ref": "Anime.html#.publicList",
+                  "server.Anime.html#.publicList": {
+                    "ref": "server.Anime.html#.publicList",
                     "tf": 10
                   },
-                  "Anime.html#episodes": {
-                    "ref": "Anime.html#episodes",
+                  "server.Anime.html#episodes": {
+                    "ref": "server.Anime.html#episodes",
                     "tf": 25
                   },
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 1.2711864406779663
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 1.0416666666666665
                   }
                 },
                 ":": {
@@ -3470,17 +7718,29 @@ window.lunrData = {
               "docs": {},
               "k": {
                 "docs": {
-                  "VideoPlayer.html#download": {
-                    "ref": "VideoPlayer.html#download",
+                  "server.VideoPlayer.html#download": {
+                    "ref": "server.VideoPlayer.html#download",
                     "tf": 8.333333333333332
                   },
-                  "Episode.html#links": {
-                    "ref": "Episode.html#links",
-                    "tf": 716.6666666666666
+                  "server.Episode.html#links": {
+                    "ref": "server.Episode.html#links",
+                    "tf": 666.6666666666666
                   },
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 0.423728813559322
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 0.3472222222222222
+                  }
+                }
+              },
+              "e": {
+                "docs": {
+                  "server.global.html#.overrideLine": {
+                    "ref": "server.global.html#.overrideLine",
+                    "tf": 12.5
+                  },
+                  "server.global.html#.writeLog": {
+                    "ref": "server.global.html#.writeLog",
+                    "tf": 16.666666666666664
                   }
                 }
               }
@@ -3492,13 +7752,13 @@ window.lunrData = {
               "docs": {},
               "d": {
                 "docs": {
-                  "JsonObject.html": {
-                    "ref": "JsonObject.html",
+                  "server.JsonObject.html": {
+                    "ref": "server.JsonObject.html",
                     "tf": 12.5
                   },
-                  "JsonObject.html#load": {
-                    "ref": "JsonObject.html#load",
-                    "tf": 750
+                  "server.JsonObject.html#load": {
+                    "ref": "server.JsonObject.html#load",
+                    "tf": 700
                   }
                 },
                 "s": {
@@ -3509,9 +7769,9 @@ window.lunrData = {
                       "docs": {},
                       "c": {
                         "docs": {
-                          "JsonObject.html#loadSync": {
-                            "ref": "JsonObject.html#loadSync",
-                            "tf": 700
+                          "server.JsonObject.html#loadSync": {
+                            "ref": "server.JsonObject.html#loadSync",
+                            "tf": 650
                           }
                         }
                       }
@@ -3540,8 +7800,8 @@ window.lunrData = {
                                     "docs": {},
                                     "o": {
                                       "docs": {
-                                        "Episode.html#getInfo": {
-                                          "ref": "Episode.html#getInfo",
+                                        "server.Episode.html#getInfo": {
+                                          "ref": "server.Episode.html#getInfo",
                                           "tf": 25
                                         }
                                       }
@@ -3564,17 +7824,17 @@ window.lunrData = {
                 "docs": {},
                 "l": {
                   "docs": {
-                    "Episode.html#localLink": {
-                      "ref": "Episode.html#localLink",
+                    "server.Episode.html#localLink": {
+                      "ref": "server.Episode.html#localLink",
                       "tf": 6.25
                     },
-                    "Episode.html#path": {
-                      "ref": "Episode.html#path",
+                    "server.Episode.html#path": {
+                      "ref": "server.Episode.html#path",
                       "tf": 13.636363636363635
                     },
-                    "server.html": {
-                      "ref": "server.html",
-                      "tf": 0.423728813559322
+                    "server.https.html#.start": {
+                      "ref": "server.https.html#.start",
+                      "tf": 0.3472222222222222
                     }
                   },
                   "f": {
@@ -3611,8 +7871,8 @@ window.lunrData = {
                                                   "docs": {},
                                                   "s": {
                                                     "docs": {
-                                                      "YoutubePlayer.html#download": {
-                                                        "ref": "YoutubePlayer.html#download",
+                                                      "server.YoutubePlayer.html#download": {
+                                                        "ref": "server.YoutubePlayer.html#download",
                                                         "tf": 20
                                                       }
                                                     }
@@ -3641,16 +7901,46 @@ window.lunrData = {
                         "docs": {},
                         "k": {
                           "docs": {
-                            "Episode.html#localLink": {
-                              "ref": "Episode.html#localLink",
-                              "tf": 683.3333333333334
+                            "server.Episode.html#localLink": {
+                              "ref": "server.Episode.html#localLink",
+                              "tf": 633.3333333333334
                             },
-                            "Episode.html#isLocal": {
-                              "ref": "Episode.html#isLocal",
+                            "server.Episode.html#isLocal": {
+                              "ref": "server.Episode.html#isLocal",
                               "tf": 16.666666666666664
                             }
                           }
                         }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "g": {
+              "docs": {
+                "server.html#.createLogFile": {
+                  "ref": "server.html#.createLogFile",
+                  "tf": 12.5
+                }
+              },
+              "f": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "l": {
+                    "docs": {
+                      "server.global.html#.__logFile": {
+                        "ref": "server.global.html#.__logFile",
+                        "tf": 25
+                      },
+                      "server.global.html#.overrideLine": {
+                        "ref": "server.global.html#.overrideLine",
+                        "tf": 12.5
+                      },
+                      "server.global.html#.writeLog": {
+                        "ref": "server.global.html#.writeLog",
+                        "tf": 16.666666666666664
                       }
                     }
                   }
@@ -3674,20 +7964,20 @@ window.lunrData = {
                         "docs": {},
                         "c": {
                           "docs": {
-                            "DownloadEpisode.html#.list": {
-                              "ref": "DownloadEpisode.html#.list",
+                            "server.DownloadEpisode.html#.list": {
+                              "ref": "server.DownloadEpisode.html#.list",
                               "tf": 25
                             },
-                            "VideoPlayer.html#.list": {
-                              "ref": "VideoPlayer.html#.list",
+                            "server.VideoPlayer.html#.list": {
+                              "ref": "server.VideoPlayer.html#.list",
                               "tf": 25
                             },
-                            "YoutubePlayer.html#.instance": {
-                              "ref": "YoutubePlayer.html#.instance",
+                            "server.YoutubePlayer.html#.instance": {
+                              "ref": "server.YoutubePlayer.html#.instance",
                               "tf": 33.33333333333333
                             },
-                            "Anime.html#.list": {
-                              "ref": "Anime.html#.list",
+                            "server.Anime.html#.list": {
+                              "ref": "server.Anime.html#.list",
                               "tf": 25
                             }
                           },
@@ -3697,25 +7987,65 @@ window.lunrData = {
                               "docs": {},
                               "t": {
                                 "docs": {
-                                  "DownloadEpisode.html#.toDownload": {
-                                    "ref": "DownloadEpisode.html#.toDownload",
+                                  "server.DownloadEpisode.html#.toDownload": {
+                                    "ref": "server.DownloadEpisode.html#.toDownload",
                                     "tf": 33.33333333333333
                                   },
-                                  "DownloadEpisode.html#.getFromEpisode": {
-                                    "ref": "DownloadEpisode.html#.getFromEpisode",
+                                  "server.DownloadEpisode.html#.getFromEpisode": {
+                                    "ref": "server.DownloadEpisode.html#.getFromEpisode",
                                     "tf": 33.33333333333333
                                   },
-                                  "VideoPlayer.html#.getPlayer": {
-                                    "ref": "VideoPlayer.html#.getPlayer",
+                                  "server.VideoPlayer.html#.getPlayer": {
+                                    "ref": "server.VideoPlayer.html#.getPlayer",
                                     "tf": 25
                                   },
-                                  "VideoPlayer.html#.getVideoPlayerById": {
-                                    "ref": "VideoPlayer.html#.getVideoPlayerById",
+                                  "server.VideoPlayer.html#.getVideoPlayerById": {
+                                    "ref": "server.VideoPlayer.html#.getVideoPlayerById",
                                     "tf": 25
                                   },
-                                  "Anime.html#.publicList": {
-                                    "ref": "Anime.html#.publicList",
+                                  "server.Anime.html#.publicList": {
+                                    "ref": "server.Anime.html#.publicList",
                                     "tf": 50
+                                  },
+                                  "server.html#.createLogFile": {
+                                    "ref": "server.html#.createLogFile",
+                                    "tf": 50
+                                  },
+                                  "server.global.html#.__root": {
+                                    "ref": "server.global.html#.__root",
+                                    "tf": 33.33333333333333
+                                  },
+                                  "server.global.html#.__logFile": {
+                                    "ref": "server.global.html#.__logFile",
+                                    "tf": 33.33333333333333
+                                  },
+                                  "server.global.html#.__tempFolder": {
+                                    "ref": "server.global.html#.__tempFolder",
+                                    "tf": 33.33333333333333
+                                  },
+                                  "server.global.html#.GUIDGenerator": {
+                                    "ref": "server.global.html#.GUIDGenerator",
+                                    "tf": 33.33333333333333
+                                  },
+                                  "server.global.html#.nameof": {
+                                    "ref": "server.global.html#.nameof",
+                                    "tf": 33.33333333333333
+                                  },
+                                  "server.global.html#.overrideLine": {
+                                    "ref": "server.global.html#.overrideLine",
+                                    "tf": 25
+                                  },
+                                  "server.global.html#.writeLog": {
+                                    "ref": "server.global.html#.writeLog",
+                                    "tf": 25
+                                  },
+                                  "server.global.html#.toFileName": {
+                                    "ref": "server.global.html#.toFileName",
+                                    "tf": 25
+                                  },
+                                  "server.image.html#.exports.getThumbail": {
+                                    "ref": "server.image.html#.exports.getThumbail",
+                                    "tf": 20
                                   }
                                 }
                               }
@@ -3741,8 +8071,12 @@ window.lunrData = {
                           "docs": {},
                           "t": {
                             "docs": {
-                              "DownloadEpisode.html#.currentDownload": {
-                                "ref": "DownloadEpisode.html#.currentDownload",
+                              "server.DownloadEpisode.html#.currentDownload": {
+                                "ref": "server.DownloadEpisode.html#.currentDownload",
+                                "tf": 25
+                              },
+                              "server.https.html#.start": {
+                                "ref": "server.https.html#.start",
                                 "tf": 25
                               }
                             },
@@ -3756,28 +8090,16 @@ window.lunrData = {
                                     "docs": {},
                                     "t": {
                                       "docs": {
-                                        "VideoPlayer.html#_dispatchOnComplete": {
-                                          "ref": "VideoPlayer.html#_dispatchOnComplete",
+                                        "server.VideoPlayer.html#_dispatchOnComplete": {
+                                          "ref": "server.VideoPlayer.html#_dispatchOnComplete",
                                           "tf": 25
                                         },
-                                        "VideoPlayer.html#_dispatchOnProgress": {
-                                          "ref": "VideoPlayer.html#_dispatchOnProgress",
+                                        "server.VideoPlayer.html#_dispatchOnProgress": {
+                                          "ref": "server.VideoPlayer.html#_dispatchOnProgress",
                                           "tf": 25
                                         },
-                                        "VideoPlayer.html#_dispatchOnError": {
-                                          "ref": "VideoPlayer.html#_dispatchOnError",
-                                          "tf": 25
-                                        },
-                                        "YoutubePlayer.html#_dispatchOnComplete": {
-                                          "ref": "YoutubePlayer.html#_dispatchOnComplete",
-                                          "tf": 25
-                                        },
-                                        "YoutubePlayer.html#_dispatchOnProgress": {
-                                          "ref": "YoutubePlayer.html#_dispatchOnProgress",
-                                          "tf": 25
-                                        },
-                                        "YoutubePlayer.html#_dispatchOnError": {
-                                          "ref": "YoutubePlayer.html#_dispatchOnError",
+                                        "server.VideoPlayer.html#_dispatchOnError": {
+                                          "ref": "server.VideoPlayer.html#_dispatchOnError",
                                           "tf": 25
                                         }
                                       }
@@ -3799,20 +8121,20 @@ window.lunrData = {
                         "docs": {},
                         "t": {
                           "docs": {
-                            "DownloadEpisode.html#player": {
-                              "ref": "DownloadEpisode.html#player",
+                            "server.DownloadEpisode.html#player": {
+                              "ref": "server.DownloadEpisode.html#player",
                               "tf": 25
                             },
-                            "DownloadEpisode.html#isReady": {
-                              "ref": "DownloadEpisode.html#isReady",
+                            "server.DownloadEpisode.html#isReady": {
+                              "ref": "server.DownloadEpisode.html#isReady",
                               "tf": 25
                             },
-                            "Anime.html#jsonObject": {
-                              "ref": "Anime.html#jsonObject",
+                            "server.Anime.html#jsonObject": {
+                              "ref": "server.Anime.html#jsonObject",
                               "tf": 25
                             },
-                            "Anime.html#_path": {
-                              "ref": "Anime.html#_path",
+                            "server.Anime.html#_path": {
+                              "ref": "server.Anime.html#_path",
                               "tf": 25
                             }
                           },
@@ -3824,12 +8146,12 @@ window.lunrData = {
                                 "docs": {},
                                 "t": {
                                   "docs": {
-                                    "DownloadEpisode.html#_setLocalPath": {
-                                      "ref": "DownloadEpisode.html#_setLocalPath",
+                                    "server.DownloadEpisode.html#_setLocalPath": {
+                                      "ref": "server.DownloadEpisode.html#_setLocalPath",
                                       "tf": 33.33333333333333
                                     },
-                                    "DownloadEpisode.html#_setEvents": {
-                                      "ref": "DownloadEpisode.html#_setEvents",
+                                    "server.DownloadEpisode.html#_setEvents": {
+                                      "ref": "server.DownloadEpisode.html#_setEvents",
                                       "tf": 33.33333333333333
                                     }
                                   }
@@ -3865,76 +8187,64 @@ window.lunrData = {
                                   "docs": {},
                                   "t": {
                                     "docs": {
-                                      "DownloadEpisode.html#episode": {
-                                        "ref": "DownloadEpisode.html#episode",
+                                      "server.DownloadEpisode.html#episode": {
+                                        "ref": "server.DownloadEpisode.html#episode",
                                         "tf": 33.33333333333333
                                       },
-                                      "DownloadEpisode.html#id": {
-                                        "ref": "DownloadEpisode.html#id",
+                                      "server.DownloadEpisode.html#id": {
+                                        "ref": "server.DownloadEpisode.html#id",
                                         "tf": 33.33333333333333
                                       },
-                                      "DownloadEpisode.html#isPending": {
-                                        "ref": "DownloadEpisode.html#isPending",
+                                      "server.DownloadEpisode.html#isPending": {
+                                        "ref": "server.DownloadEpisode.html#isPending",
                                         "tf": 33.33333333333333
                                       },
-                                      "DownloadEpisode.html#isDownloading": {
-                                        "ref": "DownloadEpisode.html#isDownloading",
+                                      "server.DownloadEpisode.html#isDownloading": {
+                                        "ref": "server.DownloadEpisode.html#isDownloading",
                                         "tf": 33.33333333333333
                                       },
-                                      "DownloadEpisode.html#isError": {
-                                        "ref": "DownloadEpisode.html#isError",
+                                      "server.DownloadEpisode.html#isError": {
+                                        "ref": "server.DownloadEpisode.html#isError",
                                         "tf": 33.33333333333333
                                       },
-                                      "DownloadEpisode.html#error": {
-                                        "ref": "DownloadEpisode.html#error",
+                                      "server.DownloadEpisode.html#error": {
+                                        "ref": "server.DownloadEpisode.html#error",
                                         "tf": 33.33333333333333
                                       },
-                                      "DownloadEpisode.html#progress": {
-                                        "ref": "DownloadEpisode.html#progress",
+                                      "server.DownloadEpisode.html#progress": {
+                                        "ref": "server.DownloadEpisode.html#progress",
                                         "tf": 33.33333333333333
                                       },
-                                      "VideoPlayer.html#name": {
-                                        "ref": "VideoPlayer.html#name",
+                                      "server.VideoPlayer.html#name": {
+                                        "ref": "server.VideoPlayer.html#name",
                                         "tf": 33.33333333333333
                                       },
-                                      "VideoPlayer.html#isNatif": {
-                                        "ref": "VideoPlayer.html#isNatif",
+                                      "server.VideoPlayer.html#isNatif": {
+                                        "ref": "server.VideoPlayer.html#isNatif",
                                         "tf": 33.33333333333333
                                       },
-                                      "VideoPlayer.html#id": {
-                                        "ref": "VideoPlayer.html#id",
+                                      "server.VideoPlayer.html#id": {
+                                        "ref": "server.VideoPlayer.html#id",
                                         "tf": 50
                                       },
-                                      "YoutubePlayer.html#name": {
-                                        "ref": "YoutubePlayer.html#name",
+                                      "server.Anime.html#id": {
+                                        "ref": "server.Anime.html#id",
                                         "tf": 33.33333333333333
                                       },
-                                      "YoutubePlayer.html#isNatif": {
-                                        "ref": "YoutubePlayer.html#isNatif",
-                                        "tf": 33.33333333333333
-                                      },
-                                      "YoutubePlayer.html#id": {
-                                        "ref": "YoutubePlayer.html#id",
+                                      "server.Anime.html#path": {
+                                        "ref": "server.Anime.html#path",
                                         "tf": 50
                                       },
-                                      "Anime.html#id": {
-                                        "ref": "Anime.html#id",
+                                      "server.Episode.html#episodeId": {
+                                        "ref": "server.Episode.html#episodeId",
                                         "tf": 33.33333333333333
                                       },
-                                      "Anime.html#path": {
-                                        "ref": "Anime.html#path",
-                                        "tf": 50
-                                      },
-                                      "Episode.html#episodeId": {
-                                        "ref": "Episode.html#episodeId",
+                                      "server.Episode.html#localLink": {
+                                        "ref": "server.Episode.html#localLink",
                                         "tf": 33.33333333333333
                                       },
-                                      "Episode.html#localLink": {
-                                        "ref": "Episode.html#localLink",
-                                        "tf": 33.33333333333333
-                                      },
-                                      "Episode.html#anime": {
-                                        "ref": "Episode.html#anime",
+                                      "server.Episode.html#anime": {
+                                        "ref": "server.Episode.html#anime",
                                         "tf": 33.33333333333333
                                       }
                                     }
@@ -3965,8 +8275,8 @@ window.lunrData = {
                             "docs": {},
                             "t": {
                               "docs": {
-                                "Episode.html#getInfo": {
-                                  "ref": "Episode.html#getInfo",
+                                "server.Episode.html#getInfo": {
+                                  "ref": "server.Episode.html#getInfo",
                                   "tf": 25
                                 }
                               }
@@ -3990,11 +8300,22 @@ window.lunrData = {
                   "docs": {},
                   "h": {
                     "docs": {
-                      "DownloadEpisode.html#download": {
-                        "ref": "DownloadEpisode.html#download",
+                      "server.DownloadEpisode.html#download": {
+                        "ref": "server.DownloadEpisode.html#download",
                         "tf": 25
                       }
                     }
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "t": {
+                "docs": {
+                  "server.global.html#.overrideLine": {
+                    "ref": "server.global.html#.overrideLine",
+                    "tf": 12.5
                   }
                 }
               }
@@ -4009,25 +8330,25 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "VideoPlayer.html#name": {
-                    "ref": "VideoPlayer.html#name",
-                    "tf": 708.3333333333334
+                  "server.VideoPlayer.html#name": {
+                    "ref": "server.VideoPlayer.html#name",
+                    "tf": 658.3333333333334
                   },
-                  "YoutubePlayer.html#name": {
-                    "ref": "YoutubePlayer.html#name",
-                    "tf": 708.3333333333334
+                  "server.Anime.html#name": {
+                    "ref": "server.Anime.html#name",
+                    "tf": 675
                   },
-                  "Anime.html#name": {
-                    "ref": "Anime.html#name",
-                    "tf": 725
+                  "server.Episode.html#name": {
+                    "ref": "server.Episode.html#name",
+                    "tf": 675
                   },
-                  "Episode.html#name": {
-                    "ref": "Episode.html#name",
-                    "tf": 725
+                  "server.html#.createLogFile": {
+                    "ref": "server.html#.createLogFile",
+                    "tf": 6.25
                   },
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 1.2711864406779663
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 1.7361111111111112
                   }
                 },
                 "s": {
@@ -4045,8 +8366,43 @@ window.lunrData = {
                           "server.html": {
                             "ref": "server.html",
                             "tf": 110
+                          },
+                          "server.https.html": {
+                            "ref": "server.https.html",
+                            "tf": 110
+                          },
+                          "server.global.html": {
+                            "ref": "server.global.html",
+                            "tf": 110
+                          },
+                          "server.image.html": {
+                            "ref": "server.image.html",
+                            "tf": 110
+                          },
+                          "server.data.html": {
+                            "ref": "server.data.html",
+                            "tf": 110
+                          },
+                          "server.data.config.html": {
+                            "ref": "server.data.config.html",
+                            "tf": 110
+                          },
+                          "server.data.public.html": {
+                            "ref": "server.data.public.html",
+                            "tf": 110
                           }
                         }
+                      }
+                    }
+                  }
+                },
+                "o": {
+                  "docs": {},
+                  "f": {
+                    "docs": {
+                      "server.global.html#.nameof": {
+                        "ref": "server.global.html#.nameof",
+                        "tf": 633.3333333333334
                       }
                     }
                   }
@@ -4064,21 +8420,121 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
-                      "DownloadEpisode.html#id": {
-                        "ref": "DownloadEpisode.html#id",
+                      "server.DownloadEpisode.html#id": {
+                        "ref": "server.DownloadEpisode.html#id",
                         "tf": 33.33333333333333
                       },
-                      "DownloadEpisode.html#progress": {
-                        "ref": "DownloadEpisode.html#progress",
+                      "server.DownloadEpisode.html#progress": {
+                        "ref": "server.DownloadEpisode.html#progress",
                         "tf": 33.33333333333333
                       },
-                      "Anime.html#id": {
-                        "ref": "Anime.html#id",
+                      "server.Anime.html#id": {
+                        "ref": "server.Anime.html#id",
                         "tf": 33.33333333333333
                       },
-                      "Episode.html#episodeId": {
-                        "ref": "Episode.html#episodeId",
+                      "server.Episode.html#episodeId": {
+                        "ref": "server.Episode.html#episodeId",
                         "tf": 33.33333333333333
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "w": {
+              "docs": {
+                "server.html#.createLogFile": {
+                  "ref": "server.html#.createLogFile",
+                  "tf": 6.25
+                },
+                "server.https.html#.start": {
+                  "ref": "server.https.html#.start",
+                  "tf": 0.6944444444444444
+                }
+              },
+              "/": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "m": {
+                        "docs": {
+                          "server.https.html#.start": {
+                            "ref": "server.https.html#.start",
+                            "tf": 0.3472222222222222
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "e": {
+                  "docs": {},
+                  "p": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "s": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "d": {
+                            "docs": {
+                              "server.https.html#.start": {
+                                "ref": "server.https.html#.start",
+                                "tf": 0.3472222222222222
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "l": {
+                "docs": {},
+                "i": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "server.global.html#.overrideLine": {
+                        "ref": "server.global.html#.overrideLine",
+                        "tf": 25
+                      },
+                      "server.global.html#.writeLog": {
+                        "ref": "server.global.html#.writeLog",
+                        "tf": 25
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "o": {
+            "docs": {},
+            "d": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                ".": {
+                  "docs": {},
+                  "j": {
+                    "docs": {
+                      "server.global.html#.__root": {
+                        "ref": "server.global.html#.__root",
+                        "tf": 16.666666666666664
+                      },
+                      "server.global.html#.__tempFolder": {
+                        "ref": "server.global.html#.__tempFolder",
+                        "tf": 12.5
                       }
                     }
                   }
@@ -4095,17 +8551,21 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "JsonObject.html": {
-                    "ref": "JsonObject.html",
+                  "server.JsonObject.html": {
+                    "ref": "server.JsonObject.html",
                     "tf": 12.5
                   },
-                  "Episode.html#localLink": {
-                    "ref": "Episode.html#localLink",
+                  "server.Episode.html#localLink": {
+                    "ref": "server.Episode.html#localLink",
                     "tf": 6.25
                   },
-                  "Episode.html#path": {
-                    "ref": "Episode.html#path",
+                  "server.Episode.html#path": {
+                    "ref": "server.Episode.html#path",
                     "tf": 4.545454545454546
+                  },
+                  "server.html#.createLogFile": {
+                    "ref": "server.html#.createLogFile",
+                    "tf": 6.25
                   }
                 },
                 "n": {
@@ -4114,9 +8574,13 @@ window.lunrData = {
                     "docs": {},
                     "m": {
                       "docs": {
-                        "VideoPlayer.html#download": {
-                          "ref": "VideoPlayer.html#download",
+                        "server.VideoPlayer.html#download": {
+                          "ref": "server.VideoPlayer.html#download",
                           "tf": 20
+                        },
+                        "server.global.html#.toFileName": {
+                          "ref": "server.global.html#.toFileName",
+                          "tf": 25
                         }
                       }
                     }
@@ -4128,28 +8592,16 @@ window.lunrData = {
               "docs": {},
               "e": {
                 "docs": {
-                  "VideoPlayer.html#_dispatchOnComplete": {
-                    "ref": "VideoPlayer.html#_dispatchOnComplete",
+                  "server.VideoPlayer.html#_dispatchOnComplete": {
+                    "ref": "server.VideoPlayer.html#_dispatchOnComplete",
                     "tf": 12.5
                   },
-                  "VideoPlayer.html#_dispatchOnProgress": {
-                    "ref": "VideoPlayer.html#_dispatchOnProgress",
+                  "server.VideoPlayer.html#_dispatchOnProgress": {
+                    "ref": "server.VideoPlayer.html#_dispatchOnProgress",
                     "tf": 12.5
                   },
-                  "VideoPlayer.html#_dispatchOnError": {
-                    "ref": "VideoPlayer.html#_dispatchOnError",
-                    "tf": 12.5
-                  },
-                  "YoutubePlayer.html#_dispatchOnComplete": {
-                    "ref": "YoutubePlayer.html#_dispatchOnComplete",
-                    "tf": 12.5
-                  },
-                  "YoutubePlayer.html#_dispatchOnProgress": {
-                    "ref": "YoutubePlayer.html#_dispatchOnProgress",
-                    "tf": 12.5
-                  },
-                  "YoutubePlayer.html#_dispatchOnError": {
-                    "ref": "YoutubePlayer.html#_dispatchOnError",
+                  "server.VideoPlayer.html#_dispatchOnError": {
+                    "ref": "server.VideoPlayer.html#_dispatchOnError",
                     "tf": 12.5
                   }
                 }
@@ -4158,12 +8610,12 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "VideoPlayer.html#.getPlayer": {
-                      "ref": "VideoPlayer.html#.getPlayer",
+                    "server.VideoPlayer.html#.getPlayer": {
+                      "ref": "server.VideoPlayer.html#.getPlayer",
                       "tf": 8.333333333333332
                     },
-                    "Episode.html#getUrlByPlayer": {
-                      "ref": "Episode.html#getUrlByPlayer",
+                    "server.Episode.html#getUrlByPlayer": {
+                      "ref": "server.Episode.html#getUrlByPlayer",
                       "tf": 12.5
                     }
                   }
@@ -4177,8 +8629,8 @@ window.lunrData = {
               "docs": {},
               "c": {
                 "docs": {
-                  "JsonObject.html#loadSync": {
-                    "ref": "JsonObject.html#loadSync",
+                  "server.JsonObject.html#loadSync": {
+                    "ref": "server.JsonObject.html#loadSync",
                     "tf": 50
                   }
                 },
@@ -4190,132 +8642,144 @@ window.lunrData = {
                       "docs": {},
                       "n": {
                         "docs": {
-                          "JsonObject.html#loadSync": {
-                            "ref": "JsonObject.html#loadSync",
+                          "server.JsonObject.html#loadSync": {
+                            "ref": "server.JsonObject.html#loadSync",
                             "tf": 110
                           },
-                          "JsonObject.html#load": {
-                            "ref": "JsonObject.html#load",
+                          "server.JsonObject.html#load": {
+                            "ref": "server.JsonObject.html#load",
                             "tf": 110
                           },
-                          "JsonObject.html#save": {
-                            "ref": "JsonObject.html#save",
+                          "server.JsonObject.html#save": {
+                            "ref": "server.JsonObject.html#save",
                             "tf": 110
                           },
-                          "DownloadEpisode.html#_setLocalPath": {
-                            "ref": "DownloadEpisode.html#_setLocalPath",
+                          "server.DownloadEpisode.html#_setLocalPath": {
+                            "ref": "server.DownloadEpisode.html#_setLocalPath",
                             "tf": 110
                           },
-                          "DownloadEpisode.html#download": {
-                            "ref": "DownloadEpisode.html#download",
+                          "server.DownloadEpisode.html#download": {
+                            "ref": "server.DownloadEpisode.html#download",
                             "tf": 110
                           },
-                          "DownloadEpisode.html#_setEvents": {
-                            "ref": "DownloadEpisode.html#_setEvents",
+                          "server.DownloadEpisode.html#_setEvents": {
+                            "ref": "server.DownloadEpisode.html#_setEvents",
                             "tf": 110
                           },
-                          "DownloadEpisode.html#destroy": {
-                            "ref": "DownloadEpisode.html#destroy",
+                          "server.DownloadEpisode.html#destroy": {
+                            "ref": "server.DownloadEpisode.html#destroy",
                             "tf": 110
                           },
-                          "DownloadEpisode.html#.getFromEpisode": {
-                            "ref": "DownloadEpisode.html#.getFromEpisode",
+                          "server.DownloadEpisode.html#.getFromEpisode": {
+                            "ref": "server.DownloadEpisode.html#.getFromEpisode",
                             "tf": 110
                           },
-                          "VideoPlayer.html#toPublic": {
-                            "ref": "VideoPlayer.html#toPublic",
+                          "server.VideoPlayer.html#toPublic": {
+                            "ref": "server.VideoPlayer.html#toPublic",
                             "tf": 110
                           },
-                          "VideoPlayer.html#_dispatchOnComplete": {
-                            "ref": "VideoPlayer.html#_dispatchOnComplete",
+                          "server.VideoPlayer.html#_dispatchOnComplete": {
+                            "ref": "server.VideoPlayer.html#_dispatchOnComplete",
                             "tf": 110
                           },
-                          "VideoPlayer.html#_dispatchOnProgress": {
-                            "ref": "VideoPlayer.html#_dispatchOnProgress",
+                          "server.VideoPlayer.html#_dispatchOnProgress": {
+                            "ref": "server.VideoPlayer.html#_dispatchOnProgress",
                             "tf": 110
                           },
-                          "VideoPlayer.html#_dispatchOnError": {
-                            "ref": "VideoPlayer.html#_dispatchOnError",
+                          "server.VideoPlayer.html#_dispatchOnError": {
+                            "ref": "server.VideoPlayer.html#_dispatchOnError",
                             "tf": 110
                           },
-                          "VideoPlayer.html#download": {
-                            "ref": "VideoPlayer.html#download",
+                          "server.VideoPlayer.html#download": {
+                            "ref": "server.VideoPlayer.html#download",
                             "tf": 110
                           },
-                          "VideoPlayer.html#hasPrefix": {
-                            "ref": "VideoPlayer.html#hasPrefix",
+                          "server.VideoPlayer.html#hasPrefix": {
+                            "ref": "server.VideoPlayer.html#hasPrefix",
                             "tf": 110
                           },
-                          "VideoPlayer.html#.getPlayer": {
-                            "ref": "VideoPlayer.html#.getPlayer",
+                          "server.VideoPlayer.html#.getPlayer": {
+                            "ref": "server.VideoPlayer.html#.getPlayer",
                             "tf": 110
                           },
-                          "VideoPlayer.html#.getVideoPlayerById": {
-                            "ref": "VideoPlayer.html#.getVideoPlayerById",
+                          "server.VideoPlayer.html#.getVideoPlayerById": {
+                            "ref": "server.VideoPlayer.html#.getVideoPlayerById",
                             "tf": 110
                           },
-                          "YoutubePlayer.html#toPublic": {
-                            "ref": "YoutubePlayer.html#toPublic",
+                          "server.YoutubePlayer.html#download": {
+                            "ref": "server.YoutubePlayer.html#download",
                             "tf": 110
                           },
-                          "YoutubePlayer.html#_dispatchOnComplete": {
-                            "ref": "YoutubePlayer.html#_dispatchOnComplete",
+                          "server.YoutubePlayer.html#getInfo": {
+                            "ref": "server.YoutubePlayer.html#getInfo",
                             "tf": 110
                           },
-                          "YoutubePlayer.html#_dispatchOnProgress": {
-                            "ref": "YoutubePlayer.html#_dispatchOnProgress",
+                          "server.Anime.html#toPublic": {
+                            "ref": "server.Anime.html#toPublic",
                             "tf": 110
                           },
-                          "YoutubePlayer.html#_dispatchOnError": {
-                            "ref": "YoutubePlayer.html#_dispatchOnError",
+                          "server.Anime.html#getEpisodeById": {
+                            "ref": "server.Anime.html#getEpisodeById",
                             "tf": 110
                           },
-                          "YoutubePlayer.html#hasPrefix": {
-                            "ref": "YoutubePlayer.html#hasPrefix",
+                          "server.Anime.html#updateJson": {
+                            "ref": "server.Anime.html#updateJson",
                             "tf": 110
                           },
-                          "YoutubePlayer.html#download": {
-                            "ref": "YoutubePlayer.html#download",
+                          "server.Anime.html#toAnimeConfig": {
+                            "ref": "server.Anime.html#toAnimeConfig",
                             "tf": 110
                           },
-                          "YoutubePlayer.html#getInfo": {
-                            "ref": "YoutubePlayer.html#getInfo",
+                          "server.Episode.html#toPublic": {
+                            "ref": "server.Episode.html#toPublic",
                             "tf": 110
                           },
-                          "Anime.html#toPublic": {
-                            "ref": "Anime.html#toPublic",
+                          "server.Episode.html#getInfo": {
+                            "ref": "server.Episode.html#getInfo",
                             "tf": 110
                           },
-                          "Anime.html#getEpisodeById": {
-                            "ref": "Anime.html#getEpisodeById",
+                          "server.Episode.html#getUrlByPlayer": {
+                            "ref": "server.Episode.html#getUrlByPlayer",
                             "tf": 110
                           },
-                          "Anime.html#updateJson": {
-                            "ref": "Anime.html#updateJson",
+                          "server.Episode.html#setLocalPath": {
+                            "ref": "server.Episode.html#setLocalPath",
                             "tf": 110
                           },
-                          "Anime.html#toAnimeConfig": {
-                            "ref": "Anime.html#toAnimeConfig",
+                          "server.Episode.html#toEpisodeConfig": {
+                            "ref": "server.Episode.html#toEpisodeConfig",
                             "tf": 110
                           },
-                          "Episode.html#toPublic": {
-                            "ref": "Episode.html#toPublic",
+                          "server.html#.createLogFile": {
+                            "ref": "server.html#.createLogFile",
                             "tf": 110
                           },
-                          "Episode.html#getInfo": {
-                            "ref": "Episode.html#getInfo",
+                          "server.https.html#.start": {
+                            "ref": "server.https.html#.start",
                             "tf": 110
                           },
-                          "Episode.html#getUrlByPlayer": {
-                            "ref": "Episode.html#getUrlByPlayer",
+                          "server.global.html#.GUIDGenerator": {
+                            "ref": "server.global.html#.GUIDGenerator",
                             "tf": 110
                           },
-                          "Episode.html#setLocalPath": {
-                            "ref": "Episode.html#setLocalPath",
+                          "server.global.html#.nameof": {
+                            "ref": "server.global.html#.nameof",
                             "tf": 110
                           },
-                          "Episode.html#toEpisodeConfig": {
-                            "ref": "Episode.html#toEpisodeConfig",
+                          "server.global.html#.overrideLine": {
+                            "ref": "server.global.html#.overrideLine",
+                            "tf": 110
+                          },
+                          "server.global.html#.writeLog": {
+                            "ref": "server.global.html#.writeLog",
+                            "tf": 110
+                          },
+                          "server.global.html#.toFileName": {
+                            "ref": "server.global.html#.toFileName",
+                            "tf": 110
+                          },
+                          "server.image.html#.exports.getThumbail": {
+                            "ref": "server.image.html#.exports.getThumbail",
                             "tf": 110
                           }
                         }
@@ -4336,21 +8800,21 @@ window.lunrData = {
                   "docs": {},
                   "t": {
                     "docs": {
-                      "DownloadEpisode.html#download": {
-                        "ref": "DownloadEpisode.html#download",
+                      "server.DownloadEpisode.html#download": {
+                        "ref": "server.DownloadEpisode.html#download",
                         "tf": 33.33333333333333
                       },
-                      "VideoPlayer.html#download": {
-                        "ref": "VideoPlayer.html#download",
+                      "server.VideoPlayer.html#download": {
+                        "ref": "server.VideoPlayer.html#download",
                         "tf": 20
                       },
-                      "YoutubePlayer.html#download": {
-                        "ref": "YoutubePlayer.html#download",
+                      "server.YoutubePlayer.html#download": {
+                        "ref": "server.YoutubePlayer.html#download",
                         "tf": 20
                       },
-                      "server.html": {
-                        "ref": "server.html",
-                        "tf": 0.423728813559322
+                      "server.https.html#.start": {
+                        "ref": "server.https.html#.start",
+                        "tf": 0.3472222222222222
                       }
                     }
                   }
@@ -4365,17 +8829,29 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
-                      "Anime.html#_path": {
-                        "ref": "Anime.html#_path",
+                      "server.Anime.html#_path": {
+                        "ref": "server.Anime.html#_path",
                         "tf": 16.666666666666664
                       },
-                      "Anime.html#path": {
-                        "ref": "Anime.html#path",
+                      "server.Anime.html#path": {
+                        "ref": "server.Anime.html#path",
                         "tf": 12.5
                       },
-                      "server.html": {
-                        "ref": "server.html",
-                        "tf": 2.5423728813559325
+                      "server.html#.createLogFile": {
+                        "ref": "server.html#.createLogFile",
+                        "tf": 6.25
+                      },
+                      "server.https.html#.start": {
+                        "ref": "server.https.html#.start",
+                        "tf": 2.083333333333333
+                      },
+                      "server.global.html#.__root": {
+                        "ref": "server.global.html#.__root",
+                        "tf": 16.666666666666664
+                      },
+                      "server.global.html#.__tempFolder": {
+                        "ref": "server.global.html#.__tempFolder",
+                        "tf": 12.5
                       }
                     }
                   }
@@ -4386,9 +8862,9 @@ window.lunrData = {
               "docs": {},
               "t": {
                 "docs": {
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 0.847457627118644
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 0.6944444444444444
                   }
                 }
               }
@@ -4402,8 +8878,8 @@ window.lunrData = {
                 "docs": {},
                 "h": {
                   "docs": {
-                    "YoutubePlayer.html#getInfo": {
-                      "ref": "YoutubePlayer.html#getInfo",
+                    "server.YoutubePlayer.html#getInfo": {
+                      "ref": "server.YoutubePlayer.html#getInfo",
                       "tf": 12.5
                     }
                   }
@@ -4416,29 +8892,29 @@ window.lunrData = {
           "docs": {},
           "s": {
             "docs": {
-              "server.html": {
-                "ref": "server.html",
-                "tf": 0.847457627118644
+              "server.https.html#.start": {
+                "ref": "server.https.html#.start",
+                "tf": 0.6944444444444444
               }
             },
             "o": {
               "docs": {},
               "n": {
                 "docs": {
-                  "JsonObject.html": {
-                    "ref": "JsonObject.html",
+                  "server.JsonObject.html": {
+                    "ref": "server.JsonObject.html",
                     "tf": 12.5
                   },
-                  "DownloadEpisode.html#isReady": {
-                    "ref": "DownloadEpisode.html#isReady",
+                  "server.DownloadEpisode.html#isReady": {
+                    "ref": "server.DownloadEpisode.html#isReady",
                     "tf": 12.5
                   },
-                  "Anime.html#jsonObject": {
-                    "ref": "Anime.html#jsonObject",
+                  "server.Anime.html#jsonObject": {
+                    "ref": "server.Anime.html#jsonObject",
                     "tf": 6.25
                   },
-                  "Anime.html#updateJson": {
-                    "ref": "Anime.html#updateJson",
+                  "server.Anime.html#updateJson": {
+                    "ref": "server.Anime.html#updateJson",
                     "tf": 7.142857142857142
                   }
                 },
@@ -4454,13 +8930,13 @@ window.lunrData = {
                           "docs": {},
                           "t": {
                             "docs": {
-                              "JsonObject.html": {
-                                "ref": "JsonObject.html",
-                                "tf": 1900
+                              "server.JsonObject.html": {
+                                "ref": "server.JsonObject.html",
+                                "tf": 650
                               },
-                              "Anime.html#jsonObject": {
-                                "ref": "Anime.html#jsonObject",
-                                "tf": 700
+                              "server.Anime.html#jsonObject": {
+                                "ref": "server.Anime.html#jsonObject",
+                                "tf": 650
                               }
                             },
                             "#": {
@@ -4473,9 +8949,9 @@ window.lunrData = {
                                     "docs": {},
                                     "d": {
                                       "docs": {
-                                        "JsonObject.html#load": {
-                                          "ref": "JsonObject.html#load",
-                                          "tf": 1150
+                                        "server.JsonObject.html#load": {
+                                          "ref": "server.JsonObject.html#load",
+                                          "tf": 100
                                         }
                                       },
                                       "s": {
@@ -4486,9 +8962,9 @@ window.lunrData = {
                                             "docs": {},
                                             "c": {
                                               "docs": {
-                                                "JsonObject.html#loadSync": {
-                                                  "ref": "JsonObject.html#loadSync",
-                                                  "tf": 1150
+                                                "server.JsonObject.html#loadSync": {
+                                                  "ref": "server.JsonObject.html#loadSync",
+                                                  "tf": 100
                                                 }
                                               }
                                             }
@@ -4505,9 +8981,9 @@ window.lunrData = {
                                   "docs": {},
                                   "v": {
                                     "docs": {
-                                      "JsonObject.html#save": {
-                                        "ref": "JsonObject.html#save",
-                                        "tf": 1150
+                                      "server.JsonObject.html#save": {
+                                        "ref": "server.JsonObject.html#save",
+                                        "tf": 100
                                       }
                                     }
                                   }
@@ -4562,16 +9038,16 @@ window.lunrData = {
                                             "docs": {},
                                             "t": {
                                               "docs": {
-                                                "JsonObject.html#save": {
-                                                  "ref": "JsonObject.html#save",
+                                                "server.JsonObject.html#save": {
+                                                  "ref": "server.JsonObject.html#save",
                                                   "tf": 50
                                                 },
-                                                "Anime.html#updateJson": {
-                                                  "ref": "Anime.html#updateJson",
+                                                "server.Anime.html#updateJson": {
+                                                  "ref": "server.Anime.html#updateJson",
                                                   "tf": 50
                                                 },
-                                                "Episode.html#setLocalPath": {
-                                                  "ref": "Episode.html#setLocalPath",
+                                                "server.Episode.html#setLocalPath": {
+                                                  "ref": "server.Episode.html#setLocalPath",
                                                   "tf": 33.33333333333333
                                                 }
                                               }
@@ -4616,8 +9092,8 @@ window.lunrData = {
                                                                 "docs": {},
                                                                 "t": {
                                                                   "docs": {
-                                                                    "YoutubePlayer.html#getInfo": {
-                                                                      "ref": "YoutubePlayer.html#getInfo",
+                                                                    "server.YoutubePlayer.html#getInfo": {
+                                                                      "ref": "server.YoutubePlayer.html#getInfo",
                                                                       "tf": 33.33333333333333
                                                                     }
                                                                   }
@@ -4666,14 +9142,46 @@ window.lunrData = {
                                                           "docs": {},
                                                           "t": {
                                                             "docs": {
-                                                              "Episode.html#getInfo": {
-                                                                "ref": "Episode.html#getInfo",
+                                                              "server.Episode.html#getInfo": {
+                                                                "ref": "server.Episode.html#getInfo",
                                                                 "tf": 25
                                                               }
                                                             }
                                                           }
                                                         }
                                                       }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "s": {
+                                  "docs": {},
+                                  "t": {
+                                    "docs": {},
+                                    "r": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "n": {
+                                          "docs": {},
+                                          "g": {
+                                            "docs": {},
+                                            "&": {
+                                              "docs": {},
+                                              "g": {
+                                                "docs": {},
+                                                "t": {
+                                                  "docs": {
+                                                    "server.image.html#.exports.getThumbail": {
+                                                      "ref": "server.image.html#.exports.getThumbail",
+                                                      "tf": 20
                                                     }
                                                   }
                                                 }
@@ -4704,16 +9212,12 @@ window.lunrData = {
                       "docs": {},
                       "s": {
                         "docs": {
-                          "DownloadEpisode.html#progress": {
-                            "ref": "DownloadEpisode.html#progress",
-                            "tf": 708.3333333333334
+                          "server.DownloadEpisode.html#progress": {
+                            "ref": "server.DownloadEpisode.html#progress",
+                            "tf": 658.3333333333334
                           },
-                          "VideoPlayer.html#_dispatchOnProgress": {
-                            "ref": "VideoPlayer.html#_dispatchOnProgress",
-                            "tf": 12.5
-                          },
-                          "YoutubePlayer.html#_dispatchOnProgress": {
-                            "ref": "YoutubePlayer.html#_dispatchOnProgress",
+                          "server.VideoPlayer.html#_dispatchOnProgress": {
+                            "ref": "server.VideoPlayer.html#_dispatchOnProgress",
                             "tf": 12.5
                           }
                         },
@@ -4769,9 +9273,9 @@ window.lunrData = {
                                                                           "docs": {},
                                                                           "s": {
                                                                             "docs": {
-                                                                              "server.html": {
-                                                                                "ref": "server.html",
-                                                                                "tf": 0.847457627118644
+                                                                              "server.https.html#.start": {
+                                                                                "ref": "server.https.html#.start",
+                                                                                "tf": 0.6944444444444444
                                                                               }
                                                                             }
                                                                           }
@@ -4804,6 +9308,24 @@ window.lunrData = {
                     }
                   }
                 }
+              },
+              "j": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "server.global.html#.__root": {
+                        "ref": "server.global.html#.__root",
+                        "tf": 16.666666666666664
+                      },
+                      "server.global.html#.__tempFolder": {
+                        "ref": "server.global.html#.__tempFolder",
+                        "tf": 12.5
+                      }
+                    }
+                  }
+                }
               }
             },
             "e": {
@@ -4814,35 +9336,23 @@ window.lunrData = {
                   "docs": {},
                   "x": {
                     "docs": {
-                      "VideoPlayer.html#prefix": {
-                        "ref": "VideoPlayer.html#prefix",
-                        "tf": 700
+                      "server.VideoPlayer.html#prefix": {
+                        "ref": "server.VideoPlayer.html#prefix",
+                        "tf": 650
                       },
-                      "VideoPlayer.html#hasPrefix": {
-                        "ref": "VideoPlayer.html#hasPrefix",
+                      "server.VideoPlayer.html#hasPrefix": {
+                        "ref": "server.VideoPlayer.html#hasPrefix",
                         "tf": 15
                       },
-                      "VideoPlayer.html#.getPlayer": {
-                        "ref": "VideoPlayer.html#.getPlayer",
+                      "server.VideoPlayer.html#.getPlayer": {
+                        "ref": "server.VideoPlayer.html#.getPlayer",
                         "tf": 8.333333333333332
-                      },
-                      "YoutubePlayer.html#prefix": {
-                        "ref": "YoutubePlayer.html#prefix",
-                        "tf": 700
-                      },
-                      "YoutubePlayer.html#hasPrefix": {
-                        "ref": "YoutubePlayer.html#hasPrefix",
-                        "tf": 15
                       }
                     },
                     "(": {
                       "docs": {
-                        "VideoPlayer.html#prefix": {
-                          "ref": "VideoPlayer.html#prefix",
-                          "tf": 16.666666666666664
-                        },
-                        "YoutubePlayer.html#prefix": {
-                          "ref": "YoutubePlayer.html#prefix",
+                        "server.VideoPlayer.html#prefix": {
+                          "ref": "server.VideoPlayer.html#prefix",
                           "tf": 16.666666666666664
                         }
                       }
@@ -4862,17 +9372,42 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
-                      "DownloadEpisode.html#player": {
-                        "ref": "DownloadEpisode.html#player",
-                        "tf": 685
+                      "server.DownloadEpisode.html#player": {
+                        "ref": "server.DownloadEpisode.html#player",
+                        "tf": 635
                       },
-                      "VideoPlayer.html#.getVideoPlayerById": {
-                        "ref": "VideoPlayer.html#.getVideoPlayerById",
+                      "server.VideoPlayer.html#.getVideoPlayerById": {
+                        "ref": "server.VideoPlayer.html#.getVideoPlayerById",
                         "tf": 12.5
                       },
-                      "Episode.html#getUrlByPlayer": {
-                        "ref": "Episode.html#getUrlByPlayer",
+                      "server.Episode.html#getUrlByPlayer": {
+                        "ref": "server.Episode.html#getUrlByPlayer",
                         "tf": 33.33333333333333
+                      },
+                      "server.data.public.html#.PublicVideoPlayer": {
+                        "ref": "server.data.public.html#.PublicVideoPlayer",
+                        "tf": 12.5
+                      }
+                    },
+                    "i": {
+                      "docs": {},
+                      "n": {
+                        "docs": {},
+                        "f": {
+                          "docs": {},
+                          "o": {
+                            "docs": {
+                              "server.data.public.html#.PlayerInfo": {
+                                "ref": "server.data.public.html#.PlayerInfo",
+                                "tf": 675
+                              },
+                              "server.data.public.html#.EpisodeInfo": {
+                                "ref": "server.data.public.html#.EpisodeInfo",
+                                "tf": 10
+                              }
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -4886,8 +9421,8 @@ window.lunrData = {
               "docs": {},
               "d": {
                 "docs": {
-                  "DownloadEpisode.html#isPending": {
-                    "ref": "DownloadEpisode.html#isPending",
+                  "server.DownloadEpisode.html#isPending": {
+                    "ref": "server.DownloadEpisode.html#isPending",
                     "tf": 25
                   }
                 }
@@ -4900,25 +9435,33 @@ window.lunrData = {
               "docs": {},
               "h": {
                 "docs": {
-                  "Anime.html#_path": {
-                    "ref": "Anime.html#_path",
+                  "server.Anime.html#_path": {
+                    "ref": "server.Anime.html#_path",
                     "tf": 16.666666666666664
                   },
-                  "Anime.html#path": {
-                    "ref": "Anime.html#path",
-                    "tf": 712.5
+                  "server.Anime.html#path": {
+                    "ref": "server.Anime.html#path",
+                    "tf": 662.5
                   },
-                  "Episode.html#localLink": {
-                    "ref": "Episode.html#localLink",
+                  "server.Episode.html#localLink": {
+                    "ref": "server.Episode.html#localLink",
                     "tf": 6.25
                   },
-                  "Episode.html#path": {
-                    "ref": "Episode.html#path",
-                    "tf": 709.0909090909091
+                  "server.Episode.html#path": {
+                    "ref": "server.Episode.html#path",
+                    "tf": 659.0909090909091
                   },
-                  "Episode.html#setLocalPath": {
-                    "ref": "Episode.html#setLocalPath",
+                  "server.Episode.html#setLocalPath": {
+                    "ref": "server.Episode.html#setLocalPath",
                     "tf": 33.33333333333333
+                  },
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 0.3472222222222222
+                  },
+                  "server.global.html#.__logFile": {
+                    "ref": "server.global.html#.__logFile",
+                    "tf": 25
                   }
                 },
                 "t": {
@@ -4931,8 +9474,8 @@ window.lunrData = {
                         "docs": {},
                         "l": {
                           "docs": {
-                            "DownloadEpisode.html#_setLocalPath": {
-                              "ref": "DownloadEpisode.html#_setLocalPath",
+                            "server.DownloadEpisode.html#_setLocalPath": {
+                              "ref": "server.DownloadEpisode.html#_setLocalPath",
                               "tf": 33.33333333333333
                             }
                           }
@@ -4985,8 +9528,8 @@ window.lunrData = {
                                                           "docs": {},
                                                           "h": {
                                                             "docs": {
-                                                              "Episode.html#path": {
-                                                                "ref": "Episode.html#path",
+                                                              "server.Episode.html#path": {
+                                                                "ref": "server.Episode.html#path",
                                                                 "tf": 4.545454545454546
                                                               }
                                                             }
@@ -5020,9 +9563,9 @@ window.lunrData = {
                 "docs": {},
                 "m": {
                   "docs": {
-                    "server.html": {
-                      "ref": "server.html",
-                      "tf": 6.3559322033898304
+                    "server.https.html#.start": {
+                      "ref": "server.https.html#.start",
+                      "tf": 5.902777777777778
                     }
                   }
                 }
@@ -5039,25 +9582,37 @@ window.lunrData = {
                   "docs": {},
                   "c": {
                     "docs": {
-                      "VideoPlayer.html#toPublic": {
-                        "ref": "VideoPlayer.html#toPublic",
+                      "server.VideoPlayer.html#toPublic": {
+                        "ref": "server.VideoPlayer.html#toPublic",
                         "tf": 7.142857142857142
                       },
-                      "YoutubePlayer.html#toPublic": {
-                        "ref": "YoutubePlayer.html#toPublic",
-                        "tf": 7.142857142857142
-                      },
-                      "Anime.html#.publicList": {
-                        "ref": "Anime.html#.publicList",
+                      "server.Anime.html#.publicList": {
+                        "ref": "server.Anime.html#.publicList",
                         "tf": 10
                       },
-                      "Anime.html#toPublic": {
-                        "ref": "Anime.html#toPublic",
+                      "server.Anime.html#toPublic": {
+                        "ref": "server.Anime.html#toPublic",
                         "tf": 7.142857142857142
                       },
-                      "Episode.html#toPublic": {
-                        "ref": "Episode.html#toPublic",
+                      "server.Episode.html#toPublic": {
+                        "ref": "server.Episode.html#toPublic",
                         "tf": 7.142857142857142
+                      },
+                      "server.data.public.html": {
+                        "ref": "server.data.public.html",
+                        "tf": 600
+                      },
+                      "server.data.public.html#.PublicVideoPlayer": {
+                        "ref": "server.data.public.html#.PublicVideoPlayer",
+                        "tf": 12.5
+                      },
+                      "server.data.public.html#.PublicAnime": {
+                        "ref": "server.data.public.html#.PublicAnime",
+                        "tf": 16.666666666666664
+                      },
+                      "server.data.public.html#.PublicEpisode": {
+                        "ref": "server.data.public.html#.PublicEpisode",
+                        "tf": 16.666666666666664
                       }
                     },
                     "v": {
@@ -5078,13 +9633,13 @@ window.lunrData = {
                                     "docs": {},
                                     "y": {
                                       "docs": {
-                                        "VideoPlayer.html#toPublic": {
-                                          "ref": "VideoPlayer.html#toPublic",
+                                        "server.VideoPlayer.html#toPublic": {
+                                          "ref": "server.VideoPlayer.html#toPublic",
                                           "tf": 50
                                         },
-                                        "YoutubePlayer.html#toPublic": {
-                                          "ref": "YoutubePlayer.html#toPublic",
-                                          "tf": 50
+                                        "server.data.public.html#.PublicVideoPlayer": {
+                                          "ref": "server.data.public.html#.PublicVideoPlayer",
+                                          "tf": 675
                                         }
                                       }
                                     }
@@ -5104,9 +9659,9 @@ window.lunrData = {
                           "docs": {},
                           "t": {
                             "docs": {
-                              "Anime.html#.publicList": {
-                                "ref": "Anime.html#.publicList",
-                                "tf": 700
+                              "server.Anime.html#.publicList": {
+                                "ref": "server.Anime.html#.publicList",
+                                "tf": 650
                               }
                             }
                           }
@@ -5121,9 +9676,13 @@ window.lunrData = {
                           "docs": {},
                           "m": {
                             "docs": {
-                              "Anime.html#toPublic": {
-                                "ref": "Anime.html#toPublic",
+                              "server.Anime.html#toPublic": {
+                                "ref": "server.Anime.html#toPublic",
                                 "tf": 50
+                              },
+                              "server.data.public.html#.PublicAnime": {
+                                "ref": "server.data.public.html#.PublicAnime",
+                                "tf": 675
                               }
                             }
                           }
@@ -5142,9 +9701,176 @@ window.lunrData = {
                               "docs": {},
                               "d": {
                                 "docs": {
-                                  "Episode.html#toPublic": {
-                                    "ref": "Episode.html#toPublic",
+                                  "server.Episode.html#toPublic": {
+                                    "ref": "server.Episode.html#toPublic",
                                     "tf": 50
+                                  },
+                                  "server.data.public.html#.PublicEpisode": {
+                                    "ref": "server.data.public.html#.PublicEpisode",
+                                    "tf": 675
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    ".": {
+                      "docs": {},
+                      "p": {
+                        "docs": {},
+                        "u": {
+                          "docs": {},
+                          "b": {
+                            "docs": {},
+                            "l": {
+                              "docs": {},
+                              "i": {
+                                "docs": {},
+                                "c": {
+                                  "docs": {},
+                                  "v": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "d": {
+                                        "docs": {},
+                                        "e": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "p": {
+                                              "docs": {},
+                                              "l": {
+                                                "docs": {},
+                                                "a": {
+                                                  "docs": {},
+                                                  "y": {
+                                                    "docs": {
+                                                      "server.data.public.html#.PublicVideoPlayer": {
+                                                        "ref": "server.data.public.html#.PublicVideoPlayer",
+                                                        "tf": 75
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "a": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "m": {
+                                          "docs": {
+                                            "server.data.public.html#.PublicAnime": {
+                                              "ref": "server.data.public.html#.PublicAnime",
+                                              "tf": 75
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "e": {
+                                    "docs": {},
+                                    "p": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "s": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {},
+                                            "d": {
+                                              "docs": {
+                                                "server.data.public.html#.PublicEpisode": {
+                                                  "ref": "server.data.public.html#.PublicEpisode",
+                                                  "tf": 75
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "l": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "y": {
+                              "docs": {},
+                              "e": {
+                                "docs": {},
+                                "r": {
+                                  "docs": {},
+                                  "i": {
+                                    "docs": {},
+                                    "n": {
+                                      "docs": {},
+                                      "f": {
+                                        "docs": {},
+                                        "o": {
+                                          "docs": {
+                                            "server.data.public.html#.PlayerInfo": {
+                                              "ref": "server.data.public.html#.PlayerInfo",
+                                              "tf": 75
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "e": {
+                        "docs": {},
+                        "p": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "s": {
+                              "docs": {},
+                              "o": {
+                                "docs": {},
+                                "d": {
+                                  "docs": {},
+                                  "e": {
+                                    "docs": {},
+                                    "i": {
+                                      "docs": {},
+                                      "n": {
+                                        "docs": {},
+                                        "f": {
+                                          "docs": {},
+                                          "o": {
+                                            "docs": {
+                                              "server.data.public.html#.EpisodeInfo": {
+                                                "ref": "server.data.public.html#.EpisodeInfo",
+                                                "tf": 75
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
                                   }
                                 }
                               }
@@ -5168,12 +9894,12 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
-                      "Anime.html#thumbnailLink": {
-                        "ref": "Anime.html#thumbnailLink",
+                      "server.Anime.html#thumbnailLink": {
+                        "ref": "server.Anime.html#thumbnailLink",
                         "tf": 16.666666666666664
                       },
-                      "Episode.html#posterLink": {
-                        "ref": "Episode.html#posterLink",
+                      "server.Episode.html#posterLink": {
+                        "ref": "server.Episode.html#posterLink",
                         "tf": 16.666666666666664
                       }
                     },
@@ -5185,12 +9911,12 @@ window.lunrData = {
                           "docs": {},
                           "k": {
                             "docs": {
-                              "Episode.html#posterLink": {
-                                "ref": "Episode.html#posterLink",
-                                "tf": 700
+                              "server.Episode.html#posterLink": {
+                                "ref": "server.Episode.html#posterLink",
+                                "tf": 650
                               },
-                              "Episode.html#hasPoster": {
-                                "ref": "Episode.html#hasPoster",
+                              "server.Episode.html#hasPoster": {
+                                "ref": "server.Episode.html#hasPoster",
                                 "tf": 16.666666666666664
                               }
                             }
@@ -5214,8 +9940,8 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
-                    "DownloadEpisode.html": {
-                      "ref": "DownloadEpisode.html",
+                    "server.DownloadEpisode.html": {
+                      "ref": "server.DownloadEpisode.html",
                       "tf": 4.545454545454546
                     }
                   }
@@ -5233,61 +9959,73 @@ window.lunrData = {
                   "docs": {},
                   "d": {
                     "docs": {
-                      "DownloadEpisode.html": {
-                        "ref": "DownloadEpisode.html",
+                      "server.DownloadEpisode.html": {
+                        "ref": "server.DownloadEpisode.html",
                         "tf": 4.545454545454546
                       },
-                      "DownloadEpisode.html#episode": {
-                        "ref": "DownloadEpisode.html#episode",
-                        "tf": 733.3333333333333
+                      "server.DownloadEpisode.html#episode": {
+                        "ref": "server.DownloadEpisode.html#episode",
+                        "tf": 683.3333333333333
                       },
-                      "DownloadEpisode.html#.getFromEpisode": {
-                        "ref": "DownloadEpisode.html#.getFromEpisode",
+                      "server.DownloadEpisode.html#.getFromEpisode": {
+                        "ref": "server.DownloadEpisode.html#.getFromEpisode",
                         "tf": 33.33333333333333
                       },
-                      "Anime.html#episodes": {
-                        "ref": "Anime.html#episodes",
-                        "tf": 725
+                      "server.Anime.html#episodes": {
+                        "ref": "server.Anime.html#episodes",
+                        "tf": 675
                       },
-                      "Anime.html#getEpisodeById": {
-                        "ref": "Anime.html#getEpisodeById",
+                      "server.Anime.html#getEpisodeById": {
+                        "ref": "server.Anime.html#getEpisodeById",
                         "tf": 16.666666666666664
                       },
-                      "Anime.html#updateJson": {
-                        "ref": "Anime.html#updateJson",
+                      "server.Anime.html#updateJson": {
+                        "ref": "server.Anime.html#updateJson",
                         "tf": 7.142857142857142
                       },
-                      "Episode.html": {
-                        "ref": "Episode.html",
-                        "tf": 1916.6666666666667
+                      "server.Episode.html": {
+                        "ref": "server.Episode.html",
+                        "tf": 666.6666666666666
                       },
-                      "Episode.html#name": {
-                        "ref": "Episode.html#name",
+                      "server.Episode.html#name": {
+                        "ref": "server.Episode.html#name",
                         "tf": 25
                       },
-                      "Episode.html#episodeId": {
-                        "ref": "Episode.html#episodeId",
+                      "server.Episode.html#episodeId": {
+                        "ref": "server.Episode.html#episodeId",
                         "tf": 14.285714285714285
                       },
-                      "Episode.html#posterLink": {
-                        "ref": "Episode.html#posterLink",
+                      "server.Episode.html#posterLink": {
+                        "ref": "server.Episode.html#posterLink",
                         "tf": 16.666666666666664
                       },
-                      "Episode.html#toPublic": {
-                        "ref": "Episode.html#toPublic",
+                      "server.Episode.html#toPublic": {
+                        "ref": "server.Episode.html#toPublic",
                         "tf": 7.142857142857142
                       },
-                      "Episode.html#getInfo": {
-                        "ref": "Episode.html#getInfo",
+                      "server.Episode.html#getInfo": {
+                        "ref": "server.Episode.html#getInfo",
                         "tf": 25
                       },
-                      "Episode.html#toEpisodeConfig": {
-                        "ref": "Episode.html#toEpisodeConfig",
+                      "server.Episode.html#toEpisodeConfig": {
+                        "ref": "server.Episode.html#toEpisodeConfig",
                         "tf": 16.666666666666664
                       },
-                      "server.html": {
-                        "ref": "server.html",
-                        "tf": 3.389830508474576
+                      "server.https.html#.start": {
+                        "ref": "server.https.html#.start",
+                        "tf": 3.125
+                      },
+                      "server.data.config.html#.EpisodeConfig": {
+                        "ref": "server.data.config.html#.EpisodeConfig",
+                        "tf": 25
+                      },
+                      "server.data.public.html#.PublicEpisode": {
+                        "ref": "server.data.public.html#.PublicEpisode",
+                        "tf": 16.666666666666664
+                      },
+                      "server.data.public.html#.EpisodeInfo": {
+                        "ref": "server.data.public.html#.EpisodeInfo",
+                        "tf": 10
                       }
                     },
                     "e": {
@@ -5318,13 +10056,13 @@ window.lunrData = {
                                               "docs": {},
                                               "h": {
                                                 "docs": {
-                                                  "DownloadEpisode.html#_setLocalPath": {
-                                                    "ref": "DownloadEpisode.html#_setLocalPath",
+                                                  "server.DownloadEpisode.html#_setLocalPath": {
+                                                    "ref": "server.DownloadEpisode.html#_setLocalPath",
                                                     "tf": 7.142857142857142
                                                   },
-                                                  "Episode.html#setLocalPath": {
-                                                    "ref": "Episode.html#setLocalPath",
-                                                    "tf": 1150
+                                                  "server.Episode.html#setLocalPath": {
+                                                    "ref": "server.Episode.html#setLocalPath",
+                                                    "tf": 100
                                                   }
                                                 }
                                               }
@@ -5345,9 +10083,9 @@ window.lunrData = {
                             "docs": {},
                             "m": {
                               "docs": {
-                                "Episode.html#name": {
-                                  "ref": "Episode.html#name",
-                                  "tf": 1150
+                                "server.Episode.html#name": {
+                                  "ref": "server.Episode.html#name",
+                                  "tf": 100
                                 }
                               }
                             }
@@ -5371,9 +10109,9 @@ window.lunrData = {
                                         "docs": {},
                                         "d": {
                                           "docs": {
-                                            "Episode.html#episodeId": {
-                                              "ref": "Episode.html#episodeId",
-                                              "tf": 1150
+                                            "server.Episode.html#episodeId": {
+                                              "ref": "server.Episode.html#episodeId",
+                                              "tf": 100
                                             }
                                           }
                                         }
@@ -5405,9 +10143,9 @@ window.lunrData = {
                                           "docs": {},
                                           "k": {
                                             "docs": {
-                                              "Episode.html#posterLink": {
-                                                "ref": "Episode.html#posterLink",
-                                                "tf": 1150
+                                              "server.Episode.html#posterLink": {
+                                                "ref": "server.Episode.html#posterLink",
+                                                "tf": 100
                                               }
                                             }
                                           }
@@ -5425,9 +10163,9 @@ window.lunrData = {
                               "docs": {},
                               "h": {
                                 "docs": {
-                                  "Episode.html#path": {
-                                    "ref": "Episode.html#path",
-                                    "tf": 1150
+                                  "server.Episode.html#path": {
+                                    "ref": "server.Episode.html#path",
+                                    "tf": 100
                                   }
                                 }
                               }
@@ -5442,9 +10180,9 @@ window.lunrData = {
                               "docs": {},
                               "k": {
                                 "docs": {
-                                  "Episode.html#links": {
-                                    "ref": "Episode.html#links",
-                                    "tf": 1150
+                                  "server.Episode.html#links": {
+                                    "ref": "server.Episode.html#links",
+                                    "tf": 100
                                   }
                                 }
                               }
@@ -5466,9 +10204,9 @@ window.lunrData = {
                                         "docs": {},
                                         "k": {
                                           "docs": {
-                                            "Episode.html#localLink": {
-                                              "ref": "Episode.html#localLink",
-                                              "tf": 1150
+                                            "server.Episode.html#localLink": {
+                                              "ref": "server.Episode.html#localLink",
+                                              "tf": 100
                                             }
                                           }
                                         }
@@ -5488,9 +10226,9 @@ window.lunrData = {
                               "docs": {},
                               "m": {
                                 "docs": {
-                                  "Episode.html#anime": {
-                                    "ref": "Episode.html#anime",
-                                    "tf": 1150
+                                  "server.Episode.html#anime": {
+                                    "ref": "server.Episode.html#anime",
+                                    "tf": 100
                                   }
                                 }
                               }
@@ -5507,9 +10245,9 @@ window.lunrData = {
                                 "docs": {},
                                 "c": {
                                   "docs": {
-                                    "Episode.html#isLocal": {
-                                      "ref": "Episode.html#isLocal",
-                                      "tf": 1150
+                                    "server.Episode.html#isLocal": {
+                                      "ref": "server.Episode.html#isLocal",
+                                      "tf": 100
                                     }
                                   }
                                 }
@@ -5531,9 +10269,9 @@ window.lunrData = {
                                     "docs": {},
                                     "t": {
                                       "docs": {
-                                        "Episode.html#hasPoster": {
-                                          "ref": "Episode.html#hasPoster",
-                                          "tf": 1150
+                                        "server.Episode.html#hasPoster": {
+                                          "ref": "server.Episode.html#hasPoster",
+                                          "tf": 100
                                         }
                                       }
                                     }
@@ -5555,9 +10293,9 @@ window.lunrData = {
                                   "docs": {},
                                   "l": {
                                     "docs": {
-                                      "Episode.html#toPublic": {
-                                        "ref": "Episode.html#toPublic",
-                                        "tf": 1150
+                                      "server.Episode.html#toPublic": {
+                                        "ref": "server.Episode.html#toPublic",
+                                        "tf": 100
                                       }
                                     }
                                   }
@@ -5590,9 +10328,9 @@ window.lunrData = {
                                                     "docs": {},
                                                     "g": {
                                                       "docs": {
-                                                        "Episode.html#toEpisodeConfig": {
-                                                          "ref": "Episode.html#toEpisodeConfig",
-                                                          "tf": 1150
+                                                        "server.Episode.html#toEpisodeConfig": {
+                                                          "ref": "server.Episode.html#toEpisodeConfig",
+                                                          "tf": 100
                                                         }
                                                       }
                                                     }
@@ -5624,9 +10362,9 @@ window.lunrData = {
                                     "docs": {},
                                     "o": {
                                       "docs": {
-                                        "Episode.html#getInfo": {
-                                          "ref": "Episode.html#getInfo",
-                                          "tf": 1150
+                                        "server.Episode.html#getInfo": {
+                                          "ref": "server.Episode.html#getInfo",
+                                          "tf": 100
                                         }
                                       }
                                     }
@@ -5651,9 +10389,9 @@ window.lunrData = {
                                               "docs": {},
                                               "y": {
                                                 "docs": {
-                                                  "Episode.html#getUrlByPlayer": {
-                                                    "ref": "Episode.html#getUrlByPlayer",
-                                                    "tf": 1150
+                                                  "server.Episode.html#getUrlByPlayer": {
+                                                    "ref": "server.Episode.html#getUrlByPlayer",
+                                                    "tf": 100
                                                   }
                                                 }
                                               }
@@ -5679,12 +10417,8 @@ window.lunrData = {
                               "docs": {},
                               "k": {
                                 "docs": {
-                                  "VideoPlayer.html#autoDownload": {
-                                    "ref": "VideoPlayer.html#autoDownload",
-                                    "tf": 8.333333333333332
-                                  },
-                                  "YoutubePlayer.html#autoDownload": {
-                                    "ref": "YoutubePlayer.html#autoDownload",
+                                  "server.VideoPlayer.html#autoDownload": {
+                                    "ref": "server.VideoPlayer.html#autoDownload",
                                     "tf": 8.333333333333332
                                   }
                                 }
@@ -5707,12 +10441,12 @@ window.lunrData = {
                                         "docs": {},
                                         "k": {
                                           "docs": {
-                                            "Episode.html#localLink": {
-                                              "ref": "Episode.html#localLink",
+                                            "server.Episode.html#localLink": {
+                                              "ref": "server.Episode.html#localLink",
                                               "tf": 6.25
                                             },
-                                            "Episode.html#setLocalPath": {
-                                              "ref": "Episode.html#setLocalPath",
+                                            "server.Episode.html#setLocalPath": {
+                                              "ref": "server.Episode.html#setLocalPath",
                                               "tf": 12.5
                                             }
                                           }
@@ -5749,8 +10483,8 @@ window.lunrData = {
                                               "docs": {},
                                               "h": {
                                                 "docs": {
-                                                  "Episode.html#localLink": {
-                                                    "ref": "Episode.html#localLink",
+                                                  "server.Episode.html#localLink": {
+                                                    "ref": "server.Episode.html#localLink",
                                                     "tf": 6.25
                                                   }
                                                 }
@@ -5771,17 +10505,17 @@ window.lunrData = {
                         "docs": {},
                         "d": {
                           "docs": {
-                            "Anime.html#getEpisodeById": {
-                              "ref": "Anime.html#getEpisodeById",
+                            "server.Anime.html#getEpisodeById": {
+                              "ref": "server.Anime.html#getEpisodeById",
                               "tf": 33.33333333333333
                             },
-                            "Episode.html#episodeId": {
-                              "ref": "Episode.html#episodeId",
-                              "tf": 683.3333333333334
+                            "server.Episode.html#episodeId": {
+                              "ref": "server.Episode.html#episodeId",
+                              "tf": 633.3333333333334
                             },
-                            "server.html": {
-                              "ref": "server.html",
-                              "tf": 1.2711864406779663
+                            "server.https.html#.start": {
+                              "ref": "server.https.html#.start",
+                              "tf": 1.0416666666666665
                             }
                           }
                         },
@@ -5791,9 +10525,13 @@ window.lunrData = {
                             "docs": {},
                             "o": {
                               "docs": {
-                                "server.html": {
-                                  "ref": "server.html",
-                                  "tf": 0.423728813559322
+                                "server.https.html#.start": {
+                                  "ref": "server.https.html#.start",
+                                  "tf": 0.3472222222222222
+                                },
+                                "server.data.public.html#.EpisodeInfo": {
+                                  "ref": "server.data.public.html#.EpisodeInfo",
+                                  "tf": 675
                                 }
                               }
                             }
@@ -5808,8 +10546,8 @@ window.lunrData = {
                             "docs": {},
                             "l": {
                               "docs": {
-                                "Anime.html#getEpisodeById": {
-                                  "ref": "Anime.html#getEpisodeById",
+                                "server.Anime.html#getEpisodeById": {
+                                  "ref": "server.Anime.html#getEpisodeById",
                                   "tf": 33.33333333333333
                                 }
                               }
@@ -5829,13 +10567,17 @@ window.lunrData = {
                                 "docs": {},
                                 "g": {
                                   "docs": {
-                                    "Anime.html#updateJson": {
-                                      "ref": "Anime.html#updateJson",
+                                    "server.Anime.html#updateJson": {
+                                      "ref": "server.Anime.html#updateJson",
                                       "tf": 7.142857142857142
                                     },
-                                    "Episode.html#toEpisodeConfig": {
-                                      "ref": "Episode.html#toEpisodeConfig",
+                                    "server.Episode.html#toEpisodeConfig": {
+                                      "ref": "server.Episode.html#toEpisodeConfig",
                                       "tf": 66.66666666666666
+                                    },
+                                    "server.data.config.html#.EpisodeConfig": {
+                                      "ref": "server.data.config.html#.EpisodeConfig",
+                                      "tf": 675
                                     }
                                   }
                                 }
@@ -5846,17 +10588,17 @@ window.lunrData = {
                       },
                       "'": {
                         "docs": {
-                          "Episode.html#links": {
-                            "ref": "Episode.html#links",
+                          "server.Episode.html#links": {
+                            "ref": "server.Episode.html#links",
                             "tf": 16.666666666666664
                           },
-                          "Episode.html#localLink": {
-                            "ref": "Episode.html#localLink",
+                          "server.Episode.html#localLink": {
+                            "ref": "server.Episode.html#localLink",
                             "tf": 6.25
                           },
-                          "server.html": {
-                            "ref": "server.html",
-                            "tf": 0.847457627118644
+                          "server.https.html#.start": {
+                            "ref": "server.https.html#.start",
+                            "tf": 0.6944444444444444
                           }
                         }
                       },
@@ -5900,9 +10642,9 @@ window.lunrData = {
                                                             "docs": {},
                                                             "d": {
                                                               "docs": {
-                                                                "server.html": {
-                                                                  "ref": "server.html",
-                                                                  "tf": 0.423728813559322
+                                                                "server.https.html#.start": {
+                                                                  "ref": "server.https.html#.start",
+                                                                  "tf": 0.3472222222222222
                                                                 }
                                                               }
                                                             }
@@ -5929,9 +10671,9 @@ window.lunrData = {
                         "docs": {},
                         "'": {
                           "docs": {
-                            "server.html": {
-                              "ref": "server.html",
-                              "tf": 0.423728813559322
+                            "server.https.html#.start": {
+                              "ref": "server.https.html#.start",
+                              "tf": 0.3472222222222222
                             }
                           }
                         }
@@ -5947,8 +10689,8 @@ window.lunrData = {
                 "docs": {},
                 "d": {
                   "docs": {
-                    "DownloadEpisode.html#player": {
-                      "ref": "DownloadEpisode.html#player",
+                    "server.DownloadEpisode.html#player": {
+                      "ref": "server.DownloadEpisode.html#player",
                       "tf": 10
                     }
                   }
@@ -5964,36 +10706,24 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "DownloadEpisode.html": {
-                      "ref": "DownloadEpisode.html",
+                    "server.DownloadEpisode.html": {
+                      "ref": "server.DownloadEpisode.html",
                       "tf": 4.545454545454546
                     },
-                    "DownloadEpisode.html#_setEvents": {
-                      "ref": "DownloadEpisode.html#_setEvents",
+                    "server.DownloadEpisode.html#_setEvents": {
+                      "ref": "server.DownloadEpisode.html#_setEvents",
                       "tf": 16.666666666666664
                     },
-                    "VideoPlayer.html#_dispatchOnComplete": {
-                      "ref": "VideoPlayer.html#_dispatchOnComplete",
+                    "server.VideoPlayer.html#_dispatchOnComplete": {
+                      "ref": "server.VideoPlayer.html#_dispatchOnComplete",
                       "tf": 12.5
                     },
-                    "VideoPlayer.html#_dispatchOnProgress": {
-                      "ref": "VideoPlayer.html#_dispatchOnProgress",
+                    "server.VideoPlayer.html#_dispatchOnProgress": {
+                      "ref": "server.VideoPlayer.html#_dispatchOnProgress",
                       "tf": 12.5
                     },
-                    "VideoPlayer.html#_dispatchOnError": {
-                      "ref": "VideoPlayer.html#_dispatchOnError",
-                      "tf": 12.5
-                    },
-                    "YoutubePlayer.html#_dispatchOnComplete": {
-                      "ref": "YoutubePlayer.html#_dispatchOnComplete",
-                      "tf": 12.5
-                    },
-                    "YoutubePlayer.html#_dispatchOnProgress": {
-                      "ref": "YoutubePlayer.html#_dispatchOnProgress",
-                      "tf": 12.5
-                    },
-                    "YoutubePlayer.html#_dispatchOnError": {
-                      "ref": "YoutubePlayer.html#_dispatchOnError",
+                    "server.VideoPlayer.html#_dispatchOnError": {
+                      "ref": "server.VideoPlayer.html#_dispatchOnError",
                       "tf": 12.5
                     }
                   },
@@ -6007,12 +10737,12 @@ window.lunrData = {
                           "docs": {},
                           "t": {
                             "docs": {
-                              "VideoPlayer.html#download": {
-                                "ref": "VideoPlayer.html#download",
+                              "server.VideoPlayer.html#download": {
+                                "ref": "server.VideoPlayer.html#download",
                                 "tf": 20
                               },
-                              "YoutubePlayer.html#download": {
-                                "ref": "YoutubePlayer.html#download",
+                              "server.YoutubePlayer.html#download": {
+                                "ref": "server.YoutubePlayer.html#download",
                                 "tf": 20
                               }
                             }
@@ -6029,12 +10759,8 @@ window.lunrData = {
             "docs": {},
             "r": {
               "docs": {
-                "VideoPlayer.html#_dispatchOnError": {
-                  "ref": "VideoPlayer.html#_dispatchOnError",
-                  "tf": 25
-                },
-                "YoutubePlayer.html#_dispatchOnError": {
-                  "ref": "YoutubePlayer.html#_dispatchOnError",
+                "server.VideoPlayer.html#_dispatchOnError": {
+                  "ref": "server.VideoPlayer.html#_dispatchOnError",
                   "tf": 25
                 }
               },
@@ -6042,25 +10768,21 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
-                    "DownloadEpisode.html#isError": {
-                      "ref": "DownloadEpisode.html#isError",
+                    "server.DownloadEpisode.html#isError": {
+                      "ref": "server.DownloadEpisode.html#isError",
                       "tf": 50
                     },
-                    "DownloadEpisode.html#error": {
-                      "ref": "DownloadEpisode.html#error",
-                      "tf": 733.3333333333334
+                    "server.DownloadEpisode.html#error": {
+                      "ref": "server.DownloadEpisode.html#error",
+                      "tf": 683.3333333333334
                     },
-                    "VideoPlayer.html#_dispatchOnError": {
-                      "ref": "VideoPlayer.html#_dispatchOnError",
+                    "server.VideoPlayer.html#_dispatchOnError": {
+                      "ref": "server.VideoPlayer.html#_dispatchOnError",
                       "tf": 12.5
                     },
-                    "YoutubePlayer.html#_dispatchOnError": {
-                      "ref": "YoutubePlayer.html#_dispatchOnError",
-                      "tf": 12.5
-                    },
-                    "server.html": {
-                      "ref": "server.html",
-                      "tf": 1.2711864406779663
+                    "server.https.html#.start": {
+                      "ref": "server.https.html#.start",
+                      "tf": 1.0416666666666665
                     }
                   }
                 }
@@ -6075,32 +10797,20 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "DownloadEpisode.html#_setEvents": {
-                      "ref": "DownloadEpisode.html#_setEvents",
+                    "server.DownloadEpisode.html#_setEvents": {
+                      "ref": "server.DownloadEpisode.html#_setEvents",
                       "tf": 49.99999999999999
                     },
-                    "VideoPlayer.html#_dispatchOnComplete": {
-                      "ref": "VideoPlayer.html#_dispatchOnComplete",
+                    "server.VideoPlayer.html#_dispatchOnComplete": {
+                      "ref": "server.VideoPlayer.html#_dispatchOnComplete",
                       "tf": 37.5
                     },
-                    "VideoPlayer.html#_dispatchOnProgress": {
-                      "ref": "VideoPlayer.html#_dispatchOnProgress",
+                    "server.VideoPlayer.html#_dispatchOnProgress": {
+                      "ref": "server.VideoPlayer.html#_dispatchOnProgress",
                       "tf": 37.5
                     },
-                    "VideoPlayer.html#_dispatchOnError": {
-                      "ref": "VideoPlayer.html#_dispatchOnError",
-                      "tf": 37.5
-                    },
-                    "YoutubePlayer.html#_dispatchOnComplete": {
-                      "ref": "YoutubePlayer.html#_dispatchOnComplete",
-                      "tf": 37.5
-                    },
-                    "YoutubePlayer.html#_dispatchOnProgress": {
-                      "ref": "YoutubePlayer.html#_dispatchOnProgress",
-                      "tf": 37.5
-                    },
-                    "YoutubePlayer.html#_dispatchOnError": {
-                      "ref": "YoutubePlayer.html#_dispatchOnError",
+                    "server.VideoPlayer.html#_dispatchOnError": {
+                      "ref": "server.VideoPlayer.html#_dispatchOnError",
                       "tf": 37.5
                     }
                   }
@@ -6114,13 +10824,68 @@ window.lunrData = {
               "docs": {},
               "t": {
                 "docs": {
-                  "VideoPlayer.html#isNatif": {
-                    "ref": "VideoPlayer.html#isNatif",
+                  "server.VideoPlayer.html#isNatif": {
+                    "ref": "server.VideoPlayer.html#isNatif",
                     "tf": 10
-                  },
-                  "YoutubePlayer.html#isNatif": {
-                    "ref": "YoutubePlayer.html#isNatif",
-                    "tf": 10
+                  }
+                }
+              }
+            }
+          },
+          "x": {
+            "docs": {},
+            "p": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "t": {
+                    "docs": {},
+                    "s": {
+                      "docs": {},
+                      ".": {
+                        "docs": {},
+                        "g": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "t": {
+                              "docs": {},
+                              "t": {
+                                "docs": {},
+                                "h": {
+                                  "docs": {},
+                                  "u": {
+                                    "docs": {},
+                                    "m": {
+                                      "docs": {},
+                                      "b": {
+                                        "docs": {},
+                                        "a": {
+                                          "docs": {},
+                                          "i": {
+                                            "docs": {},
+                                            "l": {
+                                              "docs": {
+                                                "server.image.html#.exports.getThumbail": {
+                                                  "ref": "server.image.html#.exports.getThumbail",
+                                                  "tf": 595
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -6133,8 +10898,8 @@ window.lunrData = {
             "docs": {},
             "x": {
               "docs": {
-                "DownloadEpisode.html": {
-                  "ref": "DownloadEpisode.html",
+                "server.DownloadEpisode.html": {
+                  "ref": "server.DownloadEpisode.html",
                   "tf": 4.545454545454546
                 }
               }
@@ -6145,25 +10910,17 @@ window.lunrData = {
                 "docs": {},
                 "h": {
                   "docs": {
-                    "VideoPlayer.html#prefix": {
-                      "ref": "VideoPlayer.html#prefix",
+                    "server.VideoPlayer.html#prefix": {
+                      "ref": "server.VideoPlayer.html#prefix",
                       "tf": 16.666666666666664
                     },
-                    "VideoPlayer.html#hasPrefix": {
-                      "ref": "VideoPlayer.html#hasPrefix",
+                    "server.VideoPlayer.html#hasPrefix": {
+                      "ref": "server.VideoPlayer.html#hasPrefix",
                       "tf": 5
                     },
-                    "VideoPlayer.html#.getPlayer": {
-                      "ref": "VideoPlayer.html#.getPlayer",
+                    "server.VideoPlayer.html#.getPlayer": {
+                      "ref": "server.VideoPlayer.html#.getPlayer",
                       "tf": 8.333333333333332
-                    },
-                    "YoutubePlayer.html#prefix": {
-                      "ref": "YoutubePlayer.html#prefix",
-                      "tf": 16.666666666666664
-                    },
-                    "YoutubePlayer.html#hasPrefix": {
-                      "ref": "YoutubePlayer.html#hasPrefix",
-                      "tf": 5
                     }
                   }
                 }
@@ -6171,8 +10928,12 @@ window.lunrData = {
             },
             "p": {
               "docs": {
-                "Anime.html#.publicList": {
-                  "ref": "Anime.html#.publicList",
+                "server.Anime.html#.publicList": {
+                  "ref": "server.Anime.html#.publicList",
+                  "tf": 10
+                },
+                "server.data.public.html#.EpisodeInfo": {
+                  "ref": "server.data.public.html#.EpisodeInfo",
                   "tf": 10
                 }
               }
@@ -6188,181 +10949,190 @@ window.lunrData = {
                   "docs": {},
                   "r": {
                     "docs": {
-                      "DownloadEpisode.html#.list": {
-                        "ref": "DownloadEpisode.html#.list",
+                      "server.DownloadEpisode.html#.list": {
+                        "ref": "server.DownloadEpisode.html#.list",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#.toDownload": {
-                        "ref": "DownloadEpisode.html#.toDownload",
+                      "server.DownloadEpisode.html#.toDownload": {
+                        "ref": "server.DownloadEpisode.html#.toDownload",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#.currentDownload": {
-                        "ref": "DownloadEpisode.html#.currentDownload",
+                      "server.DownloadEpisode.html#.currentDownload": {
+                        "ref": "server.DownloadEpisode.html#.currentDownload",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#episode": {
-                        "ref": "DownloadEpisode.html#episode",
+                      "server.DownloadEpisode.html#episode": {
+                        "ref": "server.DownloadEpisode.html#episode",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#id": {
-                        "ref": "DownloadEpisode.html#id",
+                      "server.DownloadEpisode.html#id": {
+                        "ref": "server.DownloadEpisode.html#id",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#player": {
-                        "ref": "DownloadEpisode.html#player",
+                      "server.DownloadEpisode.html#player": {
+                        "ref": "server.DownloadEpisode.html#player",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#isReady": {
-                        "ref": "DownloadEpisode.html#isReady",
+                      "server.DownloadEpisode.html#isReady": {
+                        "ref": "server.DownloadEpisode.html#isReady",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#isPending": {
-                        "ref": "DownloadEpisode.html#isPending",
+                      "server.DownloadEpisode.html#isPending": {
+                        "ref": "server.DownloadEpisode.html#isPending",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#isDownloading": {
-                        "ref": "DownloadEpisode.html#isDownloading",
+                      "server.DownloadEpisode.html#isDownloading": {
+                        "ref": "server.DownloadEpisode.html#isDownloading",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#isError": {
-                        "ref": "DownloadEpisode.html#isError",
+                      "server.DownloadEpisode.html#isError": {
+                        "ref": "server.DownloadEpisode.html#isError",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#error": {
-                        "ref": "DownloadEpisode.html#error",
+                      "server.DownloadEpisode.html#error": {
+                        "ref": "server.DownloadEpisode.html#error",
                         "tf": 110
                       },
-                      "DownloadEpisode.html#progress": {
-                        "ref": "DownloadEpisode.html#progress",
+                      "server.DownloadEpisode.html#progress": {
+                        "ref": "server.DownloadEpisode.html#progress",
                         "tf": 110
                       },
-                      "VideoPlayer.html#.list": {
-                        "ref": "VideoPlayer.html#.list",
+                      "server.VideoPlayer.html#.list": {
+                        "ref": "server.VideoPlayer.html#.list",
                         "tf": 110
                       },
-                      "VideoPlayer.html#name": {
-                        "ref": "VideoPlayer.html#name",
+                      "server.VideoPlayer.html#name": {
+                        "ref": "server.VideoPlayer.html#name",
                         "tf": 110
                       },
-                      "VideoPlayer.html#isNatif": {
-                        "ref": "VideoPlayer.html#isNatif",
+                      "server.VideoPlayer.html#isNatif": {
+                        "ref": "server.VideoPlayer.html#isNatif",
                         "tf": 110
                       },
-                      "VideoPlayer.html#prefix": {
-                        "ref": "VideoPlayer.html#prefix",
+                      "server.VideoPlayer.html#prefix": {
+                        "ref": "server.VideoPlayer.html#prefix",
                         "tf": 110
                       },
-                      "VideoPlayer.html#downloadable": {
-                        "ref": "VideoPlayer.html#downloadable",
+                      "server.VideoPlayer.html#downloadable": {
+                        "ref": "server.VideoPlayer.html#downloadable",
                         "tf": 110
                       },
-                      "VideoPlayer.html#autoDownload": {
-                        "ref": "VideoPlayer.html#autoDownload",
+                      "server.VideoPlayer.html#autoDownload": {
+                        "ref": "server.VideoPlayer.html#autoDownload",
                         "tf": 110
                       },
-                      "VideoPlayer.html#id": {
-                        "ref": "VideoPlayer.html#id",
+                      "server.VideoPlayer.html#id": {
+                        "ref": "server.VideoPlayer.html#id",
                         "tf": 110
                       },
-                      "YoutubePlayer.html#name": {
-                        "ref": "YoutubePlayer.html#name",
+                      "server.YoutubePlayer.html#.instance": {
+                        "ref": "server.YoutubePlayer.html#.instance",
                         "tf": 110
                       },
-                      "YoutubePlayer.html#isNatif": {
-                        "ref": "YoutubePlayer.html#isNatif",
+                      "server.Anime.html#.list": {
+                        "ref": "server.Anime.html#.list",
                         "tf": 110
                       },
-                      "YoutubePlayer.html#prefix": {
-                        "ref": "YoutubePlayer.html#prefix",
+                      "server.Anime.html#.publicList": {
+                        "ref": "server.Anime.html#.publicList",
                         "tf": 110
                       },
-                      "YoutubePlayer.html#downloadable": {
-                        "ref": "YoutubePlayer.html#downloadable",
+                      "server.Anime.html#jsonObject": {
+                        "ref": "server.Anime.html#jsonObject",
                         "tf": 110
                       },
-                      "YoutubePlayer.html#autoDownload": {
-                        "ref": "YoutubePlayer.html#autoDownload",
+                      "server.Anime.html#name": {
+                        "ref": "server.Anime.html#name",
                         "tf": 110
                       },
-                      "YoutubePlayer.html#id": {
-                        "ref": "YoutubePlayer.html#id",
+                      "server.Anime.html#thumbnailLink": {
+                        "ref": "server.Anime.html#thumbnailLink",
                         "tf": 110
                       },
-                      "YoutubePlayer.html#.instance": {
-                        "ref": "YoutubePlayer.html#.instance",
+                      "server.Anime.html#_path": {
+                        "ref": "server.Anime.html#_path",
                         "tf": 110
                       },
-                      "Anime.html#.list": {
-                        "ref": "Anime.html#.list",
+                      "server.Anime.html#episodes": {
+                        "ref": "server.Anime.html#episodes",
                         "tf": 110
                       },
-                      "Anime.html#.publicList": {
-                        "ref": "Anime.html#.publicList",
+                      "server.Anime.html#id": {
+                        "ref": "server.Anime.html#id",
                         "tf": 110
                       },
-                      "Anime.html#jsonObject": {
-                        "ref": "Anime.html#jsonObject",
+                      "server.Anime.html#path": {
+                        "ref": "server.Anime.html#path",
                         "tf": 110
                       },
-                      "Anime.html#name": {
-                        "ref": "Anime.html#name",
+                      "server.Episode.html#name": {
+                        "ref": "server.Episode.html#name",
                         "tf": 110
                       },
-                      "Anime.html#thumbnailLink": {
-                        "ref": "Anime.html#thumbnailLink",
+                      "server.Episode.html#episodeId": {
+                        "ref": "server.Episode.html#episodeId",
                         "tf": 110
                       },
-                      "Anime.html#_path": {
-                        "ref": "Anime.html#_path",
+                      "server.Episode.html#posterLink": {
+                        "ref": "server.Episode.html#posterLink",
                         "tf": 110
                       },
-                      "Anime.html#episodes": {
-                        "ref": "Anime.html#episodes",
+                      "server.Episode.html#links": {
+                        "ref": "server.Episode.html#links",
                         "tf": 110
                       },
-                      "Anime.html#id": {
-                        "ref": "Anime.html#id",
+                      "server.Episode.html#localLink": {
+                        "ref": "server.Episode.html#localLink",
                         "tf": 110
                       },
-                      "Anime.html#path": {
-                        "ref": "Anime.html#path",
+                      "server.Episode.html#anime": {
+                        "ref": "server.Episode.html#anime",
                         "tf": 110
                       },
-                      "Episode.html#name": {
-                        "ref": "Episode.html#name",
+                      "server.Episode.html#isLocal": {
+                        "ref": "server.Episode.html#isLocal",
                         "tf": 110
                       },
-                      "Episode.html#episodeId": {
-                        "ref": "Episode.html#episodeId",
+                      "server.Episode.html#hasPoster": {
+                        "ref": "server.Episode.html#hasPoster",
                         "tf": 110
                       },
-                      "Episode.html#posterLink": {
-                        "ref": "Episode.html#posterLink",
+                      "server.Episode.html#path": {
+                        "ref": "server.Episode.html#path",
                         "tf": 110
                       },
-                      "Episode.html#links": {
-                        "ref": "Episode.html#links",
+                      "server.global.html#.__root": {
+                        "ref": "server.global.html#.__root",
                         "tf": 110
                       },
-                      "Episode.html#localLink": {
-                        "ref": "Episode.html#localLink",
+                      "server.global.html#.__logFile": {
+                        "ref": "server.global.html#.__logFile",
                         "tf": 110
                       },
-                      "Episode.html#anime": {
-                        "ref": "Episode.html#anime",
+                      "server.global.html#.__tempFolder": {
+                        "ref": "server.global.html#.__tempFolder",
                         "tf": 110
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "s": {
+              "docs": {},
+              "s": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "g": {
+                    "docs": {
+                      "server.global.html#.overrideLine": {
+                        "ref": "server.global.html#.overrideLine",
+                        "tf": 25
                       },
-                      "Episode.html#isLocal": {
-                        "ref": "Episode.html#isLocal",
-                        "tf": 110
-                      },
-                      "Episode.html#hasPoster": {
-                        "ref": "Episode.html#hasPoster",
-                        "tf": 110
-                      },
-                      "Episode.html#path": {
-                        "ref": "Episode.html#path",
-                        "tf": 110
+                      "server.global.html#.writeLog": {
+                        "ref": "server.global.html#.writeLog",
+                        "tf": 25
                       }
                     }
                   }
@@ -6375,8 +11145,8 @@ window.lunrData = {
           "docs": {},
           "n": {
             "docs": {
-              "DownloadEpisode.html": {
-                "ref": "DownloadEpisode.html",
+              "server.DownloadEpisode.html": {
+                "ref": "server.DownloadEpisode.html",
                 "tf": 4.545454545454546
               }
             },
@@ -6384,8 +11154,8 @@ window.lunrData = {
               "docs": {},
               "o": {
                 "docs": {
-                  "DownloadEpisode.html#isDownloading": {
-                    "ref": "DownloadEpisode.html#isDownloading",
+                  "server.DownloadEpisode.html#isDownloading": {
+                    "ref": "server.DownloadEpisode.html#isDownloading",
                     "tf": 25
                   }
                 }
@@ -6402,8 +11172,8 @@ window.lunrData = {
                   "docs": {},
                   "t": {
                     "docs": {
-                      "Anime.html#jsonObject": {
-                        "ref": "Anime.html#jsonObject",
+                      "server.Anime.html#jsonObject": {
+                        "ref": "server.Anime.html#jsonObject",
                         "tf": 6.25
                       }
                     }
@@ -6420,9 +11190,69 @@ window.lunrData = {
                 "docs": {},
                 "r": {
                   "docs": {
-                    "Episode.html#episodeId": {
-                      "ref": "Episode.html#episodeId",
+                    "server.Episode.html#episodeId": {
+                      "ref": "server.Episode.html#episodeId",
                       "tf": 7.142857142857142
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "v": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "r": {
+                "docs": {},
+                "r": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "d": {
+                      "docs": {
+                        "server.global.html#.overrideLine": {
+                          "ref": "server.global.html#.overrideLine",
+                          "tf": 12.5
+                        }
+                      },
+                      "e": {
+                        "docs": {},
+                        "l": {
+                          "docs": {},
+                          "i": {
+                            "docs": {},
+                            "n": {
+                              "docs": {
+                                "server.global.html#.overrideLine": {
+                                  "ref": "server.global.html#.overrideLine",
+                                  "tf": 625
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "p": {
+            "docs": {},
+            "t": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "server.image.html#.exports.getThumbail": {
+                        "ref": "server.image.html#.exports.getThumbail",
+                        "tf": 20
+                      }
                     }
                   }
                 }
@@ -6442,8 +11272,8 @@ window.lunrData = {
                   "docs": {},
                   "'": {
                     "docs": {
-                      "DownloadEpisode.html": {
-                        "ref": "DownloadEpisode.html",
+                      "server.DownloadEpisode.html": {
+                        "ref": "server.DownloadEpisode.html",
                         "tf": 4.545454545454546
                       }
                     }
@@ -6464,7 +11294,12 @@ window.lunrData = {
                       "i": {
                         "docs": {},
                         "l": {
-                          "docs": {},
+                          "docs": {
+                            "server.https.html#.start": {
+                              "ref": "server.https.html#.start",
+                              "tf": 0.3472222222222222
+                            }
+                          },
                           "l": {
                             "docs": {},
                             "i": {
@@ -6473,11 +11308,38 @@ window.lunrData = {
                                 "docs": {},
                                 "k": {
                                   "docs": {
-                                    "Anime.html#thumbnailLink": {
-                                      "ref": "Anime.html#thumbnailLink",
-                                      "tf": 700
+                                    "server.Anime.html#thumbnailLink": {
+                                      "ref": "server.Anime.html#thumbnailLink",
+                                      "tf": 650
+                                    },
+                                    "server.https.html#.start": {
+                                      "ref": "server.https.html#.start",
+                                      "tf": 0.3472222222222222
                                     }
                                   }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "a": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "l": {
+                        "docs": {},
+                        "o": {
+                          "docs": {},
+                          "p": {
+                            "docs": {},
+                            "t": {
+                              "docs": {
+                                "server.image.html#.ThumbailOption": {
+                                  "ref": "server.image.html#.ThumbailOption",
+                                  "tf": 700
                                 }
                               }
                             }
@@ -6513,8 +11375,8 @@ window.lunrData = {
                                   "docs": {},
                                   "d": {
                                     "docs": {
-                                      "Episode.html#path": {
-                                        "ref": "Episode.html#path",
+                                      "server.Episode.html#path": {
+                                        "ref": "server.Episode.html#path",
                                         "tf": 4.545454545454546
                                       }
                                     }
@@ -6549,26 +11411,9 @@ window.lunrData = {
                           "docs": {},
                           "d": {
                             "docs": {
-                              "DownloadEpisode.html#.toDownload": {
-                                "ref": "DownloadEpisode.html#.toDownload",
-                                "tf": 683.3333333333334
-                              }
-                            },
-                            "i": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "e": {
-                                  "docs": {},
-                                  "m": {
-                                    "docs": {
-                                      "DownloadEpisode.html#.ToDownloadItem": {
-                                        "ref": "DownloadEpisode.html#.ToDownloadItem",
-                                        "tf": 750
-                                      }
-                                    }
-                                  }
-                                }
+                              "server.DownloadEpisode.html#.toDownload": {
+                                "ref": "server.DownloadEpisode.html#.toDownload",
+                                "tf": 633.3333333333334
                               }
                             }
                           }
@@ -6587,21 +11432,17 @@ window.lunrData = {
                   "docs": {},
                   "l": {
                     "docs": {
-                      "VideoPlayer.html#toPublic": {
-                        "ref": "VideoPlayer.html#toPublic",
-                        "tf": 700
+                      "server.VideoPlayer.html#toPublic": {
+                        "ref": "server.VideoPlayer.html#toPublic",
+                        "tf": 650
                       },
-                      "YoutubePlayer.html#toPublic": {
-                        "ref": "YoutubePlayer.html#toPublic",
-                        "tf": 700
+                      "server.Anime.html#toPublic": {
+                        "ref": "server.Anime.html#toPublic",
+                        "tf": 650
                       },
-                      "Anime.html#toPublic": {
-                        "ref": "Anime.html#toPublic",
-                        "tf": 700
-                      },
-                      "Episode.html#toPublic": {
-                        "ref": "Episode.html#toPublic",
-                        "tf": 700
+                      "server.Episode.html#toPublic": {
+                        "ref": "server.Episode.html#toPublic",
+                        "tf": 650
                       }
                     }
                   }
@@ -6630,9 +11471,9 @@ window.lunrData = {
                                 "docs": {},
                                 "g": {
                                   "docs": {
-                                    "Anime.html#toAnimeConfig": {
-                                      "ref": "Anime.html#toAnimeConfig",
-                                      "tf": 700
+                                    "server.Anime.html#toAnimeConfig": {
+                                      "ref": "server.Anime.html#toAnimeConfig",
+                                      "tf": 650
                                     }
                                   }
                                 }
@@ -6672,9 +11513,9 @@ window.lunrData = {
                                     "docs": {},
                                     "g": {
                                       "docs": {
-                                        "Episode.html#toEpisodeConfig": {
-                                          "ref": "Episode.html#toEpisodeConfig",
-                                          "tf": 700
+                                        "server.Episode.html#toEpisodeConfig": {
+                                          "ref": "server.Episode.html#toEpisodeConfig",
+                                          "tf": 650
                                         }
                                       }
                                     }
@@ -6686,6 +11527,136 @@ window.lunrData = {
                         }
                       }
                     }
+                  }
+                }
+              }
+            },
+            "f": {
+              "docs": {},
+              "i": {
+                "docs": {},
+                "l": {
+                  "docs": {},
+                  "e": {
+                    "docs": {},
+                    "n": {
+                      "docs": {},
+                      "a": {
+                        "docs": {},
+                        "m": {
+                          "docs": {
+                            "server.global.html#.toFileName": {
+                              "ref": "server.global.html#.toFileName",
+                              "tf": 625
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "r": {
+            "docs": {},
+            "u": {
+              "docs": {},
+              "e": {
+                "docs": {
+                  "server.VideoPlayer.html#isNatif": {
+                    "ref": "server.VideoPlayer.html#isNatif",
+                    "tf": 10
+                  },
+                  "server.VideoPlayer.html#hasPrefix": {
+                    "ref": "server.VideoPlayer.html#hasPrefix",
+                    "tf": 5
+                  },
+                  "server.Episode.html#isLocal": {
+                    "ref": "server.Episode.html#isLocal",
+                    "tf": 16.666666666666664
+                  },
+                  "server.Episode.html#hasPoster": {
+                    "ref": "server.Episode.html#hasPoster",
+                    "tf": 16.666666666666664
+                  }
+                }
+              }
+            }
+          },
+          "e": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "l": {
+                "docs": {
+                  "server.VideoPlayer.html#downloadable": {
+                    "ref": "server.VideoPlayer.html#downloadable",
+                    "tf": 16.666666666666664
+                  },
+                  "server.VideoPlayer.html#autoDownload": {
+                    "ref": "server.VideoPlayer.html#autoDownload",
+                    "tf": 8.333333333333332
+                  }
+                }
+              }
+            },
+            "x": {
+              "docs": {},
+              "t": {
+                "docs": {
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 1.3888888888888888
+                  },
+                  "server.image.html#.exports.getThumbail": {
+                    "ref": "server.image.html#.exports.getThumbail",
+                    "tf": 20
+                  }
+                },
+                "c": {
+                  "docs": {},
+                  "o": {
+                    "docs": {},
+                    "l": {
+                      "docs": {},
+                      "o": {
+                        "docs": {},
+                        "r": {
+                          "docs": {
+                            "server.https.html#.start": {
+                              "ref": "server.https.html#.start",
+                              "tf": 0.3472222222222222
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "s": {
+                  "docs": {},
+                  "i": {
+                    "docs": {},
+                    "z": {
+                      "docs": {
+                        "server.https.html#.start": {
+                          "ref": "server.https.html#.start",
+                          "tf": 0.3472222222222222
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "m": {
+              "docs": {},
+              "p": {
+                "docs": {
+                  "server.global.html#.__tempFolder": {
+                    "ref": "server.global.html#.__tempFolder",
+                    "tf": 12.5
                   }
                 }
               }
@@ -6703,114 +11674,45 @@ window.lunrData = {
                     "docs": {},
                     "f": {
                       "docs": {
-                        "DownloadEpisode.html#.ToDownloadItem": {
-                          "ref": "DownloadEpisode.html#.ToDownloadItem",
+                        "server.image.html#.ThumbailOption": {
+                          "ref": "server.image.html#.ThumbailOption",
                           "tf": 110
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "r": {
-            "docs": {},
-            "u": {
-              "docs": {},
-              "e": {
-                "docs": {
-                  "VideoPlayer.html#isNatif": {
-                    "ref": "VideoPlayer.html#isNatif",
-                    "tf": 10
-                  },
-                  "VideoPlayer.html#hasPrefix": {
-                    "ref": "VideoPlayer.html#hasPrefix",
-                    "tf": 5
-                  },
-                  "YoutubePlayer.html#isNatif": {
-                    "ref": "YoutubePlayer.html#isNatif",
-                    "tf": 10
-                  },
-                  "YoutubePlayer.html#hasPrefix": {
-                    "ref": "YoutubePlayer.html#hasPrefix",
-                    "tf": 5
-                  },
-                  "Episode.html#isLocal": {
-                    "ref": "Episode.html#isLocal",
-                    "tf": 16.666666666666664
-                  },
-                  "Episode.html#hasPoster": {
-                    "ref": "Episode.html#hasPoster",
-                    "tf": 16.666666666666664
-                  }
-                }
-              }
-            }
-          },
-          "e": {
-            "docs": {},
-            "l": {
-              "docs": {},
-              "l": {
-                "docs": {
-                  "VideoPlayer.html#downloadable": {
-                    "ref": "VideoPlayer.html#downloadable",
-                    "tf": 16.666666666666664
-                  },
-                  "VideoPlayer.html#autoDownload": {
-                    "ref": "VideoPlayer.html#autoDownload",
-                    "tf": 8.333333333333332
-                  },
-                  "YoutubePlayer.html#downloadable": {
-                    "ref": "YoutubePlayer.html#downloadable",
-                    "tf": 16.666666666666664
-                  },
-                  "YoutubePlayer.html#autoDownload": {
-                    "ref": "YoutubePlayer.html#autoDownload",
-                    "tf": 8.333333333333332
-                  }
-                }
-              }
-            },
-            "x": {
-              "docs": {},
-              "t": {
-                "docs": {
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 1.694915254237288
-                  }
-                },
-                "c": {
-                  "docs": {},
-                  "o": {
-                    "docs": {},
-                    "l": {
-                      "docs": {},
-                      "o": {
-                        "docs": {},
-                        "r": {
-                          "docs": {
-                            "server.html": {
-                              "ref": "server.html",
-                              "tf": 0.423728813559322
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "s": {
-                  "docs": {},
-                  "i": {
-                    "docs": {},
-                    "z": {
-                      "docs": {
-                        "server.html": {
-                          "ref": "server.html",
-                          "tf": 0.423728813559322
+                        },
+                        "server.data.config.html#.VideoPlayerConfig": {
+                          "ref": "server.data.config.html#.VideoPlayerConfig",
+                          "tf": 110
+                        },
+                        "server.data.config.html#.AnimeConfig": {
+                          "ref": "server.data.config.html#.AnimeConfig",
+                          "tf": 110
+                        },
+                        "server.data.config.html#.Config": {
+                          "ref": "server.data.config.html#.Config",
+                          "tf": 110
+                        },
+                        "server.data.config.html#.EpisodeConfig": {
+                          "ref": "server.data.config.html#.EpisodeConfig",
+                          "tf": 110
+                        },
+                        "server.data.public.html#.PublicVideoPlayer": {
+                          "ref": "server.data.public.html#.PublicVideoPlayer",
+                          "tf": 110
+                        },
+                        "server.data.public.html#.PlayerInfo": {
+                          "ref": "server.data.public.html#.PlayerInfo",
+                          "tf": 110
+                        },
+                        "server.data.public.html#.PublicAnime": {
+                          "ref": "server.data.public.html#.PublicAnime",
+                          "tf": 110
+                        },
+                        "server.data.public.html#.PublicEpisode": {
+                          "ref": "server.data.public.html#.PublicEpisode",
+                          "tf": 110
+                        },
+                        "server.data.public.html#.EpisodeInfo": {
+                          "ref": "server.data.public.html#.EpisodeInfo",
+                          "tf": 110
                         }
                       }
                     }
@@ -6824,45 +11726,41 @@ window.lunrData = {
           "docs": {},
           "s": {
             "docs": {
-              "DownloadEpisode.html": {
-                "ref": "DownloadEpisode.html",
+              "server.DownloadEpisode.html": {
+                "ref": "server.DownloadEpisode.html",
                 "tf": 4.545454545454546
               },
-              "DownloadEpisode.html#player": {
-                "ref": "DownloadEpisode.html#player",
+              "server.DownloadEpisode.html#player": {
+                "ref": "server.DownloadEpisode.html#player",
                 "tf": 10
               },
-              "VideoPlayer.html": {
-                "ref": "VideoPlayer.html",
+              "server.VideoPlayer.html": {
+                "ref": "server.VideoPlayer.html",
                 "tf": 12.5
               },
-              "VideoPlayer.html#autoDownload": {
-                "ref": "VideoPlayer.html#autoDownload",
+              "server.VideoPlayer.html#autoDownload": {
+                "ref": "server.VideoPlayer.html#autoDownload",
                 "tf": 8.333333333333332
               },
-              "VideoPlayer.html#download": {
-                "ref": "VideoPlayer.html#download",
+              "server.VideoPlayer.html#download": {
+                "ref": "server.VideoPlayer.html#download",
                 "tf": 8.333333333333332
               },
-              "YoutubePlayer.html": {
-                "ref": "YoutubePlayer.html",
+              "server.YoutubePlayer.html": {
+                "ref": "server.YoutubePlayer.html",
                 "tf": 7.142857142857142
               },
-              "YoutubePlayer.html#autoDownload": {
-                "ref": "YoutubePlayer.html#autoDownload",
-                "tf": 8.333333333333332
-              },
-              "Anime.html#jsonObject": {
-                "ref": "Anime.html#jsonObject",
+              "server.Anime.html#jsonObject": {
+                "ref": "server.Anime.html#jsonObject",
                 "tf": 6.25
               },
-              "Episode.html#path": {
-                "ref": "Episode.html#path",
+              "server.Episode.html#path": {
+                "ref": "server.Episode.html#path",
                 "tf": 9.090909090909092
               },
-              "server.html": {
-                "ref": "server.html",
-                "tf": 0.847457627118644
+              "server.https.html#.start": {
+                "ref": "server.https.html#.start",
+                "tf": 0.6944444444444444
               }
             }
           },
@@ -6874,29 +11772,29 @@ window.lunrData = {
                 "docs": {},
                 "u": {
                   "docs": {
-                    "DownloadEpisode.html#id": {
-                      "ref": "DownloadEpisode.html#id",
+                    "server.DownloadEpisode.html#id": {
+                      "ref": "server.DownloadEpisode.html#id",
                       "tf": 12.5
                     },
-                    "VideoPlayer.html#id": {
-                      "ref": "VideoPlayer.html#id",
+                    "server.VideoPlayer.html#id": {
+                      "ref": "server.VideoPlayer.html#id",
                       "tf": 16.666666666666664
                     },
-                    "YoutubePlayer.html#id": {
-                      "ref": "YoutubePlayer.html#id",
+                    "server.YoutubePlayer.html#.instance": {
+                      "ref": "server.YoutubePlayer.html#.instance",
                       "tf": 16.666666666666664
                     },
-                    "YoutubePlayer.html#.instance": {
-                      "ref": "YoutubePlayer.html#.instance",
+                    "server.Anime.html#id": {
+                      "ref": "server.Anime.html#id",
                       "tf": 16.666666666666664
                     },
-                    "Anime.html#id": {
-                      "ref": "Anime.html#id",
-                      "tf": 16.666666666666664
-                    },
-                    "Episode.html#episodeId": {
-                      "ref": "Episode.html#episodeId",
+                    "server.Episode.html#episodeId": {
+                      "ref": "server.Episode.html#episodeId",
                       "tf": 7.142857142857142
+                    },
+                    "server.html#.createLogFile": {
+                      "ref": "server.html#.createLogFile",
+                      "tf": 6.25
                     }
                   }
                 }
@@ -6907,60 +11805,56 @@ window.lunrData = {
             "docs": {},
             "l": {
               "docs": {
-                "DownloadEpisode.html#download": {
-                  "ref": "DownloadEpisode.html#download",
+                "server.DownloadEpisode.html#download": {
+                  "ref": "server.DownloadEpisode.html#download",
                   "tf": 33.33333333333333
                 },
-                "VideoPlayer.html#prefix": {
-                  "ref": "VideoPlayer.html#prefix",
+                "server.VideoPlayer.html#prefix": {
+                  "ref": "server.VideoPlayer.html#prefix",
                   "tf": 16.666666666666664
                 },
-                "VideoPlayer.html#autoDownload": {
-                  "ref": "VideoPlayer.html#autoDownload",
+                "server.VideoPlayer.html#autoDownload": {
+                  "ref": "server.VideoPlayer.html#autoDownload",
                   "tf": 16.666666666666664
                 },
-                "VideoPlayer.html#hasPrefix": {
-                  "ref": "VideoPlayer.html#hasPrefix",
+                "server.VideoPlayer.html#hasPrefix": {
+                  "ref": "server.VideoPlayer.html#hasPrefix",
                   "tf": 43.33333333333333
                 },
-                "VideoPlayer.html#.getPlayer": {
-                  "ref": "VideoPlayer.html#.getPlayer",
+                "server.VideoPlayer.html#.getPlayer": {
+                  "ref": "server.VideoPlayer.html#.getPlayer",
                   "tf": 33.33333333333333
                 },
-                "YoutubePlayer.html#prefix": {
-                  "ref": "YoutubePlayer.html#prefix",
-                  "tf": 16.666666666666664
-                },
-                "YoutubePlayer.html#autoDownload": {
-                  "ref": "YoutubePlayer.html#autoDownload",
-                  "tf": 16.666666666666664
-                },
-                "YoutubePlayer.html#hasPrefix": {
-                  "ref": "YoutubePlayer.html#hasPrefix",
-                  "tf": 43.33333333333333
-                },
-                "YoutubePlayer.html#getInfo": {
-                  "ref": "YoutubePlayer.html#getInfo",
+                "server.YoutubePlayer.html#getInfo": {
+                  "ref": "server.YoutubePlayer.html#getInfo",
                   "tf": 33.33333333333333
                 },
-                "Episode.html#getUrlByPlayer": {
-                  "ref": "Episode.html#getUrlByPlayer",
+                "server.Episode.html#getUrlByPlayer": {
+                  "ref": "server.Episode.html#getUrlByPlayer",
                   "tf": 12.5
                 },
-                "server.html": {
-                  "ref": "server.html",
-                  "tf": 0.423728813559322
+                "server.https.html#.start": {
+                  "ref": "server.https.html#.start",
+                  "tf": 0.3472222222222222
+                },
+                "server.data.public.html#.PlayerInfo": {
+                  "ref": "server.data.public.html#.PlayerInfo",
+                  "tf": 25
+                },
+                "server.data.public.html#.EpisodeInfo": {
+                  "ref": "server.data.public.html#.EpisodeInfo",
+                  "tf": 10
                 }
               }
             },
             "i": {
               "docs": {
-                "Anime.html#thumbnailLink": {
-                  "ref": "Anime.html#thumbnailLink",
+                "server.Anime.html#thumbnailLink": {
+                  "ref": "server.Anime.html#thumbnailLink",
                   "tf": 16.666666666666664
                 },
-                "Episode.html#posterLink": {
-                  "ref": "Episode.html#posterLink",
+                "server.Episode.html#posterLink": {
+                  "ref": "server.Episode.html#posterLink",
                   "tf": 16.666666666666664
                 }
               }
@@ -6974,16 +11868,16 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "Anime.html": {
-                      "ref": "Anime.html",
+                    "server.Anime.html": {
+                      "ref": "server.Anime.html",
                       "tf": 8.333333333333332
                     },
-                    "Anime.html#updateJson": {
-                      "ref": "Anime.html#updateJson",
+                    "server.Anime.html#updateJson": {
+                      "ref": "server.Anime.html#updateJson",
                       "tf": 7.142857142857142
                     },
-                    "Episode.html#setLocalPath": {
-                      "ref": "Episode.html#setLocalPath",
+                    "server.Episode.html#setLocalPath": {
+                      "ref": "server.Episode.html#setLocalPath",
                       "tf": 12.5
                     }
                   },
@@ -6997,9 +11891,9 @@ window.lunrData = {
                           "docs": {},
                           "n": {
                             "docs": {
-                              "Anime.html#updateJson": {
-                                "ref": "Anime.html#updateJson",
-                                "tf": 700
+                              "server.Anime.html#updateJson": {
+                                "ref": "server.Anime.html#updateJson",
+                                "tf": 650
                               }
                             }
                           }
@@ -7022,32 +11916,36 @@ window.lunrData = {
                 "docs": {},
                 "o": {
                   "docs": {
-                    "DownloadEpisode.html#player": {
-                      "ref": "DownloadEpisode.html#player",
+                    "server.DownloadEpisode.html#player": {
+                      "ref": "server.DownloadEpisode.html#player",
                       "tf": 10
                     },
-                    "VideoPlayer.html": {
-                      "ref": "VideoPlayer.html",
+                    "server.VideoPlayer.html": {
+                      "ref": "server.VideoPlayer.html",
                       "tf": 12.5
                     },
-                    "VideoPlayer.html#download": {
-                      "ref": "VideoPlayer.html#download",
+                    "server.VideoPlayer.html#download": {
+                      "ref": "server.VideoPlayer.html#download",
                       "tf": 8.333333333333332
                     },
-                    "VideoPlayer.html#.getVideoPlayerById": {
-                      "ref": "VideoPlayer.html#.getVideoPlayerById",
+                    "server.VideoPlayer.html#.getVideoPlayerById": {
+                      "ref": "server.VideoPlayer.html#.getVideoPlayerById",
                       "tf": 12.5
                     },
-                    "YoutubePlayer.html": {
-                      "ref": "YoutubePlayer.html",
+                    "server.YoutubePlayer.html": {
+                      "ref": "server.YoutubePlayer.html",
                       "tf": 14.285714285714285
                     },
-                    "YoutubePlayer.html#download": {
-                      "ref": "YoutubePlayer.html#download",
+                    "server.YoutubePlayer.html#download": {
+                      "ref": "server.YoutubePlayer.html#download",
                       "tf": 12.5
                     },
-                    "YoutubePlayer.html#getInfo": {
-                      "ref": "YoutubePlayer.html#getInfo",
+                    "server.YoutubePlayer.html#getInfo": {
+                      "ref": "server.YoutubePlayer.html#getInfo",
+                      "tf": 12.5
+                    },
+                    "server.data.public.html#.PublicVideoPlayer": {
+                      "ref": "server.data.public.html#.PublicVideoPlayer",
                       "tf": 12.5
                     }
                   },
@@ -7059,61 +11957,49 @@ window.lunrData = {
                         "docs": {},
                         "y": {
                           "docs": {
-                            "DownloadEpisode.html#player": {
-                              "ref": "DownloadEpisode.html#player",
+                            "server.DownloadEpisode.html#player": {
+                              "ref": "server.DownloadEpisode.html#player",
                               "tf": 25
                             },
-                            "VideoPlayer.html": {
-                              "ref": "VideoPlayer.html",
-                              "tf": 1900
+                            "server.VideoPlayer.html": {
+                              "ref": "server.VideoPlayer.html",
+                              "tf": 650
                             },
-                            "VideoPlayer.html#.list": {
-                              "ref": "VideoPlayer.html#.list",
+                            "server.VideoPlayer.html#.list": {
+                              "ref": "server.VideoPlayer.html#.list",
                               "tf": 25
                             },
-                            "VideoPlayer.html#name": {
-                              "ref": "VideoPlayer.html#name",
+                            "server.VideoPlayer.html#name": {
+                              "ref": "server.VideoPlayer.html#name",
                               "tf": 25
                             },
-                            "VideoPlayer.html#isNatif": {
-                              "ref": "VideoPlayer.html#isNatif",
+                            "server.VideoPlayer.html#isNatif": {
+                              "ref": "server.VideoPlayer.html#isNatif",
                               "tf": 10
                             },
-                            "VideoPlayer.html#id": {
-                              "ref": "VideoPlayer.html#id",
+                            "server.VideoPlayer.html#id": {
+                              "ref": "server.VideoPlayer.html#id",
                               "tf": 16.666666666666664
                             },
-                            "VideoPlayer.html#toPublic": {
-                              "ref": "VideoPlayer.html#toPublic",
+                            "server.VideoPlayer.html#toPublic": {
+                              "ref": "server.VideoPlayer.html#toPublic",
                               "tf": 7.142857142857142
                             },
-                            "VideoPlayer.html#.getPlayer": {
-                              "ref": "VideoPlayer.html#.getPlayer",
+                            "server.VideoPlayer.html#.getPlayer": {
+                              "ref": "server.VideoPlayer.html#.getPlayer",
                               "tf": 33.33333333333333
                             },
-                            "VideoPlayer.html#.getVideoPlayerById": {
-                              "ref": "VideoPlayer.html#.getVideoPlayerById",
+                            "server.VideoPlayer.html#.getVideoPlayerById": {
+                              "ref": "server.VideoPlayer.html#.getVideoPlayerById",
                               "tf": 25
                             },
-                            "YoutubePlayer.html#name": {
-                              "ref": "YoutubePlayer.html#name",
-                              "tf": 25
-                            },
-                            "YoutubePlayer.html#isNatif": {
-                              "ref": "YoutubePlayer.html#isNatif",
-                              "tf": 10
-                            },
-                            "YoutubePlayer.html#id": {
-                              "ref": "YoutubePlayer.html#id",
-                              "tf": 16.666666666666664
-                            },
-                            "YoutubePlayer.html#toPublic": {
-                              "ref": "YoutubePlayer.html#toPublic",
-                              "tf": 7.142857142857142
-                            },
-                            "Episode.html#getUrlByPlayer": {
-                              "ref": "Episode.html#getUrlByPlayer",
+                            "server.Episode.html#getUrlByPlayer": {
+                              "ref": "server.Episode.html#getUrlByPlayer",
                               "tf": 12.5
+                            },
+                            "server.data.config.html#.VideoPlayerConfig": {
+                              "ref": "server.data.config.html#.VideoPlayerConfig",
+                              "tf": 25
                             }
                           },
                           "e": {
@@ -7138,8 +12024,8 @@ window.lunrData = {
                                               "docs": {},
                                               "d": {
                                                 "docs": {
-                                                  "DownloadEpisode.html": {
-                                                    "ref": "DownloadEpisode.html",
+                                                  "server.DownloadEpisode.html": {
+                                                    "ref": "server.DownloadEpisode.html",
                                                     "tf": 4.545454545454546
                                                   }
                                                 }
@@ -7159,9 +12045,9 @@ window.lunrData = {
                                       "docs": {},
                                       "t": {
                                         "docs": {
-                                          "VideoPlayer.html#.list": {
-                                            "ref": "VideoPlayer.html#.list",
-                                            "tf": 1150
+                                          "server.VideoPlayer.html#.list": {
+                                            "ref": "server.VideoPlayer.html#.list",
+                                            "tf": 100
                                           }
                                         }
                                       }
@@ -7182,9 +12068,9 @@ window.lunrData = {
                                             "docs": {},
                                             "y": {
                                               "docs": {
-                                                "VideoPlayer.html#.getPlayer": {
-                                                  "ref": "VideoPlayer.html#.getPlayer",
-                                                  "tf": 1150
+                                                "server.VideoPlayer.html#.getPlayer": {
+                                                  "ref": "server.VideoPlayer.html#.getPlayer",
+                                                  "tf": 100
                                                 }
                                               }
                                             }
@@ -7221,9 +12107,9 @@ window.lunrData = {
                                                                   "docs": {},
                                                                   "d": {
                                                                     "docs": {
-                                                                      "VideoPlayer.html#.getVideoPlayerById": {
-                                                                        "ref": "VideoPlayer.html#.getVideoPlayerById",
-                                                                        "tf": 1150
+                                                                      "server.VideoPlayer.html#.getVideoPlayerById": {
+                                                                        "ref": "server.VideoPlayer.html#.getVideoPlayerById",
+                                                                        "tf": 100
                                                                       }
                                                                     }
                                                                   }
@@ -7253,9 +12139,9 @@ window.lunrData = {
                                     "docs": {},
                                     "m": {
                                       "docs": {
-                                        "VideoPlayer.html#name": {
-                                          "ref": "VideoPlayer.html#name",
-                                          "tf": 1150
+                                        "server.VideoPlayer.html#name": {
+                                          "ref": "server.VideoPlayer.html#name",
+                                          "tf": 100
                                         }
                                       }
                                     }
@@ -7275,9 +12161,9 @@ window.lunrData = {
                                             "docs": {},
                                             "f": {
                                               "docs": {
-                                                "VideoPlayer.html#isNatif": {
-                                                  "ref": "VideoPlayer.html#isNatif",
-                                                  "tf": 1150
+                                                "server.VideoPlayer.html#isNatif": {
+                                                  "ref": "server.VideoPlayer.html#isNatif",
+                                                  "tf": 100
                                                 }
                                               }
                                             }
@@ -7288,9 +12174,9 @@ window.lunrData = {
                                   },
                                   "d": {
                                     "docs": {
-                                      "VideoPlayer.html#id": {
-                                        "ref": "VideoPlayer.html#id",
-                                        "tf": 1150
+                                      "server.VideoPlayer.html#id": {
+                                        "ref": "server.VideoPlayer.html#id",
+                                        "tf": 100
                                       }
                                     }
                                   }
@@ -7307,9 +12193,9 @@ window.lunrData = {
                                           "docs": {},
                                           "x": {
                                             "docs": {
-                                              "VideoPlayer.html#prefix": {
-                                                "ref": "VideoPlayer.html#prefix",
-                                                "tf": 1150
+                                              "server.VideoPlayer.html#prefix": {
+                                                "ref": "server.VideoPlayer.html#prefix",
+                                                "tf": 100
                                               }
                                             }
                                           }
@@ -7334,13 +12220,13 @@ window.lunrData = {
                                               "docs": {},
                                               "d": {
                                                 "docs": {
-                                                  "VideoPlayer.html#downloadable": {
-                                                    "ref": "VideoPlayer.html#downloadable",
-                                                    "tf": 1150
+                                                  "server.VideoPlayer.html#downloadable": {
+                                                    "ref": "server.VideoPlayer.html#downloadable",
+                                                    "tf": 100
                                                   },
-                                                  "VideoPlayer.html#download": {
-                                                    "ref": "VideoPlayer.html#download",
-                                                    "tf": 1150
+                                                  "server.VideoPlayer.html#download": {
+                                                    "ref": "server.VideoPlayer.html#download",
+                                                    "tf": 100
                                                   }
                                                 }
                                               }
@@ -7375,9 +12261,9 @@ window.lunrData = {
                                                       "docs": {},
                                                       "d": {
                                                         "docs": {
-                                                          "VideoPlayer.html#autoDownload": {
-                                                            "ref": "VideoPlayer.html#autoDownload",
-                                                            "tf": 1150
+                                                          "server.VideoPlayer.html#autoDownload": {
+                                                            "ref": "server.VideoPlayer.html#autoDownload",
+                                                            "tf": 100
                                                           }
                                                         }
                                                       }
@@ -7404,9 +12290,9 @@ window.lunrData = {
                                           "docs": {},
                                           "l": {
                                             "docs": {
-                                              "VideoPlayer.html#toPublic": {
-                                                "ref": "VideoPlayer.html#toPublic",
-                                                "tf": 1150
+                                              "server.VideoPlayer.html#toPublic": {
+                                                "ref": "server.VideoPlayer.html#toPublic",
+                                                "tf": 100
                                               }
                                             }
                                           }
@@ -7451,9 +12337,9 @@ window.lunrData = {
                                                                   "docs": {},
                                                                   "t": {
                                                                     "docs": {
-                                                                      "VideoPlayer.html#_dispatchOnComplete": {
-                                                                        "ref": "VideoPlayer.html#_dispatchOnComplete",
-                                                                        "tf": 1150
+                                                                      "server.VideoPlayer.html#_dispatchOnComplete": {
+                                                                        "ref": "server.VideoPlayer.html#_dispatchOnComplete",
+                                                                        "tf": 100
                                                                       }
                                                                     }
                                                                   }
@@ -7479,9 +12365,9 @@ window.lunrData = {
                                                                     "docs": {},
                                                                     "s": {
                                                                       "docs": {
-                                                                        "VideoPlayer.html#_dispatchOnProgress": {
-                                                                          "ref": "VideoPlayer.html#_dispatchOnProgress",
-                                                                          "tf": 1150
+                                                                        "server.VideoPlayer.html#_dispatchOnProgress": {
+                                                                          "ref": "server.VideoPlayer.html#_dispatchOnProgress",
+                                                                          "tf": 100
                                                                         }
                                                                       }
                                                                     }
@@ -7502,9 +12388,9 @@ window.lunrData = {
                                                               "docs": {},
                                                               "r": {
                                                                 "docs": {
-                                                                  "VideoPlayer.html#_dispatchOnError": {
-                                                                    "ref": "VideoPlayer.html#_dispatchOnError",
-                                                                    "tf": 1150
+                                                                  "server.VideoPlayer.html#_dispatchOnError": {
+                                                                    "ref": "server.VideoPlayer.html#_dispatchOnError",
+                                                                    "tf": 100
                                                                   }
                                                                 }
                                                               }
@@ -7541,9 +12427,9 @@ window.lunrData = {
                                                 "docs": {},
                                                 "x": {
                                                   "docs": {
-                                                    "VideoPlayer.html#hasPrefix": {
-                                                      "ref": "VideoPlayer.html#hasPrefix",
-                                                      "tf": 1150
+                                                    "server.VideoPlayer.html#hasPrefix": {
+                                                      "ref": "server.VideoPlayer.html#hasPrefix",
+                                                      "tf": 100
                                                     }
                                                   }
                                                 }
@@ -7560,13 +12446,65 @@ window.lunrData = {
                                 "docs": {},
                                 "d": {
                                   "docs": {
-                                    "server.html": {
-                                      "ref": "server.html",
-                                      "tf": 0.423728813559322
+                                    "server.https.html#.start": {
+                                      "ref": "server.https.html#.start",
+                                      "tf": 0.3472222222222222
+                                    }
+                                  }
+                                }
+                              },
+                              "c": {
+                                "docs": {},
+                                "o": {
+                                  "docs": {},
+                                  "n": {
+                                    "docs": {},
+                                    "f": {
+                                      "docs": {},
+                                      "i": {
+                                        "docs": {},
+                                        "g": {
+                                          "docs": {
+                                            "server.data.config.html#.VideoPlayerConfig": {
+                                              "ref": "server.data.config.html#.VideoPlayerConfig",
+                                              "tf": 675
+                                            }
+                                          }
+                                        }
+                                      }
                                     }
                                   }
                                 }
                               }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "b": {
+                  "docs": {},
+                  "j": {
+                    "docs": {},
+                    "e": {
+                      "docs": {},
+                      "c": {
+                        "docs": {},
+                        "t": {
+                          "docs": {
+                            "server.global.html#.nameof": {
+                              "ref": "server.global.html#.nameof",
+                              "tf": 33.33333333333333
                             }
                           }
                         }
@@ -7634,8 +12572,8 @@ window.lunrData = {
                                                               "docs": {},
                                                               "t": {
                                                                 "docs": {
-                                                                  "DownloadEpisode.html#.list": {
-                                                                    "ref": "DownloadEpisode.html#.list",
+                                                                  "server.DownloadEpisode.html#.list": {
+                                                                    "ref": "server.DownloadEpisode.html#.list",
                                                                     "tf": 25
                                                                   }
                                                                 }
@@ -7691,8 +12629,8 @@ window.lunrData = {
                                                             "docs": {},
                                                             "t": {
                                                               "docs": {
-                                                                "DownloadEpisode.html#.toDownload": {
-                                                                  "ref": "DownloadEpisode.html#.toDownload",
+                                                                "server.DownloadEpisode.html#.toDownload": {
+                                                                  "ref": "server.DownloadEpisode.html#.toDownload",
                                                                   "tf": 33.33333333333333
                                                                 }
                                                               }
@@ -7741,8 +12679,8 @@ window.lunrData = {
                                                       "docs": {},
                                                       "t": {
                                                         "docs": {
-                                                          "VideoPlayer.html#.list": {
-                                                            "ref": "VideoPlayer.html#.list",
+                                                          "server.VideoPlayer.html#.list": {
+                                                            "ref": "server.VideoPlayer.html#.list",
                                                             "tf": 25
                                                           }
                                                         }
@@ -7778,16 +12716,12 @@ window.lunrData = {
                                             "docs": {},
                                             "t": {
                                               "docs": {
-                                                "VideoPlayer.html#prefix": {
-                                                  "ref": "VideoPlayer.html#prefix",
+                                                "server.VideoPlayer.html#prefix": {
+                                                  "ref": "server.VideoPlayer.html#prefix",
                                                   "tf": 50
                                                 },
-                                                "YoutubePlayer.html#prefix": {
-                                                  "ref": "YoutubePlayer.html#prefix",
-                                                  "tf": 50
-                                                },
-                                                "Episode.html#links": {
-                                                  "ref": "Episode.html#links",
+                                                "server.Episode.html#links": {
+                                                  "ref": "server.Episode.html#links",
                                                   "tf": 50
                                                 }
                                               }
@@ -7816,8 +12750,8 @@ window.lunrData = {
                                           "docs": {},
                                           "t": {
                                             "docs": {
-                                              "Anime.html#.list": {
-                                                "ref": "Anime.html#.list",
+                                              "server.Anime.html#.list": {
+                                                "ref": "server.Anime.html#.list",
                                                 "tf": 25
                                               }
                                             }
@@ -7849,8 +12783,8 @@ window.lunrData = {
                                               "docs": {},
                                               "t": {
                                                 "docs": {
-                                                  "Anime.html#episodes": {
-                                                    "ref": "Anime.html#episodes",
+                                                  "server.Anime.html#episodes": {
+                                                    "ref": "server.Anime.html#episodes",
                                                     "tf": 50
                                                   }
                                                 }
@@ -7881,12 +12815,8 @@ window.lunrData = {
                 "docs": {},
                 "l": {
                   "docs": {
-                    "VideoPlayer.html#isNatif": {
-                      "ref": "VideoPlayer.html#isNatif",
-                      "tf": 10
-                    },
-                    "YoutubePlayer.html#isNatif": {
-                      "ref": "YoutubePlayer.html#isNatif",
+                    "server.VideoPlayer.html#isNatif": {
+                      "ref": "server.VideoPlayer.html#isNatif",
                       "tf": 10
                     }
                   }
@@ -7916,13 +12846,9 @@ window.lunrData = {
                               "docs": {},
                               "d": {
                                 "docs": {
-                                  "VideoPlayer.html#autoDownload": {
-                                    "ref": "VideoPlayer.html#autoDownload",
-                                    "tf": 700
-                                  },
-                                  "YoutubePlayer.html#autoDownload": {
-                                    "ref": "YoutubePlayer.html#autoDownload",
-                                    "tf": 700
+                                  "server.VideoPlayer.html#autoDownload": {
+                                    "ref": "server.VideoPlayer.html#autoDownload",
+                                    "tf": 650
                                   }
                                 }
                               }
@@ -7944,12 +12870,12 @@ window.lunrData = {
                 "docs": {},
                 "c": {
                   "docs": {
-                    "VideoPlayer.html#download": {
-                      "ref": "VideoPlayer.html#download",
+                    "server.VideoPlayer.html#download": {
+                      "ref": "server.VideoPlayer.html#download",
                       "tf": 8.333333333333332
                     },
-                    "YoutubePlayer.html#download": {
-                      "ref": "YoutubePlayer.html#download",
+                    "server.YoutubePlayer.html#download": {
+                      "ref": "server.YoutubePlayer.html#download",
                       "tf": 12.5
                     }
                   }
@@ -7962,9 +12888,9 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "server.html": {
-                      "ref": "server.html",
-                      "tf": 0.423728813559322
+                    "server.https.html#.start": {
+                      "ref": "server.https.html#.start",
+                      "tf": 0.3472222222222222
                     }
                   },
                   "/": {
@@ -7975,9 +12901,9 @@ window.lunrData = {
                         "docs": {},
                         "o": {
                           "docs": {
-                            "server.html": {
-                              "ref": "server.html",
-                              "tf": 0.423728813559322
+                            "server.https.html#.start": {
+                              "ref": "server.https.html#.start",
+                              "tf": 0.3472222222222222
                             }
                           }
                         }
@@ -8021,9 +12947,9 @@ window.lunrData = {
                                                         "docs": {},
                                                         "g": {
                                                           "docs": {
-                                                            "server.html": {
-                                                              "ref": "server.html",
-                                                              "tf": 0.423728813559322
+                                                            "server.https.html#.start": {
+                                                              "ref": "server.https.html#.start",
+                                                              "tf": 0.3472222222222222
                                                             }
                                                           }
                                                         }
@@ -8056,57 +12982,65 @@ window.lunrData = {
               "docs": {},
               "m": {
                 "docs": {
-                  "Anime.html": {
-                    "ref": "Anime.html",
-                    "tf": 1916.6666666666667
+                  "server.Anime.html": {
+                    "ref": "server.Anime.html",
+                    "tf": 666.6666666666666
                   },
-                  "Anime.html#.list": {
-                    "ref": "Anime.html#.list",
+                  "server.Anime.html#.list": {
+                    "ref": "server.Anime.html#.list",
                     "tf": 25
                   },
-                  "Anime.html#.publicList": {
-                    "ref": "Anime.html#.publicList",
+                  "server.Anime.html#.publicList": {
+                    "ref": "server.Anime.html#.publicList",
                     "tf": 10
                   },
-                  "Anime.html#jsonObject": {
-                    "ref": "Anime.html#jsonObject",
+                  "server.Anime.html#jsonObject": {
+                    "ref": "server.Anime.html#jsonObject",
                     "tf": 12.5
                   },
-                  "Anime.html#name": {
-                    "ref": "Anime.html#name",
+                  "server.Anime.html#name": {
+                    "ref": "server.Anime.html#name",
                     "tf": 25
                   },
-                  "Anime.html#thumbnailLink": {
-                    "ref": "Anime.html#thumbnailLink",
+                  "server.Anime.html#thumbnailLink": {
+                    "ref": "server.Anime.html#thumbnailLink",
                     "tf": 16.666666666666664
                   },
-                  "Anime.html#id": {
-                    "ref": "Anime.html#id",
+                  "server.Anime.html#id": {
+                    "ref": "server.Anime.html#id",
                     "tf": 16.666666666666664
                   },
-                  "Anime.html#path": {
-                    "ref": "Anime.html#path",
+                  "server.Anime.html#path": {
+                    "ref": "server.Anime.html#path",
                     "tf": 12.5
                   },
-                  "Anime.html#toPublic": {
-                    "ref": "Anime.html#toPublic",
+                  "server.Anime.html#toPublic": {
+                    "ref": "server.Anime.html#toPublic",
                     "tf": 7.142857142857142
                   },
-                  "Anime.html#toAnimeConfig": {
-                    "ref": "Anime.html#toAnimeConfig",
+                  "server.Anime.html#toAnimeConfig": {
+                    "ref": "server.Anime.html#toAnimeConfig",
                     "tf": 16.666666666666664
                   },
-                  "Episode.html#anime": {
-                    "ref": "Episode.html#anime",
-                    "tf": 741.6666666666666
+                  "server.Episode.html#anime": {
+                    "ref": "server.Episode.html#anime",
+                    "tf": 691.6666666666666
                   },
-                  "Episode.html#setLocalPath": {
-                    "ref": "Episode.html#setLocalPath",
+                  "server.Episode.html#setLocalPath": {
+                    "ref": "server.Episode.html#setLocalPath",
                     "tf": 12.5
                   },
-                  "server.html": {
-                    "ref": "server.html",
-                    "tf": 2.11864406779661
+                  "server.https.html#.start": {
+                    "ref": "server.https.html#.start",
+                    "tf": 2.7777777777777777
+                  },
+                  "server.data.config.html#.AnimeConfig": {
+                    "ref": "server.data.config.html#.AnimeConfig",
+                    "tf": 25
+                  },
+                  "server.data.public.html#.PublicAnime": {
+                    "ref": "server.data.public.html#.PublicAnime",
+                    "tf": 16.666666666666664
                   }
                 },
                 "e": {
@@ -8121,9 +13055,9 @@ window.lunrData = {
                           "docs": {},
                           "t": {
                             "docs": {
-                              "Anime.html#.list": {
-                                "ref": "Anime.html#.list",
-                                "tf": 1150
+                              "server.Anime.html#.list": {
+                                "ref": "server.Anime.html#.list",
+                                "tf": 100
                               }
                             }
                           }
@@ -8150,13 +13084,13 @@ window.lunrData = {
                                       "docs": {},
                                       "t": {
                                         "docs": {
-                                          "Anime.html#.publicList": {
-                                            "ref": "Anime.html#.publicList",
-                                            "tf": 1150
+                                          "server.Anime.html#.publicList": {
+                                            "ref": "server.Anime.html#.publicList",
+                                            "tf": 100
                                           },
-                                          "server.html": {
-                                            "ref": "server.html",
-                                            "tf": 0.423728813559322
+                                          "server.https.html#.start": {
+                                            "ref": "server.https.html#.start",
+                                            "tf": 0.3472222222222222
                                           }
                                         }
                                       }
@@ -8192,9 +13126,9 @@ window.lunrData = {
                                       "docs": {},
                                       "t": {
                                         "docs": {
-                                          "Anime.html#jsonObject": {
-                                            "ref": "Anime.html#jsonObject",
-                                            "tf": 1150
+                                          "server.Anime.html#jsonObject": {
+                                            "ref": "server.Anime.html#jsonObject",
+                                            "tf": 100
                                           }
                                         }
                                       }
@@ -8213,9 +13147,9 @@ window.lunrData = {
                         "docs": {},
                         "m": {
                           "docs": {
-                            "Anime.html#name": {
-                              "ref": "Anime.html#name",
-                              "tf": 1150
+                            "server.Anime.html#name": {
+                              "ref": "server.Anime.html#name",
+                              "tf": 100
                             }
                           }
                         }
@@ -8247,9 +13181,9 @@ window.lunrData = {
                                             "docs": {},
                                             "k": {
                                               "docs": {
-                                                "Anime.html#thumbnailLink": {
-                                                  "ref": "Anime.html#thumbnailLink",
-                                                  "tf": 1150
+                                                "server.Anime.html#thumbnailLink": {
+                                                  "ref": "server.Anime.html#thumbnailLink",
+                                                  "tf": 100
                                                 }
                                               }
                                             }
@@ -8274,9 +13208,9 @@ window.lunrData = {
                               "docs": {},
                               "l": {
                                 "docs": {
-                                  "Anime.html#toPublic": {
-                                    "ref": "Anime.html#toPublic",
-                                    "tf": 1150
+                                  "server.Anime.html#toPublic": {
+                                    "ref": "server.Anime.html#toPublic",
+                                    "tf": 100
                                   }
                                 }
                               }
@@ -8305,9 +13239,9 @@ window.lunrData = {
                                             "docs": {},
                                             "g": {
                                               "docs": {
-                                                "Anime.html#toAnimeConfig": {
-                                                  "ref": "Anime.html#toAnimeConfig",
-                                                  "tf": 1150
+                                                "server.Anime.html#toAnimeConfig": {
+                                                  "ref": "server.Anime.html#toAnimeConfig",
+                                                  "tf": 100
                                                 }
                                               }
                                             }
@@ -8333,9 +13267,9 @@ window.lunrData = {
                             "docs": {},
                             "h": {
                               "docs": {
-                                "Anime.html#_path": {
-                                  "ref": "Anime.html#_path",
-                                  "tf": 1150
+                                "server.Anime.html#_path": {
+                                  "ref": "server.Anime.html#_path",
+                                  "tf": 100
                                 }
                               }
                             }
@@ -8355,9 +13289,9 @@ window.lunrData = {
                               "docs": {},
                               "d": {
                                 "docs": {
-                                  "Anime.html#episodes": {
-                                    "ref": "Anime.html#episodes",
-                                    "tf": 1150
+                                  "server.Anime.html#episodes": {
+                                    "ref": "server.Anime.html#episodes",
+                                    "tf": 100
                                   }
                                 }
                               }
@@ -8370,9 +13304,9 @@ window.lunrData = {
                       "docs": {},
                       "d": {
                         "docs": {
-                          "Anime.html#id": {
-                            "ref": "Anime.html#id",
-                            "tf": 1150
+                          "server.Anime.html#id": {
+                            "ref": "server.Anime.html#id",
+                            "tf": 100
                           }
                         }
                       }
@@ -8385,9 +13319,9 @@ window.lunrData = {
                           "docs": {},
                           "h": {
                             "docs": {
-                              "Anime.html#path": {
-                                "ref": "Anime.html#path",
-                                "tf": 1150
+                              "server.Anime.html#path": {
+                                "ref": "server.Anime.html#path",
+                                "tf": 100
                               }
                             }
                           }
@@ -8422,9 +13356,9 @@ window.lunrData = {
                                               "docs": {},
                                               "d": {
                                                 "docs": {
-                                                  "Anime.html#getEpisodeById": {
-                                                    "ref": "Anime.html#getEpisodeById",
-                                                    "tf": 1150
+                                                  "server.Anime.html#getEpisodeById": {
+                                                    "ref": "server.Anime.html#getEpisodeById",
+                                                    "tf": 100
                                                   }
                                                 }
                                               }
@@ -8461,9 +13395,9 @@ window.lunrData = {
                                       "docs": {},
                                       "n": {
                                         "docs": {
-                                          "Anime.html#updateJson": {
-                                            "ref": "Anime.html#updateJson",
-                                            "tf": 1150
+                                          "server.Anime.html#updateJson": {
+                                            "ref": "server.Anime.html#updateJson",
+                                            "tf": 100
                                           }
                                         }
                                       }
@@ -8479,12 +13413,12 @@ window.lunrData = {
                   },
                   "'": {
                     "docs": {
-                      "Anime.html#_path": {
-                        "ref": "Anime.html#_path",
+                      "server.Anime.html#_path": {
+                        "ref": "server.Anime.html#_path",
                         "tf": 16.666666666666664
                       },
-                      "Anime.html#getEpisodeById": {
-                        "ref": "Anime.html#getEpisodeById",
+                      "server.Anime.html#getEpisodeById": {
+                        "ref": "server.Anime.html#getEpisodeById",
                         "tf": 16.666666666666664
                       }
                     }
@@ -8501,13 +13435,17 @@ window.lunrData = {
                             "docs": {},
                             "g": {
                               "docs": {
-                                "Anime.html#updateJson": {
-                                  "ref": "Anime.html#updateJson",
+                                "server.Anime.html#updateJson": {
+                                  "ref": "server.Anime.html#updateJson",
                                   "tf": 7.142857142857142
                                 },
-                                "Anime.html#toAnimeConfig": {
-                                  "ref": "Anime.html#toAnimeConfig",
+                                "server.Anime.html#toAnimeConfig": {
+                                  "ref": "server.Anime.html#toAnimeConfig",
                                   "tf": 66.66666666666666
+                                },
+                                "server.data.config.html#.AnimeConfig": {
+                                  "ref": "server.data.config.html#.AnimeConfig",
+                                  "tf": 675
                                 }
                               }
                             }
@@ -8520,13 +13458,24 @@ window.lunrData = {
                     "docs": {},
                     "d": {
                       "docs": {
-                        "server.html": {
-                          "ref": "server.html",
-                          "tf": 1.2711864406779663
+                        "server.https.html#.start": {
+                          "ref": "server.https.html#.start",
+                          "tf": 1.0416666666666665
                         }
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "d": {
+            "docs": {},
+            "d": {
+              "docs": {
+                "server.https.html#.start": {
+                  "ref": "server.https.html#.start",
+                  "tf": 0.6944444444444444
                 }
               }
             }
@@ -8540,8 +13489,8 @@ window.lunrData = {
               "docs": {},
               "t": {
                 "docs": {
-                  "DownloadEpisode.html#episode": {
-                    "ref": "DownloadEpisode.html#episode",
+                  "server.DownloadEpisode.html#episode": {
+                    "ref": "server.DownloadEpisode.html#episode",
                     "tf": 16.666666666666664
                   }
                 }
@@ -8556,13 +13505,37 @@ window.lunrData = {
                 "docs": {},
                 "t": {
                   "docs": {
-                    "VideoPlayer.html#isNatif": {
-                      "ref": "VideoPlayer.html#isNatif",
+                    "server.VideoPlayer.html#isNatif": {
+                      "ref": "server.VideoPlayer.html#isNatif",
                       "tf": 10
-                    },
-                    "YoutubePlayer.html#isNatif": {
-                      "ref": "YoutubePlayer.html#isNatif",
-                      "tf": 10
+                    }
+                  }
+                }
+              }
+            },
+            "i": {
+              "docs": {},
+              "t": {
+                "docs": {},
+                "e": {
+                  "docs": {
+                    "server.global.html#.writeLog": {
+                      "ref": "server.global.html#.writeLog",
+                      "tf": 16.666666666666664
+                    }
+                  },
+                  "l": {
+                    "docs": {},
+                    "o": {
+                      "docs": {},
+                      "g": {
+                        "docs": {
+                          "server.global.html#.writeLog": {
+                            "ref": "server.global.html#.writeLog",
+                            "tf": 625
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -8577,9 +13550,9 @@ window.lunrData = {
                 "docs": {},
                 "h": {
                   "docs": {
-                    "server.html": {
-                      "ref": "server.html",
-                      "tf": 0.847457627118644
+                    "server.https.html#.start": {
+                      "ref": "server.https.html#.start",
+                      "tf": 0.6944444444444444
                     }
                   }
                 }
@@ -8601,60 +13574,44 @@ window.lunrData = {
                     "docs": {},
                     "n": {
                       "docs": {
-                        "DownloadEpisode.html#isReady": {
-                          "ref": "DownloadEpisode.html#isReady",
+                        "server.DownloadEpisode.html#isReady": {
+                          "ref": "server.DownloadEpisode.html#isReady",
                           "tf": 25
                         },
-                        "DownloadEpisode.html#isPending": {
-                          "ref": "DownloadEpisode.html#isPending",
+                        "server.DownloadEpisode.html#isPending": {
+                          "ref": "server.DownloadEpisode.html#isPending",
                           "tf": 33.33333333333333
                         },
-                        "DownloadEpisode.html#isDownloading": {
-                          "ref": "DownloadEpisode.html#isDownloading",
+                        "server.DownloadEpisode.html#isDownloading": {
+                          "ref": "server.DownloadEpisode.html#isDownloading",
                           "tf": 33.33333333333333
                         },
-                        "DownloadEpisode.html#isError": {
-                          "ref": "DownloadEpisode.html#isError",
+                        "server.DownloadEpisode.html#isError": {
+                          "ref": "server.DownloadEpisode.html#isError",
                           "tf": 33.33333333333333
                         },
-                        "VideoPlayer.html#isNatif": {
-                          "ref": "VideoPlayer.html#isNatif",
+                        "server.VideoPlayer.html#isNatif": {
+                          "ref": "server.VideoPlayer.html#isNatif",
                           "tf": 33.33333333333333
                         },
-                        "VideoPlayer.html#downloadable": {
-                          "ref": "VideoPlayer.html#downloadable",
+                        "server.VideoPlayer.html#downloadable": {
+                          "ref": "server.VideoPlayer.html#downloadable",
                           "tf": 50
                         },
-                        "VideoPlayer.html#autoDownload": {
-                          "ref": "VideoPlayer.html#autoDownload",
+                        "server.VideoPlayer.html#autoDownload": {
+                          "ref": "server.VideoPlayer.html#autoDownload",
                           "tf": 50
                         },
-                        "VideoPlayer.html#hasPrefix": {
-                          "ref": "VideoPlayer.html#hasPrefix",
+                        "server.VideoPlayer.html#hasPrefix": {
+                          "ref": "server.VideoPlayer.html#hasPrefix",
                           "tf": 33.33333333333333
                         },
-                        "YoutubePlayer.html#isNatif": {
-                          "ref": "YoutubePlayer.html#isNatif",
-                          "tf": 33.33333333333333
-                        },
-                        "YoutubePlayer.html#downloadable": {
-                          "ref": "YoutubePlayer.html#downloadable",
+                        "server.Episode.html#isLocal": {
+                          "ref": "server.Episode.html#isLocal",
                           "tf": 50
                         },
-                        "YoutubePlayer.html#autoDownload": {
-                          "ref": "YoutubePlayer.html#autoDownload",
-                          "tf": 50
-                        },
-                        "YoutubePlayer.html#hasPrefix": {
-                          "ref": "YoutubePlayer.html#hasPrefix",
-                          "tf": 33.33333333333333
-                        },
-                        "Episode.html#isLocal": {
-                          "ref": "Episode.html#isLocal",
-                          "tf": 50
-                        },
-                        "Episode.html#hasPoster": {
-                          "ref": "Episode.html#hasPoster",
+                        "server.Episode.html#hasPoster": {
+                          "ref": "server.Episode.html#hasPoster",
                           "tf": 50
                         }
                       }
@@ -8676,8 +13633,8 @@ window.lunrData = {
                     "docs": {},
                     "n": {
                       "docs": {
-                        "Episode.html#episodeId": {
-                          "ref": "Episode.html#episodeId",
+                        "server.Episode.html#episodeId": {
+                          "ref": "server.Episode.html#episodeId",
                           "tf": 7.142857142857142
                         }
                       }
@@ -8705,9 +13662,9 @@ window.lunrData = {
                           "docs": {},
                           "d": {
                             "docs": {
-                              "server.html": {
-                                "ref": "server.html",
-                                "tf": 0.423728813559322
+                              "server.https.html#.start": {
+                                "ref": "server.https.html#.start",
+                                "tf": 0.3472222222222222
                               }
                             },
                             "c": {
@@ -8720,9 +13677,9 @@ window.lunrData = {
                                     "docs": {},
                                     "r": {
                                       "docs": {
-                                        "server.html": {
-                                          "ref": "server.html",
-                                          "tf": 0.423728813559322
+                                        "server.https.html#.start": {
+                                          "ref": "server.https.html#.start",
+                                          "tf": 0.3472222222222222
                                         }
                                       }
                                     }
@@ -8766,9 +13723,9 @@ window.lunrData = {
                                 "docs": {},
                                 "h": {
                                   "docs": {
-                                    "DownloadEpisode.html#_setLocalPath": {
-                                      "ref": "DownloadEpisode.html#_setLocalPath",
-                                      "tf": 683.3333333333334
+                                    "server.DownloadEpisode.html#_setLocalPath": {
+                                      "ref": "server.DownloadEpisode.html#_setLocalPath",
+                                      "tf": 633.3333333333334
                                     }
                                   }
                                 }
@@ -8784,9 +13741,9 @@ window.lunrData = {
                   "docs": {},
                   "v": {
                     "docs": {
-                      "DownloadEpisode.html#_setEvents": {
-                        "ref": "DownloadEpisode.html#_setEvents",
-                        "tf": 683.3333333333334
+                      "server.DownloadEpisode.html#_setEvents": {
+                        "ref": "server.DownloadEpisode.html#_setEvents",
+                        "tf": 633.3333333333334
                       }
                     }
                   }
@@ -8828,13 +13785,9 @@ window.lunrData = {
                                           "docs": {},
                                           "t": {
                                             "docs": {
-                                              "VideoPlayer.html#_dispatchOnComplete": {
-                                                "ref": "VideoPlayer.html#_dispatchOnComplete",
-                                                "tf": 675
-                                              },
-                                              "YoutubePlayer.html#_dispatchOnComplete": {
-                                                "ref": "YoutubePlayer.html#_dispatchOnComplete",
-                                                "tf": 675
+                                              "server.VideoPlayer.html#_dispatchOnComplete": {
+                                                "ref": "server.VideoPlayer.html#_dispatchOnComplete",
+                                                "tf": 625
                                               }
                                             }
                                           }
@@ -8860,13 +13813,9 @@ window.lunrData = {
                                             "docs": {},
                                             "s": {
                                               "docs": {
-                                                "VideoPlayer.html#_dispatchOnProgress": {
-                                                  "ref": "VideoPlayer.html#_dispatchOnProgress",
-                                                  "tf": 675
-                                                },
-                                                "YoutubePlayer.html#_dispatchOnProgress": {
-                                                  "ref": "YoutubePlayer.html#_dispatchOnProgress",
-                                                  "tf": 675
+                                                "server.VideoPlayer.html#_dispatchOnProgress": {
+                                                  "ref": "server.VideoPlayer.html#_dispatchOnProgress",
+                                                  "tf": 625
                                                 }
                                               }
                                             }
@@ -8887,13 +13836,9 @@ window.lunrData = {
                                       "docs": {},
                                       "r": {
                                         "docs": {
-                                          "VideoPlayer.html#_dispatchOnError": {
-                                            "ref": "VideoPlayer.html#_dispatchOnError",
-                                            "tf": 675
-                                          },
-                                          "YoutubePlayer.html#_dispatchOnError": {
-                                            "ref": "YoutubePlayer.html#_dispatchOnError",
-                                            "tf": 675
+                                          "server.VideoPlayer.html#_dispatchOnError": {
+                                            "ref": "server.VideoPlayer.html#_dispatchOnError",
+                                            "tf": 625
                                           }
                                         }
                                       }
@@ -8919,9 +13864,81 @@ window.lunrData = {
                 "docs": {},
                 "h": {
                   "docs": {
-                    "Anime.html#_path": {
-                      "ref": "Anime.html#_path",
-                      "tf": 675
+                    "server.Anime.html#_path": {
+                      "ref": "server.Anime.html#_path",
+                      "tf": 625
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "_": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "o": {
+                  "docs": {},
+                  "t": {
+                    "docs": {
+                      "server.global.html#.__root": {
+                        "ref": "server.global.html#.__root",
+                        "tf": 633.3333333333334
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "l": {
+              "docs": {},
+              "o": {
+                "docs": {},
+                "g": {
+                  "docs": {},
+                  "f": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "l": {
+                        "docs": {
+                          "server.global.html#.__logFile": {
+                            "ref": "server.global.html#.__logFile",
+                            "tf": 633.3333333333334
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "t": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "m": {
+                  "docs": {},
+                  "p": {
+                    "docs": {},
+                    "f": {
+                      "docs": {},
+                      "o": {
+                        "docs": {},
+                        "l": {
+                          "docs": {},
+                          "d": {
+                            "docs": {
+                              "server.global.html#.__tempFolder": {
+                                "ref": "server.global.html#.__tempFolder",
+                                "tf": 633.3333333333334
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -8941,16 +13958,16 @@ window.lunrData = {
                   "docs": {},
                   "b": {
                     "docs": {
-                      "YoutubePlayer.html": {
-                        "ref": "YoutubePlayer.html",
+                      "server.YoutubePlayer.html": {
+                        "ref": "server.YoutubePlayer.html",
                         "tf": 7.142857142857142
                       },
-                      "YoutubePlayer.html#download": {
-                        "ref": "YoutubePlayer.html#download",
+                      "server.YoutubePlayer.html#download": {
+                        "ref": "server.YoutubePlayer.html#download",
                         "tf": 12.5
                       },
-                      "YoutubePlayer.html#getInfo": {
-                        "ref": "YoutubePlayer.html#getInfo",
+                      "server.YoutubePlayer.html#getInfo": {
+                        "ref": "server.YoutubePlayer.html#getInfo",
                         "tf": 12.5
                       }
                     },
@@ -8964,88 +13981,37 @@ window.lunrData = {
                             "docs": {},
                             "y": {
                               "docs": {
-                                "YoutubePlayer.html": {
-                                  "ref": "YoutubePlayer.html",
-                                  "tf": 1900
+                                "server.YoutubePlayer.html": {
+                                  "ref": "server.YoutubePlayer.html",
+                                  "tf": 650
                                 }
                               },
                               "e": {
                                 "docs": {},
                                 "r": {
                                   "docs": {},
-                                  "#": {
+                                  ".": {
                                     "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "a": {
-                                        "docs": {},
-                                        "m": {
-                                          "docs": {
-                                            "YoutubePlayer.html#name": {
-                                              "ref": "YoutubePlayer.html#name",
-                                              "tf": 1150
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
                                     "i": {
                                       "docs": {},
-                                      "s": {
+                                      "n": {
                                         "docs": {},
-                                        "n": {
+                                        "s": {
                                           "docs": {},
-                                          "a": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {},
-                                              "i": {
-                                                "docs": {},
-                                                "f": {
-                                                  "docs": {
-                                                    "YoutubePlayer.html#isNatif": {
-                                                      "ref": "YoutubePlayer.html#isNatif",
-                                                      "tf": 1150
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      },
-                                      "d": {
-                                        "docs": {
-                                          "YoutubePlayer.html#id": {
-                                            "ref": "YoutubePlayer.html#id",
-                                            "tf": 1150
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "p": {
-                                      "docs": {},
-                                      "r": {
-                                        "docs": {},
-                                        "e": {
-                                          "docs": {},
-                                          "f": {
-                                            "docs": {},
-                                            "i": {
-                                              "docs": {},
-                                              "x": {
-                                                "docs": {
-                                                  "YoutubePlayer.html#prefix": {
-                                                    "ref": "YoutubePlayer.html#prefix",
-                                                    "tf": 1150
-                                                  }
-                                                }
+                                          "t": {
+                                            "docs": {
+                                              "server.YoutubePlayer.html#.instance": {
+                                                "ref": "server.YoutubePlayer.html#.instance",
+                                                "tf": 100
                                               }
                                             }
                                           }
                                         }
                                       }
-                                    },
+                                    }
+                                  },
+                                  "#": {
+                                    "docs": {},
                                     "d": {
                                       "docs": {},
                                       "o": {
@@ -9062,217 +14028,9 @@ window.lunrData = {
                                                   "docs": {},
                                                   "d": {
                                                     "docs": {
-                                                      "YoutubePlayer.html#downloadable": {
-                                                        "ref": "YoutubePlayer.html#downloadable",
-                                                        "tf": 1150
-                                                      },
-                                                      "YoutubePlayer.html#download": {
-                                                        "ref": "YoutubePlayer.html#download",
-                                                        "tf": 1150
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "a": {
-                                      "docs": {},
-                                      "u": {
-                                        "docs": {},
-                                        "t": {
-                                          "docs": {},
-                                          "o": {
-                                            "docs": {},
-                                            "d": {
-                                              "docs": {},
-                                              "o": {
-                                                "docs": {},
-                                                "w": {
-                                                  "docs": {},
-                                                  "n": {
-                                                    "docs": {},
-                                                    "l": {
-                                                      "docs": {},
-                                                      "o": {
-                                                        "docs": {},
-                                                        "a": {
-                                                          "docs": {},
-                                                          "d": {
-                                                            "docs": {
-                                                              "YoutubePlayer.html#autoDownload": {
-                                                                "ref": "YoutubePlayer.html#autoDownload",
-                                                                "tf": 1150
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "t": {
-                                      "docs": {},
-                                      "o": {
-                                        "docs": {},
-                                        "p": {
-                                          "docs": {},
-                                          "u": {
-                                            "docs": {},
-                                            "b": {
-                                              "docs": {},
-                                              "l": {
-                                                "docs": {
-                                                  "YoutubePlayer.html#toPublic": {
-                                                    "ref": "YoutubePlayer.html#toPublic",
-                                                    "tf": 1150
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "_": {
-                                      "docs": {},
-                                      "d": {
-                                        "docs": {},
-                                        "i": {
-                                          "docs": {},
-                                          "s": {
-                                            "docs": {},
-                                            "p": {
-                                              "docs": {},
-                                              "a": {
-                                                "docs": {},
-                                                "t": {
-                                                  "docs": {},
-                                                  "c": {
-                                                    "docs": {},
-                                                    "h": {
-                                                      "docs": {},
-                                                      "o": {
-                                                        "docs": {},
-                                                        "n": {
-                                                          "docs": {},
-                                                          "c": {
-                                                            "docs": {},
-                                                            "o": {
-                                                              "docs": {},
-                                                              "m": {
-                                                                "docs": {},
-                                                                "p": {
-                                                                  "docs": {},
-                                                                  "l": {
-                                                                    "docs": {},
-                                                                    "e": {
-                                                                      "docs": {},
-                                                                      "t": {
-                                                                        "docs": {
-                                                                          "YoutubePlayer.html#_dispatchOnComplete": {
-                                                                            "ref": "YoutubePlayer.html#_dispatchOnComplete",
-                                                                            "tf": 1150
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          },
-                                                          "p": {
-                                                            "docs": {},
-                                                            "r": {
-                                                              "docs": {},
-                                                              "o": {
-                                                                "docs": {},
-                                                                "g": {
-                                                                  "docs": {},
-                                                                  "r": {
-                                                                    "docs": {},
-                                                                    "e": {
-                                                                      "docs": {},
-                                                                      "s": {
-                                                                        "docs": {},
-                                                                        "s": {
-                                                                          "docs": {
-                                                                            "YoutubePlayer.html#_dispatchOnProgress": {
-                                                                              "ref": "YoutubePlayer.html#_dispatchOnProgress",
-                                                                              "tf": 1150
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          },
-                                                          "e": {
-                                                            "docs": {},
-                                                            "r": {
-                                                              "docs": {},
-                                                              "r": {
-                                                                "docs": {},
-                                                                "o": {
-                                                                  "docs": {},
-                                                                  "r": {
-                                                                    "docs": {
-                                                                      "YoutubePlayer.html#_dispatchOnError": {
-                                                                        "ref": "YoutubePlayer.html#_dispatchOnError",
-                                                                        "tf": 1150
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "h": {
-                                      "docs": {},
-                                      "a": {
-                                        "docs": {},
-                                        "s": {
-                                          "docs": {},
-                                          "p": {
-                                            "docs": {},
-                                            "r": {
-                                              "docs": {},
-                                              "e": {
-                                                "docs": {},
-                                                "f": {
-                                                  "docs": {},
-                                                  "i": {
-                                                    "docs": {},
-                                                    "x": {
-                                                      "docs": {
-                                                        "YoutubePlayer.html#hasPrefix": {
-                                                          "ref": "YoutubePlayer.html#hasPrefix",
-                                                          "tf": 1150
-                                                        }
+                                                      "server.YoutubePlayer.html#download": {
+                                                        "ref": "server.YoutubePlayer.html#download",
+                                                        "tf": 100
                                                       }
                                                     }
                                                   }
@@ -9297,32 +14055,12 @@ window.lunrData = {
                                                 "docs": {},
                                                 "o": {
                                                   "docs": {
-                                                    "YoutubePlayer.html#getInfo": {
-                                                      "ref": "YoutubePlayer.html#getInfo",
-                                                      "tf": 1150
+                                                    "server.YoutubePlayer.html#getInfo": {
+                                                      "ref": "server.YoutubePlayer.html#getInfo",
+                                                      "tf": 100
                                                     }
                                                   }
                                                 }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  },
-                                  ".": {
-                                    "docs": {},
-                                    "i": {
-                                      "docs": {},
-                                      "n": {
-                                        "docs": {},
-                                        "s": {
-                                          "docs": {},
-                                          "t": {
-                                            "docs": {
-                                              "YoutubePlayer.html#.instance": {
-                                                "ref": "YoutubePlayer.html#.instance",
-                                                "tf": 1150
                                               }
                                             }
                                           }
@@ -9344,15 +14082,19 @@ window.lunrData = {
           }
         }
       },
-      "length": 707
+      "length": 884
     },
     "corpusTokens": [
+      "__logfil",
+      "__root",
+      "__tempfold",
       "_dispatchoncomplet",
       "_dispatchonerror",
       "_dispatchonprogress",
       "_path",
       "_setev",
       "_setlocalpath",
+      "add",
       "anim",
       "anime#_path",
       "anime#episod",
@@ -9392,13 +14134,31 @@ window.lunrData = {
       "color",
       "compar",
       "complet",
+      "config",
+      "config.animeconfig",
+      "config.config",
+      "config.episodeconfig",
+      "config.videoplayerconfig",
       "consolegroup",
       "correspond",
       "corrispond",
+      "creat",
+      "createlogfil",
       "css",
       "current",
       "currentdownload",
       "data",
+      "data.config",
+      "data.config.animeconfig",
+      "data.config.config",
+      "data.config.episodeconfig",
+      "data.config.videoplayerconfig",
+      "data.publ",
+      "data.public.episodeinfo",
+      "data.public.playerinfo",
+      "data.public.publicanim",
+      "data.public.publicepisod",
+      "data.public.publicvideoplay",
       "default",
       "defin",
       "destroy",
@@ -9423,7 +14183,6 @@ window.lunrData = {
       "downloadepisode.getfromepisod",
       "downloadepisode.list",
       "downloadepisode.todownload",
-      "downloadepisode.todownloaditem",
       "downloadurl",
       "edit",
       "emitt",
@@ -9458,6 +14217,7 @@ window.lunrData = {
       "error",
       "event",
       "eventemitt",
+      "exports.getthumbail",
       "fetch",
       "file",
       "filenam",
@@ -9478,20 +14238,35 @@ window.lunrData = {
       "getfromepisod",
       "getinfo",
       "getplay",
+      "getthumbail",
       "geturlbyplay",
       "getvideoplayerbyid",
       "give",
       "given",
       "global",
+      "global.__logfil",
+      "global.__root",
+      "global.__tempfold",
+      "global.guidgener",
+      "global.nameof",
+      "global.overridelin",
+      "global.tofilenam",
+      "global.writelog",
+      "guidgener",
       "handl",
       "haspost",
       "hasprefix",
       "height",
       "helper",
       "html",
+      "http",
+      "https.start",
       "ico",
       "id",
+      "id\":anim",
       "imag",
+      "image.exports.getthumbail",
+      "image.thumbailopt",
       "index",
       "index.html",
       "index.json",
@@ -9512,7 +14287,9 @@ window.lunrData = {
       "jsonobject#load",
       "jsonobject#loadsync",
       "jsonobject#sav",
+      "last",
       "launch",
+      "line",
       "link",
       "list",
       "list:class",
@@ -9523,6 +14300,8 @@ window.lunrData = {
       "local",
       "localfilewithoutextens",
       "locallink",
+      "log",
+      "logfil",
       "lt;async&gt",
       "lt;privat",
       "lt;private&gt",
@@ -9535,29 +14314,47 @@ window.lunrData = {
       "match",
       "max",
       "member",
+      "messag",
       "name",
+      "nameof",
       "namespac",
+      "new",
+      "new/anim",
+      "new/episod",
+      "newlin",
+      "node.j",
       "number",
       "object",
       "on",
       "ongo",
+      "option",
       "order",
+      "overrid",
+      "overridelin",
       "param",
       "path",
       "path.join($this.anime.path",
       "pathtofil",
       "pend",
       "player",
+      "playerinfo",
       "poster",
       "posterlink",
       "prefix",
       "prefix(",
       "progress",
       "progress\":downloadepisode.progress",
+      "projet",
       "promise.&lt;episodeinfo&gt",
+      "promise.&lt;string&gt",
       "promise.&lt;void&gt",
       "promise.&lt;ytdl.videoinfo&gt",
       "public",
+      "public.episodeinfo",
+      "public.playerinfo",
+      "public.publicanim",
+      "public.publicepisod",
+      "public.publicvideoplay",
       "publicanim",
       "publicepisod",
       "publiclist",
@@ -9568,11 +14365,115 @@ window.lunrData = {
       "recdownloaddata",
       "refer",
       "remov",
+      "replac",
       "return",
       "save",
       "see",
       "send",
       "server",
+      "server.anim",
+      "server.anime#_path",
+      "server.anime#episod",
+      "server.anime#getepisodebyid",
+      "server.anime#id",
+      "server.anime#jsonobject",
+      "server.anime#nam",
+      "server.anime#path",
+      "server.anime#thumbnaillink",
+      "server.anime#toanimeconfig",
+      "server.anime#topubl",
+      "server.anime#updatejson",
+      "server.anime.list",
+      "server.anime.publiclist",
+      "server.createlogfil",
+      "server.data",
+      "server.data.config",
+      "server.data.config.animeconfig",
+      "server.data.config.config",
+      "server.data.config.episodeconfig",
+      "server.data.config.videoplayerconfig",
+      "server.data.publ",
+      "server.data.public.episodeinfo",
+      "server.data.public.playerinfo",
+      "server.data.public.publicanim",
+      "server.data.public.publicepisod",
+      "server.data.public.publicvideoplay",
+      "server.downloadepisod",
+      "server.downloadepisode#_setev",
+      "server.downloadepisode#_setlocalpath",
+      "server.downloadepisode#destroy",
+      "server.downloadepisode#download",
+      "server.downloadepisode#episod",
+      "server.downloadepisode#error",
+      "server.downloadepisode#id",
+      "server.downloadepisode#isdownload",
+      "server.downloadepisode#iserror",
+      "server.downloadepisode#ispend",
+      "server.downloadepisode#isreadi",
+      "server.downloadepisode#play",
+      "server.downloadepisode#progress",
+      "server.downloadepisode.currentdownload",
+      "server.downloadepisode.getfromepisod",
+      "server.downloadepisode.list",
+      "server.downloadepisode.todownload",
+      "server.episod",
+      "server.episode#anim",
+      "server.episode#episodeid",
+      "server.episode#getinfo",
+      "server.episode#geturlbyplay",
+      "server.episode#haspost",
+      "server.episode#isloc",
+      "server.episode#link",
+      "server.episode#locallink",
+      "server.episode#nam",
+      "server.episode#path",
+      "server.episode#posterlink",
+      "server.episode#setlocalpath",
+      "server.episode#toepisodeconfig",
+      "server.episode#topubl",
+      "server.glob",
+      "server.global.__logfil",
+      "server.global.__root",
+      "server.global.__tempfold",
+      "server.global.guidgener",
+      "server.global.nameof",
+      "server.global.overridelin",
+      "server.global.tofilenam",
+      "server.global.writelog",
+      "server.http",
+      "server.https.start",
+      "server.imag",
+      "server.image.exports.getthumbail",
+      "server.image.thumbailopt",
+      "server.jsonobject",
+      "server.jsonobject#load",
+      "server.jsonobject#loadsync",
+      "server.jsonobject#sav",
+      "server.videoplay",
+      "server.videoplayer#_dispatchoncomplet",
+      "server.videoplayer#_dispatchonerror",
+      "server.videoplayer#_dispatchonprogress",
+      "server.videoplayer#autodownload",
+      "server.videoplayer#download",
+      "server.videoplayer#hasprefix",
+      "server.videoplayer#id",
+      "server.videoplayer#isnatif",
+      "server.videoplayer#nam",
+      "server.videoplayer#prefix",
+      "server.videoplayer#topubl",
+      "server.videoplayer.getplay",
+      "server.videoplayer.getvideoplayerbyid",
+      "server.videoplayer.list",
+      "server.youtubeplay",
+      "server.youtubeplayer#download",
+      "server.youtubeplayer#getinfo",
+      "server.youtubeplayer.inst",
+      "server~anim",
+      "server~downloadepisod",
+      "server~episod",
+      "server~jsonobject",
+      "server~videoplay",
+      "server~youtubeplay",
       "set",
       "setlocalpath",
       "show",
@@ -9584,16 +14485,19 @@ window.lunrData = {
       "streamanim",
       "string",
       "tell",
+      "temp",
       "text",
       "textcolor",
       "textsiz",
       "there'",
       "this.episodeid",
+      "thumbailopt",
+      "thumbnail",
       "thumbnaillink",
       "toanimeconfig",
       "todownload",
-      "todownloaditem",
       "toepisodeconfig",
+      "tofilenam",
       "topubl",
       "true",
       "typedef",
@@ -9603,6 +14507,7 @@ window.lunrData = {
       "uri",
       "url",
       "us",
+      "varobject",
       "video",
       "videoplay",
       "videoplayer#_dispatchoncomplet",
@@ -9620,24 +14525,17 @@ window.lunrData = {
       "videoplayer.getplay",
       "videoplayer.getvideoplayerbyid",
       "videoplayer.list",
+      "videoplayerconfig",
       "videoplayerid",
       "want",
       "width",
+      "write",
+      "writelog",
       "wront",
       "youtub",
       "youtubeplay",
-      "youtubeplayer#_dispatchoncomplet",
-      "youtubeplayer#_dispatchonerror",
-      "youtubeplayer#_dispatchonprogress",
-      "youtubeplayer#autodownload",
       "youtubeplayer#download",
       "youtubeplayer#getinfo",
-      "youtubeplayer#hasprefix",
-      "youtubeplayer#id",
-      "youtubeplayer#isnatif",
-      "youtubeplayer#nam",
-      "youtubeplayer#prefix",
-      "youtubeplayer#topubl",
       "youtubeplayer.inst"
     ],
     "pipeline": [
@@ -9691,839 +14589,719 @@ window.lunrData = {
       "description": "",
       "body": ""
     },
-    "JsonObject.html": {
-      "id": "JsonObject.html",
+    "server.JsonObject.html": {
+      "id": "server.JsonObject.html",
       "kind": "class",
-      "title": "JsonObject",
-      "longname": "JsonObject",
+      "title": "server~JsonObject",
+      "longname": "server.JsonObject",
       "name": "JsonObject",
-      "tags": "JsonObject",
+      "tags": "server.JsonObject JsonObject",
       "summary": "",
       "description": "Load and save a json file",
       "body": ""
     },
-    "JsonObject.html#loadSync": {
-      "id": "JsonObject.html#loadSync",
+    "server.JsonObject.html#loadSync": {
+      "id": "server.JsonObject.html#loadSync",
       "kind": "function",
       "title": "loadSync( [ func ] )",
-      "longname": "JsonObject#loadSync",
+      "longname": "server.JsonObject#loadSync",
       "name": "loadSync",
-      "tags": "JsonObject#loadSync loadSync",
+      "tags": "server.JsonObject#loadSync JsonObject#loadSync loadSync",
       "summary": "",
       "description": ""
     },
-    "JsonObject.html#load": {
-      "id": "JsonObject.html#load",
+    "server.JsonObject.html#load": {
+      "id": "server.JsonObject.html#load",
       "kind": "function",
       "title": "load()",
-      "longname": "JsonObject#load",
+      "longname": "server.JsonObject#load",
       "name": "load",
-      "tags": "JsonObject#load load",
+      "tags": "server.JsonObject#load JsonObject#load load",
       "summary": "",
       "description": ""
     },
-    "JsonObject.html#save": {
-      "id": "JsonObject.html#save",
+    "server.JsonObject.html#save": {
+      "id": "server.JsonObject.html#save",
       "kind": "function",
       "title": "save() → {Promise.&lt;void&gt;}",
-      "longname": "JsonObject#save",
+      "longname": "server.JsonObject#save",
       "name": "save",
-      "tags": "JsonObject#save save",
+      "tags": "server.JsonObject#save JsonObject#save save",
       "summary": "",
       "description": ""
     },
-    "DownloadEpisode.html": {
-      "id": "DownloadEpisode.html",
+    "server.DownloadEpisode.html": {
+      "id": "server.DownloadEpisode.html",
       "kind": "class",
-      "title": "DownloadEpisode",
-      "longname": "DownloadEpisode",
+      "title": "server~DownloadEpisode",
+      "longname": "server.DownloadEpisode",
       "name": "DownloadEpisode",
-      "tags": "DownloadEpisode",
+      "tags": "server.DownloadEpisode DownloadEpisode",
       "summary": "",
       "description": "A class used to handle the events of VideoPlayer.download. Ensure that there's only one download max by episode",
       "body": ""
     },
-    "DownloadEpisode.html#.list": {
-      "id": "DownloadEpisode.html#.list",
+    "server.DownloadEpisode.html#.list": {
+      "id": "server.DownloadEpisode.html#.list",
       "kind": "member",
       "title": "&lt;static, readonly&gt; list :Array.&lt;DownloadEpisode&gt;",
-      "longname": "DownloadEpisode.list",
+      "longname": "server.DownloadEpisode.list",
       "name": "list",
-      "tags": "DownloadEpisode.list list",
+      "tags": "server.DownloadEpisode.list DownloadEpisode.list list",
       "summary": "",
       "description": ""
     },
-    "DownloadEpisode.html#.toDownload": {
-      "id": "DownloadEpisode.html#.toDownload",
+    "server.DownloadEpisode.html#.toDownload": {
+      "id": "server.DownloadEpisode.html#.toDownload",
       "kind": "member",
       "title": "&lt;static&gt; toDownload :Array.&lt;ToDownloadItem&gt;",
-      "longname": "DownloadEpisode.toDownload",
+      "longname": "server.DownloadEpisode.toDownload",
       "name": "toDownload",
-      "tags": "DownloadEpisode.toDownload toDownload",
+      "tags": "server.DownloadEpisode.toDownload DownloadEpisode.toDownload toDownload",
       "summary": "",
       "description": ""
     },
-    "DownloadEpisode.html#.currentDownload": {
-      "id": "DownloadEpisode.html#.currentDownload",
+    "server.DownloadEpisode.html#.currentDownload": {
+      "id": "server.DownloadEpisode.html#.currentDownload",
       "kind": "member",
       "title": "&lt;protected, static&gt; currentDownload :DownloadEpisode",
-      "longname": "DownloadEpisode.currentDownload",
+      "longname": "server.DownloadEpisode.currentDownload",
       "name": "currentDownload",
-      "tags": "DownloadEpisode.currentDownload currentDownload",
+      "tags": "server.DownloadEpisode.currentDownload DownloadEpisode.currentDownload currentDownload",
       "summary": "",
       "description": ""
     },
-    "DownloadEpisode.html#episode": {
-      "id": "DownloadEpisode.html#episode",
+    "server.DownloadEpisode.html#episode": {
+      "id": "server.DownloadEpisode.html#episode",
       "kind": "member",
       "title": "&lt;readonly&gt; episode :Episode",
-      "longname": "DownloadEpisode#episode",
+      "longname": "server.DownloadEpisode#episode",
       "name": "episode",
-      "tags": "DownloadEpisode#episode episode",
+      "tags": "server.DownloadEpisode#episode DownloadEpisode#episode episode",
       "summary": "",
       "description": "The episode we want to download"
     },
-    "DownloadEpisode.html#id": {
-      "id": "DownloadEpisode.html#id",
+    "server.DownloadEpisode.html#id": {
+      "id": "server.DownloadEpisode.html#id",
       "kind": "member",
       "title": "&lt;readonly&gt; id :number",
-      "longname": "DownloadEpisode#id",
+      "longname": "server.DownloadEpisode#id",
       "name": "id",
-      "tags": "DownloadEpisode#id id",
+      "tags": "server.DownloadEpisode#id DownloadEpisode#id id",
       "summary": "",
       "description": "The unique id of the DownloadEpisode instance"
     },
-    "DownloadEpisode.html#player": {
-      "id": "DownloadEpisode.html#player",
+    "server.DownloadEpisode.html#player": {
+      "id": "server.DownloadEpisode.html#player",
       "kind": "member",
       "title": "&lt;private, readonly&gt; player :VideoPlayer",
-      "longname": "DownloadEpisode#player",
+      "longname": "server.DownloadEpisode#player",
       "name": "player",
-      "tags": "DownloadEpisode#player player",
+      "tags": "server.DownloadEpisode#player DownloadEpisode#player player",
       "summary": "",
       "description": "The player used to download the video (epsode)"
     },
-    "DownloadEpisode.html#isReady": {
-      "id": "DownloadEpisode.html#isReady",
+    "server.DownloadEpisode.html#isReady": {
+      "id": "server.DownloadEpisode.html#isReady",
       "kind": "member",
       "title": "&lt;private, readonly&gt; isReady :boolean",
-      "longname": "DownloadEpisode#isReady",
+      "longname": "server.DownloadEpisode#isReady",
       "name": "isReady",
-      "tags": "DownloadEpisode#isReady isReady",
+      "tags": "server.DownloadEpisode#isReady DownloadEpisode#isReady isReady",
       "summary": "",
       "description": "If the download is done and the json saved"
     },
-    "DownloadEpisode.html#isPending": {
-      "id": "DownloadEpisode.html#isPending",
+    "server.DownloadEpisode.html#isPending": {
+      "id": "server.DownloadEpisode.html#isPending",
       "kind": "member",
       "title": "&lt;readonly&gt; isPending :boolean",
-      "longname": "DownloadEpisode#isPending",
+      "longname": "server.DownloadEpisode#isPending",
       "name": "isPending",
-      "tags": "DownloadEpisode#isPending isPending",
+      "tags": "server.DownloadEpisode#isPending DownloadEpisode#isPending isPending",
       "summary": "",
       "description": "If the download is pending"
     },
-    "DownloadEpisode.html#isDownloading": {
-      "id": "DownloadEpisode.html#isDownloading",
+    "server.DownloadEpisode.html#isDownloading": {
+      "id": "server.DownloadEpisode.html#isDownloading",
       "kind": "member",
       "title": "&lt;readonly&gt; isDownloading :boolean",
-      "longname": "DownloadEpisode#isDownloading",
+      "longname": "server.DownloadEpisode#isDownloading",
       "name": "isDownloading",
-      "tags": "DownloadEpisode#isDownloading isDownloading",
+      "tags": "server.DownloadEpisode#isDownloading DownloadEpisode#isDownloading isDownloading",
       "summary": "",
       "description": "If the download is ongoing"
     },
-    "DownloadEpisode.html#isError": {
-      "id": "DownloadEpisode.html#isError",
+    "server.DownloadEpisode.html#isError": {
+      "id": "server.DownloadEpisode.html#isError",
       "kind": "member",
       "title": "&lt;readonly&gt; isError :boolean",
-      "longname": "DownloadEpisode#isError",
+      "longname": "server.DownloadEpisode#isError",
       "name": "isError",
-      "tags": "DownloadEpisode#isError isError",
+      "tags": "server.DownloadEpisode#isError DownloadEpisode#isError isError",
       "summary": "",
       "description": "If there is an error"
     },
-    "DownloadEpisode.html#error": {
-      "id": "DownloadEpisode.html#error",
+    "server.DownloadEpisode.html#error": {
+      "id": "server.DownloadEpisode.html#error",
       "kind": "member",
       "title": "&lt;readonly&gt; error :string",
-      "longname": "DownloadEpisode#error",
+      "longname": "server.DownloadEpisode#error",
       "name": "error",
-      "tags": "DownloadEpisode#error error",
+      "tags": "server.DownloadEpisode#error DownloadEpisode#error error",
       "summary": "",
       "description": "The error"
     },
-    "DownloadEpisode.html#progress": {
-      "id": "DownloadEpisode.html#progress",
+    "server.DownloadEpisode.html#progress": {
+      "id": "server.DownloadEpisode.html#progress",
       "kind": "member",
       "title": "&lt;readonly&gt; progress :number",
-      "longname": "DownloadEpisode#progress",
+      "longname": "server.DownloadEpisode#progress",
       "name": "progress",
-      "tags": "DownloadEpisode#progress progress",
+      "tags": "server.DownloadEpisode#progress DownloadEpisode#progress progress",
       "summary": "",
       "description": "The progress of the download"
     },
-    "DownloadEpisode.html#_setLocalPath": {
-      "id": "DownloadEpisode.html#_setLocalPath",
+    "server.DownloadEpisode.html#_setLocalPath": {
+      "id": "server.DownloadEpisode.html#_setLocalPath",
       "kind": "function",
       "title": "&lt;private&gt; _setLocalPath( pathToFile )",
-      "longname": "DownloadEpisode#_setLocalPath",
+      "longname": "server.DownloadEpisode#_setLocalPath",
       "name": "_setLocalPath",
-      "tags": "DownloadEpisode#_setLocalPath _setLocalPath",
+      "tags": "server.DownloadEpisode#_setLocalPath DownloadEpisode#_setLocalPath _setLocalPath",
       "summary": "",
       "description": "Call Episode#setLocalPath and set itself ready when it's done"
     },
-    "DownloadEpisode.html#download": {
-      "id": "DownloadEpisode.html#download",
+    "server.DownloadEpisode.html#download": {
+      "id": "server.DownloadEpisode.html#download",
       "kind": "function",
       "title": "download( url, format )",
-      "longname": "DownloadEpisode#download",
+      "longname": "server.DownloadEpisode#download",
       "name": "download",
-      "tags": "DownloadEpisode#download download",
+      "tags": "server.DownloadEpisode#download DownloadEpisode#download download",
       "summary": "",
       "description": "Launch the download"
     },
-    "DownloadEpisode.html#_setEvents": {
-      "id": "DownloadEpisode.html#_setEvents",
+    "server.DownloadEpisode.html#_setEvents": {
+      "id": "server.DownloadEpisode.html#_setEvents",
       "kind": "function",
       "title": "&lt;private&gt; _setEvents( emitter )",
-      "longname": "DownloadEpisode#_setEvents",
+      "longname": "server.DownloadEpisode#_setEvents",
       "name": "_setEvents",
-      "tags": "DownloadEpisode#_setEvents _setEvents",
+      "tags": "server.DownloadEpisode#_setEvents DownloadEpisode#_setEvents _setEvents",
       "summary": "",
       "description": "Set the events of the emitter"
     },
-    "DownloadEpisode.html#destroy": {
-      "id": "DownloadEpisode.html#destroy",
+    "server.DownloadEpisode.html#destroy": {
+      "id": "server.DownloadEpisode.html#destroy",
       "kind": "function",
       "title": "destroy()",
-      "longname": "DownloadEpisode#destroy",
+      "longname": "server.DownloadEpisode#destroy",
       "name": "destroy",
-      "tags": "DownloadEpisode#destroy destroy",
+      "tags": "server.DownloadEpisode#destroy DownloadEpisode#destroy destroy",
       "summary": "",
       "description": "Destroy the instance (Removes it from DownloadEpisode.list.)"
     },
-    "DownloadEpisode.html#.getFromEpisode": {
-      "id": "DownloadEpisode.html#.getFromEpisode",
+    "server.DownloadEpisode.html#.getFromEpisode": {
+      "id": "server.DownloadEpisode.html#.getFromEpisode",
       "kind": "function",
       "title": "&lt;static&gt; getFromEpisode( episode )",
-      "longname": "DownloadEpisode.getFromEpisode",
+      "longname": "server.DownloadEpisode.getFromEpisode",
       "name": "getFromEpisode",
-      "tags": "DownloadEpisode.getFromEpisode getFromEpisode",
+      "tags": "server.DownloadEpisode.getFromEpisode DownloadEpisode.getFromEpisode getFromEpisode",
       "summary": "",
       "description": ""
     },
-    "DownloadEpisode.html#.ToDownloadItem": {
-      "id": "DownloadEpisode.html#.ToDownloadItem",
-      "kind": "typedef",
-      "title": "ToDownloadItem",
-      "longname": "DownloadEpisode.ToDownloadItem",
-      "name": "ToDownloadItem",
-      "tags": "DownloadEpisode.ToDownloadItem ToDownloadItem",
-      "summary": "",
-      "description": ""
-    },
-    "VideoPlayer.html": {
-      "id": "VideoPlayer.html",
+    "server.VideoPlayer.html": {
+      "id": "server.VideoPlayer.html",
       "kind": "class",
-      "title": "VideoPlayer",
-      "longname": "VideoPlayer",
+      "title": "server~VideoPlayer",
+      "longname": "server.VideoPlayer",
       "name": "VideoPlayer",
-      "tags": "VideoPlayer",
+      "tags": "server.VideoPlayer VideoPlayer",
       "summary": "",
       "description": "A class used to download a video.",
       "body": ""
     },
-    "VideoPlayer.html#.list": {
-      "id": "VideoPlayer.html#.list",
+    "server.VideoPlayer.html#.list": {
+      "id": "server.VideoPlayer.html#.list",
       "kind": "member",
       "title": "&lt;static, readonly&gt; list :Array.&lt;VideoPlayer&gt;",
-      "longname": "VideoPlayer.list",
+      "longname": "server.VideoPlayer.list",
       "name": "list",
-      "tags": "VideoPlayer.list list",
+      "tags": "server.VideoPlayer.list VideoPlayer.list list",
       "summary": "",
       "description": "The list of VideoPlayer"
     },
-    "VideoPlayer.html#name": {
-      "id": "VideoPlayer.html#name",
+    "server.VideoPlayer.html#name": {
+      "id": "server.VideoPlayer.html#name",
       "kind": "member",
       "title": "&lt;readonly&gt; name :string",
-      "longname": "VideoPlayer#name",
+      "longname": "server.VideoPlayer#name",
       "name": "name",
-      "tags": "VideoPlayer#name name",
+      "tags": "server.VideoPlayer#name VideoPlayer#name name",
       "summary": "",
       "description": "The name of the videoPlayer"
     },
-    "VideoPlayer.html#isNatif": {
-      "id": "VideoPlayer.html#isNatif",
+    "server.VideoPlayer.html#isNatif": {
+      "id": "server.VideoPlayer.html#isNatif",
       "kind": "member",
       "title": "&lt;readonly&gt; isNatif :boolean",
-      "longname": "VideoPlayer#isNatif",
+      "longname": "server.VideoPlayer#isNatif",
       "name": "isNatif",
-      "tags": "VideoPlayer#isNatif isNatif",
+      "tags": "server.VideoPlayer#isNatif VideoPlayer#isNatif isNatif",
       "summary": "",
       "description": "If true, the VideoPlayer wront be available for edit"
     },
-    "VideoPlayer.html#prefix": {
-      "id": "VideoPlayer.html#prefix",
+    "server.VideoPlayer.html#prefix": {
+      "id": "server.VideoPlayer.html#prefix",
       "kind": "member",
       "title": "prefix :Array.&lt;string&gt;",
-      "longname": "VideoPlayer#prefix",
+      "longname": "server.VideoPlayer#prefix",
       "name": "prefix",
-      "tags": "VideoPlayer#prefix prefix",
+      "tags": "server.VideoPlayer#prefix VideoPlayer#prefix prefix",
       "summary": "",
       "description": "The prefix(s) for matching the url"
     },
-    "VideoPlayer.html#downloadable": {
-      "id": "VideoPlayer.html#downloadable",
+    "server.VideoPlayer.html#downloadable": {
+      "id": "server.VideoPlayer.html#downloadable",
       "kind": "member",
       "title": "downloadable :boolean",
-      "longname": "VideoPlayer#downloadable",
+      "longname": "server.VideoPlayer#downloadable",
       "name": "downloadable",
-      "tags": "VideoPlayer#downloadable downloadable",
+      "tags": "server.VideoPlayer#downloadable VideoPlayer#downloadable downloadable",
       "summary": "",
       "description": "Tell if the server can download"
     },
-    "VideoPlayer.html#autoDownload": {
-      "id": "VideoPlayer.html#autoDownload",
+    "server.VideoPlayer.html#autoDownload": {
+      "id": "server.VideoPlayer.html#autoDownload",
       "kind": "member",
       "title": "autoDownload :boolean",
-      "longname": "VideoPlayer#autoDownload",
+      "longname": "server.VideoPlayer#autoDownload",
       "name": "autoDownload",
-      "tags": "VideoPlayer#autoDownload autoDownload",
+      "tags": "server.VideoPlayer#autoDownload VideoPlayer#autoDownload autoDownload",
       "summary": "",
       "description": "Tell if the url used for downloading is an url in Episode.links"
     },
-    "VideoPlayer.html#id": {
-      "id": "VideoPlayer.html#id",
+    "server.VideoPlayer.html#id": {
+      "id": "server.VideoPlayer.html#id",
       "kind": "member",
       "title": "&lt;readonly&gt; id",
-      "longname": "VideoPlayer#id",
+      "longname": "server.VideoPlayer#id",
       "name": "id",
-      "tags": "VideoPlayer#id id",
+      "tags": "server.VideoPlayer#id VideoPlayer#id id",
       "summary": "",
       "description": "The unique id of the videoPlayer"
     },
-    "VideoPlayer.html#toPublic": {
-      "id": "VideoPlayer.html#toPublic",
+    "server.VideoPlayer.html#toPublic": {
+      "id": "server.VideoPlayer.html#toPublic",
       "kind": "function",
       "title": "toPublic() → {PublicVideoPlayer}",
-      "longname": "VideoPlayer#toPublic",
+      "longname": "server.VideoPlayer#toPublic",
       "name": "toPublic",
-      "tags": "VideoPlayer#toPublic toPublic",
+      "tags": "server.VideoPlayer#toPublic VideoPlayer#toPublic toPublic",
       "summary": "",
       "description": "Return the public information of the VideoPlayer (= the informations to give to the client)"
     },
-    "VideoPlayer.html#_dispatchOnComplete": {
-      "id": "VideoPlayer.html#_dispatchOnComplete",
+    "server.VideoPlayer.html#_dispatchOnComplete": {
+      "id": "server.VideoPlayer.html#_dispatchOnComplete",
       "kind": "function",
       "title": "&lt;protected&gt; _dispatchOnComplete( emitter, recDownloadData )",
-      "longname": "VideoPlayer#_dispatchOnComplete",
+      "longname": "server.VideoPlayer#_dispatchOnComplete",
       "name": "_dispatchOnComplete",
-      "tags": "VideoPlayer#_dispatchOnComplete _dispatchOnComplete",
+      "tags": "server.VideoPlayer#_dispatchOnComplete VideoPlayer#_dispatchOnComplete _dispatchOnComplete",
       "summary": "",
       "description": "Fire the event \"complete\" on the emitter"
     },
-    "VideoPlayer.html#_dispatchOnProgress": {
-      "id": "VideoPlayer.html#_dispatchOnProgress",
+    "server.VideoPlayer.html#_dispatchOnProgress": {
+      "id": "server.VideoPlayer.html#_dispatchOnProgress",
       "kind": "function",
       "title": "&lt;protected&gt; _dispatchOnProgress( emitter, recDownloadData )",
-      "longname": "VideoPlayer#_dispatchOnProgress",
+      "longname": "server.VideoPlayer#_dispatchOnProgress",
       "name": "_dispatchOnProgress",
-      "tags": "VideoPlayer#_dispatchOnProgress _dispatchOnProgress",
+      "tags": "server.VideoPlayer#_dispatchOnProgress VideoPlayer#_dispatchOnProgress _dispatchOnProgress",
       "summary": "",
       "description": "Fire the event \"progress\" on the emitter"
     },
-    "VideoPlayer.html#_dispatchOnError": {
-      "id": "VideoPlayer.html#_dispatchOnError",
+    "server.VideoPlayer.html#_dispatchOnError": {
+      "id": "server.VideoPlayer.html#_dispatchOnError",
       "kind": "function",
       "title": "&lt;protected&gt; _dispatchOnError( emitter, err )",
-      "longname": "VideoPlayer#_dispatchOnError",
+      "longname": "server.VideoPlayer#_dispatchOnError",
       "name": "_dispatchOnError",
-      "tags": "VideoPlayer#_dispatchOnError _dispatchOnError",
+      "tags": "server.VideoPlayer#_dispatchOnError VideoPlayer#_dispatchOnError _dispatchOnError",
       "summary": "",
       "description": "Fire the event \"error\" on the emitter"
     },
-    "VideoPlayer.html#download": {
-      "id": "VideoPlayer.html#download",
+    "server.VideoPlayer.html#download": {
+      "id": "server.VideoPlayer.html#download",
       "kind": "function",
       "title": "download( downloadUrl, format, fileName ) → {EventEmitter}",
-      "longname": "VideoPlayer#download",
+      "longname": "server.VideoPlayer#download",
       "name": "download",
-      "tags": "VideoPlayer#download download",
+      "tags": "server.VideoPlayer#download VideoPlayer#download download",
       "summary": "",
       "description": "Download the video using the given link (async)"
     },
-    "VideoPlayer.html#hasPrefix": {
-      "id": "VideoPlayer.html#hasPrefix",
+    "server.VideoPlayer.html#hasPrefix": {
+      "id": "server.VideoPlayer.html#hasPrefix",
       "kind": "function",
       "title": "hasPrefix( url ) → {boolean}",
-      "longname": "VideoPlayer#hasPrefix",
+      "longname": "server.VideoPlayer#hasPrefix",
       "name": "hasPrefix",
-      "tags": "VideoPlayer#hasPrefix hasPrefix",
+      "tags": "server.VideoPlayer#hasPrefix VideoPlayer#hasPrefix hasPrefix",
       "summary": "",
       "description": "Compare the url with the prefix and return true if the url match a prefix in the prefix list"
     },
-    "VideoPlayer.html#.getPlayer": {
-      "id": "VideoPlayer.html#.getPlayer",
+    "server.VideoPlayer.html#.getPlayer": {
+      "id": "server.VideoPlayer.html#.getPlayer",
       "kind": "function",
       "title": "&lt;static&gt; getPlayer( url ) → {VideoPlayer}",
-      "longname": "VideoPlayer.getPlayer",
+      "longname": "server.VideoPlayer.getPlayer",
       "name": "getPlayer",
-      "tags": "VideoPlayer.getPlayer getPlayer",
+      "tags": "server.VideoPlayer.getPlayer VideoPlayer.getPlayer getPlayer",
       "summary": "",
       "description": "Return the first Videoplayer with its prefix matching the url"
     },
-    "VideoPlayer.html#.getVideoPlayerById": {
-      "id": "VideoPlayer.html#.getVideoPlayerById",
+    "server.VideoPlayer.html#.getVideoPlayerById": {
+      "id": "server.VideoPlayer.html#.getVideoPlayerById",
       "kind": "function",
       "title": "&lt;static&gt; getVideoPlayerById( id ) → {VideoPlayer}",
-      "longname": "VideoPlayer.getVideoPlayerById",
+      "longname": "server.VideoPlayer.getVideoPlayerById",
       "name": "getVideoPlayerById",
-      "tags": "VideoPlayer.getVideoPlayerById getVideoPlayerById",
+      "tags": "server.VideoPlayer.getVideoPlayerById VideoPlayer.getVideoPlayerById getVideoPlayerById",
       "summary": "",
       "description": "Return the video player corrisponding"
     },
-    "YoutubePlayer.html": {
-      "id": "YoutubePlayer.html",
+    "server.YoutubePlayer.html": {
+      "id": "server.YoutubePlayer.html",
       "kind": "class",
-      "title": "YoutubePlayer",
-      "longname": "YoutubePlayer",
+      "title": "server~YoutubePlayer",
+      "longname": "server.YoutubePlayer",
       "name": "YoutubePlayer",
-      "tags": "YoutubePlayer",
+      "tags": "server.YoutubePlayer YoutubePlayer",
       "summary": "",
       "description": "A class used to download a youtube video. It also get the video info.",
       "body": ""
     },
-    "YoutubePlayer.html#name": {
-      "id": "YoutubePlayer.html#name",
-      "kind": "member",
-      "title": "&lt;readonly&gt; name :string",
-      "longname": "YoutubePlayer#name",
-      "name": "name",
-      "tags": "YoutubePlayer#name name",
-      "summary": "",
-      "description": "The name of the videoPlayer"
-    },
-    "YoutubePlayer.html#isNatif": {
-      "id": "YoutubePlayer.html#isNatif",
-      "kind": "member",
-      "title": "&lt;readonly&gt; isNatif :boolean",
-      "longname": "YoutubePlayer#isNatif",
-      "name": "isNatif",
-      "tags": "YoutubePlayer#isNatif isNatif",
-      "summary": "",
-      "description": "If true, the VideoPlayer wront be available for edit"
-    },
-    "YoutubePlayer.html#prefix": {
-      "id": "YoutubePlayer.html#prefix",
-      "kind": "member",
-      "title": "prefix :Array.&lt;string&gt;",
-      "longname": "YoutubePlayer#prefix",
-      "name": "prefix",
-      "tags": "YoutubePlayer#prefix prefix",
-      "summary": "",
-      "description": "The prefix(s) for matching the url"
-    },
-    "YoutubePlayer.html#downloadable": {
-      "id": "YoutubePlayer.html#downloadable",
-      "kind": "member",
-      "title": "downloadable :boolean",
-      "longname": "YoutubePlayer#downloadable",
-      "name": "downloadable",
-      "tags": "YoutubePlayer#downloadable downloadable",
-      "summary": "",
-      "description": "Tell if the server can download"
-    },
-    "YoutubePlayer.html#autoDownload": {
-      "id": "YoutubePlayer.html#autoDownload",
-      "kind": "member",
-      "title": "autoDownload :boolean",
-      "longname": "YoutubePlayer#autoDownload",
-      "name": "autoDownload",
-      "tags": "YoutubePlayer#autoDownload autoDownload",
-      "summary": "",
-      "description": "Tell if the url used for downloading is an url in Episode.links"
-    },
-    "YoutubePlayer.html#id": {
-      "id": "YoutubePlayer.html#id",
-      "kind": "member",
-      "title": "&lt;readonly&gt; id",
-      "longname": "YoutubePlayer#id",
-      "name": "id",
-      "tags": "YoutubePlayer#id id",
-      "summary": "",
-      "description": "The unique id of the videoPlayer"
-    },
-    "YoutubePlayer.html#.instance": {
-      "id": "YoutubePlayer.html#.instance",
+    "server.YoutubePlayer.html#.instance": {
+      "id": "server.YoutubePlayer.html#.instance",
       "kind": "member",
       "title": "&lt;static, readonly&gt; instance",
-      "longname": "YoutubePlayer.instance",
+      "longname": "server.YoutubePlayer.instance",
       "name": "instance",
-      "tags": "YoutubePlayer.instance instance",
+      "tags": "server.YoutubePlayer.instance YoutubePlayer.instance instance",
       "summary": "",
       "description": "Unique instance of the class"
     },
-    "YoutubePlayer.html#toPublic": {
-      "id": "YoutubePlayer.html#toPublic",
-      "kind": "function",
-      "title": "toPublic() → {PublicVideoPlayer}",
-      "longname": "YoutubePlayer#toPublic",
-      "name": "toPublic",
-      "tags": "YoutubePlayer#toPublic toPublic",
-      "summary": "",
-      "description": "Return the public information of the VideoPlayer (= the informations to give to the client)"
-    },
-    "YoutubePlayer.html#_dispatchOnComplete": {
-      "id": "YoutubePlayer.html#_dispatchOnComplete",
-      "kind": "function",
-      "title": "&lt;protected&gt; _dispatchOnComplete( emitter, recDownloadData )",
-      "longname": "YoutubePlayer#_dispatchOnComplete",
-      "name": "_dispatchOnComplete",
-      "tags": "YoutubePlayer#_dispatchOnComplete _dispatchOnComplete",
-      "summary": "",
-      "description": "Fire the event \"complete\" on the emitter"
-    },
-    "YoutubePlayer.html#_dispatchOnProgress": {
-      "id": "YoutubePlayer.html#_dispatchOnProgress",
-      "kind": "function",
-      "title": "&lt;protected&gt; _dispatchOnProgress( emitter, recDownloadData )",
-      "longname": "YoutubePlayer#_dispatchOnProgress",
-      "name": "_dispatchOnProgress",
-      "tags": "YoutubePlayer#_dispatchOnProgress _dispatchOnProgress",
-      "summary": "",
-      "description": "Fire the event \"progress\" on the emitter"
-    },
-    "YoutubePlayer.html#_dispatchOnError": {
-      "id": "YoutubePlayer.html#_dispatchOnError",
-      "kind": "function",
-      "title": "&lt;protected&gt; _dispatchOnError( emitter, err )",
-      "longname": "YoutubePlayer#_dispatchOnError",
-      "name": "_dispatchOnError",
-      "tags": "YoutubePlayer#_dispatchOnError _dispatchOnError",
-      "summary": "",
-      "description": "Fire the event \"error\" on the emitter"
-    },
-    "YoutubePlayer.html#hasPrefix": {
-      "id": "YoutubePlayer.html#hasPrefix",
-      "kind": "function",
-      "title": "hasPrefix( url ) → {boolean}",
-      "longname": "YoutubePlayer#hasPrefix",
-      "name": "hasPrefix",
-      "tags": "YoutubePlayer#hasPrefix hasPrefix",
-      "summary": "",
-      "description": "Compare the url with the prefix and return true if the url match a prefix in the prefix list"
-    },
-    "YoutubePlayer.html#download": {
-      "id": "YoutubePlayer.html#download",
+    "server.YoutubePlayer.html#download": {
+      "id": "server.YoutubePlayer.html#download",
       "kind": "function",
       "title": "download( downloadUrl, format, localFileWithoutExtension ) → {EventEmitter}",
-      "longname": "YoutubePlayer#download",
+      "longname": "server.YoutubePlayer#download",
       "name": "download",
-      "tags": "YoutubePlayer#download download",
+      "tags": "server.YoutubePlayer#download YoutubePlayer#download download",
       "summary": "",
       "description": "Download the youtube video (async)"
     },
-    "YoutubePlayer.html#getInfo": {
-      "id": "YoutubePlayer.html#getInfo",
+    "server.YoutubePlayer.html#getInfo": {
+      "id": "server.YoutubePlayer.html#getInfo",
       "kind": "function",
       "title": "getInfo( url ) → {Promise.&lt;ytdl.videoInfo&gt;}",
-      "longname": "YoutubePlayer#getInfo",
+      "longname": "server.YoutubePlayer#getInfo",
       "name": "getInfo",
-      "tags": "YoutubePlayer#getInfo getInfo",
+      "tags": "server.YoutubePlayer#getInfo YoutubePlayer#getInfo getInfo",
       "summary": "",
       "description": "Fetch the informations of the youtube video"
     },
-    "Anime.html": {
-      "id": "Anime.html",
+    "server.Anime.html": {
+      "id": "server.Anime.html",
       "kind": "class",
-      "title": "Anime",
-      "longname": "Anime",
+      "title": "server~Anime",
+      "longname": "server.Anime",
       "name": "Anime",
-      "tags": "Anime",
+      "tags": "server.Anime Anime",
       "summary": "",
       "description": "Store the datas of an anime. Can update the index.json of the anime.",
       "body": ""
     },
-    "Anime.html#.list": {
-      "id": "Anime.html#.list",
+    "server.Anime.html#.list": {
+      "id": "server.Anime.html#.list",
       "kind": "member",
       "title": "&lt;static, readonly&gt; list :Array.&lt;Anime&gt;",
-      "longname": "Anime.list",
+      "longname": "server.Anime.list",
       "name": "list",
-      "tags": "Anime.list list",
+      "tags": "server.Anime.list Anime.list list",
       "summary": "",
       "description": "The list of Animes"
     },
-    "Anime.html#.publicList": {
-      "id": "Anime.html#.publicList",
+    "server.Anime.html#.publicList": {
+      "id": "server.Anime.html#.publicList",
       "kind": "member",
       "title": "&lt;static&gt; publicList",
-      "longname": "Anime.publicList",
+      "longname": "server.Anime.publicList",
       "name": "publicList",
-      "tags": "Anime.publicList publicList",
+      "tags": "server.Anime.publicList Anime.publicList publicList",
       "summary": "",
       "description": "The list of Animes mapped with their public informations"
     },
-    "Anime.html#jsonObject": {
-      "id": "Anime.html#jsonObject",
+    "server.Anime.html#jsonObject": {
+      "id": "server.Anime.html#jsonObject",
       "kind": "member",
       "title": "&lt;private, readonly&gt; jsonObject :JsonObject",
-      "longname": "Anime#jsonObject",
+      "longname": "server.Anime#jsonObject",
       "name": "jsonObject",
-      "tags": "Anime#jsonObject jsonObject",
+      "tags": "server.Anime#jsonObject Anime#jsonObject jsonObject",
       "summary": "",
       "description": "The json object of the anime. Used to store the datas in the index.json of the anime."
     },
-    "Anime.html#name": {
-      "id": "Anime.html#name",
+    "server.Anime.html#name": {
+      "id": "server.Anime.html#name",
       "kind": "member",
       "title": "name :string",
-      "longname": "Anime#name",
+      "longname": "server.Anime#name",
       "name": "name",
-      "tags": "Anime#name name",
+      "tags": "server.Anime#name Anime#name name",
       "summary": "",
       "description": "The name of the anime"
     },
-    "Anime.html#thumbnailLink": {
-      "id": "Anime.html#thumbnailLink",
+    "server.Anime.html#thumbnailLink": {
+      "id": "server.Anime.html#thumbnailLink",
       "kind": "member",
       "title": "thumbnailLink :string",
-      "longname": "Anime#thumbnailLink",
+      "longname": "server.Anime#thumbnailLink",
       "name": "thumbnailLink",
-      "tags": "Anime#thumbnailLink thumbnailLink",
+      "tags": "server.Anime#thumbnailLink Anime#thumbnailLink thumbnailLink",
       "summary": "",
       "description": "The uri of the anime poster"
     },
-    "Anime.html#_path": {
-      "id": "Anime.html#_path",
+    "server.Anime.html#_path": {
+      "id": "server.Anime.html#_path",
       "kind": "member",
       "title": "&lt;private, readonly&gt; _path :string",
-      "longname": "Anime#_path",
+      "longname": "server.Anime#_path",
       "name": "_path",
-      "tags": "Anime#_path _path",
+      "tags": "server.Anime#_path Anime#_path _path",
       "summary": "",
       "description": "The path to the anime's folder"
     },
-    "Anime.html#episodes": {
-      "id": "Anime.html#episodes",
+    "server.Anime.html#episodes": {
+      "id": "server.Anime.html#episodes",
       "kind": "member",
       "title": "episodes :Array.&lt;Episode&gt;",
-      "longname": "Anime#episodes",
+      "longname": "server.Anime#episodes",
       "name": "episodes",
-      "tags": "Anime#episodes episodes",
+      "tags": "server.Anime#episodes Anime#episodes episodes",
       "summary": "",
       "description": "The list of episodes"
     },
-    "Anime.html#id": {
-      "id": "Anime.html#id",
+    "server.Anime.html#id": {
+      "id": "server.Anime.html#id",
       "kind": "member",
       "title": "&lt;readonly&gt; id :number",
-      "longname": "Anime#id",
+      "longname": "server.Anime#id",
       "name": "id",
-      "tags": "Anime#id id",
+      "tags": "server.Anime#id Anime#id id",
       "summary": "",
       "description": "The unique id of the anime"
     },
-    "Anime.html#path": {
-      "id": "Anime.html#path",
+    "server.Anime.html#path": {
+      "id": "server.Anime.html#path",
       "kind": "member",
       "title": "&lt;readonly&gt; path",
-      "longname": "Anime#path",
+      "longname": "server.Anime#path",
       "name": "path",
-      "tags": "Anime#path path",
+      "tags": "server.Anime#path Anime#path path",
       "summary": "",
       "description": "Return the path to the anime folder"
     },
-    "Anime.html#toPublic": {
-      "id": "Anime.html#toPublic",
+    "server.Anime.html#toPublic": {
+      "id": "server.Anime.html#toPublic",
       "kind": "function",
       "title": "toPublic() → {PublicAnime}",
-      "longname": "Anime#toPublic",
+      "longname": "server.Anime#toPublic",
       "name": "toPublic",
-      "tags": "Anime#toPublic toPublic",
+      "tags": "server.Anime#toPublic Anime#toPublic toPublic",
       "summary": "",
       "description": "Return the public information of the anime (= the informations to give to the client)"
     },
-    "Anime.html#getEpisodeById": {
-      "id": "Anime.html#getEpisodeById",
+    "server.Anime.html#getEpisodeById": {
+      "id": "server.Anime.html#getEpisodeById",
       "kind": "function",
       "title": "getEpisodeById( episodeId ) → {Episode|null}",
-      "longname": "Anime#getEpisodeById",
+      "longname": "server.Anime#getEpisodeById",
       "name": "getEpisodeById",
-      "tags": "Anime#getEpisodeById getEpisodeById",
+      "tags": "server.Anime#getEpisodeById Anime#getEpisodeById getEpisodeById",
       "summary": "",
       "description": "Get an anime's Episode by its id"
     },
-    "Anime.html#updateJson": {
-      "id": "Anime.html#updateJson",
+    "server.Anime.html#updateJson": {
+      "id": "server.Anime.html#updateJson",
       "kind": "function",
       "title": "updateJson() → {Promise.&lt;void&gt;}",
-      "longname": "Anime#updateJson",
+      "longname": "server.Anime#updateJson",
       "name": "updateJson",
-      "tags": "Anime#updateJson updateJson",
+      "tags": "server.Anime#updateJson Anime#updateJson updateJson",
       "summary": "",
       "description": "Update the json by generating the AnimeConfig and getting the EpisodeConfig of all its episode"
     },
-    "Anime.html#toAnimeConfig": {
-      "id": "Anime.html#toAnimeConfig",
+    "server.Anime.html#toAnimeConfig": {
+      "id": "server.Anime.html#toAnimeConfig",
       "kind": "function",
       "title": "toAnimeConfig() → {AnimeConfig}",
-      "longname": "Anime#toAnimeConfig",
+      "longname": "server.Anime#toAnimeConfig",
       "name": "toAnimeConfig",
-      "tags": "Anime#toAnimeConfig toAnimeConfig",
+      "tags": "server.Anime#toAnimeConfig Anime#toAnimeConfig toAnimeConfig",
       "summary": "",
       "description": "Return the AnimeConfig of the Anime"
     },
-    "Episode.html": {
-      "id": "Episode.html",
+    "server.Episode.html": {
+      "id": "server.Episode.html",
       "kind": "class",
-      "title": "Episode",
-      "longname": "Episode",
+      "title": "server~Episode",
+      "longname": "server.Episode",
       "name": "Episode",
-      "tags": "Episode",
+      "tags": "server.Episode Episode",
       "summary": "",
       "description": "Store the datas of an episode",
       "body": ""
     },
-    "Episode.html#name": {
-      "id": "Episode.html#name",
+    "server.Episode.html#name": {
+      "id": "server.Episode.html#name",
       "kind": "member",
       "title": "name :string",
-      "longname": "Episode#name",
+      "longname": "server.Episode#name",
       "name": "name",
-      "tags": "Episode#name name",
+      "tags": "server.Episode#name Episode#name name",
       "summary": "",
       "description": "The name of the episode"
     },
-    "Episode.html#episodeId": {
-      "id": "Episode.html#episodeId",
+    "server.Episode.html#episodeId": {
+      "id": "server.Episode.html#episodeId",
       "kind": "member",
       "title": "&lt;readonly&gt; episodeId :number",
-      "longname": "Episode#episodeId",
+      "longname": "server.Episode#episodeId",
       "name": "episodeId",
-      "tags": "Episode#episodeId episodeId",
+      "tags": "server.Episode#episodeId Episode#episodeId episodeId",
       "summary": "",
       "description": "The unique id of the episode (define the order between episodes)"
     },
-    "Episode.html#posterLink": {
-      "id": "Episode.html#posterLink",
+    "server.Episode.html#posterLink": {
+      "id": "server.Episode.html#posterLink",
       "kind": "member",
       "title": "posterLink :string",
-      "longname": "Episode#posterLink",
+      "longname": "server.Episode#posterLink",
       "name": "posterLink",
-      "tags": "Episode#posterLink posterLink",
+      "tags": "server.Episode#posterLink Episode#posterLink posterLink",
       "summary": "",
       "description": "The uri of the episode poster"
     },
-    "Episode.html#links": {
-      "id": "Episode.html#links",
+    "server.Episode.html#links": {
+      "id": "server.Episode.html#links",
       "kind": "member",
       "title": "links :Array.&lt;string&gt;",
-      "longname": "Episode#links",
+      "longname": "server.Episode#links",
       "name": "links",
-      "tags": "Episode#links links",
+      "tags": "server.Episode#links Episode#links links",
       "summary": "",
       "description": "The episode's stream links"
     },
-    "Episode.html#localLink": {
-      "id": "Episode.html#localLink",
+    "server.Episode.html#localLink": {
+      "id": "server.Episode.html#localLink",
       "kind": "member",
       "title": "&lt;readonly&gt; localLink :string",
-      "longname": "Episode#localLink",
+      "longname": "server.Episode#localLink",
       "name": "localLink",
-      "tags": "Episode#localLink localLink",
+      "tags": "server.Episode#localLink Episode#localLink localLink",
       "summary": "",
       "description": "The local path to episode's file. To set Episode.localLink, see : Episode.setLocalPath"
     },
-    "Episode.html#anime": {
-      "id": "Episode.html#anime",
+    "server.Episode.html#anime": {
+      "id": "server.Episode.html#anime",
       "kind": "member",
       "title": "&lt;readonly&gt; anime :Anime",
-      "longname": "Episode#anime",
+      "longname": "server.Episode#anime",
       "name": "anime",
-      "tags": "Episode#anime anime",
+      "tags": "server.Episode#anime Episode#anime anime",
       "summary": "",
       "description": "Reference to the Anime"
     },
-    "Episode.html#isLocal": {
-      "id": "Episode.html#isLocal",
+    "server.Episode.html#isLocal": {
+      "id": "server.Episode.html#isLocal",
       "kind": "member",
       "title": "isLocal :boolean",
-      "longname": "Episode#isLocal",
+      "longname": "server.Episode#isLocal",
       "name": "isLocal",
-      "tags": "Episode#isLocal isLocal",
+      "tags": "server.Episode#isLocal Episode#isLocal isLocal",
       "summary": "",
       "description": "True when $localLink is set"
     },
-    "Episode.html#hasPoster": {
-      "id": "Episode.html#hasPoster",
+    "server.Episode.html#hasPoster": {
+      "id": "server.Episode.html#hasPoster",
       "kind": "member",
       "title": "hasPoster :boolean",
-      "longname": "Episode#hasPoster",
+      "longname": "server.Episode#hasPoster",
       "name": "hasPoster",
-      "tags": "Episode#hasPoster hasPoster",
+      "tags": "server.Episode#hasPoster Episode#hasPoster hasPoster",
       "summary": "",
       "description": "True when $posterLink is set"
     },
-    "Episode.html#path": {
-      "id": "Episode.html#path",
+    "server.Episode.html#path": {
+      "id": "server.Episode.html#path",
       "kind": "member",
       "title": "path :string",
-      "longname": "Episode#path",
+      "longname": "server.Episode#path",
       "name": "path",
-      "tags": "Episode#path path",
+      "tags": "server.Episode#path Episode#path path",
       "summary": "",
       "description": "path.join($this.anime.path with : If there is no local file, use the default local path $this.episodeId)` Else use the $local path"
     },
-    "Episode.html#toPublic": {
-      "id": "Episode.html#toPublic",
+    "server.Episode.html#toPublic": {
+      "id": "server.Episode.html#toPublic",
       "kind": "function",
       "title": "toPublic() → {PublicEpisode}",
-      "longname": "Episode#toPublic",
+      "longname": "server.Episode#toPublic",
       "name": "toPublic",
-      "tags": "Episode#toPublic toPublic",
+      "tags": "server.Episode#toPublic Episode#toPublic toPublic",
       "summary": "",
       "description": "Return the public information of the episode (= the informations to give to the client)"
     },
-    "Episode.html#getInfo": {
-      "id": "Episode.html#getInfo",
+    "server.Episode.html#getInfo": {
+      "id": "server.Episode.html#getInfo",
       "kind": "function",
       "title": "&lt;async&gt; getInfo( loadYoutubeInfo ) → {Promise.&lt;EpisodeInfo&gt;}",
-      "longname": "Episode#getInfo",
+      "longname": "server.Episode#getInfo",
       "name": "getInfo",
-      "tags": "Episode#getInfo getInfo",
+      "tags": "server.Episode#getInfo Episode#getInfo getInfo",
       "summary": "",
       "description": "Get the info of an episode"
     },
-    "Episode.html#getUrlByPlayer": {
-      "id": "Episode.html#getUrlByPlayer",
+    "server.Episode.html#getUrlByPlayer": {
+      "id": "server.Episode.html#getUrlByPlayer",
       "kind": "function",
       "title": "getUrlByPlayer( player ) → {string}",
-      "longname": "Episode#getUrlByPlayer",
+      "longname": "server.Episode#getUrlByPlayer",
       "name": "getUrlByPlayer",
-      "tags": "Episode#getUrlByPlayer getUrlByPlayer",
+      "tags": "server.Episode#getUrlByPlayer Episode#getUrlByPlayer getUrlByPlayer",
       "summary": "",
       "description": "Get the first url corresponding to the Videoplayer"
     },
-    "Episode.html#setLocalPath": {
-      "id": "Episode.html#setLocalPath",
+    "server.Episode.html#setLocalPath": {
+      "id": "server.Episode.html#setLocalPath",
       "kind": "function",
       "title": "setLocalPath( path ) → {Promise.&lt;void&gt;}",
-      "longname": "Episode#setLocalPath",
+      "longname": "server.Episode#setLocalPath",
       "name": "setLocalPath",
-      "tags": "Episode#setLocalPath setLocalPath",
+      "tags": "server.Episode#setLocalPath Episode#setLocalPath setLocalPath",
       "summary": "",
       "description": "Set Episode.localLink and update the anime"
     },
-    "Episode.html#toEpisodeConfig": {
-      "id": "Episode.html#toEpisodeConfig",
+    "server.Episode.html#toEpisodeConfig": {
+      "id": "server.Episode.html#toEpisodeConfig",
       "kind": "function",
       "title": "toEpisodeConfig() → {EpisodeConfig}",
-      "longname": "Episode#toEpisodeConfig",
+      "longname": "server.Episode#toEpisodeConfig",
       "name": "toEpisodeConfig",
-      "tags": "Episode#toEpisodeConfig toEpisodeConfig",
+      "tags": "server.Episode#toEpisodeConfig Episode#toEpisodeConfig toEpisodeConfig",
       "summary": "",
       "description": "Return the EpisodeConfig of the Episode"
     },
@@ -10535,8 +15313,284 @@ window.lunrData = {
       "name": "server",
       "tags": "server",
       "summary": "",
-      "description": "Start the server Server links : [USE] * - Used to do consoleGroup [GET] /get/list - Get the anime list Send : Anime.publicList [GET] /get/episode/info? - Get the info of an episode Param : animeId - The id of the anime Param : episodeId - The id of the episode in the anime Send : EpisodeInfo [GET] /get/episode/download? - Download an episode Param : animeId Param : episodeId Param : videoPlayerId Param : format Param : url Send : {\"progress\":DownloadEpisode.progress} [GET] /get/list/download - Get download list Send: { \"current\": { \"progress\":DownloadEpisode.progress \"episode\": Episode's name }, \"list\": [ Episodes's name ], \"error\": [ { \"episode\": Episode's name \"error\": Error } ] } [GET] `/` - Index.html [GET] `/js/*` - Folder js [GET] `/html/*` - Folder html [GET] `/css/*` - Folder css [GET] `/fonts/*` - Folder fonts [GET] `/asset/ico/*` - Folder assets ico [GET] `/episode/:animeId/:episodeId` - Get a local episode in folder episode Param : `animeId` - The id of the anime Param : `episodeId` - The id of the episode in the anime [GET] `/asset/thumbnail/:text.png` - Generate an image Param : `text` - The text to show on the image Param : `width` - The image width Param : `height` - The image height Param : `textSize` - The text size Param : `backgroundColor` - The background color Param : `textColor` - The text color",
+      "description": "",
       "body": ""
+    },
+    "server.html#.createLogFile": {
+      "id": "server.html#.createLogFile",
+      "kind": "function",
+      "title": "&lt;static&gt; createLogFile()",
+      "longname": "server.createLogFile",
+      "name": "createLogFile",
+      "tags": "server.createLogFile createLogFile",
+      "summary": "",
+      "description": "Create a new log file (with an unique name) in the log folder"
+    },
+    "server.https.html": {
+      "id": "server.https.html",
+      "kind": "namespace",
+      "title": "server.https",
+      "longname": "server.https",
+      "name": "https",
+      "tags": "server.https https",
+      "summary": "",
+      "description": "",
+      "body": ""
+    },
+    "server.https.html#.start": {
+      "id": "server.https.html#.start",
+      "kind": "function",
+      "title": "&lt;protected, static&gt; start( config )",
+      "longname": "server.https.start",
+      "name": "start",
+      "tags": "server.https.start https.start start",
+      "summary": "",
+      "description": "Start the server Server links : [USE] * - Used to do consoleGroup [GET] /new/anime? - Add a new anime Param : name - The name of the anime Param : thumbnailLink - The path to the thumbnail Send : {\"id\":Anime Id} [GET] /new/episode? - Add a new episode to an anime Send : {\"id\":Anime Id} [GET] /get/list - Get the anime list Send : Anime.publicList [GET] /get/episode/info? - Get the info of an episode Param : animeId - The id of the anime Param : episodeId - The id of the episode in the anime Send : EpisodeInfo [GET] /get/episode/download? - Download an episode Param : animeId Param : episodeId Param : videoPlayerId Param : format Param : url Send : {\"progress\":DownloadEpisode.progress} [GET] /get/list/download - Get download list Send: { \"current\": { \"progress\":DownloadEpisode.progress \"episode\": Episode's name }, \"list\": [ Episodes's name ], \"error\": [ { \"episode\": Episode's name \"error\": Error } ] } [GET] / - Index.html [GET] /js/* - Folder js [GET] /html/* - Folder html [GET] /css/* - Folder css [GET] /fonts/* - Folder fonts [GET] /asset/ico/* - Folder assets ico [GET] /episode/:animeId/:episodeId - Get a local episode in folder episode Param : animeId - The id of the anime Param : episodeId - The id of the episode in the anime [GET] /asset/thumbnail/:text.png - Generate an image or return a generated image Param : text - The text to show on the image Param : width - The image width Param : height - The image height Param : textSize - The text size Param : backgroundColor - The background color Param : textColor - The text color"
+    },
+    "server.global.html": {
+      "id": "server.global.html",
+      "kind": "namespace",
+      "title": "server.global",
+      "longname": "server.global",
+      "name": "global",
+      "tags": "server.global global",
+      "summary": "",
+      "description": "",
+      "body": ""
+    },
+    "server.global.html#.__root": {
+      "id": "server.global.html#.__root",
+      "kind": "member",
+      "title": "&lt;static&gt; __root :string",
+      "longname": "server.global.__root",
+      "name": "__root",
+      "tags": "server.global.__root global.__root __root",
+      "summary": "",
+      "description": "The folder of the node.js projet"
+    },
+    "server.global.html#.__logFile": {
+      "id": "server.global.html#.__logFile",
+      "kind": "member",
+      "title": "&lt;static&gt; __logFile :string",
+      "longname": "server.global.__logFile",
+      "name": "__logFile",
+      "tags": "server.global.__logFile global.__logFile __logFile",
+      "summary": "",
+      "description": "The path to the logfile"
+    },
+    "server.global.html#.__tempFolder": {
+      "id": "server.global.html#.__tempFolder",
+      "kind": "member",
+      "title": "&lt;static&gt; __tempFolder :string",
+      "longname": "server.global.__tempFolder",
+      "name": "__tempFolder",
+      "tags": "server.global.__tempFolder global.__tempFolder __tempFolder",
+      "summary": "",
+      "description": "The temp folder of the node.js projet"
+    },
+    "server.global.html#.GUIDGenerator": {
+      "id": "server.global.html#.GUIDGenerator",
+      "kind": "function",
+      "title": "&lt;static&gt; GUIDGenerator() → {string}",
+      "longname": "server.global.GUIDGenerator",
+      "name": "GUIDGenerator",
+      "tags": "server.global.GUIDGenerator global.GUIDGenerator GUIDGenerator",
+      "summary": "",
+      "description": ""
+    },
+    "server.global.html#.nameof": {
+      "id": "server.global.html#.nameof",
+      "kind": "function",
+      "title": "&lt;static&gt; nameof( varObject )",
+      "longname": "server.global.nameof",
+      "name": "nameof",
+      "tags": "server.global.nameof global.nameof nameof",
+      "summary": "",
+      "description": ""
+    },
+    "server.global.html#.overrideLine": {
+      "id": "server.global.html#.overrideLine",
+      "kind": "function",
+      "title": "&lt;static&gt; overrideLine( message, newLine )",
+      "longname": "server.global.overrideLine",
+      "name": "overrideLine",
+      "tags": "server.global.overrideLine global.overrideLine overrideLine",
+      "summary": "",
+      "description": "Override last line in the logfile"
+    },
+    "server.global.html#.writeLog": {
+      "id": "server.global.html#.writeLog",
+      "kind": "function",
+      "title": "&lt;static&gt; writeLog( message, newLine )",
+      "longname": "server.global.writeLog",
+      "name": "writeLog",
+      "tags": "server.global.writeLog global.writeLog writeLog",
+      "summary": "",
+      "description": "Write a line in the logfile"
+    },
+    "server.global.html#.toFileName": {
+      "id": "server.global.html#.toFileName",
+      "kind": "function",
+      "title": "&lt;static&gt; toFileName( fileName, replacer )",
+      "longname": "server.global.toFileName",
+      "name": "toFileName",
+      "tags": "server.global.toFileName global.toFileName toFileName",
+      "summary": "",
+      "description": ""
+    },
+    "server.image.html": {
+      "id": "server.image.html",
+      "kind": "namespace",
+      "title": "server.image",
+      "longname": "server.image",
+      "name": "image",
+      "tags": "server.image image",
+      "summary": "",
+      "description": "",
+      "body": ""
+    },
+    "server.image.html#.exports.getThumbail": {
+      "id": "server.image.html#.exports.getThumbail",
+      "kind": "function",
+      "title": "&lt;static&gt; exports.getThumbail( text [, option ] ) → {Promise.&lt;string&gt;}",
+      "longname": "server.image.exports.getThumbail",
+      "name": "exports.getThumbail",
+      "tags": "server.image.exports.getThumbail image.exports.getThumbail exports.getThumbail getThumbail",
+      "summary": "",
+      "description": ""
+    },
+    "server.image.html#.ThumbailOption": {
+      "id": "server.image.html#.ThumbailOption",
+      "kind": "typedef",
+      "title": "ThumbailOption",
+      "longname": "server.image.ThumbailOption",
+      "name": "ThumbailOption",
+      "tags": "server.image.ThumbailOption image.ThumbailOption ThumbailOption",
+      "summary": "",
+      "description": ""
+    },
+    "server.data.html": {
+      "id": "server.data.html",
+      "kind": "namespace",
+      "title": "server.data",
+      "longname": "server.data",
+      "name": "data",
+      "tags": "server.data data",
+      "summary": "",
+      "description": "",
+      "body": ""
+    },
+    "server.data.config.html": {
+      "id": "server.data.config.html",
+      "kind": "namespace",
+      "title": "server.data.config",
+      "longname": "server.data.config",
+      "name": "config",
+      "tags": "server.data.config data.config config",
+      "summary": "",
+      "description": "",
+      "body": ""
+    },
+    "server.data.config.html#.VideoPlayerConfig": {
+      "id": "server.data.config.html#.VideoPlayerConfig",
+      "kind": "typedef",
+      "title": "VideoPlayerConfig",
+      "longname": "server.data.config.VideoPlayerConfig",
+      "name": "VideoPlayerConfig",
+      "tags": "server.data.config.VideoPlayerConfig data.config.VideoPlayerConfig config.VideoPlayerConfig VideoPlayerConfig",
+      "summary": "",
+      "description": "The config of a videoplayer"
+    },
+    "server.data.config.html#.AnimeConfig": {
+      "id": "server.data.config.html#.AnimeConfig",
+      "kind": "typedef",
+      "title": "AnimeConfig",
+      "longname": "server.data.config.AnimeConfig",
+      "name": "AnimeConfig",
+      "tags": "server.data.config.AnimeConfig data.config.AnimeConfig config.AnimeConfig AnimeConfig",
+      "summary": "",
+      "description": "The config of and anime"
+    },
+    "server.data.config.html#.Config": {
+      "id": "server.data.config.html#.Config",
+      "kind": "typedef",
+      "title": "Config",
+      "longname": "server.data.config.Config",
+      "name": "Config",
+      "tags": "server.data.config.Config data.config.Config config.Config Config",
+      "summary": "",
+      "description": ""
+    },
+    "server.data.config.html#.EpisodeConfig": {
+      "id": "server.data.config.html#.EpisodeConfig",
+      "kind": "typedef",
+      "title": "EpisodeConfig",
+      "longname": "server.data.config.EpisodeConfig",
+      "name": "EpisodeConfig",
+      "tags": "server.data.config.EpisodeConfig data.config.EpisodeConfig config.EpisodeConfig EpisodeConfig",
+      "summary": "",
+      "description": "The config of an episode"
+    },
+    "server.data.public.html": {
+      "id": "server.data.public.html",
+      "kind": "namespace",
+      "title": "server.data.public",
+      "longname": "server.data.public",
+      "name": "public",
+      "tags": "server.data.public data.public public",
+      "summary": "",
+      "description": "",
+      "body": ""
+    },
+    "server.data.public.html#.PublicVideoPlayer": {
+      "id": "server.data.public.html#.PublicVideoPlayer",
+      "kind": "typedef",
+      "title": "PublicVideoPlayer",
+      "longname": "server.data.public.PublicVideoPlayer",
+      "name": "PublicVideoPlayer",
+      "tags": "server.data.public.PublicVideoPlayer data.public.PublicVideoPlayer public.PublicVideoPlayer PublicVideoPlayer",
+      "summary": "",
+      "description": "The public informations of a video player"
+    },
+    "server.data.public.html#.PlayerInfo": {
+      "id": "server.data.public.html#.PlayerInfo",
+      "kind": "typedef",
+      "title": "PlayerInfo",
+      "longname": "server.data.public.PlayerInfo",
+      "name": "PlayerInfo",
+      "tags": "server.data.public.PlayerInfo data.public.PlayerInfo public.PlayerInfo PlayerInfo",
+      "summary": "",
+      "description": "The info of an URL"
+    },
+    "server.data.public.html#.PublicAnime": {
+      "id": "server.data.public.html#.PublicAnime",
+      "kind": "typedef",
+      "title": "PublicAnime",
+      "longname": "server.data.public.PublicAnime",
+      "name": "PublicAnime",
+      "tags": "server.data.public.PublicAnime data.public.PublicAnime public.PublicAnime PublicAnime",
+      "summary": "",
+      "description": "The public informations of an anime"
+    },
+    "server.data.public.html#.PublicEpisode": {
+      "id": "server.data.public.html#.PublicEpisode",
+      "kind": "typedef",
+      "title": "PublicEpisode",
+      "longname": "server.data.public.PublicEpisode",
+      "name": "PublicEpisode",
+      "tags": "server.data.public.PublicEpisode data.public.PublicEpisode public.PublicEpisode PublicEpisode",
+      "summary": "",
+      "description": "The public informations of an episode"
+    },
+    "server.data.public.html#.EpisodeInfo": {
+      "id": "server.data.public.html#.EpisodeInfo",
+      "kind": "typedef",
+      "title": "EpisodeInfo",
+      "longname": "server.data.public.EpisodeInfo",
+      "name": "EpisodeInfo",
+      "tags": "server.data.public.EpisodeInfo data.public.EpisodeInfo public.EpisodeInfo EpisodeInfo",
+      "summary": "",
+      "description": "The information of an episode (urls are mapped with PlayerInfo)"
     }
   }
 };
