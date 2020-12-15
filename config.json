@@ -39,7 +39,8 @@
 			"name" : "adkami",
 			"prefix" :
 			[
-				"https://www.adkami.com/"
+				"https://www.adkami.com/",
+				"https://m.adkami.com/"
 			],
 			"downloadable" : true,
 			"autoDownload" : false

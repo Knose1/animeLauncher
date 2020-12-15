@@ -102,7 +102,7 @@ var ytdl = require('ytdl-core');
 const pathNode = require("path");
 const mime = require("mime-types");
 const event = require("events");
-const { error } = require('console');
+const { error, debug } = require('console');
 const EventEmitter = event.EventEmitter;
 
 /**
@@ -488,6 +488,10 @@ class VideoPlayer {
 		 * @type {string}
 		 */
 		this.name = config.name
+		if (!this.name) 
+		{
+
+		}
 
 		/**
 		 * If true, the VideoPlayer wront be available for edit
@@ -904,6 +908,11 @@ class Anime {
 	 */
 	constructor(jsonObject, folderPath) 
 	{
+		if (!folderPath) 
+		{
+			console.error(`${nameof(folderPath)} is null (code exception)`);
+			return;
+		}
 		/**
 		 * @ignore
 		 * @type {AnimeConfig}
@@ -923,8 +932,8 @@ class Anime {
 		 * @public
 		 * @type {string}
 		 */
-		this.name = data.name;
-		if (!data.name) throw `"${nameof(name)}" is null in anime : `+folderPath;
+		this.name = data.name || pathNode.dirname(folderPath);
+		if (!data.name) console.warn(`"${nameof({name:this.name})}" is null in anime : \r\n"${folderPath}"`);
 
 		/**
 		 * The uri of the anime poster
@@ -940,7 +949,6 @@ class Anime {
 		 * @type {string}
 		 */
 		this._path = folderPath;
-		if (!folderPath) throw `${nameof(folderPath)} is null (code exception)`;
 		
 		/**
 		 * The list of episodes
@@ -1083,6 +1091,7 @@ class Episode {
 		 * @type {string[]}
 		 */
 		this.links 		= config.links;
+		if (!this.links) this.links = [];
 
 		/**
 		 * The local path to episode's file.  

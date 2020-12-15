@@ -105,17 +105,23 @@ tempFileRemove.then(
 		var value = configLoader.value;
 		console.log(configLoader);
 
-		//Get all video players
-		for (let i = value.videoPlayers.length - 1; i >= 0; i--) {
-			let lElement = value.videoPlayers[i];
+		if (!value.videoPlayers) value.videoPlayers = [];
 
-			if (lElement.isNatif || lElement.isYoutube) 
-			{
-				new YoutubePlayer(lElement);
-				continue;
+		try {
+			//Get all video players
+			for (let i = value.videoPlayers.length - 1; i >= 0; i--) {
+				let lElement = value.videoPlayers[i];
+
+				if (lElement.isNatif || lElement.isYoutube) 
+				{
+					new YoutubePlayer(lElement);
+					continue;
+				}
+
+				new VideoPlayer(lElement);
 			}
-
-			new VideoPlayer(lElement);
+		} catch (e) {
+			console.error(e);
 		}
 	}
 )
@@ -129,6 +135,9 @@ tempFileRemove.then(
 
 		//Load animes and episodes
 		fs.readdir(episodeFolder, async(err, files) => {
+			
+			let invalidFolders = [];
+
 			for (let i = files.length - 1; i >= 0; i--) {
 				let lElement = files[i];
 		
@@ -148,6 +157,12 @@ tempFileRemove.then(
 
 			}
 			
+			console.newLine();
+			console.log(`${invalidFolders.length} animes have encountered an error :`);
+			console.log(invalidFolders.join("\r\n"));
+			console.newLine();
+			console.log(`${Anime.list.length} animes have been loaded`);
+
 			resolve();
 		});
 
@@ -155,8 +170,6 @@ tempFileRemove.then(
 )
 .then(
 	() => {
-		console.newLine();
-		console.log(`${Anime.list.length} animes has been loaded`);
 		console.newLine();
 		console.log("Launching server......");
 		Server(configLoader.value);

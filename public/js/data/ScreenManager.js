@@ -377,11 +377,31 @@ class ScreenManager {
 		
 		HTMLManager.body.clear();
 
+		
+		let video = new SrcElement("video", url)
+		.setControls(true)
+		.setAutoplay(false)
+		.setPoster(episode.posterLink || Loader.defaultThumbnailList[episodeId] || `/asset/thumbnail/${episodeId}.png?width:170&height:90&textSize=700`);
+		
+		
+		ScreenElementManager.addListener(video, "keydown", 
+		/**
+		 * @ignore
+		 * @param {KeyboardEvent} k 
+		 */
+		(k) => {
+			if (k.key === "f") {
+				/**
+				 * @ignore
+				 * @param {HTMLVideoElement}
+				 */
+				let elm = video.element;
+				document.fullscreenElement == null ? elm.requestFullscreen() : document.exitFullscreen();
+			}
+		});
+		
 		HTMLManager.body.append(
-			new SrcElement("video", url)
-				.setControls(true)
-				.setAutoplay(false)
-				.setPoster(episode.posterLink || Loader.defaultThumbnailList[episodeId] || `/asset/thumbnail/${episodeId}.png?width:170&height:90&textSize=700`),
+			video,
 			new ScreenElement("h2")
 				.setText(anime.name + " - " + (episode.name || "Episode " + episodeId)),
 			

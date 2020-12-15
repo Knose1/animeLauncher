@@ -10,6 +10,7 @@ let groupEnd = console.groupEnd;
 let log = console.log;
 let dir = console.dir;
 let error = console.error;
+let warn = console.warn;
 
 let lastStringLog = null;
 let lastStringLogCount = 0;
@@ -30,6 +31,18 @@ console.error = (message, ...optionalParams) =>
 	args.push.apply(args, optionalParams);
 
 	error.apply(console, args);
+}
+
+console.warn = (message, ...optionalParams) =>
+{
+	writeLog("===Warn===");
+	writeLog(message);
+	writeLog("==========");
+
+	let args = [message];
+	args.push.apply(args, optionalParams);
+
+	warn.apply(console, args);
 }
 
 console.log = (message, ...optionalParams) =>
