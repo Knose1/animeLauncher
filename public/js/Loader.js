@@ -105,14 +105,15 @@ class Loader
 	 * @param {number} animeId 
 	 * @param {number} episodeId 
 	 */
-	static loadLocalEpisode(animeId, episodeId, listIsEpisodeLocal)
+	static loadLocalEpisode(animeId, episodeId, listIsEpisodeLocal, listIsEpisode404)
 	{
 		animeId = Number.parseInt(animeId);
 		episodeId = Number.parseInt(episodeId);
 
-		ScreenManager.showVideo(`./episode/${animeId}/${episodeId}`, animeId, episodeId, listIsEpisodeLocal);
-		
+		ScreenManager.showVideo(this.getVideoPath(animeId, episodeId), animeId, episodeId, listIsEpisodeLocal, listIsEpisode404);
 	}
+
+	static getVideoPath(animeId, episodeId) {return `./episode/${animeId}/${episodeId}`}
 
 	static download(animeId, episodeId, videoPlayerId, url, format = null)
 	{

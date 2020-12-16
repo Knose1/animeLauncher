@@ -80,6 +80,7 @@
  * @property {number} episodeId
  * @property {string} posterLink
  * @property {bool} isLocal
+ * @property {bool} is404
  * @property {bool} hasPoster
  * @property {PlayerInfo[]} players
  */
@@ -1146,6 +1147,7 @@ class Episode {
 		let lToReturn = this.toPublic();
 		lToReturn.players = [];
 		lToReturn.isLocal = this.isLocal;
+		lToReturn.is404 = !fs.existsSync(this.path);
 		lToReturn.hasPoster = this.hasPoster;
 
 		for (let i = this.links.length - 1; i >= 0; i--) {

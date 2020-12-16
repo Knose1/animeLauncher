@@ -82,6 +82,10 @@ button {
     display:none !important;
 }
 
+.watch404 {
+	text-decoration: line-through;
+}
+
 #overlay 
 {
     display:flex;

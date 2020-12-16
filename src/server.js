@@ -261,7 +261,7 @@ function start(config) {
 		//Get episode info and send
 		try {
 			let info = await lEpisode.getInfo(loadYtInfo);
-
+			
 			res.contentType("application/json");
 			res.send(JSON.stringify(info));
 		}

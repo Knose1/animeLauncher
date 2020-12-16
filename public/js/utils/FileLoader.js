@@ -8,8 +8,9 @@ const START = -1;
 /**
 	FileLoader can load files and send their responce using calbacks.
 	It can load text, json, html or blob. See : {@link FileToLoad FileToLoad} 
+	* @memberof Public.Common
 	@example
-	<code type="javascript">
+	```javascript
 		function init() {
 			FileLoader.getInstance().readAsText('./leveldesign.json', (pD) => {
 				LevelManager.init(pD);
@@ -18,8 +19,7 @@ const START = -1;
 	
 			FileLoader.getInstance().start();
 		}
-	</code>
- * @memberof Public.Common
+	```
 */
 class FileLoader {
 	//static _instance;

@@ -21,7 +21,7 @@ class ScreenElementManager {
 	static get listeners() {return this._listeners || (this._listeners = [])};
 
 	/**
-	 * 
+	 * Add a listener to an element
 	 * @param {ScreenElement} elm 
 	 * @param {string} type 
 	 * @param {function} handeler 
@@ -86,6 +86,10 @@ class ScreenElementManager {
 		}
 	}
 
+	/**
+	 * 
+	 * @param {boolean} removeStatic 
+	 */
 	static removeListenersOnAllElements(removeStatic = false)
 	{
 		for (let i = this.listeners.length - 1; i >= 0; i--) {
@@ -250,6 +254,11 @@ class ScreenElementFromElement extends ScreenElement {
  */
 class SrcElement extends ScreenElement 
 {
+	/**
+	 * 
+	 * @param {string} tagName 
+	 * @param {string} src 
+	 */
 	constructor(tagName, src)
 	{
 		super(tagName);
@@ -259,6 +268,22 @@ class SrcElement extends ScreenElement
 	setSrc(src)
 	{
 		this.element.src = src;
+	}
+}
+
+/**
+ * @extends SrcElement
+ */
+class VideoElement extends SrcElement 
+{
+	constructor(src)
+	{
+		super("video", src);
+
+		/**
+		 * @type {HTMLVideoElement}
+		 */
+		this.element;
 	}
 
 	/**
@@ -290,6 +315,11 @@ class SrcElement extends ScreenElement
 		this.element.poster = src;
 		return this;
 	}
+
+	toggleFullscreen() 
+	{
+		document.fullscreenElement === this.element ? document.exitFullscreen() : this.element.requestFullscreen();
+	}
 }
 
 /**
@@ -308,7 +338,21 @@ class ButtonElement extends ScreenElement
 		super("button");
 		this.handeler = handeler;
 		this.isStatic = isStatic;
+
+		/**
+		 * @type {HTMLButtonElement}
+		 */
+		this.element;
+
 		this.listen();
+	}
+
+	/**
+	 * 
+	 * @param {Boolean} disabled 
+	 */
+	disable(disabled) {
+		this.element.disabled = disabled;
 	}
 
 	setHandeler(handeler, isStatic = false)
@@ -472,6 +516,33 @@ class ProgressBarIndicator extends ProgressIndicator
 /*//////////////////////////////////*/
 
 /**
+ * @extends VideoElement
+ */
+class AnimeVideoElement extends VideoElement 
+{
+	constructor(url, episode, episodeId) {
+		super(url);
+
+		this.setControls(true)
+		this.setAutoplay(false)
+		this.setPoster(episode.posterLink || Loader.defaultThumbnailList[episodeId] || `/asset/thumbnail/${episodeId}.png?width:170&height:90&textSize=700`);
+		
+		ScreenElementManager.addListener(HTMLManager.document, "keydown", (f) => {this.onKey(f);});
+	}
+
+	/**
+	 * @private
+	 * @param {KeyboardEvent} k 
+	 */
+	onKey(k) 
+	{
+		if (k.key === "f") {
+			this.toggleFullscreen();
+		}
+	}
+}
+
+/**
  * An anime button in the anime list
  * @memberof Public.Html.Elements.Personalised
  */
@@ -508,9 +579,11 @@ class EpisodeElement extends ScreenElement
 	 * @param {*} anime
 	 * @param {*} episode
 	 * @param {boolean} isEpisodeLocal
+	 * @param {boolean} listIsEpisodeLocal True when a local link is declared
+	 * @param {boolean} listIsEpisode404 True when the mp4 is not in the folder
 	 * @param {Function} onclick
 	 */
-	constructor(anime, episode, isEpisodeLocal, listIsEpisodeLocal, onclick)
+	constructor(anime, episode, isEpisodeLocal, listIsEpisodeLocal, listIsEpisode404, onclick)
 	{
 		super("li");
 
@@ -527,7 +600,7 @@ class EpisodeElement extends ScreenElement
 
 		if (isEpisodeLocal)
 		{
-			this.append(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, "h2"));
+			this.append(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, listIsEpisode404, "h2"));
 		}
 	}
 }
@@ -538,20 +611,37 @@ class EpisodeElement extends ScreenElement
  */
 class EpisodeWatchButton extends ButtonElement
 {
+	static get WATCH_LOCAL() {return "Watch local"};
+	static get CLASS_WATCH() {return "watch"};
+	static get CLASS_WATCH404() {return "watch404"};
+
 	/**
 	 * @param {*} anime
 	 * @param {*} episode
+	 * @param {Boolean[]} listIsEpisodeLocal A list to know when the
+	 * @param {Boolean[]} listIsEpisode404 True when server respond 404
 	 * @param {"h1" | "h2" | "h3" | "h4" | "h5" | "h6"} innerTextElementTag
 	 */
-	constructor(anime, episode, listIsEpisodeLocal, innerTextElementTag="h4")
+	constructor(anime, episode, listIsEpisodeLocal, listIsEpisode404, innerTextElementTag="h4")
 	{
-		super(() => {
+		function onClick() {
 			ScreenElementManager.removeListeners();
-			Loader.loadLocalEpisode(anime.id, episode.episodeId, listIsEpisodeLocal);
-		});
+			Loader.loadLocalEpisode(anime.id, episode.episodeId, listIsEpisodeLocal, listIsEpisode404);
+		}
 
-		this.addClass("watch");
-		this.append(new ScreenElement(innerTextElementTag).setText("Watch local"));
+		super(onClick);
+
+		this.addClass(EpisodeWatchButton.CLASS_WATCH);
+		
+		let innerTextElm = new ScreenElement(innerTextElementTag).setText(EpisodeWatchButton.WATCH_LOCAL);
+		
+		if (listIsEpisode404[episode.episodeId]) 
+		{
+			this.disable(true);
+			this.addClass(EpisodeWatchButton.CLASS_WATCH404);
+		}
+		
+		this.append(innerTextElm);
 	}
 }
 
@@ -961,6 +1051,8 @@ export
 	MenuButtonElement,
 	ProgressIndicator,
 	ProgressBarIndicator,
+	VideoElement,
+	AnimeVideoElement,
 	AnimeElement,
 	EpisodeElement,
 	EpisodeWatchButton,
