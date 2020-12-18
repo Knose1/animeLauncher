@@ -51,6 +51,14 @@ class ScreenManager {
 		document.title = title;
 	}
 
+	/**
+	 * @private
+	 */
+	static set _OnReturn(value) 
+	{
+		
+	}
+
 	static init()
 	{
 		HTMLManager.menuBar.append(
@@ -71,6 +79,8 @@ class ScreenManager {
 				Loader.loadAnimeList();
 			})
 		);
+
+		ScreenElementManager.init();
 	}
 
 	static showLoadingAnime()
@@ -382,7 +392,7 @@ class ScreenManager {
 		
 		HTMLManager.body.clear();
 
-		let video = new AnimeVideoElement(url, episode, episodeId);
+		let video = new AnimeVideoElement(url, episode, episodeId, nextEpisode, listIsEpisodeLocal, listIsEpisode404);
 		
 		HTMLManager.body.append(
 			video,

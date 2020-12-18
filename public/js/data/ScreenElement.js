@@ -7,6 +7,13 @@ import Loader from '../Loader.js';
 class ScreenElementManager {
 
 	/**
+	 * @typedef ListenerBase
+	 * @property {boolean} isStatic 
+	 * @memberof ScreenElementManager
+	 */
+
+	/**
+	 * @extends ListenerBase
 	 * @typedef Listener
 	 * @property {ScreenElement} elm 
 	 * @property {string} type 
@@ -14,11 +21,36 @@ class ScreenElementManager {
 	 * @property {boolean} isStatic 
 	 * @memberof ScreenElementManager
 	 */
+	
+	/**
+	 * @extends ListenerBase
+	 * @typedef KeyListener
+	 * @property {ScreenElement} elm 
+	 * @property {(ev: KeyboardEvent) => any} handeler 
+	 * @property {boolean} isStatic 
+	 * @property {boolean} useFocusInChild 
+	 * @memberof ScreenElementManager
+	 */
 
 	/**
 	 * @type {Listener[]} 
 	 */
 	static get listeners() {return this._listeners || (this._listeners = [])};
+
+	/**
+	 * @type {KeyListener[]} 
+	 */
+	static get keyPressListeners() {return this._keyPressListeners || (this._keyPressListeners = [])};
+
+	/**
+	 * @type {KeyListener[]} 
+	 */
+	static get keyDownListeners() {return this._keyDownListeners || (this._keyDownListeners = [])};
+
+	/**
+	 * @type {KeyListener[]} 
+	 */
+	static get keyUpListeners() {return this._keyUpListeners || (this._keyUpListeners = [])};
 
 	/**
 	 * Add a listener to an element
@@ -31,7 +63,7 @@ class ScreenElementManager {
 	{
 		elm.element.addEventListener(type, handeler);
 		this.listeners.push({elm, type, handeler, isStatic});
-
+		
 		return elm;
 	}
 
@@ -92,6 +124,11 @@ class ScreenElementManager {
 	 */
 	static removeListenersOnAllElements(removeStatic = false)
 	{
+		let lArr = [this.keyPressListeners, this.keyDownListeners, this.keyUpListeners, this.listeners];
+
+		for (let i = lArr.length - 1; i >= 0; i--) {
+			let lElement = lArr[i];
+		}
 		for (let i = this.listeners.length - 1; i >= 0; i--) {
 			let lElement = this.listeners[i];
 
@@ -105,7 +142,99 @@ class ScreenElementManager {
 		
 		HTMLManager.overlay.removeClass("disabled");
 	}
+
+	static init() 
+	{
+		document.addEventListener("keydown", _keyDown);
+		document.addEventListener("keypress", _keyPress);
+		document.addEventListener("keyup", _keyUp);
+	}
+
+	/**
+	 * 
+	 * @param {KeyboardEvent} k 
+	 */
+	static _keyDown(k) 
+	{
+		for (let i = this.keyDownListeners.length - 1; i >= 0; i--) {
+			let lElement = this.keyDownListeners[i];
+
+			//Focus or Focus in child
+			if (lElement.elm.hasFocus || (lElement.useFocusInChild && lElement.elm.hasFocusInChild)) 
+			{
+				lElement.handeler.call(lElement.elm, k);
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param {KeyboardEvent} k 
+	 */
+	static _keyPress(k) 
+	{
+		for (let i = this.keyPressListeners.length - 1; i >= 0; i--) {
+			let lElement = this.keyPressListeners[i];
+			
+			//Focus or Focus in child
+			if (lElement.elm.hasFocus || (lElement.useFocusInChild && lElement.elm.hasFocusInChild)) 
+			{
+				lElement.handeler.call(lElement.elm, k);
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param {KeyboardEvent} k 
+	 */
+	static _keyUp(k) 
+	{
+		for (let i = this.keyUpListeners.length - 1; i >= 0; i--) {
+			let lElement = this.keyUpListeners[i];
+
+			//Focus or Focus in child
+			if (lElement.elm.hasFocus || (lElement.useFocusInChild && lElement.elm.hasFocusInChild)) 
+			{
+				lElement.handeler.call(lElement.elm, k);
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param {ScreenElementManager.KeyTypeEnum} kl 
+	 */
+	static AddKeyListener(kl) 
+	{
+		switch (kl) {
+			case ScreenElementManager.KeyTypeEnum.DOWN:
+				
+				break;
+			case ScreenElementManager.KeyTypeEnum.PRESS:
+				
+				break;
+			case ScreenElementManager.KeyTypeEnum.UP:
+				
+				break;
+		
+			default:
+				console.warn(`${kl} is not in KeyTypeEnum`);
+				break;
+		}
+	}
 }
+
+/**
+ * @readonly
+ * @enum {number}
+ * @memberof Public.Html.Elements.ScreenElementManager
+ */
+ScreenElementManager.KeyTypeEnum = {
+   DOWN:0,
+   PRESS:1,
+   UP:2
+};
 
 /**
  * Base class for any ScreenElement
@@ -229,6 +358,26 @@ class ScreenElement {
 		this.element.innerHTML = "";
 		return this;
 	}
+
+	focus() 
+	{
+		this.element.focus();
+	}
+
+	blur() 
+	{
+		this.element.blur();
+	}
+
+	get hasFocus() 
+	{
+		return Array.from(document.querySelectorAll(":focus")).includes(this.element);
+	}
+
+	get hasFocusInChild() 
+	{
+		return Array.from(this.element.querySelectorAll(":focus")).includes(this.element);
+	}
 }
 
 /**
@@ -316,9 +465,59 @@ class VideoElement extends SrcElement
 		return this;
 	}
 
+	get isFullscreen() {return document.fullscreenElement === this.element}
+
+	setFullscreen(value) 
+	{
+		value ? this.requestFullscreen() : this.exitFullscreen();
+	}
+
+	requestFullscreen() 
+	{
+		if (!this.isFullscreen) 
+		{
+			this.element.requestFullscreen();
+			this.focus();
+		}
+	}
+	
+	exitFullscreen() 
+	{
+		if (this.isFullscreen) 
+		{
+			document.exitFullscreen();
+		}
+	}
+
 	toggleFullscreen() 
 	{
-		document.fullscreenElement === this.element ? document.exitFullscreen() : this.element.requestFullscreen();
+		this.setFullscreen(!this.isFullscreen);
+	}
+	
+	get muted() {return this.element.muted;}
+
+	get volume() 
+	{
+		return this.element.volume;
+	}
+	set volume(value) 
+	{
+		return this.element.volume = value;
+	}
+
+	toggleMute() 
+	{
+		this.mute(!this.muted);
+	}
+
+	mute(value = true) 
+	{
+		this.element.muted = value;
+	}
+
+	unmute() 
+	{
+		this.mute(false);
 	}
 }
 
@@ -520,8 +719,13 @@ class ProgressBarIndicator extends ProgressIndicator
  */
 class AnimeVideoElement extends VideoElement 
 {
-	constructor(url, episode, episodeId) {
+	constructor(url, episode, episodeId, nextEpisode,  listIsEpisodeLocal, listIsEpisode404) {
 		super(url);
+
+		this._nextEpisode = nextEpisode;
+		this._listIsEpisodeLocal = listIsEpisodeLocal;
+		this._listIsEpisode404 = listIsEpisode404;
+
 
 		this.setControls(true)
 		this.setAutoplay(false)
@@ -533,11 +737,47 @@ class AnimeVideoElement extends VideoElement
 	/**
 	 * @private
 	 * @param {KeyboardEvent} k 
+	 * @this {AnimeVideoElement}
 	 */
 	onKey(k) 
 	{
 		if (k.key === "f") {
 			this.toggleFullscreen();
+		}
+
+		else if (this.hasFocus && k.key === "m") {
+			this.toggleMute();
+		}
+
+		else if (this.hasFocus && k.key === "ArrowUp") {
+			this.unmute();
+			this.volume += k.shiftKey ? 0.01 : 0.1;
+			k.preventDefault();
+		}
+
+		else if (this.hasFocus && k.key === "ArrowDown") {
+			this.unmute();
+			this.volume -= k.shiftKey ? 0.01 : 0.1;
+			k.preventDefault();
+		}
+
+		else if (this._nextEpisode && k.key === "n") {
+			let isFullscreen = this.isFullscreen;
+			this.exitFullscreen();
+			
+			setTimeout(() => {
+				if (confirm("Go to next episode ?")) 
+				{
+					ScreenElementManager.removeListenersOnAllElements();
+					Loader.loadLocalEpisode(this._nextEpisode.anime.id, this._nextEpisode.episodeId, this._listIsEpisodeLocal, this._listIsEpisode404);
+				}
+				else 
+				{
+					setTimeout(() => {
+						this.setFullscreen(isFullscreen);
+					}, 100);
+				}
+			}, 100);
 		}
 	}
 }
