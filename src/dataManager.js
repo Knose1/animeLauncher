@@ -634,7 +634,7 @@ class VideoPlayer {
 		let file = null;
 		
 		/**
-		 * @type {http.ClientRequest || https.ClientRequest}
+		 * @type {http.ClientRequest | https.ClientRequest}
 		 */
 		let request = null;
 

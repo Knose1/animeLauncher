@@ -69,6 +69,7 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
+											<li><a href="AnimeVideoElement.html">AnimeVideoElement</a></li>
 											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
 											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
 											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
@@ -102,6 +103,7 @@
 											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
 											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
 											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
+											<li><a href="VideoElement.html">VideoElement</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -150,18 +152,72 @@
 			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
 
+const DOWN = 0;
+const PRESS = 1;
+const UP = 2;
+
+/**
+ * @readonly
+ * @enum {number}
+ * @memberof Public.Html.Elements.ScreenElementManager
+ */
+let KeyTypeEnum = 
+{
+	/**
+	 * 0
+	 */
+	DOWN,
+
+	/**
+	 * 1
+	 */
+	PRESS,
+
+	/**
+	 * 2
+	 */
+	UP
+}
+
 /**
  * @memberof Public.Html.Elements
  */
 class ScreenElementManager {
 
 	/**
+	 * @callback KeyEventHandler
+	 * @param {KeyboardEvent} ev
+	 * @returns {void}
+	 * @memberof Public.Html.Elements.ScreenElementManager
+	 */
+
+	/**
+	 * @public
+	 * @typedef ListenerBase
+	 * @property {boolean} isStatic 
+	 * @memberof Public.Html.Elements.ScreenElementManager
+	 */
+	
+	/**
+	 * @public
+	 * @extends Public.Html.Elements.ScreenElementManager.ListenerBase
 	 * @typedef Listener
-	 * @property {ScreenElement} elm 
+	 * @property {Public.Html.Elements.ScreenElement} elm 
 	 * @property {string} type 
 	 * @property {function} handeler 
 	 * @property {boolean} isStatic 
-	 * @memberof ScreenElementManager
+	 * @memberof Public.Html.Elements.ScreenElementManager
+	 */
+	
+	/**
+	 * @public
+	 * @extends Public.Html.Elements.ScreenElementManager.ListenerBase
+	 * @typedef KeyListener
+	 * @property {Public.Html.Elements.ScreenElement} elm 
+	 * @property {Public.Html.Elements.KeyEventHandler} handeler 
+	 * @property {boolean} isStatic 
+	 * @property {boolean} useFocusInChild 
+	 * @memberof Public.Html.Elements.ScreenElementManager
 	 */
 
 	/**
@@ -170,7 +226,22 @@ class ScreenElementManager {
 	static get listeners() {return this._listeners || (this._listeners = [])};
 
 	/**
-	 * 
+	 * @type {KeyListener[]} 
+	 */
+	static get keyPressListeners() {return this._keyPressListeners || (this._keyPressListeners = [])};
+
+	/**
+	 * @type {KeyListener[]} 
+	 */
+	static get keyDownListeners() {return this._keyDownListeners || (this._keyDownListeners = [])};
+
+	/**
+	 * @type {KeyListener[]} 
+	 */
+	static get keyUpListeners() {return this._keyUpListeners || (this._keyUpListeners = [])};
+
+	/**
+	 * Add a listener to an element
 	 * @param {ScreenElement} elm 
 	 * @param {string} type 
 	 * @param {function} handeler 
@@ -180,7 +251,7 @@ class ScreenElementManager {
 	{
 		elm.element.addEventListener(type, handeler);
 		this.listeners.push({elm, type, handeler, isStatic});
-
+		
 		return elm;
 	}
 
@@ -235,8 +306,17 @@ class ScreenElementManager {
 		}
 	}
 
+	/**
+	 * 
+	 * @param {boolean} removeStatic 
+	 */
 	static removeListenersOnAllElements(removeStatic = false)
 	{
+		let lArr = [this.keyPressListeners, this.keyDownListeners, this.keyUpListeners, this.listeners];
+
+		for (let i = lArr.length - 1; i >= 0; i--) {
+			let lElement = lArr[i];
+		}
 		for (let i = this.listeners.length - 1; i >= 0; i--) {
 			let lElement = this.listeners[i];
 
@@ -249,6 +329,87 @@ class ScreenElementManager {
 		}
 		
 		HTMLManager.overlay.removeClass("disabled");
+	}
+
+	static init() 
+	{
+		document.addEventListener("keydown", _keyDown);
+		document.addEventListener("keypress", _keyPress);
+		document.addEventListener("keyup", _keyUp);
+	}
+
+	/**
+	 * 
+	 * @param {KeyboardEvent} k 
+	 */
+	static _keyDown(k) 
+	{
+		for (let i = this.keyDownListeners.length - 1; i >= 0; i--) {
+			let lElement = this.keyDownListeners[i];
+
+			//Focus or Focus in child
+			if (lElement.elm.hasFocus || (lElement.useFocusInChild &amp;&amp; lElement.elm.hasFocusInChild)) 
+			{
+				lElement.handeler.call(lElement.elm, k);
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param {KeyboardEvent} k 
+	 */
+	static _keyPress(k) 
+	{
+		for (let i = this.keyPressListeners.length - 1; i >= 0; i--) {
+			let lElement = this.keyPressListeners[i];
+			
+			//Focus or Focus in child
+			if (lElement.elm.hasFocus || (lElement.useFocusInChild &amp;&amp; lElement.elm.hasFocusInChild)) 
+			{
+				lElement.handeler.call(lElement.elm, k);
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param {KeyboardEvent} k 
+	 */
+	static _keyUp(k) 
+	{
+		for (let i = this.keyUpListeners.length - 1; i >= 0; i--) {
+			let lElement = this.keyUpListeners[i];
+
+			//Focus or Focus in child
+			if (lElement.elm.hasFocus || (lElement.useFocusInChild &amp;&amp; lElement.elm.hasFocusInChild)) 
+			{
+				lElement.handeler.call(lElement.elm, k);
+			}
+		}
+	}
+
+	/**
+	 * 
+	 * @param {ScreenElementManager.KeyTypeEnum} kl 
+	 */
+	static AddKeyListener(kl) 
+	{
+		switch (kl) {
+			case ScreenElementManager.KeyTypeEnum.DOWN:
+				
+				break;
+			case KeyTypeEnum.PRESS:
+				
+				break;
+			case KeyTypeEnum.UP:
+				
+				break;
+		
+			default:
+				console.warn(`${kl} is not in KeyTypeEnum`);
+				break;
+		}
 	}
 }
 
@@ -286,8 +447,8 @@ class ScreenElement {
 
 	/**
 	 * 
-	 * @param  {(string | ScreenElement)[]} elements 
-	 * @param  {(string | ScreenElement | function)[]} [join]
+	 * @param  {Array&lt;string | ScreenElement>} elements 
+	 * @param  {Array&lt;string | ScreenElement | function>} [join]
 	 */
 	appendList(elements, join = undefined)
 	{
@@ -374,6 +535,26 @@ class ScreenElement {
 		this.element.innerHTML = "";
 		return this;
 	}
+
+	focus() 
+	{
+		this.element.focus();
+	}
+
+	blur() 
+	{
+		this.element.blur();
+	}
+
+	get hasFocus() 
+	{
+		return Array.from(document.querySelectorAll(":focus")).includes(this.element);
+	}
+
+	get hasFocusInChild() 
+	{
+		return Array.from(this.element.querySelectorAll(":focus")).includes(this.element);
+	}
 }
 
 /**
@@ -399,6 +580,11 @@ class ScreenElementFromElement extends ScreenElement {
  */
 class SrcElement extends ScreenElement 
 {
+	/**
+	 * 
+	 * @param {string} tagName 
+	 * @param {string} src 
+	 */
 	constructor(tagName, src)
 	{
 		super(tagName);
@@ -408,6 +594,22 @@ class SrcElement extends ScreenElement
 	setSrc(src)
 	{
 		this.element.src = src;
+	}
+}
+
+/**
+ * @extends SrcElement
+ */
+class VideoElement extends SrcElement 
+{
+	constructor(src)
+	{
+		super("video", src);
+
+		/**
+		 * @type {HTMLVideoElement}
+		 */
+		this.element;
 	}
 
 	/**
@@ -439,6 +641,61 @@ class SrcElement extends ScreenElement
 		this.element.poster = src;
 		return this;
 	}
+
+	get isFullscreen() {return document.fullscreenElement === this.element}
+
+	setFullscreen(value) 
+	{
+		value ? this.requestFullscreen() : this.exitFullscreen();
+	}
+
+	requestFullscreen() 
+	{
+		if (!this.isFullscreen) 
+		{
+			this.element.requestFullscreen();
+			this.focus();
+		}
+	}
+	
+	exitFullscreen() 
+	{
+		if (this.isFullscreen) 
+		{
+			document.exitFullscreen();
+		}
+	}
+
+	toggleFullscreen() 
+	{
+		this.setFullscreen(!this.isFullscreen);
+	}
+	
+	get muted() {return this.element.muted;}
+
+	get volume() 
+	{
+		return this.element.volume;
+	}
+	set volume(value) 
+	{
+		return this.element.volume = value;
+	}
+
+	toggleMute() 
+	{
+		this.mute(!this.muted);
+	}
+
+	mute(value = true) 
+	{
+		this.element.muted = value;
+	}
+
+	unmute() 
+	{
+		this.mute(false);
+	}
 }
 
 /**
@@ -457,7 +714,21 @@ class ButtonElement extends ScreenElement
 		super("button");
 		this.handeler = handeler;
 		this.isStatic = isStatic;
+
+		/**
+		 * @type {HTMLButtonElement}
+		 */
+		this.element;
+
 		this.listen();
+	}
+
+	/**
+	 * 
+	 * @param {Boolean} disabled 
+	 */
+	disable(disabled) {
+		this.element.disabled = disabled;
 	}
 
 	setHandeler(handeler, isStatic = false)
@@ -621,6 +892,74 @@ class ProgressBarIndicator extends ProgressIndicator
 /*//////////////////////////////////*/
 
 /**
+ * @extends VideoElement
+ */
+class AnimeVideoElement extends VideoElement 
+{
+	constructor(url, episode, episodeId, nextEpisode,  listIsEpisodeLocal, listIsEpisode404) {
+		super(url);
+
+		this._nextEpisode = nextEpisode;
+		this._listIsEpisodeLocal = listIsEpisodeLocal;
+		this._listIsEpisode404 = listIsEpisode404;
+
+
+		this.setControls(true)
+		this.setAutoplay(false)
+		this.setPoster(episode.posterLink || Loader.defaultThumbnailList[episodeId] || `/asset/thumbnail/${episodeId}.png?width:170&amp;height:90&amp;textSize=700`);
+		
+		ScreenElementManager.addListener(HTMLManager.document, "keydown", (f) => {this.onKey(f);});
+	}
+
+	/**
+	 * @private
+	 * @param {KeyboardEvent} k 
+	 * @this {AnimeVideoElement}
+	 */
+	onKey(k) 
+	{
+		if (k.key === "f") {
+			this.toggleFullscreen();
+		}
+
+		else if (this.hasFocus &amp;&amp; k.key === "m") {
+			this.toggleMute();
+		}
+
+		else if (this.hasFocus &amp;&amp; k.key === "ArrowUp") {
+			this.unmute();
+			this.volume += k.shiftKey ? 0.01 : 0.1;
+			k.preventDefault();
+		}
+
+		else if (this.hasFocus &amp;&amp; k.key === "ArrowDown") {
+			this.unmute();
+			this.volume -= k.shiftKey ? 0.01 : 0.1;
+			k.preventDefault();
+		}
+
+		else if (this._nextEpisode &amp;&amp; k.key === "n") {
+			let isFullscreen = this.isFullscreen;
+			this.exitFullscreen();
+			
+			setTimeout(() => {
+				if (confirm("Go to next episode ?")) 
+				{
+					ScreenElementManager.removeListenersOnAllElements();
+					Loader.loadLocalEpisode(this._nextEpisode.anime.id, this._nextEpisode.episodeId, this._listIsEpisodeLocal, this._listIsEpisode404);
+				}
+				else 
+				{
+					setTimeout(() => {
+						this.setFullscreen(isFullscreen);
+					}, 100);
+				}
+			}, 100);
+		}
+	}
+}
+
+/**
  * An anime button in the anime list
  * @memberof Public.Html.Elements.Personalised
  */
@@ -657,9 +996,11 @@ class EpisodeElement extends ScreenElement
 	 * @param {*} anime
 	 * @param {*} episode
 	 * @param {boolean} isEpisodeLocal
+	 * @param {boolean} listIsEpisodeLocal True when a local link is declared
+	 * @param {boolean} listIsEpisode404 True when the mp4 is not in the folder
 	 * @param {Function} onclick
 	 */
-	constructor(anime, episode, isEpisodeLocal, listIsEpisodeLocal, onclick)
+	constructor(anime, episode, isEpisodeLocal, listIsEpisodeLocal, listIsEpisode404, onclick)
 	{
 		super("li");
 
@@ -676,7 +1017,7 @@ class EpisodeElement extends ScreenElement
 
 		if (isEpisodeLocal)
 		{
-			this.append(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, "h2"));
+			this.append(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, listIsEpisode404, "h2"));
 		}
 	}
 }
@@ -687,20 +1028,37 @@ class EpisodeElement extends ScreenElement
  */
 class EpisodeWatchButton extends ButtonElement
 {
+	static get WATCH_LOCAL() {return "Watch local"};
+	static get CLASS_WATCH() {return "watch"};
+	static get CLASS_WATCH404() {return "watch404"};
+
 	/**
 	 * @param {*} anime
 	 * @param {*} episode
+	 * @param {Boolean[]} listIsEpisodeLocal A list to know when the
+	 * @param {Boolean[]} listIsEpisode404 True when server respond 404
 	 * @param {"h1" | "h2" | "h3" | "h4" | "h5" | "h6"} innerTextElementTag
 	 */
-	constructor(anime, episode, listIsEpisodeLocal, innerTextElementTag="h4")
+	constructor(anime, episode, listIsEpisodeLocal, listIsEpisode404, innerTextElementTag="h4")
 	{
-		super(() => {
+		function onClick() {
 			ScreenElementManager.removeListeners();
-			Loader.loadLocalEpisode(anime.id, episode.episodeId, listIsEpisodeLocal);
-		});
+			Loader.loadLocalEpisode(anime.id, episode.episodeId, listIsEpisodeLocal, listIsEpisode404);
+		}
 
-		this.addClass("watch");
-		this.append(new ScreenElement(innerTextElementTag).setText("Watch local"));
+		super(onClick);
+
+		this.addClass(EpisodeWatchButton.CLASS_WATCH);
+		
+		let innerTextElm = new ScreenElement(innerTextElementTag).setText(EpisodeWatchButton.WATCH_LOCAL);
+		
+		if (listIsEpisode404[episode.episodeId]) 
+		{
+			this.disable(true);
+			this.addClass(EpisodeWatchButton.CLASS_WATCH404);
+		}
+		
+		this.append(innerTextElm);
 	}
 }
 
@@ -1110,6 +1468,8 @@ export
 	MenuButtonElement,
 	ProgressIndicator,
 	ProgressBarIndicator,
+	VideoElement,
+	AnimeVideoElement,
 	AnimeElement,
 	EpisodeElement,
 	EpisodeWatchButton,
@@ -1127,7 +1487,7 @@ export
 	</div>
 	<footer>
 				<div class="copyright">Anime Launcher is licensed under MIT <a href="https://github.com/Knose1/animeLauncher/blob/master/LICENSE">license</a>. Copyright (c) 2020 <a href="https://github.com/Knose1/">Knose1</a></div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 9th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 19th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

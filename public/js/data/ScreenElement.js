@@ -1,35 +1,72 @@
 import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
 
+const DOWN = 0;
+const PRESS = 1;
+const UP = 2;
+
+/**
+ * @readonly
+ * @enum {number}
+ * @memberof Public.Html.Elements.ScreenElementManager
+ */
+let KeyTypeEnum = 
+{
+	/**
+	 * 0
+	 */
+	DOWN,
+
+	/**
+	 * 1
+	 */
+	PRESS,
+
+	/**
+	 * 2
+	 */
+	UP
+}
+
 /**
  * @memberof Public.Html.Elements
  */
 class ScreenElementManager {
 
 	/**
-	 * @typedef ListenerBase
-	 * @property {boolean} isStatic 
-	 * @memberof ScreenElementManager
+	 * @callback KeyEventHandler
+	 * @param {KeyboardEvent} ev
+	 * @returns {void}
+	 * @memberof Public.Html.Elements.ScreenElementManager
 	 */
 
 	/**
-	 * @extends ListenerBase
-	 * @typedef Listener
-	 * @property {ScreenElement} elm 
-	 * @property {string} type 
-	 * @property {function} handeler 
+	 * @public
+	 * @typedef ListenerBase
 	 * @property {boolean} isStatic 
-	 * @memberof ScreenElementManager
+	 * @memberof Public.Html.Elements.ScreenElementManager
 	 */
 	
 	/**
-	 * @extends ListenerBase
+	 * @public
+	 * @extends Public.Html.Elements.ScreenElementManager.ListenerBase
+	 * @typedef Listener
+	 * @property {Public.Html.Elements.ScreenElement} elm 
+	 * @property {string} type 
+	 * @property {function} handeler 
+	 * @property {boolean} isStatic 
+	 * @memberof Public.Html.Elements.ScreenElementManager
+	 */
+	
+	/**
+	 * @public
+	 * @extends Public.Html.Elements.ScreenElementManager.ListenerBase
 	 * @typedef KeyListener
-	 * @property {ScreenElement} elm 
-	 * @property {(ev: KeyboardEvent) => any} handeler 
+	 * @property {Public.Html.Elements.ScreenElement} elm 
+	 * @property {Public.Html.Elements.KeyEventHandler} handeler 
 	 * @property {boolean} isStatic 
 	 * @property {boolean} useFocusInChild 
-	 * @memberof ScreenElementManager
+	 * @memberof Public.Html.Elements.ScreenElementManager
 	 */
 
 	/**
@@ -211,10 +248,10 @@ class ScreenElementManager {
 			case ScreenElementManager.KeyTypeEnum.DOWN:
 				
 				break;
-			case ScreenElementManager.KeyTypeEnum.PRESS:
+			case KeyTypeEnum.PRESS:
 				
 				break;
-			case ScreenElementManager.KeyTypeEnum.UP:
+			case KeyTypeEnum.UP:
 				
 				break;
 		
@@ -224,17 +261,6 @@ class ScreenElementManager {
 		}
 	}
 }
-
-/**
- * @readonly
- * @enum {number}
- * @memberof Public.Html.Elements.ScreenElementManager
- */
-ScreenElementManager.KeyTypeEnum = {
-   DOWN:0,
-   PRESS:1,
-   UP:2
-};
 
 /**
  * Base class for any ScreenElement
@@ -270,8 +296,8 @@ class ScreenElement {
 
 	/**
 	 * 
-	 * @param  {(string | ScreenElement)[]} elements 
-	 * @param  {(string | ScreenElement | function)[]} [join]
+	 * @param  {Array<string | ScreenElement>} elements 
+	 * @param  {Array<string | ScreenElement | function>} [join]
 	 */
 	appendList(elements, join = undefined)
 	{

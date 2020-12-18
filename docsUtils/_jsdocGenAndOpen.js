@@ -14,13 +14,12 @@ let jsdocArgs = [];
 let projectPath = __dirname.slice(0, __dirname.indexOf(path.basename(__dirname)));
 const CONFIGURE = "--configure";
 const README = "--readme";
-const LICENSE = "--license";
 const PRIVATE = "--access all";
 const VERBOSE = "--verbose";
 
 if (args.length == 0)
 {
-	throw "usage : node _jsdocGenAndOpen/index.js [jsonConfig.json] [docIndex.html file] [LICENSE file] <pathToIndex.html>"
+	throw "usage : node _jsdocGenAndOpen/index.js [jsonConfig.json] [docIndex.html file] <pathToIndex.html>"
 }
 if (args.length >= 2) 
 {
@@ -29,10 +28,6 @@ if (args.length >= 2)
 if (args.length >= 2) 
 {
 	jsdocArgs.push(README,args.shift()); //docIndex.html file
-}
-if (args.length >= 2) 
-{
-	jsdocArgs.push(LICENSE,args.shift()); //LICENSE file
 }
 if (args.length >= 2) 
 {

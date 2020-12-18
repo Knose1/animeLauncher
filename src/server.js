@@ -126,7 +126,7 @@ function start(config) {
 		
 		/**
 		 * @ignore
-		 * @type {import("./dataManager").AnimeConfig}
+		 * @type {server.data.config.AnimeConfig}
 		 */
 		let animeData = {"name":animeName, "episodes":[]}
 		if (animeThumbnailLink) 
@@ -161,7 +161,7 @@ function start(config) {
 		if (!anime) return;
 
 		/**
-		 * @type {import("./dataManager").EpisodeConfig}
+		 * @type {server.data.config.EpisodeConfig}
 		 */
 		let epConfig = {"episodeId":anime.episodes.length,"links":[],"name":episodeName,"posterLink":posterLink};
 		let ep = new Episode(epConfig, anime);
