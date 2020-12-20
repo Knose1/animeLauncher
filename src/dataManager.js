@@ -1264,9 +1264,122 @@ class Episode {
 	}
 }
 
+/**
+ * Store the datas of an account
+ * @public
+ * @memberof server
+ */
+class Account 
+{
+	/**
+	 * The list of Account
+	 * @public
+	 * @readonly
+	 * @type {Account[]}
+	 */
+	static get list() {return Account._list || (Account._list = []);}
+
+	/**
+	 * Constructor of the class
+	 * @public
+	 * @param {JsonObject} jsonObject 
+	 * @param {string} filePath
+	 */
+	constructor(jsonFile, filePath) 
+	{
+		/**
+		 * The JsonObject of the account.
+		 * @public
+		 * @readonly
+		 * @type {JsonObject}
+		 */
+		this.jsonFile = jsonFile;
+
+		/**
+		 * The path to the file
+		 * @public
+		 * @readonly
+		 * @type {string}
+		 */
+		this.filePath = filePath;
+
+		this.jsonFile.value;
+
+		if (!this.name) {
+			this.name = pathNode.dirname(folderPath);
+		}
+
+		if (!this.jsonFile.value.seen) 
+		{
+			/**
+			 * @type {boolean[]}
+			 */
+			this.jsonFile.value.seen = [];
+		}
+
+		/**
+		 * The unique id of the account
+		 * @public
+		 * @readonly
+		 * @type {number}
+		 */
+		this.id = Account.list.length;
+
+	}
+
+	/**
+	 * @type {string}
+	 */
+	get name() {return this.jsonFile.value.name;}
+	set name(value) {this.jsonFile.value.name = value;}
+	
+	/**
+	 * @type {string}
+	 */
+	get password() {return this.jsonFile.value.password;}
+	set password(value) {this.jsonFile.value.password = value;}
+
+	/**
+	 * 
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 * @param {boolean} value 
+	 */
+	setSeen(animeId, episodeId, value) 
+	{
+		let animeSeenList = this.jsonFile.value.seen[animeId];
+		if (!animeSeenList) animeSeenList = this.jsonFile.value.seen[animeId] = [];
+
+		animeSeenList[episodeId] = value;
+	}
+	
+	/**
+	 * 
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 * @returns {boolean}
+	 */
+	getSeen(animeId, episodeId) 
+	{
+		let animeSeenList = this.jsonFile.value.seen[animeId];
+		if (!animeSeenList) return undefined;
+		
+		return animeSeenList[episodeId];
+	}
+
+	/**
+	 * @returns {Promise<void>} jsonFile.save()
+	 */
+	save() 
+	{
+		return this.jsonFile.save();
+	}
+}
+
 exports.JsonObject = JsonObject;
 exports.DownloadEpisode = DownloadEpisode;
 exports.VideoPlayer = VideoPlayer;
 exports.YoutubePlayer = YoutubePlayer;
 exports.Anime = Anime;
 exports.Episode = Episode;
+exports.Account = Account;

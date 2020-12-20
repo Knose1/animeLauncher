@@ -34,6 +34,7 @@ try {
 const JSON_CONFIG = "config.json";
 const JSON_ANIME = "index.json";
 const ANIME_FOLDER = "episode";
+const ACCOUNTS_FOLDER = "accounts";
 
 const path = require("path");
 const fs = require("fs");
@@ -48,6 +49,7 @@ const JsonObject = dataManager.JsonObject;
 const VideoPlayer = dataManager.VideoPlayer;
 const YoutubePlayer = dataManager.YoutubePlayer;
 const Anime = dataManager.Anime;
+const Account = dataManager.Account;
 
 /**
  * @memberof server.data.config
@@ -63,9 +65,8 @@ const Anime = dataManager.Anime;
 var configLoader = new JsonObject(path.join(__dirname, JSON_CONFIG));
 
 
-//Init imageWriter
 let tempFileRemove = new Promise((resolve, reject) => {
-
+	//CLEAR TEMP FOLDER
 	console.log("Clearing temp...");
 	if (fs.existsSync(__tempFolder))
 	{
@@ -91,6 +92,7 @@ let tempFileRemove = new Promise((resolve, reject) => {
 });
 
 tempFileRemove.then(
+	//INIT IMAGE WRITER
 	() => imageWriter.init()
 )
 .then(
@@ -99,6 +101,8 @@ tempFileRemove.then(
 )
 .then(
 	() => {
+		//READ CONFIGS
+
 		/**
 		 * @type {Config}
 		 */
@@ -123,15 +127,20 @@ tempFileRemove.then(
 		} catch (e) {
 			console.error(e);
 		}
+
+		console.log("Loaded "+JSON_CONFIG);
+		console.dir(configLoader.value);
 	}
 )
 .then(
 	() => new Promise(async (resolve, reject) => {
-		console.log("Loaded "+JSON_CONFIG);
-		console.dir(configLoader.value);
-		
+
+		//LOADING ANIMES
 
 		let episodeFolder = path.join(__dirname, ANIME_FOLDER); 
+		if (!fs.existsSync(episodeFolder)) {
+			fs.mkdirSync(episodeFolder);
+		}
 
 		//Load animes and episodes
 		fs.readdir(episodeFolder, async(err, files) => {
@@ -140,6 +149,9 @@ tempFileRemove.then(
 
 			for (let i = files.length - 1; i >= 0; i--) {
 				let lElement = files[i];
+				
+				//Avoid files, keep folders
+				if (path.extname(lElement) != "") continue;
 		
 				//Load the anime config
 				var animeFolderPath = path.join(episodeFolder, lElement);
@@ -157,11 +169,63 @@ tempFileRemove.then(
 
 			}
 			
+			if (invalidFolders.length > 0) {
 			console.newLine();
 			console.log(`${invalidFolders.length} animes have encountered an error :`);
 			console.log(invalidFolders.join("\r\n"));
+			}
+
 			console.newLine();
 			console.log(`${Anime.list.length} animes have been loaded`);
+
+			resolve();
+		});
+
+	})
+)
+.then(
+	() => new Promise(async (resolve, reject) => {
+
+		//LOADING ACCOUNTS
+
+		let accountFolder = path.join(__dirname, ACCOUNTS_FOLDER); 
+		if (!fs.existsSync(accountFolder)) {
+			fs.mkdirSync(accountFolder);
+		}
+		
+		fs.readdir(accountFolder, async(err, files) => {
+			
+			let invalidFiles = [];
+
+			for (let i = files.length - 1; i >= 0; i--) {
+				let lElement = files[i];
+
+				//Avoid folders, keep files
+				if (path.extname(lElement) == "") continue;
+		
+				//Load the anime config
+				var accountFilePath = path.join(accountFolder, lElement);
+				var jsonAccount = new JsonObject(accountFilePath);
+				try {
+					await jsonAccount.load();
+					console.dir(jsonAccount.value);
+					
+					new Account(jsonAccount, accountFilePath);
+				}
+				catch(e)
+				{
+					console.log(e);
+				}
+
+			}
+			
+			if (invalidFiles.length > 0) {
+				console.newLine();
+				console.log(`${invalidFiles.length} accounts have encountered an error :`);
+				console.log(invalidFiles.join("\r\n"));
+			}
+			console.newLine();
+			console.log(`${Account.list.length} accounts have been loaded`);
 
 			resolve();
 		});

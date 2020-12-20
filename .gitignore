@@ -1,6 +1,7 @@
 _old/*
 _temp/*
 episode/*
+accounts/*
 node_modules/*
 .vscode/*
 #docs/*
