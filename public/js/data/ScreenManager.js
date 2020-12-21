@@ -22,7 +22,8 @@ import
 	PlayerInfoElement,
 	YtDlFormatElement,
 	EpisodeDlProgress,
-	EpisodeDlErrorProgress
+	EpisodeDlErrorProgress,
+	AccountBase as Account
 }
 from './ScreenElement.js';
 
@@ -59,7 +60,7 @@ class ScreenManager {
 	static _OnReturn(value, returnTitle) 
 	{
 		let lReturn = () => {
-			if (confirm("Return to "+returnTitle)) 
+			if (!returnTitle || confirm("Return to "+returnTitle)) 
 			{
 				if (value) value();
 			}
@@ -71,11 +72,25 @@ class ScreenManager {
 
 	static init()
 	{
+		/**
+		 * @protected
+		 * @static
+		 * @type {string}
+		 */
+		this.currentAccount = "";
+
+		/**
+		 * @type {MenuButtonElement}
+		 */
+		this.setAccountBtn = new MenuButtonElement("", () => {
+			ScreenManager._showAndLoadAccounts();
+		})
+
 		HTMLManager.menuBar.append(
 			//If click on Watch generate AnimeList
 			new MenuButtonElement("Watch", () => {
 				ScreenElementManager.removeListenersOnAllElements();
-				this.generateAnimeListHTML();
+				ScreenManager.generateAnimeListHTML();
 			}),
 			
 			/*new MenuButtonElement("Edit Animes", () => {
@@ -87,10 +102,18 @@ class ScreenManager {
 			new MenuButtonElement("Reload Animes", () => {
 				ScreenElementManager.removeListenersOnAllElements();
 				Loader.loadAnimeList();
-			})
+			}),
+			
+			ScreenManager.setAccountBtn
 		);
 
+		ScreenManager.setAccountName("");
 		ScreenElementManager.init();
+	}
+
+	static setAccountName(name) {
+		ScreenManager.currentAccount = name;
+		ScreenManager.setAccountBtn.setName(ScreenManager.currentAccount == "" ? "Set Account" : "Connected as "+ScreenManager.currentAccount);
 	}
 
 	static showLoadingAnime()
@@ -101,7 +124,6 @@ class ScreenManager {
 		HTMLManager.body.append(
 			new ScreenElement("p").setText(LOADING_ANIMES)
 		);
-
 	}
 
 	static initAnimes(json) 
@@ -550,6 +572,87 @@ class ScreenManager {
 				list.error.map(m => {return new EpisodeDlErrorProgress(m.episode, m.error); })
 			);
 		}
+	}
+
+	static showAccounts(accounts) 
+	{
+		/* RETURN */
+		let lReturn = () => {
+			ScreenElementManager.allowStaticListener();
+			HTMLManager.accountOverlay.addClass("disabled");
+			Account.accountMode = Account.CLICK;
+		};
+		ScreenManager._OnReturn(lReturn);
+		/* ****** */
+		
+		/* INIT */
+		let firstC = HTMLManager.accountOverlay.firstChild;
+		firstC.clear();
+		
+		let accountContainer = new ScreenElement("div").addClass("accCont");
+		let actionContainer = new ScreenElement("div").addClass("actCont");
+		firstC.append(accountContainer, actionContainer);
+
+		HTMLManager.loadingOverlay.addClass("disabled");
+		HTMLManager.accountOverlay.removeClass("disabled");
+		/* **** */
+		
+		/* INIT ACCOUNTS */
+		for (let i = accounts.length - 1; i >= 0; i--) {
+			let lName = accounts[i];
+
+			let lSetAccount = () => {
+				alert("Connected as "+lName);
+				this.setAccountName(lName);
+				lReturn();
+			};
+
+			let lRemoveAccount = () => {
+				if (confirm("Remove account \""+lName+"\" ?"))
+				Loader.removeAccount(lName, () => {ScreenManager._showAndLoadAccounts();});
+			}
+			
+			let lAccount = new Account( lSetAccount, lRemoveAccount, false).setName(lName);
+			if (ScreenManager.currentAccount === lName) lAccount.addClass("current");
+			
+			accountContainer.append( lAccount );
+		}
+
+		accountContainer.append( new Account( () => {
+			let accountPrompt = prompt("Account name ?");
+			if (!accountPrompt) 
+				return;
+				if (accounts.includes(accountPrompt)) 
+			{
+				alert(`${accountPrompt} already exists`) 
+				return;
+			}
+
+			Loader.createAccount(accountPrompt, () => {
+				this.setAccountName(accountPrompt);
+				lReturn();
+			});
+		}, () => {}, false).setName("New Account", "+").addClass("new"));
+		/* **** ******** */
+
+		let btnRemove = new ButtonElement( () => {
+			Account.accountMode = (Account.accountMode === Account.REMOVE ? Account.CLICK : Account.REMOVE);
+
+			if (Account.accountMode === Account.REMOVE)
+				btnRemove.addClass("triggered");
+			else
+				btnRemove.removeClass("triggered");
+		});
+		btnRemove.setText("Remove");
+
+		actionContainer.append(btnRemove);
+	}
+
+	static _showAndLoadAccounts() {
+		ScreenElementManager.removeListenersOnAllElements();
+		Loader.loadAccounts((accounts) => {
+			ScreenManager.showAccounts(accounts);
+		});
 	}
 };
 

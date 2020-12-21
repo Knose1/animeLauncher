@@ -21,9 +21,8 @@
 		"http-status-codes": "^1.4.0",
 		"mime-types": "^2.1.26",
 		"pureimage": "^0.2.1",
-		"ytdl-core": "^4.1.4",
-		"bcrypt": "^4.0.1",
-		"socket.io":""
+		"socket.io": "^3.0.4",
+		"ytdl-core": "^4.2.1"
 	},
 	"devDependencies": {
 		"foodoc": "0.0.9",

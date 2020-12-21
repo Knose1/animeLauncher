@@ -120,7 +120,7 @@ class ScreenElementManager
 			lElement.elm.element.addEventListener(lElement.type, lElement.handeler);
 		}
 
-		HTMLManager.overlay.addClass("disabled");
+		HTMLManager.loadingOverlay.addClass("disabled");
 	}
 
 	/**
@@ -192,7 +192,7 @@ class ScreenElementManager
 			}
 		}
 
-		HTMLManager.overlay.removeClass("disabled");
+		HTMLManager.loadingOverlay.removeClass("disabled");
 	}
 
 	/**
@@ -418,6 +418,25 @@ class ScreenElement
 			this.element.append(typeof (elm) == "string" ? elm : elm.element);
 		}
 		return this;
+	}
+
+	get firstChild() {
+		let elm = this.element.firstElementChild;
+		return elm ? new ScreenElementFromElement(elm) : null;
+	}
+
+	removeFromParent() 
+	{
+		this.element.remove();
+	}
+
+	/**
+	 * 
+	 */
+	get parent() 
+	{
+		let elm = this.element.parentNode;
+		return elm ? new ScreenElementFromElement(elm) : null;
 	}
 
 
@@ -747,13 +766,19 @@ class MenuButtonElement extends ScreenElement
 	constructor(name, onclick)
 	{
 		super("li");
+		this.nameSpan = new ScreenElement("span").setText(name);
 		this.append(
 			new ButtonElement(onclick, true)
 				.append(
-					new ScreenElement("span").setText(name)
+					this.nameSpan
 				)
 		);
 	}
+
+	setName(name) 
+	{
+		this.nameSpan.setText(name);
+	} 
 }
 
 /**
@@ -1417,6 +1442,136 @@ class EpisodeDlErrorProgress extends ScreenElement
 	}
 }
 
+/**
+ * Base layout for account
+ * @memberof Public.Html.Elements.Personalised
+ */
+class Account extends ButtonElement 
+{
+	/**
+	 * @public
+	 * @type {Array<Account>}
+	 */
+	static get list() {
+		let list = Account._getList();
+		for (let i = list.length - 1; i >= 0; i--) {
+			let lElement = list[i];
+			if (lElement.parent === null) list.splice(i, 1);
+		}
+
+		return list;
+	}
+
+	/**
+	 * @private
+	 * @return {Array<Account>}
+	 */
+	static _getList() {return this._list || (this._list = [])}
+
+	/**
+	 * @type {number}
+	 */
+	static get accountMode() {return Account._accountMode}
+	static set accountMode(value) {
+		let list = Account.list;
+		for (let i = list.length - 1; i >= 0; i--) {
+			let lElement = list[i];
+			lElement.removeClass("modeClick", "modeRemove");
+			switch (value) {
+				case Account.CLICK:
+					lElement.addClass("modeClick");
+					break;
+					
+				case Account.REMOVE:
+					lElement.addClass("modeRemove");
+					break;
+			}
+		}
+
+		return Account._accountMode = value;
+	}
+
+	static get CLICK() {return 0}
+	static get REMOVE() {return 1}
+
+	/**
+	 * 
+	 * @param {Function} clickHandler 
+	 * @param {Function} removeHandler 
+	 * @param {boolean} isStatic 
+	 */
+	constructor(clickHandler, removeHandler, isStatic) 
+	{
+		if (Account.accountMode === undefined) Account.accountMode = Account.CLICK;
+
+		let handler = () => {
+			switch (Account.accountMode) {
+				case Account.CLICK:
+					clickHandler();
+					break;
+					
+				case Account.REMOVE:
+					removeHandler();
+					break;
+			
+				default:
+					break;
+			}
+		}
+		super(handler, isStatic);
+
+		Account.list.push(this);
+
+		this.addClass("account");
+
+		switch (Account.accountMode) {
+			case Account.CLICK:
+				this.addClass("modeClick");
+				break;
+				
+			case Account.REMOVE:
+				this.addClass("modeRemove");
+				break;
+		}
+		
+
+		
+		/**
+		 * @type {ScreenElement}
+		 */
+		this.circle = new ScreenElement("div").addClass("circle");
+
+		/**
+		 * @type {ScreenElement}
+		 */
+		this.text = new ScreenElement("div").addClass("name");
+
+		this.append(
+			this.circle,
+			this.text
+		);
+	}
+
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {string} buttonName
+	 * @returns {Account}
+	 */
+	setName(name, buttonName = "") {
+
+		name.replace(/^./g, name[0].toUpperCase());
+
+		if (!buttonName) buttonName = name[0];
+		else buttonName = buttonName.toUpperCase();
+
+		this.text.setText(name);
+		this.circle.setText(buttonName);
+
+		return this;
+	}
+}
+
 export 
 {
 	ScreenElementManager,
@@ -1439,5 +1594,6 @@ export
 	PlayerInfoElement,
 	YtDlFormatElement,
 	EpisodeDlProgress,
-	EpisodeDlErrorProgress
+	EpisodeDlErrorProgress,
+	Account as AccountBase
 };

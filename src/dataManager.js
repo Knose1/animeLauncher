@@ -1303,10 +1303,8 @@ class Account
 		 */
 		this.filePath = filePath;
 
-		this.jsonFile.value;
-
 		if (!this.name) {
-			this.name = pathNode.dirname(folderPath);
+			this.name = pathNode.basename(folderPath);
 		}
 
 		if (!this.jsonFile.value.seen) 
@@ -1325,9 +1323,21 @@ class Account
 		 */
 		this.id = Account.list.length;
 
+		this.isWorkingOn = null;
+
+		/*
+		 * Current Ip linked to the account
+		 * @public
+		 * @readonly
+		 * @type {string}
+		 */
+		//this.currentLinkedIp = "";
+
+		Account.list.push(this);
 	}
 
 	/**
+	 * @public
 	 * @type {string}
 	 */
 	get name() {return this.jsonFile.value.name;}
@@ -1347,8 +1357,13 @@ class Account
 	 */
 	setSeen(animeId, episodeId, value) 
 	{
-		let animeSeenList = this.jsonFile.value.seen[animeId];
-		if (!animeSeenList) animeSeenList = this.jsonFile.value.seen[animeId] = [];
+		//seen :
+		/* 
+			{"path": [true,false,true,false]}
+		*/
+		let path = Anime.list[animeId].path;
+		let animeSeenList =	this.jsonFile.value.seen[path];
+		if (!animeSeenList) animeSeenList = this.jsonFile.value.seen[path] = [];
 
 		animeSeenList[episodeId] = value;
 	}
@@ -1361,7 +1376,8 @@ class Account
 	 */
 	getSeen(animeId, episodeId) 
 	{
-		let animeSeenList = this.jsonFile.value.seen[animeId];
+		let path = Anime.list[animeId].path;
+		let animeSeenList = this.jsonFile.value.seen[path];
 		if (!animeSeenList) return undefined;
 		
 		return animeSeenList[episodeId];
@@ -1372,7 +1388,42 @@ class Account
 	 */
 	save() 
 	{
-		return this.jsonFile.save();
+		if (this.isWorkingOn != null) 
+		{
+			return null;
+		}
+
+		return this.isWorkingOn = this.jsonFile.save().then( () => { this.isWorkingOn = null; });
+	}
+
+	destroy() 
+	{
+		if (this.isDestroy) return;
+
+		/**
+		 * @private
+		 * @readonly
+		 * @type {boolean}
+		 */
+		this.isDestroy = true;
+		fs.unlinkSync(this.filePath);
+		Account.list.splice(Account.list.indexOf(this), 1);
+	}
+
+	/**
+	 * 
+	 * @param {string} name 
+	 * @returns {Account}
+	 */
+	static getAccountByName(name) 
+	{
+		for (let i = Account.list.length - 1; i >= 0; i--) {
+			let lElement = Account.list[i];
+			if (lElement.name == name)
+				return lElement;
+		}
+
+		return null;
 	}
 }
 

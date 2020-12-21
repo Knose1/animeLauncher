@@ -72,7 +72,7 @@ class Loader
 		})
 
 		FileLoader.getInstance().oncomplete = () => {
-			console.log("[FileLoader] Finished loading list");
+			console.log("[FileLoader] Finished loading anime list");
 			
 
 			FileLoader.getInstance().oncomplete = null;
@@ -86,7 +86,86 @@ class Loader
 
 		FileLoader.getInstance().start();
 	}
+
+	/**
+	 * 
+	 * @param {function} then 
+	 */
+	static loadAccounts(then) 
+	{
+		//ScreenManager.showLoadingAnime();
+		
+		let list;
+		FileLoader.getInstance()._reset()
+		FileLoader.getInstance().readAsJson("./get/accounts", (d) => {
+			list = d;
+		});
+
+		FileLoader.getInstance().oncomplete = () => {
+			console.log("[FileLoader] Finished loading account list");
+			
+
+			FileLoader.getInstance().oncomplete = null;
+			
+			
+			then(list);
+			//this.onListLoaded(list);
+		};
+		FileLoader.getInstance().onerror = (e) => {
+			alert(e);
+		};
+
+		FileLoader.getInstance().start();
+	}
+
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {Function} then 
+	 */
+	static removeAccount(name, then) 
+	{
+		let url = "./remove/account?name="+encodeURIComponent(name);
+
+		FileLoader.getInstance()._reset()
+		FileLoader.getInstance().readAsText(url, () => {});
+
+		FileLoader.getInstance().oncomplete = () => {
+			console.log("[FileLoader] Account "+name+" removed");
+			
+			then();
+		};
+		FileLoader.getInstance().onerror = (e) => {
+			alert(e);
+		};
+
+		FileLoader.getInstance().start();
+	}
 	
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {Function} then 
+	 */
+	static createAccount(name, then) 
+	{
+		let url = "./new/account?name="+encodeURIComponent(name);
+
+		FileLoader.getInstance()._reset()
+		FileLoader.getInstance().readAsText(url, () => {});
+
+		FileLoader.getInstance().oncomplete = () => {
+			console.log("[FileLoader] Account "+name+" created");
+			
+			then();
+		};
+		FileLoader.getInstance().onerror = (e) => {
+			alert(e);
+		};
+
+		FileLoader.getInstance().start();
+	}
+
 	static getEpisodeInfo(animeId, episodeId, callback, loadYtInfo = true)
 	{
 		animeId = Number.parseInt(animeId);

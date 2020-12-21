@@ -6,7 +6,9 @@ const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
 const imageWriter = require("./image/imageWriter");
 
+
 const ANIME_FOLDER = "episode";
+const ACCOUNT_FOLDER = "accounts";
 const JSON_ANIME = "index.json";
 
 let JsonObject = dataManager.JsonObject;
@@ -14,6 +16,7 @@ let DownloadEpisode = dataManager.DownloadEpisode;
 let VideoPlayer = dataManager.VideoPlayer;
 let YoutubePlayer = dataManager.YoutubePlayer;
 let Anime = dataManager.Anime;
+let Account = dataManager.Account;
 let Episode = dataManager.Episode;
 
 /**
@@ -118,6 +121,49 @@ function start(config) {
 	});
 	
 	//*///////////////////////////////*//
+	//*         Remove Account        *//
+	//*///////////////////////////////*//
+	app.get('/remove/account', (req, res, next) => {
+		let name = req.query.name;
+		let account = Account.getAccountByName(name);
+
+		if (!account) 
+		{
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		account.destroy();
+		res.sendStatus(HttpStatus.OK);
+	});
+
+	//*///////////////////////////////*//
+	//*          New Account          *//
+	//*///////////////////////////////*//
+	app.get('/new/account', (req, res, next) => {
+		let name = req.query.name;
+		//let animeThumbnailLink = req.query.password;
+		
+		let accountData = {"name":name, "seen":[]}
+		
+		let fileName = global.toFileName(name, "-").replace(/\ /g,"_");
+		let accountJSONFile = path.join(__root, ACCOUNT_FOLDER, fileName+".json");
+
+		if (fs.existsSync(accountJSONFile)) 
+		{
+			res.sendStatus(HttpStatus.CONFLICT);
+			return;
+		}
+		fs.writeFile(accountJSONFile, JSON.stringify(accountData), () => {
+			let jsonObj = new JsonObject(accountJSONFile);
+			jsonObj.value = accountData;
+				
+			let account = new Account(jsonObj, accountJSONFile);
+			res.send(JSON.stringify({'id': account.id}));
+		});
+	});
+	
+	//*///////////////////////////////*//
 	//*           New Anime           *//
 	//*///////////////////////////////*//
 	app.get('/new/anime', (req, res, next) => {
@@ -137,6 +183,12 @@ function start(config) {
 		let animeFolderName = global.toFileName(req.name.animeName, "-").replace(/\ /g,"_");
 		let animeFolder = path.join(__root, ANIME_FOLDER, animeFolderName); 
 		let jsonFile = path.join(animeFolderName, JSON_ANIME); 
+
+		if (fs.existsSync(jsonFile)) 
+		{
+			res.sendStatus(HttpStatus.CONFLICT);
+			return;
+		}
 
 		fs.mkdir(animeFolderName, () => {
 			fs.writeFile(jsonFile, JSON.stringify(animeData), () => {
@@ -171,6 +223,25 @@ function start(config) {
 		res.send(JSON.stringify({'id': ep.episodeId}));
 	});
 
+
+	
+
+	//*///////////////////////////////*//
+	//*           Get Account         *//
+	//*///////////////////////////////*//
+	app.get('/get/accounts', (req, res, next) => {
+		let toSend = [];
+		for (let i = Account.list.length - 1; i >= 0; i--) {
+			/**
+			 * @ignore
+			 * @type {dataManager.Account}
+			 */
+			let lElement = Account.list[i];
+			toSend.push(lElement.name);
+		}
+
+		res.send(toSend);
+	});
 
 	//*///////////////////////////////*//
 	//*            Get List           *//
@@ -272,6 +343,76 @@ function start(config) {
 		}
 	});
 	
+	//*///////////////////////////////*//
+	//*     Get Anime seen Account    *//
+	//*///////////////////////////////*//
+	app.get('/edit/account/seen', (req, res, next) => {
+		let name = req.query.name;
+		
+		let animeId = req.query.animeId;
+		let episodeId = req.query.episodeId;
+
+		let account = Account.getAccountByName(name);
+
+		if (!account) 
+		{
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		res.send(account.getSeen(animeId, episodeId, value));
+	});
+
+	//*///////////////////////////////*//
+	//*     Set Anime seen Account    *//
+	//*///////////////////////////////*//
+	app.get('/edit/account/seen', (req, res, next) => {
+		let name = req.query.name;
+		
+		let animeId = req.query.animeId;
+		let episodeId = req.query.episodeId;
+		let value = req.query.value;
+
+		let account = Account.getAccountByName(name);
+
+		if (!account) 
+		{
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		account.setSeen(animeId, episodeId, value);
+		account.save()
+		.then(() => {
+			res.sendStatus(HttpStatus.OK);
+		})
+		.catch((e) => {
+			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		});
+	});
+	
+	//*///////////////////////////////*//
+	//*          Edit Account         *//
+	//*///////////////////////////////*//
+	app.get('/edit/account', (req, res, next) => {
+		let name = req.query.name;
+		let account = Account.getAccountByName(name);
+
+		if (!account) 
+		{
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		account.name = name;
+		account.save()
+		.then(() => {
+			res.sendStatus(HttpStatus.OK);
+		})
+		.catch((e) => {
+			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		});
+	});
 
 	//*///////////////////////////////*//
 	//*        Download Episode       *//
