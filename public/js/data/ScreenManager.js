@@ -576,6 +576,8 @@ class ScreenManager {
 
 	static showAccounts(accounts) 
 	{
+		Account.accountMode = Account.CLICK;
+
 		/* RETURN */
 		let lReturn = () => {
 			ScreenElementManager.allowStaticListener();
@@ -622,7 +624,8 @@ class ScreenManager {
 			let accountPrompt = prompt("Account name ?");
 			if (!accountPrompt) 
 				return;
-				if (accounts.includes(accountPrompt)) 
+			
+			if (accounts.map(m => m.toLowerCase()).includes(accountPrompt.toLowerCase())) 
 			{
 				alert(`${accountPrompt} already exists`) 
 				return;

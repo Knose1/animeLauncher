@@ -162,9 +162,15 @@ button {
 
 #accounts > div > .accCont > .account:hover {
 	border-color: #e3cca8;
-	transform: scale(1.1) translateY(10px);
 	color: aliceblue;
 	border-radius: 0%;
+}
+
+#accounts > div > .accCont > .account:hover:nth-child(2n) {
+	transform: scale(1.1) translateY(10px) rotate(5deg);
+}
+#accounts > div > .accCont > .account:hover:nth-child(2n+1) {
+	transform: scale(1.1) translateY(10px) rotate(-5deg);
 }
 
 #accounts > div > .accCont > .account:hover > .circle {
@@ -192,6 +198,10 @@ button {
 	border-style:dashed !important;
 }
 
+.account.new > .circle {
+	font-size: 20px;
+}
+
 .account.new.modeRemove {
 	display: none !important;
 }
@@ -216,4 +226,31 @@ button {
 
 #accounts > div > .accCont > .account.modeRemove:hover > .circle {
 	background-color: red;
+}
+
+#accounts button {outline: none;}
+
+.actCont > button {
+	height:100%;
+	background-color: #111014;
+	border: #707091 solid;
+	border-radius: 100px;
+	color: #e7e7e7;
+	transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s;
+}
+
+.actCont > button.triggered {
+	border-color: #ffffff;
+}
+.actCont > button.triggered:hover {
+	border-color: red;
+	text-decoration:line-through;
+}
+
+.actCont > button:hover {
+	border-color: #e3cca8;
+	transform: scale(1.1) translateY(-10px);
+	border-radius: 10px;
+	color: aliceblue;
+	font-size: 20px;
 }
