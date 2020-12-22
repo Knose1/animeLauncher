@@ -1325,6 +1325,11 @@ class Account
 
 		this.isWorkingOn = null;
 
+		/**
+		 * @private
+		 */
+		this._activity = {animeId: -1, episodeId: -1, videoTime: -1, date: -1};
+
 		/*
 		 * Current Ip linked to the account
 		 * @public
@@ -1381,6 +1386,26 @@ class Account
 		if (!animeSeenList) return undefined;
 		
 		return animeSeenList[episodeId];
+	}
+
+	/**
+	 * @public
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 * @param {number} videoTime 
+	 * @param {number} date 
+	 */
+	setActivity(animeId, episodeId, videoTime, date) 
+	{
+		this._activity = {animeId, episodeId, videoTime, date};
+	}
+
+	/**
+	 * @public
+	 */
+	getActivity() 
+	{
+		return this._activity;
 	}
 
 	/**

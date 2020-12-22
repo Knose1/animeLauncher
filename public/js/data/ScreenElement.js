@@ -1,5 +1,6 @@
 import HTMLManager from './HTMLManager.js';
 import Loader from '../Loader.js';
+import ScreenManager from './ScreenManager.js';
 
 const DOWN = 0;
 const PRESS = 1;
@@ -629,6 +630,13 @@ class VideoElement extends SrcElement
 		this.setFullscreen(!this.isFullscreen);
 	}
 
+	/**
+	 * Gets or sets the current playback position, in seconds.
+	 * @type {number}
+	 */
+	get time() { return this.element.currentTime; }
+	set time(value) { this.element.currentTime = value }
+
 	get muted() { return this.element.muted; }
 
 	get volume() 
@@ -638,6 +646,11 @@ class VideoElement extends SrcElement
 	set volume(value) 
 	{
 		return this.element.volume = value;
+	}
+
+	play() 
+	{
+		this.element.play();
 	}
 
 	toggleMute() 
@@ -861,13 +874,14 @@ class ProgressBarIndicator extends ProgressIndicator
  */
 class AnimeVideoElement extends VideoElement 
 {
-	constructor(url, episode, episodeId, nextEpisode, listIsEpisodeLocal, listIsEpisode404)
+	constructor(url, episode, episodeId, nextEpisode, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 		super(url);
-
+		this._episode = episode;
 		this._nextEpisode = nextEpisode;
 		this._listIsEpisodeLocal = listIsEpisodeLocal;
 		this._listIsEpisode404 = listIsEpisode404;
+		this._listIsSeen = listIsSeen;
 
 
 		this.setControls(true)
@@ -903,7 +917,10 @@ class AnimeVideoElement extends VideoElement
 					if (confirm("Go to next episode ?")) 
 					{
 						ScreenElementManager.removeListenersOnAllElements();
-						Loader.loadLocalEpisode(this._nextEpisode.anime.id, this._nextEpisode.episodeId, this._listIsEpisodeLocal, this._listIsEpisode404);
+						Loader.setSeen(ScreenManager.currentAccount, this._episode.anime.id, this._episode.episodeId, true, () => {
+							this._listIsSeen[this._episode.episodeId] = ScreenManager.currentAccount != "";
+							Loader.loadLocalEpisode(this._nextEpisode.anime.id, this._nextEpisode.episodeId, this._listIsEpisodeLocal, this._listIsEpisode404, this._listIsSeen);
+						});
 					}
 					else 
 					{
@@ -962,13 +979,19 @@ class EpisodeElement extends ScreenElement
 	 * @param {*} anime
 	 * @param {*} episode
 	 * @param {boolean} isEpisodeLocal
-	 * @param {boolean} listIsEpisodeLocal True when a local link is declared
-	 * @param {boolean} listIsEpisode404 True when the mp4 is not in the folder
+	 * @param {boolean{}} listIsEpisodeLocal True when a local link is declared
+	 * @param {boolean{}} listIsEpisode404 True when the mp4 is not in the folder
+	 * @param {boolean[]} listIsSeen
 	 * @param {Function} onclick
 	 */
-	constructor(anime, episode, isEpisodeLocal, listIsEpisodeLocal, listIsEpisode404, onclick)
+	constructor(anime, episode, isEpisodeLocal, listIsEpisodeLocal, listIsEpisode404, listIsSeen, onclick)
 	{
 		super("li");
+
+		if (listIsSeen[episode.episodeId]) 
+		{
+			this.addClass("seen");
+		}
 
 		this.addClass("episode");
 		this.setId(`episode ${anime.id}-${episode.episodeId}`);
@@ -983,7 +1006,7 @@ class EpisodeElement extends ScreenElement
 
 		if (isEpisodeLocal)
 		{
-			this.append(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, listIsEpisode404, "h2"));
+			this.append(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, listIsEpisode404, listIsSeen, "h2"));
 		}
 	}
 }
@@ -1003,17 +1026,23 @@ class EpisodeWatchButton extends ButtonElement
 	 * @param {*} episode
 	 * @param {Boolean[]} listIsEpisodeLocal A list to know when the
 	 * @param {Boolean[]} listIsEpisode404 True when server respond 404
+	 * @param {Boolean[]} listIsSeen 
 	 * @param {"h1" | "h2" | "h3" | "h4" | "h5" | "h6"} innerTextElementTag
 	 */
-	constructor(anime, episode, listIsEpisodeLocal, listIsEpisode404, innerTextElementTag = "h4")
+	constructor(anime, episode, listIsEpisodeLocal, listIsEpisode404, listIsSeen, innerTextElementTag = "h4")
 	{
 		function onClick()
 		{
 			ScreenElementManager.removeListeners();
-			Loader.loadLocalEpisode(anime.id, episode.episodeId, listIsEpisodeLocal, listIsEpisode404);
+			Loader.loadLocalEpisode(anime.id, episode.episodeId, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
 		}
 
 		super(onClick);
+
+		if (listIsSeen[episode.episodeId]) 
+		{
+			this.addClass("seen");
+		}
 
 		this.addClass(EpisodeWatchButton.CLASS_WATCH);
 
@@ -1443,7 +1472,7 @@ class EpisodeDlErrorProgress extends ScreenElement
 }
 
 /**
- * Base layout for account
+ * Layout for account
  * @memberof Public.Html.Elements.Personalised
  */
 class Account extends ButtonElement 
@@ -1572,6 +1601,107 @@ class Account extends ButtonElement
 	}
 }
 
+/**
+ * Time information for simultaneous watch
+ */
+class VideoTime extends ScreenElement
+{
+	/**
+	 * @public
+	 * @type {VideoTime}
+	 */
+	static get instance() {
+		/**
+		 * @ignore 
+		 * @type {VideoTime}
+		 */
+		let inst = VideoTime._instance;
+		if (inst && !inst.parent) 
+		{
+			return VideoTime._instance = null;
+		}
+
+		return inst;
+	}
+
+	constructor(animeId, episodeId) 
+	{
+		super("div");
+
+		/**
+		 * @type {Number}
+		 */
+		this.animeId = animeId
+		/**
+		 * @type {Number}
+		 */
+		this.episodeId = episodeId
+
+		this.addClass("VideoTime");
+
+		if (VideoTime._instance) VideoTime._instance.removeFromParent();
+
+		/**
+		 * @static
+		 * @private 
+		 * @type {VideoTime}
+		 */
+		VideoTime._instance = this;
+	}
+
+	update(data) {
+		this.clear();
+
+		let activities = data.activities;
+		let accounts = data.accounts;
+
+		for (let i = accounts.length - 1; i >= 0; i--) {
+			let lName = accounts[i];
+			if (lName === ScreenManager.currentAccount) continue;
+
+			let lActivity = activities[lName];
+			let lAnimeId = Number.parseInt(lActivity.animeId); 
+			let lEpisodeId = Number.parseInt(lActivity.episodeId);
+			let lVideoTime = Number.parseFloat(lActivity.videoTime); //in sec
+			let lDate = lActivity.date / 1000; //from milisec to sec
+
+			
+			if (lAnimeId != this.animeId) continue;
+			if (lEpisodeId != this.episodeId) continue;
+			if ((Date.now() / 1000 - lDate) > 10) continue;
+
+			this.append(
+				new VideoTimeElm(lName, lVideoTime, lDate)
+			);
+		}
+	}
+}
+
+class VideoTimeElm extends ScreenElement {
+	constructor(name, videoTime, date) 
+	{
+		super("span");
+		let endTime = (Date.now() / 1000) - date + videoTime;
+		let dateTime = new Date(endTime * 1000 - 3600000);
+		let btn = new ButtonElement( () => {
+			
+			endTime = (Date.now() / 1000) - date + videoTime;
+			dateTime = new Date(endTime * 1000 - 3600000)
+			
+			btn.setText(dateTime.toLocaleTimeString());
+
+			if (ScreenManager.currentVideo) {
+				ScreenManager.currentVideo.time = endTime;
+				ScreenManager.currentVideo.play();
+			}
+		}).setText(dateTime.toLocaleTimeString())	
+		this.append(
+			name,
+			btn
+		)
+	}
+}
+
 export 
 {
 	ScreenElementManager,
@@ -1595,5 +1725,6 @@ export
 	YtDlFormatElement,
 	EpisodeDlProgress,
 	EpisodeDlErrorProgress,
-	Account as AccountBase
+	Account,
+	VideoTime
 };

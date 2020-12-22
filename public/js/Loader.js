@@ -1,5 +1,6 @@
 import FileLoader from './utils/FileLoader.js';
 import ScreenManager from './data/ScreenManager.js';
+import { VideoTime } from './data/ScreenElement.js';
 
 /**
  * @memberof Public 
@@ -59,6 +60,7 @@ class Loader
 	{
 		Loader.loadAnimeList();
 		Loader.getListDownload();
+		Loader.updateActivity();
 	}
 
 	static loadAnimeList()
@@ -178,18 +180,48 @@ class Loader
 		})
 		.start();
 	}
+
+	static getIsSeen(name, animeId, episodeId, callback)
+	{
+		if (!name) {
+			callback(false);
+			return;
+		}
+		animeId = Number.parseInt(animeId);
+		episodeId = Number.parseInt(episodeId);
+
+		let reqUrl = new URL(`${window.location.protocol}//${window.location.host}/get/account/seen`);
+		
+		reqUrl.searchParams.set("name", name);
+		reqUrl.searchParams.set("animeId", animeId);
+		reqUrl.searchParams.set("episodeId", episodeId);
+
+		let lLoader = new FileLoader()
+		.readAsJson(reqUrl.toString(), (json) => {
+			lLoader._destroy();
+			callback(json);
+		});
+		lLoader.onparseerror = lLoader.onerror = e => {
+			callback(false);
+			//alert("Error when checking if a is seen : "+e);
+		};
+		lLoader.start();
+	}
 	
 	/**
 	 * 
 	 * @param {number} animeId 
 	 * @param {number} episodeId 
+	 * @param {Array<boolean>} listIsEpisodeLocal 
+	 * @param {Array<boolean>} listIsEpisode404 
+	 * @param {Array<boolean>} listIsSeen 
 	 */
-	static loadLocalEpisode(animeId, episodeId, listIsEpisodeLocal, listIsEpisode404)
+	static loadLocalEpisode(animeId, episodeId, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 		animeId = Number.parseInt(animeId);
 		episodeId = Number.parseInt(episodeId);
 
-		ScreenManager.showVideo(this.getVideoPath(animeId, episodeId), animeId, episodeId, listIsEpisodeLocal, listIsEpisode404);
+		ScreenManager.showVideo(this.getVideoPath(animeId, episodeId), animeId, episodeId, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
 	}
 
 	static getVideoPath(animeId, episodeId) {return `./episode/${animeId}/${episodeId}`}
@@ -213,6 +245,7 @@ class Loader
 			});
 			loader.onparseerror = loader.onerror = (e) => 
 			{
+				loader._destroy();
 				reject(e);
 			}
 			loader.start();
@@ -242,7 +275,90 @@ class Loader
 					Loader.getListDownload();
 					loader._destroy(); 
 				},
+				10000
+			);
+		};
+		loader.start();
+	}
+
+	static updateActivity() {
+		let loader = new FileLoader()
+		
+		.readAsJson("./get/account/activity", (json) => {
+			let inst = VideoTime.instance;
+			if (inst)
+				inst.update(json);
+		});
+
+		if (ScreenManager.currentAccount) 
+		{
+			let lVid = ScreenManager.currentVideo;
+			let lActivity = {
+				/**
+				 * @ignore
+				 * @type {number}
+				 */
+				animeId: -1, 
+				
+				/**
+				 * @ignore
+				 * @type {number}
+				 */
+				episodeId: -1, 
+				
+				/**
+				 * @ignore
+				 * @type {number}
+				 */
+				videoTime: -1, 
+				
+				/**
+				 * @ignore
+				 * @type {number}
+				 */
+				date: Date.now()
+			};
+			if (lVid) {
+
+				let lEp = lVid._episode;
+				let lAnim = lVid._episode.anime;
+	
+				lActivity.animeId = lAnim.id;
+				lActivity.episodeId = lEp.episodeId;
+				lActivity.videoTime = lVid.time;
+			}
+
+
+			let reqUrl = new URL(`${window.location.protocol}//${window.location.host}/set/account/activity`);
+		
+			reqUrl.searchParams.set("name", ScreenManager.currentAccount);
+			reqUrl.searchParams.set("animeId", lActivity.animeId);
+			reqUrl.searchParams.set("episodeId", lActivity.episodeId);
+			reqUrl.searchParams.set("videoTime", lActivity.videoTime);
+			reqUrl.searchParams.set("date", lActivity.date);
+
+			loader.readAsText(reqUrl.toString(), () => {});
+		}
+		
+		loader.oncomplete = () => {
+			setTimeout(
+				() => 
+				{
+					Loader.updateActivity();
+					loader._destroy();
+				},
 				2000
+			);
+		};
+		loader.onparseerror = loader.onerror = (e) => 
+		{
+			console.log(e);
+			setTimeout(
+				() => {
+					Loader.updateActivity();
+					loader._destroy(); 
+				},
+				10000
 			);
 		};
 		loader.start();
@@ -251,6 +367,36 @@ class Loader
 	static onListLoaded(data)
 	{
 		ScreenManager.initAnimes(data);
+	}
+
+	/**
+	 * 
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 * @param {boolean} value 
+	 * @param {function} then
+	 */
+	static setSeen(name, animeId, episodeId, value, then) 
+	{
+		if (!name) then();
+
+		let reqUrl = new URL(`${window.location.protocol}//${window.location.host}/edit/account/seen`);
+		
+		reqUrl.searchParams.set("name", name);
+		reqUrl.searchParams.set("animeId", animeId);
+		reqUrl.searchParams.set("episodeId", episodeId);
+		reqUrl.searchParams.set("value", value);
+
+		let loader = new FileLoader().readAsText(reqUrl.toString(), (t) => {
+			loader._destroy();
+			then();
+		});
+		loader.onparseerror = loader.onerror = (e) => 
+		{
+			loader._destroy();
+			alert(e);
+		}
+		loader.start();
 	}
 }
 

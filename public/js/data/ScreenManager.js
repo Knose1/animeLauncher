@@ -23,7 +23,8 @@ import
 	YtDlFormatElement,
 	EpisodeDlProgress,
 	EpisodeDlErrorProgress,
-	AccountBase as Account
+	Account,
+	VideoTime
 }
 from './ScreenElement.js';
 
@@ -70,10 +71,24 @@ class ScreenManager {
 		ScreenElementManager.addKeyListener(ScreenElementManager.KeyTypeEnum.DOWN, HTMLManager.document, lReturn, "Backspace", true);	
 	}
 
+	/**
+	 * 
+	 * @param {AnimeVideoElement} videoElement 
+	 */
+	static setVideo(videoElement)
+	{
+		this.currentVideo = videoElement;
+	}
+
+	/**
+	 * @this {ScreenManager}
+	 */
 	static init()
 	{
+		ScreenManager.setVideo(null);
+
 		/**
-		 * @protected
+		 * @public
 		 * @static
 		 * @type {string}
 		 */
@@ -195,6 +210,7 @@ class ScreenManager {
 				
 				let listIsEpisodeLocal = [];
 				let listIsEpisode404 = [];
+				let listIsSeen = [];
 	
 				//Get if the episode is local or not for each episode
 				let currentIndex = -1;
@@ -203,7 +219,7 @@ class ScreenManager {
 					
 					if (currentIndex >= anime.episodes.length) 
 					{
-						this.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404);
+						this.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
 						return;
 					}
 	
@@ -212,7 +228,10 @@ class ScreenManager {
 					Loader.getEpisodeInfo(anime.id, epId, (d) => {
 						listIsEpisodeLocal[epId] = d.isLocal;
 						listIsEpisode404[epId] = d.is404;
-						next();
+						Loader.getIsSeen(ScreenManager.currentAccount ,anime.id, epId, (s) => {
+							listIsSeen[epId] = s;
+							next();
+						});
 					}, false);
 				};
 	
@@ -235,7 +254,7 @@ class ScreenManager {
 		ScreenElementManager.allowStaticListener();
 	}
 
-	static generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404)
+	static generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 		this.setTitle(ANIME_NODEJS + " - " + anime.name, anime.name);
 
@@ -249,12 +268,12 @@ class ScreenManager {
 			let isLocal = listIsEpisodeLocal[episode.episodeId];
 			let is404 = listIsEpisode404[episode.episodeId];
 
-			episodeElms.push(new EpisodeElement(anime, episode, isLocal, listIsEpisodeLocal, listIsEpisode404,
+			episodeElms.push(new EpisodeElement(anime, episode, isLocal, listIsEpisodeLocal, listIsEpisode404, listIsSeen,
 				//OnClick
 				(a,e) => {
 					ScreenElementManager.removeListenersOnAllElements();
 					Loader.getEpisodeInfo(a.id, e.episodeId, (d) => {
-						ScreenManager.generateEpisodeInfo(d, a, e, listIsEpisodeLocal, listIsEpisode404);
+						ScreenManager.generateEpisodeInfo(d, a, e, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
 					});
 				}
 			));
@@ -360,7 +379,7 @@ class ScreenManager {
 		this.allowStaticListener();
 	}
 
-	static generateEpisodeInfo(info, anime, episode, listIsEpisodeLocal, listIsEpisode404)
+	static generateEpisodeInfo(info, anime, episode, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 
 		HTMLManager.body.clear();
@@ -374,7 +393,7 @@ class ScreenManager {
 		let lReturn = () => {
 			ScreenElementManager.removeListenersOnAllElements();
 
-			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404);
+			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
 		};
 
 		elmsToAppend.push(new ReturnButton(lReturn));
@@ -383,7 +402,7 @@ class ScreenManager {
 			"Episode list"
 		);
 
-		if (info.isLocal) elmsToAppend.push(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, listIsEpisode404));
+		if (info.isLocal) elmsToAppend.push(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, listIsEpisode404, listIsSeen));
 
 		//* SHOW NEXT EPISODE BUTTON *//
 		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
@@ -428,8 +447,11 @@ class ScreenManager {
 	 * @param {string} url 
 	 * @param {number} animeId 
 	 * @param {number} episodeId 
+	 * @param {Array<boolean>} listIsEpisodeLocal 
+	 * @param {Array<boolean>} listIsEpisode404 
+	 * @param {Array<boolean>} listIsSeen 
 	 */
-	static showVideo(url, animeId, episodeId, listIsEpisodeLocal, listIsEpisode404)
+	static showVideo(url, animeId, episodeId, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 		let anime = this.animes[animeId];
 		this.setTitle(WATCH + " - " + anime.name + " : " + episodeId, anime.name + " : " + "Episode " + episodeId);
@@ -440,10 +462,13 @@ class ScreenManager {
 		
 		HTMLManager.body.clear();
 
-		let video = new AnimeVideoElement(url, episode, episodeId, nextEpisode, listIsEpisodeLocal, listIsEpisode404);
+		let video = new AnimeVideoElement(url, episode, episodeId, nextEpisode, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
+		let times = new VideoTime(animeId, episodeId);
 		
+		ScreenManager.setVideo(video);
+
 		HTMLManager.body.append(
-			video,
+			new ScreenElement("div").append(video,times).addClass("horizontal"),
 			new ScreenElement("h2")
 				.setText(anime.name + " - " + (episode.name || "Episode " + episodeId)),
 			
@@ -453,39 +478,67 @@ class ScreenManager {
 
 		if (nextEpisode != null) 
 		{
-			let boolIsLocal = !listIsEpisode404[nextEpisode.episodeId] && listIsEpisodeLocal[nextEpisode.episodeId];
-			let btn = new ButtonElement(
+			let nextEpId = nextEpisode.episodeId;
+			let boolIsLocal = !listIsEpisode404[nextEpId] && listIsEpisodeLocal[nextEpId];
+			let btnNext = new ButtonElement(
 				() => {
 					ScreenElementManager.removeListenersOnAllElements();
 					
 					//If episode is local, show next video. Else show info
-					if (boolIsLocal)
-						Loader.loadLocalEpisode(animeId, nextEpisode.episodeId, listIsEpisodeLocal, listIsEpisode404);
+					if (boolIsLocal) {
+						ScreenElementManager.removeListenersOnAllElements();
+						Loader.loadLocalEpisode(animeId, nextEpId, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
+					}
 					else 
-						Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal, listIsEpisode404)});
+						Loader.getEpisodeInfo(animeId, nextEpId, (d) => {ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal, listIsEpisode404)});
 				}
 			)
-
-			if (boolIsLocal)
-				btn.setText("Watch Next - Episode "+nextEpisode.episodeId);
-			else
-				btn.setText("Download Next - Episode "+nextEpisode.episodeId);
 			
 
+			if (boolIsLocal)
+				btnNext.setText("Watch Next - Episode "+nextEpId);
+			else
+				btnNext.setText("Download Next - Episode "+nextEpId);
+			
+			if (listIsSeen[nextEpId]) btnNext.addClass("seen");
+			else btnNext.removeClass("seen");
+
 			HTMLManager.body.append(
-				btn
+				btnNext
 			);
+		}
+		
+		if (ScreenManager.currentAccount) {
+			//if connected
+
+			let btnSeen = new ButtonElement(
+				() => {
+					Loader.setSeen(ScreenManager.currentAccount, animeId, episodeId, !listIsSeen[episodeId], () => {
+						listIsSeen[episodeId] = !listIsSeen[episodeId];
+						btnSeen.setText(listIsSeen[episodeId] ? "Set as not seen" :  "Set as seen");
+
+						if (listIsSeen[episodeId]) btnSeen.addClass("seen");
+						else btnSeen.removeClass("seen");
+					});
+				}
+			).setText(listIsSeen[episodeId] ? "Set as not seen" :  "Set as seen");
+			
+			if (listIsSeen[episodeId]) btnSeen.addClass("seen");
+			else btnSeen.removeClass("seen");
+
+			HTMLManager.body.append(btnSeen);
 		}
 
 		let lReturn = () => {
 			ScreenElementManager.removeListenersOnAllElements();
-			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404);
+			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
 		};
 		ScreenManager._OnReturn(
 			lReturn,
 			"Episode List"
 		);
-		HTMLManager.body.append(new ButtonElement(lReturn).setText("Return to anime")
+		HTMLManager.body.append(
+			new ButtonElement(lReturn).setText("Return to anime")
 		);
 		
 		ScreenElementManager.allowStaticListener();
@@ -583,6 +636,7 @@ class ScreenManager {
 			ScreenElementManager.allowStaticListener();
 			HTMLManager.accountOverlay.addClass("disabled");
 			Account.accountMode = Account.CLICK;
+			ScreenManager.generateAnimeListHTML();
 		};
 		ScreenManager._OnReturn(lReturn);
 		/* ****** */

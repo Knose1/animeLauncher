@@ -144,7 +144,7 @@ function start(config) {
 		let name = req.query.name;
 		//let animeThumbnailLink = req.query.password;
 		
-		let accountData = {"name":name, "seen":[]}
+		let accountData = {"name":name, "seen":{}}
 		
 		let fileName = global.toFileName(name, "-").replace(/\ /g,"_");
 		let accountJSONFile = path.join(__root, ACCOUNT_FOLDER, fileName+".json");
@@ -346,11 +346,15 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*     Get Anime seen Account    *//
 	//*///////////////////////////////*//
-	app.get('/edit/account/seen', (req, res, next) => {
+	app.get('/get/account/seen', (req, res, next) => {
 		let name = req.query.name;
 		
 		let animeId = req.query.animeId;
 		let episodeId = req.query.episodeId;
+
+		console.log("?name = "+name);
+		console.log("?animeId = "+animeId);
+		console.log("?episodeId = "+episodeId);
 
 		let account = Account.getAccountByName(name);
 
@@ -360,7 +364,7 @@ function start(config) {
 			return;
 		}
 
-		res.send(account.getSeen(animeId, episodeId, value));
+		res.send(account.getSeen(animeId, episodeId));
 	});
 
 	//*///////////////////////////////*//
@@ -373,6 +377,11 @@ function start(config) {
 		let episodeId = req.query.episodeId;
 		let value = req.query.value;
 
+		console.log("?name = "+name);
+		console.log("?animeId = "+animeId);
+		console.log("?episodeId = "+episodeId);
+		console.log("?value = "+value);
+
 		let account = Account.getAccountByName(name);
 
 		if (!account) 
@@ -382,13 +391,18 @@ function start(config) {
 		}
 
 		account.setSeen(animeId, episodeId, value);
-		account.save()
-		.then(() => {
-			res.sendStatus(HttpStatus.OK);
-		})
-		.catch((e) => {
-			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-		});
+		account.save().then(
+			() => {
+				res.sendStatus(HttpStatus.OK);
+			}
+		)
+		.catch(
+			(e) => {
+				console.log(e);
+				res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		)
+		
 	});
 	
 	//*///////////////////////////////*//
@@ -555,6 +569,7 @@ function start(config) {
 		let textSize 		= Number.parseFloat	(req.query.textSize);
 		let backgroundColor = req.query.backgroundColor;
 		let textColor 		= req.query.textColor;
+		let keepThumbnails 	= req.query.keepThumbnails;
 		let text 			= req.params.text;
 		
 		let thumbailsFolder = path.join(__root,"public/asset/thumbails");
@@ -565,7 +580,7 @@ function start(config) {
 		}
 
 		//If keep thumbnails, send them
-		if (config.keepThumbnails) 
+		if (keepThumbnails !== 'false' && config.keepThumbnails) 
 		{
 			let thumbnlailExists = fs.existsSync(pathToTest);
 			if (thumbnlailExists) 
@@ -629,6 +644,52 @@ function start(config) {
 				});
 			}
 		});
+	});
+
+	//*///////////////////////////////*//
+	//*     Set Account activity    *//
+	//*///////////////////////////////*//
+	app.get('/set/account/activity', (req, res, next) => {
+		let name = req.query.name;
+		
+		let animeId = req.query.animeId || -1;
+		let episodeId = req.query.episodeId || -1;
+		let videoTime = req.query.videoTime || -1;
+		let date = req.query.date || -1; //{number} Date.now
+
+		console.log("?name = "+name);
+		console.log("?animeId = "+animeId);
+		console.log("?episodeId = "+episodeId);
+		console.log("?videoTime = "+videoTime);
+		console.log("?date = "+date);
+
+		let account = Account.getAccountByName(name);
+
+		if (!account) 
+		{
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		account.setActivity(animeId, episodeId, videoTime, date);
+		res.sendStatus(HttpStatus.OK);
+	});
+
+	//*///////////////////////////////*//
+	//*     Get Account activities    *//
+	//*///////////////////////////////*//
+	app.get('/get/account/activity', (req, res, next) => {
+		let lList = Account.list;
+		let lActivities = {activities: {}, accounts: []};
+		
+
+		for (let i = lList.length - 1; i >= 0; i--) {
+			let lAccount = lList[i];
+			lActivities.activities[lAccount.name] = lAccount._activity;
+			lActivities.accounts.push(lAccount.name);
+		}
+
+		res.send(lActivities);
 	});
 
 	app.listen(port, function () {

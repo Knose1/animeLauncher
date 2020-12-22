@@ -292,14 +292,14 @@ class FileLoader {
 				case FileToLoad.getTYPE_JSON():
 					
 					lFunction = pResult.text().then(txt => {
-						console.group("JSON");
+						//console.group("JSON");
 						console.log(txt);
 						return JSON.parse(txt);
 					})
 					.catch( e => {
 						console.log(e);
 					})
-					.finally( () => console.groupEnd() );
+					//.finally( () => console.groupEnd() );
 					break;
 			}
 
