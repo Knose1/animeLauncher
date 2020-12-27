@@ -412,7 +412,7 @@ class ScreenManager {
 				new ButtonElement(() => {
 					ScreenElementManager.removeListenersOnAllElements();
 					Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {
-						ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal, listIsEpisode404)
+						ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 					});
 				}).append(new ScreenElement("h4").setText("Next - Episode "+nextEpisode.episodeId))
 			);
