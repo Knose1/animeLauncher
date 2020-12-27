@@ -166,6 +166,8 @@ let logText = "";
  */
 function createLogFile() 
 {
+	logText = "";
+
 	let lLogFolder = path.join(__root, "log");
 	if (!fs.existsSync(lLogFolder)) 
 	{
@@ -212,6 +214,12 @@ function writeLog(message, newLine = true) {
 	let m = (newLine && logText.length > 0 ? CRLF : "")+message;
 	logText += m;
 	fs.appendFileSync(__logFile, m);
+
+	let f = __logFile;
+	if (logText.length > 1000000) {
+		createLogFile();
+		writeLog("=* Reference "+f+"*=");
+	}
 }
 global.writeLog = writeLog;
 

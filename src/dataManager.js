@@ -864,6 +864,7 @@ class YoutubePlayer extends VideoPlayer {
  * @memberof server
  */
 class Anime {
+	
 	/**
 	 * The list of Animes
 	 * @public
@@ -933,7 +934,7 @@ class Anime {
 		 * @public
 		 * @type {string}
 		 */
-		this.name = data.name || pathNode.dirname(folderPath);
+		this.name = data.name || pathNode.basename(folderPath);
 		if (!data.name) console.warn(`"${nameof({name:this.name})}" is null in anime : \r\n"${folderPath}"`);
 
 		/**
