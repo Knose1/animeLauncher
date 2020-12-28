@@ -96,34 +96,37 @@ let Episode = dataManager.Episode;
  * @memberof server.https
  * @param {Config} config
 */
-function start(config) {
+function start(config)
+{
 	/**
 	 * @constant
 	 */
 	let app = express();
 	const cors = require('cors');
 	app.use(cors());
-	
+
 	/**
 	 * @type {number}
 	 */
 	let port = config.port;
-	
-	
-	app.use('*', (req,res,next) =>
+
+
+	app.use('*', (req, res, next) =>
 	{
-		console.group(`[${req.method}] `+(req.baseUrl || "/"));
+		console.group(`[${req.method}] ` + (req.baseUrl || "/"));
 		next();
 
-		res.once("close", () => {
+		res.once("close", () =>
+		{
 			console.groupEnd();
 		});
 	});
-	
+
 	//*///////////////////////////////*//
 	//*         Remove Account        *//
 	//*///////////////////////////////*//
-	app.get('/remove/account', (req, res, next) => {
+	app.get('/remove/account', (req, res, next) =>
+	{
 		let name = req.query.name;
 		let account = Account.getAccountByName(name);
 
@@ -140,49 +143,52 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*          New Account          *//
 	//*///////////////////////////////*//
-	app.get('/new/account', (req, res, next) => {
+	app.get('/new/account', (req, res, next) =>
+	{
 		let name = req.query.name;
 		//let animeThumbnailLink = req.query.password;
-		
-		let accountData = {"name":name, "seen":{}}
-		
-		let fileName = global.toFileName(name, "-").replace(/\ /g,"_");
-		let accountJSONFile = path.join(__root, ACCOUNT_FOLDER, fileName+".json");
+
+		let accountData = { "name": name, "seen": {} }
+
+		let fileName = global.toFileName(name, "-").replace(/\ /g, "_");
+		let accountJSONFile = path.join(__root, ACCOUNT_FOLDER, fileName + ".json");
 
 		if (fs.existsSync(accountJSONFile)) 
 		{
 			res.sendStatus(HttpStatus.CONFLICT);
 			return;
 		}
-		fs.writeFile(accountJSONFile, JSON.stringify(accountData), () => {
+		fs.writeFile(accountJSONFile, JSON.stringify(accountData), () =>
+		{
 			let jsonObj = new JsonObject(accountJSONFile);
 			jsonObj.value = accountData;
-				
+
 			let account = new Account(jsonObj, accountJSONFile);
-			res.send(JSON.stringify({'id': account.id}));
+			res.send(JSON.stringify({ 'id': account.id }));
 		});
 	});
-	
+
 	//*///////////////////////////////*//
 	//*           New Anime           *//
 	//*///////////////////////////////*//
-	app.get('/new/anime', (req, res, next) => {
+	app.get('/new/anime', (req, res, next) =>
+	{
 		let animeName = req.query.name;
 		let animeThumbnailLink = req.query.thumbnailLink;
-		
+
 		/**
 		 * @ignore
 		 * @type {server.data.config.AnimeConfig}
 		 */
-		let animeData = {"name":animeName, "episodes":[]}
+		let animeData = { "name": animeName, "episodes": [] }
 		if (animeThumbnailLink) 
 		{
 			animeData.thumbnailLink = animeThumbnailLink;
 		}
 
-		let animeFolderName = global.toFileName(req.name.animeName, "-").replace(/\ /g,"_");
-		let animeFolder = path.join(__root, ANIME_FOLDER, animeFolderName); 
-		let jsonFile = path.join(animeFolderName, JSON_ANIME); 
+		let animeFolderName = global.toFileName(req.name.animeName, "-").replace(/\ /g, "_");
+		let animeFolder = path.join(__root, ANIME_FOLDER, animeFolderName);
+		let jsonFile = path.join(animeFolderName, JSON_ANIME);
 
 		if (fs.existsSync(jsonFile)) 
 		{
@@ -190,13 +196,15 @@ function start(config) {
 			return;
 		}
 
-		fs.mkdir(animeFolderName, () => {
-			fs.writeFile(jsonFile, JSON.stringify(animeData), () => {
+		fs.mkdir(animeFolderName, () =>
+		{
+			fs.writeFile(jsonFile, JSON.stringify(animeData), () =>
+			{
 				let jsonObj = new JsonObject(jsonFile);
 				jsonObj.value = animeData;
-				
+
 				let anime = new Anime(jsonObj, animeFolder);
-				res.send(JSON.stringify({'id': anime.id}));
+				res.send(JSON.stringify({ 'id': anime.id }));
 			});
 		});
 	});
@@ -204,34 +212,39 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*          New Episode          *//
 	//*///////////////////////////////*//
-	app.get('/new/episode', (req, res, next) => {
+	app.get('/new/episode', (req, res, next) =>
+	{
 		let animeId = req.query.animeId;
 		let episodeName = req.query.name;
 		let posterLink = req.query.posterLink;
 
-		let anime = tryToGetAnimeOrSendStatus(animeId)
+		let anime = tryToGetAnimeOrSendStatus(animeId);
 		if (!anime) return;
 
 		/**
 		 * @type {server.data.config.EpisodeConfig}
 		 */
-		let epConfig = {"episodeId":anime.episodes.length,"links":[],"name":episodeName,"posterLink":posterLink};
+		let epConfig = { "episodeId": anime.episodes.length, "links": [], "name": episodeName, "posterLink": posterLink };
 		let ep = new Episode(epConfig, anime);
 
 		anime.episodes.push(ep);
 
-		res.send(JSON.stringify({'id': ep.episodeId}));
+		anime.saveJson();
+		
+		res.send(JSON.stringify({ 'id': ep.episodeId }));
 	});
 
 
-	
+
 
 	//*///////////////////////////////*//
 	//*           Get Account         *//
 	//*///////////////////////////////*//
-	app.get('/get/accounts', (req, res, next) => {
+	app.get('/get/accounts', (req, res, next) =>
+	{
 		let toSend = [];
-		for (let i = Account.list.length - 1; i >= 0; i--) {
+		for (let i = Account.list.length - 1; i >= 0; i--)
+		{
 			/**
 			 * @ignore
 			 * @type {dataManager.Account}
@@ -246,19 +259,21 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*            Get List           *//
 	//*///////////////////////////////*//
-	app.get('/get/list', (req, res, next) => {
+	app.get('/get/list', (req, res, next) =>
+	{
 		res.contentType("application/json");
 		res.send(JSON.stringify(Anime.publicList));
 	});
-	
+
 	//*///////////////////////////////*//
 	//*        Get Episode Info       *//
 	//*///////////////////////////////*//
 	function tryToGetAnimeOrSendStatus(res, animeId)
 	{
 		//Arguments checking
-		if (!Number.isSafeInteger(animeId)) {
-			
+		if (!Number.isSafeInteger(animeId))
+		{
+
 			console.log("[Missing Argument]");
 			res.sendStatus(HttpStatus.BAD_REQUEST);
 			return;
@@ -266,7 +281,8 @@ function start(config) {
 
 		//Anime finding
 		let lAnime = Anime.list[animeId]
-		if (!lAnime) {
+		if (!lAnime)
+		{
 			console.log("[Anime not found]");
 			res.sendStatus(HttpStatus.NOT_FOUND);
 			return;
@@ -274,12 +290,13 @@ function start(config) {
 
 		return lAnime;
 	}
-	
+
 	function tryToGetEpisodeOrSendStatus(res, animeId, episodeId)
 	{
 		//Arguments checking
-		if (!Number.isSafeInteger(animeId) || !Number.isSafeInteger(episodeId)) {
-			
+		if (!Number.isSafeInteger(animeId) || !Number.isSafeInteger(episodeId))
+		{
+
 			console.log("[Missing Argument(s)]");
 			res.sendStatus(HttpStatus.BAD_REQUEST);
 			return;
@@ -287,7 +304,8 @@ function start(config) {
 
 		//Anime finding
 		let lAnime = Anime.list[animeId]
-		if (!lAnime) {
+		if (!lAnime)
+		{
 			console.log("[Anime not found]");
 			res.sendStatus(HttpStatus.NOT_FOUND);
 			return;
@@ -295,7 +313,8 @@ function start(config) {
 
 		//Episode finding
 		let lEpisode = lAnime.getEpisodeById(episodeId);
-		if (!lEpisode) {
+		if (!lEpisode)
+		{
 			console.log("[Episode not found]");
 			res.sendStatus(HttpStatus.NOT_FOUND);
 			return;
@@ -304,57 +323,61 @@ function start(config) {
 		return lEpisode
 	}
 
-	app.get('/get/episode/info', async (req, res, next) => {
-		
+	app.get('/get/episode/info', async (req, res, next) =>
+	{
+
 		let animeId = Number.parseInt(req.query.animeId);
 		let episodeId = Number.parseInt(req.query.episodeId);
 		let loadYtInfo = req.query.loadYtInfo;
 
-		try {
+		try
+		{
 			loadYtInfo = JSON.parse(loadYtInfo);
-			if (typeof(loadYtInfo) !== "boolean") 
+			if (typeof (loadYtInfo) !== "boolean") 
 			{
 				loadYtInfo = true;
 			}
 		}
-		catch(e)
+		catch (e)
 		{
 			loadYtInfo = true;
 		}
 
-		console.log("?animeId = "+animeId);
-		console.log("?episodeId = "+episodeId);
-		console.log("?loadYtInfo = "+loadYtInfo);
-		
+		console.log("?animeId = " + animeId);
+		console.log("?episodeId = " + episodeId);
+		console.log("?loadYtInfo = " + loadYtInfo);
+
 		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
 		if (!lEpisode) return;
-		
+
 		//Get episode info and send
-		try {
+		try
+		{
 			let info = await lEpisode.getInfo(loadYtInfo);
-			
+
 			res.contentType("application/json");
 			res.send(JSON.stringify(info));
 		}
-		catch(e)
+		catch (e)
 		{
 			console.log(e);
 			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	});
-	
+
 	//*///////////////////////////////*//
 	//*     Get Anime seen Account    *//
 	//*///////////////////////////////*//
-	app.get('/get/account/seen', (req, res, next) => {
+	app.get('/get/account/seen', (req, res, next) =>
+	{
 		let name = req.query.name;
-		
+
 		let animeId = req.query.animeId;
 		let episodeId = req.query.episodeId;
 
-		console.log("?name = "+name);
-		console.log("?animeId = "+animeId);
-		console.log("?episodeId = "+episodeId);
+		console.log("?name = " + name);
+		console.log("?animeId = " + animeId);
+		console.log("?episodeId = " + episodeId);
 
 		let account = Account.getAccountByName(name);
 
@@ -370,17 +393,18 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*     Set Anime seen Account    *//
 	//*///////////////////////////////*//
-	app.get('/edit/account/seen', (req, res, next) => {
+	app.get('/edit/account/seen', (req, res, next) =>
+	{
 		let name = req.query.name;
-		
+
 		let animeId = req.query.animeId;
 		let episodeId = req.query.episodeId;
 		let value = req.query.value;
 
-		console.log("?name = "+name);
-		console.log("?animeId = "+animeId);
-		console.log("?episodeId = "+episodeId);
-		console.log("?value = "+value);
+		console.log("?name = " + name);
+		console.log("?animeId = " + animeId);
+		console.log("?episodeId = " + episodeId);
+		console.log("?value = " + value);
 
 		let account = Account.getAccountByName(name);
 
@@ -392,23 +416,26 @@ function start(config) {
 
 		account.setSeen(animeId, episodeId, value);
 		account.save().then(
-			() => {
+			() =>
+			{
 				res.sendStatus(HttpStatus.OK);
 			}
 		)
-		.catch(
-			(e) => {
-				console.log(e);
-				res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-		)
-		
+			.catch(
+				(e) =>
+				{
+					console.log(e);
+					res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+				}
+			)
+
 	});
-	
+
 	//*///////////////////////////////*//
 	//*          Edit Account         *//
 	//*///////////////////////////////*//
-	app.get('/edit/account', (req, res, next) => {
+	app.get('/edit/account', (req, res, next) =>
+	{
 		let name = req.query.name;
 		let account = Account.getAccountByName(name);
 
@@ -420,46 +447,50 @@ function start(config) {
 
 		account.name = name;
 		account.save()
-		.then(() => {
-			res.sendStatus(HttpStatus.OK);
-		})
-		.catch((e) => {
-			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
-		});
+			.then(() =>
+			{
+				res.sendStatus(HttpStatus.OK);
+			})
+			.catch((e) =>
+			{
+				res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+			});
 	});
 
 	//*///////////////////////////////*//
 	//*        Download Episode       *//
 	//*///////////////////////////////*//
-	app.get('/get/episode/download', async (req, res, next) => {
+	app.get('/get/episode/download', async (req, res, next) =>
+	{
 		let animeId;
 		let episodeId;
 		let videoPlayerId;
 		let format;
 		let url;
 
-		try {
+		try
+		{
 			animeId = Number.parseInt(req.query.animeId);
 			episodeId = Number.parseInt(req.query.episodeId);
 			videoPlayerId = Number.parseInt(req.query.videoPlayerId);
 			format = req.query.format ? JSON.parse(req.query.format) : null;
 			url = req.query.url;
 		}
-		catch(e)
+		catch (e)
 		{
 			console.error(e);
 			res.sendStatus(HttpStatus.BAD_REQUEST);
 			return;
 		}
 
-		console.log("?animeId = "+animeId);
-		console.log("?episodeId = "+episodeId);
-		console.log("?videoPlayerId = "+videoPlayerId);
-		console.log("?ytFormat = "+JSON.stringify(format));
-		console.log("?url = "+url);
-		
+		console.log("?animeId = " + animeId);
+		console.log("?episodeId = " + episodeId);
+		console.log("?videoPlayerId = " + videoPlayerId);
+		console.log("?ytFormat = " + JSON.stringify(format));
+		console.log("?url = " + url);
+
 		let lEpisode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
-		
+
 		if (lEpisode.isLocal) 
 		{
 			//console.log("[Redirect] "+req.hostname+`/episode/${animeId}/${episodeid}`);
@@ -478,14 +509,15 @@ function start(config) {
 		if (!download.isDownloading && !download.isPending) download.download(url, format);
 
 		//Episode
-		res.send(JSON.stringify({progress:(download.progress || 0)}));
+		res.send(JSON.stringify({ progress: (download.progress || 0) }));
 	});
 
 	//*///////////////////////////////*//
 	//*         Download List         *//
 	//*///////////////////////////////*//
-	app.get('/get/list/download', async (req, res, next) => {
-		
+	app.get('/get/list/download', async (req, res, next) =>
+	{
+
 		let downloads = DownloadEpisode.toDownload;
 		let errorList = DownloadEpisode.list.filter(e => e.isError);
 
@@ -493,9 +525,9 @@ function start(config) {
 
 		if (DownloadEpisode.currentDownload) 
 		{
-			let currentDlEpisode = DownloadEpisode.currentDownload.episode;	
+			let currentDlEpisode = DownloadEpisode.currentDownload.episode;
 			current = {
-				progress: DownloadEpisode.currentDownload.progress,
+				progress: currentDlEpisode.progress,
 				episode: currentDlEpisode.anime.name + " : " + (currentDlEpisode.name || currentDlEpisode.episodeId)
 			}
 		}
@@ -503,23 +535,26 @@ function start(config) {
 		//Episode
 		res.send(JSON.stringify({
 			current: current,
-			list : downloads.map( (d) => {
+			list: downloads.map((d) =>
+			{
 				let e = d.downloadEpisode.episode;
 				return e.anime.name + " : " + (e.name || e.episodeId);
 			}),
-			error : errorList.map( (d) => {
+			error: errorList.map((d) =>
+			{
 				let e = d.episode;
-				return {episode: e.anime.name + " : " + (e.name || e.episodeId), error : d.error};
+				return { episode: e.anime.name + " : " + (e.name || e.episodeId), error: d.error };
 			})
 		}));
 	});
 
 
-	function loadAndSendFile(req,res,filePath)
+	function loadAndSendFile(req, res, filePath)
 	{
-		console.log("[File path] "+filePath);
+		console.log("[File path] " + filePath);
 
-		res.sendFile(filePath), (err) => {
+		res.sendFile(filePath), (err) =>
+		{
 			if (err) console.error(err);
 		};
 	}
@@ -527,30 +562,33 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*           Index.html          *//
 	//*///////////////////////////////*//
-	app.get('/', (req, res, next) => {
-		loadAndSendFile(req, res, path.join(__root,"public","index.html"));
+	app.get('/', (req, res, next) =>
+	{
+		loadAndSendFile(req, res, path.join(__root, "public", "index.html"));
 	});
 
-	
+
 	//*///////////////////////////////*//
 	//*         Public Folder         *//
 	//*///////////////////////////////*//
-	let folders = ["js","html","css", "fonts", "asset/ico"];
-	folders = folders.map(m => {return `/${m}/*`});
-	
-	app.get(folders, (req, res, next) => {
-		loadAndSendFile(req, res, path.join(__root,"public",req.path));
+	let folders = ["js", "html", "css", "fonts", "asset/ico"];
+	folders = folders.map(m => { return `/${m}/*` });
+
+	app.get(folders, (req, res, next) =>
+	{
+		loadAndSendFile(req, res, path.join(__root, "public", req.path));
 	});
 
 	//*///////////////////////////////*//
 	//*       Get Local Episode       *//
 	//*///////////////////////////////*//
-	app.get("/episode/:animeId/:episodeId", (req, res, next) => {
+	app.get("/episode/:animeId/:episodeId", (req, res, next) =>
+	{
 		let animeId = Number.parseInt(req.params.animeId);
 		let episodeId = Number.parseInt(req.params.episodeId);
 
-		console.log(":animeId = "+animeId);
-		console.log(":episodeId = "+episodeId);
+		console.log(":animeId = " + animeId);
+		console.log(":episodeId = " + episodeId);
 
 		let episode = tryToGetEpisodeOrSendStatus(res, animeId, episodeId);
 		loadAndSendFile(req, res, episode.path);
@@ -559,20 +597,21 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*           Thumbnail           *//
 	//*///////////////////////////////*//
-	app.get("/asset/thumbnail/:text.png", async (req, res, next) => {
+	app.get("/asset/thumbnail/:text.png", async (req, res, next) =>
+	{
 		const commands = require("./image/imageWorkerCommands.js");
 
 		let fileExtension = commands.fileExtension;
 
-		let width 			= Number.parseInt	(req.query.width);
-		let height 			= Number.parseInt	(req.query.height);
-		let textSize 		= Number.parseFloat	(req.query.textSize);
+		let width = Number.parseInt(req.query.width);
+		let height = Number.parseInt(req.query.height);
+		let textSize = Number.parseFloat(req.query.textSize);
 		let backgroundColor = req.query.backgroundColor;
-		let textColor 		= req.query.textColor;
-		let keepThumbnails 	= req.query.keepThumbnails;
-		let text 			= req.params.text;
-		
-		let thumbailsFolder = path.join(__root,"public/asset/thumbails");
+		let textColor = req.query.textColor;
+		let keepThumbnails = req.query.keepThumbnails;
+		let text = req.params.text;
+
+		let thumbailsFolder = path.join(__root, "public/asset/thumbails");
 		let pathToTest = path.join(thumbailsFolder, `${text}.${fileExtension}`);
 		if (!fs.existsSync(thumbailsFolder)) 
 		{
@@ -593,35 +632,38 @@ function start(config) {
 		 * @type {imageWriter.ThumbailOption}
 		 */
 		let options = {};
-		if (Number.isSafeInteger(width))	options.width = width;
-		if (Number.isSafeInteger(height))	options.height = height;
-		if (!Number.isNaN(textSize)) 		options.textSize = textSize;
-		if (backgroundColor) 				options.backgroundColor = backgroundColor;
-		if (textColor) 						options.textColor = textColor;
+		if (Number.isSafeInteger(width)) options.width = width;
+		if (Number.isSafeInteger(height)) options.height = height;
+		if (!Number.isNaN(textSize)) options.textSize = textSize;
+		if (backgroundColor) options.backgroundColor = backgroundColor;
+		if (textColor) options.textColor = textColor;
 
 		if (width > 2000 || width <= 0) options.width = null;
 		if (height > 2000 || height <= 0) options.height = null;
-		
+
 		/**
 		 * @ignore
 		 * @type {string}
 		 */
 		let filePath;
-		try {
+		try
+		{
 			filePath = await imageWriter.getThumbail(text, options)
 		}
-		catch(e)
+		catch (e)
 		{
 			console.log(e);
 			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 			return;
 		}
-		
+
 		//This code is executed on succes
 		/////////////////////////////////
 
-		res.sendFile(filePath, (e) => {
-			if (e) {
+		res.sendFile(filePath, (e) =>
+		{
+			if (e)
+			{
 				console.error(e);
 				return;
 			}
@@ -630,7 +672,8 @@ function start(config) {
 			{
 				//Keep thumbnail
 				let renamePath = pathToTest;
-				fs.rename(filePath, renamePath, () => {
+				fs.rename(filePath, renamePath, () =>
+				{
 					console.log(`Saved thumbnail as \"${renamePath}\"`)
 				});
 			}
@@ -638,7 +681,8 @@ function start(config) {
 			{
 				//Remove thumbnail
 				console.log(`Removing temp file at path \"${filePath}\"...`);
-				fs.unlink(filePath, (err) => {
+				fs.unlink(filePath, (err) =>
+				{
 					console.log(`Removed temp file`);
 					if (err) console.error(err);
 				});
@@ -649,19 +693,20 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*     Set Account activity    *//
 	//*///////////////////////////////*//
-	app.get('/set/account/activity', (req, res, next) => {
+	app.get('/set/account/activity', (req, res, next) =>
+	{
 		let name = req.query.name;
-		
+
 		let animeId = req.query.animeId || -1;
 		let episodeId = req.query.episodeId || -1;
 		let videoTime = req.query.videoTime || -1;
 		let date = req.query.date || -1; //{number} Date.now
 
-		console.log("?name = "+name);
-		console.log("?animeId = "+animeId);
-		console.log("?episodeId = "+episodeId);
-		console.log("?videoTime = "+videoTime);
-		console.log("?date = "+date);
+		console.log("?name = " + name);
+		console.log("?animeId = " + animeId);
+		console.log("?episodeId = " + episodeId);
+		console.log("?videoTime = " + videoTime);
+		console.log("?date = " + date);
 
 		let account = Account.getAccountByName(name);
 
@@ -678,12 +723,14 @@ function start(config) {
 	//*///////////////////////////////*//
 	//*     Get Account activities    *//
 	//*///////////////////////////////*//
-	app.get('/get/account/activity', (req, res, next) => {
+	app.get('/get/account/activity', (req, res, next) =>
+	{
 		let lList = Account.list;
-		let lActivities = {activities: {}, accounts: []};
-		
+		let lActivities = { activities: {}, accounts: [] };
 
-		for (let i = lList.length - 1; i >= 0; i--) {
+
+		for (let i = lList.length - 1; i >= 0; i--)
+		{
 			let lAccount = lList[i];
 			lActivities.activities[lAccount.name] = lAccount._activity;
 			lActivities.accounts.push(lAccount.name);
@@ -692,9 +739,41 @@ function start(config) {
 		res.send(lActivities);
 	});
 
-	app.listen(port, function () {
-		console.log(`App listening on port ${port}!`);
-	});
+	try
+	{
+		app.listen(port, function ()
+		{
+			console.log(`App listening on port ${port}!`);
+			let os = require('os');
+			let ifaces = os.networkInterfaces();
+			let protocol = "http://";
+			let spaces = '  ';
+
+			//////////////////////////////// From npm http-server ////////////////////////////////
+			Object.keys(ifaces).forEach(function (dev)
+			{										//
+				ifaces[dev].forEach(function (details)
+				{										//
+					if (details.family === 'IPv4')
+					{												//
+						console.log(spaces + protocol + details.address + ':' + port.toString());	//
+					}																				//
+				});																				//
+			});																					//
+			//////////////////////////////////////////////////////////////////////////////////////
+
+			console.log(spaces + protocol + "localhost:" + port.toString());
+		});
+
+	}
+	catch (e)
+	{
+		console.error(e);
+		throw '';
+	}
+
+	/**server.once("listening", () => {
+	});*/
 };
 
 

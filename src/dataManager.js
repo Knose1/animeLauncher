@@ -1011,10 +1011,28 @@ class Anime {
 	 * @returns {Promise<void>}
 	 * @see {@link JsonObject}
 	 */
-	updateJson()
+	saveJson()
 	{
 		this.jsonObject.value = this.toAnimeConfig();
-		return this.jsonObject.save().catch( () => {console.error(`Can't save anime ${this.name}`);});
+		return this.jsonObject.save().catch( (e) => {
+			console.error(`Error saving the anime ${this.name}`);
+			console.error(e);
+			return new Promise((resolve, reject) => {
+				setTimeout( () => {
+					//Give a second try
+					console.log("Retry saving");
+					this.jsonObject.save()
+					.then(() =>{
+						resolve()
+					})
+					.catch((e) =>{
+						reject(e);
+						console.error(`Can't save anime ${this.name}`);
+						console.error(e);
+					})
+				}, 500);
+			});
+		});
 	}
 
 	/**
@@ -1211,7 +1229,7 @@ class Episode {
 	setLocalPath(path)
 	{
 		this.localLink = path;
-		return this.anime.updateJson();
+		return this.anime.saveJson();
 	}
 
 	/**
