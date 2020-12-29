@@ -379,27 +379,54 @@ class ScreenElement
 	}
 
 	/**
+	 * @callback joinFunction
+	 * @param {Array<string | ScreenElement>} elm
+	 * @param {number} index
+	 * @returns {string | ScreenElement}
+	 * @memberof ScreenElement
+	 */
+
+	/**
 	 * 
 	 * @param  {Array<string | ScreenElement>} elements 
-	 * @param  {Array<string | ScreenElement | function>} [join]
+	 * @param  {string | joinFunction | Array<string | ScreenElement | joinFunction>} [join]
 	 */
 	appendList(elements, join = undefined)
 	{
 		if (join != undefined) 
 		{
-			join = join.map(m =>
-			{
-				if (m instanceof Function) return m();
-				return m;
-			});
-
-			for (let i = elements.length - 2; i >= 1; i--)
-			{
-				let joinArgs = Array.from(join)
-				joinArgs.unshift(i, 0);
-
-				let lElement = elements[i];
-				elements.splice.apply(elements, joinArgs);
+			if (join instanceof Array) {
+				join = join.map((m, i) =>
+				{
+					if (m instanceof Function) return m(elements[i], i);
+					return m;
+				});
+	
+				for (let i = elements.length - 2; i >= 1; i--)
+				{
+					let joinArgs = Array.from(join); // ? tell me why
+					let lElement = joinArgs.shift();
+					
+					elements.splice(i, 0, lElement);
+					
+					if (joinArgs.length === 0) break;
+				}
+			}
+			else if (typeof(join) === "function") {
+				for (let i = elements.length - 2; i >= 1; i--)
+				{
+					elements.splice(i, 0, join(elements[i], i));
+				}
+			}
+			else if (typeof(join) === "string") {
+				for (let i = elements.length - 2; i >= 1; i--)
+				{
+					elements.splice(i, 0, join);
+				}
+				
+			}
+			else {
+				console.warn("ScreenElement.apprendlist(element,join) Join is in wrong type");
 			}
 		}
 
@@ -685,13 +712,106 @@ class ButtonElement extends ScreenElement
 		super("button");
 		this.handeler = handeler;
 		this.isStatic = isStatic;
-
+		this.addClass("btn");
+		this._set_BtnDark_Internal(true);
 		/**
 		 * @type {HTMLButtonElement}
 		 */
 		this.element;
 
 		this.listen();
+	}
+
+	/**
+	 * @public
+	 */
+	set_BtnPrimary() {
+		this._removeOutline();
+		this._set_BtnPrimary_Internal(true);
+		this._set_BtnSecondary_Internal(false);
+		this._set_BtnSuccess_Internal(false);
+		this._set_BtnDanger_Internal(false);
+		this._set_BtnWarning_Internal(false);
+		this._set_BtnInfo_Internal(false);
+	}
+
+	/**
+	 * @public
+	 */
+	set_BtnSecondary() {
+		this._removeOutline();
+		this._set_BtnPrimary_Internal(false);
+		this._set_BtnSecondary_Internal(true);
+		this._set_BtnSuccess_Internal(false);
+		this._set_BtnDanger_Internal(false);
+		this._set_BtnWarning_Internal(false);
+		this._set_BtnInfo_Internal(false);
+	}
+
+	/**
+	 * @public
+	 */
+	setBtnSuccess() {
+		this._removeOutline();
+		this._set_BtnPrimary_Internal(false);
+		this._set_BtnSecondary_Internal(false);
+		this._set_BtnSuccess_Internal(true);
+		this._set_BtnDanger_Internal(false);
+		this._set_BtnWarning_Internal(false);
+		this._set_BtnInfo_Internal(false);
+	}
+
+	/**
+	 * @public
+	 */
+	setBtnDanger() {
+		this._removeOutline();
+		this._set_BtnPrimary_Internal(false);
+		this._set_BtnSecondary_Internal(false);
+		this._set_BtnSuccess_Internal(false);
+		this._set_BtnDanger_Internal(true);
+		this._set_BtnWarning_Internal(false);
+		this._set_BtnInfo_Internal(false);
+	}
+
+	/**
+	 * @public
+	 */
+	setBtnWarning() {
+		this._removeOutline();
+		this._set_BtnPrimary_Internal(false);
+		this._set_BtnSecondary_Internal(false);
+		this._set_BtnSuccess_Internal(false);
+		this._set_BtnDanger_Internal(false);
+		this._set_BtnWarning_Internal(true);
+		this._set_BtnInfo_Internal(false);
+	}
+
+	/**
+	 * @public
+	 */
+	setBtnInfo() {
+		this._removeOutline();
+		this._set_BtnPrimary_Internal(false);
+		this._set_BtnSecondary_Internal(false);
+		this._set_BtnSuccess_Internal(false);
+		this._set_BtnDanger_Internal(false);
+		this._set_BtnWarning_Internal(false);
+		this._set_BtnInfo_Internal(true);
+	}
+
+	/**
+	 * @public
+	 */
+	setBtnDark() {
+		this._set_BtnDark_Internal(true);
+	}
+
+	/**
+	 * @public
+	 */
+	setBtnLight() {
+		this._set_BtnDark_Internal(false);
 	}
 
 	/**
@@ -719,6 +839,68 @@ class ButtonElement extends ScreenElement
 	listen() 
 	{
 		ScreenElementManager.addListener(this, "click", this.handeler, this.isStatic);
+	}
+
+	/**
+	 * @private
+	 * @param {boolean} bool 
+	 */
+	_set_BtnPrimary_Internal(bool) {
+		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-primary");
+	}
+
+	/**
+	 * @private
+	 * @param {boolean} bool 
+	 */
+	_set_BtnSecondary_Internal(bool) {
+		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-secondary");
+	}
+
+	/**
+	 * @private
+	 * @param {boolean} bool 
+	 */
+	_set_BtnSuccess_Internal(bool) {
+		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-success");
+	}
+
+	/**
+	 * @private
+	 * @param {boolean} bool 
+	 */
+	_set_BtnDanger_Internal(bool) {
+		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-danger");
+	}
+
+	/**
+	 * @private
+	 * @param {boolean} bool 
+	 */
+	_set_BtnWarning_Internal(bool) {
+		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-warning");
+	}
+
+	/**
+	 * @private
+	 * @param {boolean} bool 
+	 */
+	_set_BtnInfo_Internal(bool) {
+		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-info");
+	}
+
+	/**
+	 * @private
+	 * @param {boolean} dark 
+	 */
+	_set_BtnDark_Internal(dark) {
+		this.removeClass("btn-dark", "btn-outline-light", "btn-light", "btn-outline-dark");
+		this.addClass(dark ? "btn-dark" : "btn-light");
+		this.addClass(dark ? "btn-outline-light" : "btn-outline-dark");
+	}
+
+	_removeOutline() {
+		this.removeClass("btn-outline-light", "btn-outline-dark", "btn-outline-info", "btn-outline-warning", "btn-outline-danger", "btn-outline-success", "btn-outline-secondary", "btn-outline-primary");
 	}
 }
 
@@ -782,10 +964,11 @@ class MenuButtonElement extends ScreenElement
 		this.nameSpan = new ScreenElement("span").setText(name);
 		this.append(
 			new ButtonElement(onclick, true)
-				.append(
-					this.nameSpan
-				)
+			.append(
+				this.nameSpan
+			)
 		);
+		this.addClass("nav-item");
 	}
 
 	setName(name) 
@@ -946,7 +1129,7 @@ class AnimeVideoElement extends VideoElement
  * An anime button in the anime list
  * @memberof Public.Html.Elements.Personalised
  */
-class AnimeElement extends ScreenElement
+class AnimeElement extends ButtonElement
 {
 	/**
 	 * @param {*} anime
@@ -954,18 +1137,15 @@ class AnimeElement extends ScreenElement
 	 */
 	constructor(anime, onclick)
 	{
-		super("li");
+		super(() => { onclick(anime); });
 
 		this.addClass("anime");
 		this.setId(anime.id);
 
-		let btn = new ButtonElement(() => { onclick(anime); })
-
 		if (anime.thumbnailLink)
-			btn.append(new SrcElement("img", anime.thumbnailLink))
+		this.append(new SrcElement("img", anime.thumbnailLink))
 
-		btn.append(new ScreenElement("h1").setText(anime.name))
-		this.append(btn);
+		this.append(new ScreenElement("h2").setText(anime.name));
 	}
 }
 
@@ -988,15 +1168,17 @@ class EpisodeElement extends ScreenElement
 	{
 		super("li");
 
+		
+		
+		this.addClass("episode");
+		this.setId(`episode ${anime.id}-${episode.episodeId}`);
+		
+		let btn = new ButtonElement(() => { onclick(anime, episode); })
 		if (listIsSeen[episode.episodeId]) 
 		{
 			this.addClass("seen");
+			btn.setBtnSuccess();
 		}
-
-		this.addClass("episode");
-		this.setId(`episode ${anime.id}-${episode.episodeId}`);
-
-		let btn = new ButtonElement(() => { onclick(anime, episode); })
 
 		if (anime.thumbnailLink)
 			btn.append(new SrcElement("img", episode.posterLink))
@@ -1041,7 +1223,7 @@ class EpisodeWatchButton extends ButtonElement
 
 		if (listIsSeen[episode.episodeId]) 
 		{
-			this.addClass("seen");
+			this.setBtnSuccess();
 		}
 
 		this.addClass(EpisodeWatchButton.CLASS_WATCH);
@@ -1655,6 +1837,7 @@ class VideoTime extends ScreenElement
 		let activities = data.activities;
 		let accounts = data.accounts;
 
+		let toAppend = [];
 		for (let i = accounts.length - 1; i >= 0; i--) {
 			let lName = accounts[i];
 			if (lName === ScreenManager.currentAccount) continue;
@@ -1670,10 +1853,11 @@ class VideoTime extends ScreenElement
 			if (lEpisodeId != this.episodeId) continue;
 			if ((Date.now() / 1000 - lDate) > 10) continue;
 
-			this.append(
-				new VideoTimeElm(lName, lVideoTime, lDate)
-			);
+			toAppend.push(new VideoTimeElm(lName, lVideoTime, lDate));
+			toAppend.push(new ScreenElement("br"));
 		}
+
+		this.appendList(toAppend);
 	}
 }
 

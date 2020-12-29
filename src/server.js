@@ -571,7 +571,7 @@ function start(config)
 	//*///////////////////////////////*//
 	//*         Public Folder         *//
 	//*///////////////////////////////*//
-	let folders = ["js", "html", "css", "fonts", "asset/ico"];
+	let folders = ["js", "html", "lib", "css", "fonts", "asset/ico"];
 	folders = folders.map(m => { return `/${m}/*` });
 
 	app.get(folders, (req, res, next) =>

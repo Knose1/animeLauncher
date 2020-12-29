@@ -1,0 +1,10 @@
+/* Declare font */
+
+@font-face {
+	font-family: "Raleway";
+    src: url('./fonts/Raleway-VariableFont_wght.ttf') format('embedded-opentype'), /* Internet Explorer */
+         url('./fonts/Raleway-VariableFont_wght.ttf') format('woff2'), /* Super Modern Browsers */
+         url('./fonts/Raleway-VariableFont_wght.ttf') format('woff'), /* Pretty Modern Browsers */
+         url('./fonts/Raleway-VariableFont_wght.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('./fonts/Raleway-VariableFont_wght.ttf') format('svg'); /* Legacy iOS */
+}

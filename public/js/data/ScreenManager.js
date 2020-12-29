@@ -245,7 +245,7 @@ class ScreenManager {
 		// HTML STARTS HERE //
 		// **************** //
 		HTMLManager.body.append(
-			new ScreenElement("ul").setId("animeList").appendList(animesElms)
+			new ScreenElement("ul").setId("animeList").addClass("list-group").appendList(animesElms)
 		);
 		// **************** //
 		//  HTML ENDS HERE  //
@@ -500,8 +500,8 @@ class ScreenManager {
 			else
 				btnNext.setText("Download Next - Episode "+nextEpId);
 			
-			if (listIsSeen[nextEpId]) btnNext.addClass("seen");
-			else btnNext.removeClass("seen");
+			if (listIsSeen[nextEpId]) btnNext.setBtnSuccess();
+			else btnNext.setBtnDark();
 
 			HTMLManager.body.append(
 				btnNext
@@ -517,14 +517,14 @@ class ScreenManager {
 						listIsSeen[episodeId] = !listIsSeen[episodeId];
 						btnSeen.setText(listIsSeen[episodeId] ? "Set as not seen" :  "Set as seen");
 
-						if (listIsSeen[episodeId]) btnSeen.addClass("seen");
-						else btnSeen.removeClass("seen");
+						if (listIsSeen[episodeId]) btnSeen.setBtnSuccess();
+						else btnSeen.setBtnDark();
 					});
 				}
 			).setText(listIsSeen[episodeId] ? "Set as not seen" :  "Set as seen");
 			
-			if (listIsSeen[episodeId]) btnSeen.addClass("seen");
-			else btnSeen.removeClass("seen");
+			if (listIsSeen[episodeId]) btnSeen.setBtnSuccess();
+			else btnSeen.setBtnDark();
 
 			HTMLManager.body.append(btnSeen);
 		}
