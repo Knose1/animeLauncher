@@ -5,6 +5,7 @@ const mime = require("mime-types");
 const HttpStatus = require('http-status-codes');
 const dataManager = require("./dataManager");
 const imageWriter = require("./image/imageWriter");
+const { debug } = require("console");
 
 
 const ANIME_FOLDER = "episode";
@@ -176,6 +177,9 @@ function start(config)
 		let animeName = req.query.name;
 		let animeThumbnailLink = req.query.thumbnailLink;
 
+		console.log("?name = " + animeName);
+		console.log("?thumbnailLink = " + animeThumbnailLink);
+
 		/**
 		 * @ignore
 		 * @type {server.data.config.AnimeConfig}
@@ -186,17 +190,17 @@ function start(config)
 			animeData.thumbnailLink = animeThumbnailLink;
 		}
 
-		let animeFolderName = global.toFileName(req.name.animeName, "-").replace(/\ /g, "_");
+		let animeFolderName = global.toFileName(animeName, "-").replace(/\ /g, "_");
 		let animeFolder = path.join(__root, ANIME_FOLDER, animeFolderName);
-		let jsonFile = path.join(animeFolderName, JSON_ANIME);
-
+		let jsonFile = path.join(animeFolder, JSON_ANIME);
+		debugger;
 		if (fs.existsSync(jsonFile)) 
 		{
 			res.sendStatus(HttpStatus.CONFLICT);
 			return;
 		}
 
-		fs.mkdir(animeFolderName, () =>
+		fs.mkdir(animeFolder, () =>
 		{
 			fs.writeFile(jsonFile, JSON.stringify(animeData), () =>
 			{
@@ -214,17 +218,21 @@ function start(config)
 	//*///////////////////////////////*//
 	app.get('/new/episode', (req, res, next) =>
 	{
-		let animeId = req.query.animeId;
+		let animeId = Number.parseFloat(req.query.animeId); //must be integer. But use float for safe int checking 
 		let episodeName = req.query.name;
 		let posterLink = req.query.posterLink;
 
-		let anime = tryToGetAnimeOrSendStatus(animeId);
-		if (!anime) return;
+		console.log("?animeId = " + animeId);
+		console.log("?name = " + episodeName);
+		console.log("?posterLink = " + posterLink);
 
+		let anime = tryToGetAnimeOrSendStatus(res, animeId);
+		if (!anime) return;
+		debugger;
 		/**
 		 * @type {server.data.config.EpisodeConfig}
 		 */
-		let epConfig = { "episodeId": anime.episodes.length, "links": [], "name": episodeName, "posterLink": posterLink };
+		let epConfig = { "episodeId": anime.episodes.length + 2, "links": [], "name": episodeName, "posterLink": posterLink };
 		let ep = new Episode(epConfig, anime);
 
 		anime.episodes.push(ep);

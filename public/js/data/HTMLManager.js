@@ -25,6 +25,7 @@ class HTMLManager {
 		
 		this.accountOverlay = new ScreenElementFromElement(document.getElementById("accounts"));
 		this.loadingOverlay = new ScreenElementFromElement(document.getElementById("loading"));
+		this.modalContainer = new ScreenElementFromElement(document.getElementById("modalContainer"));
 	}
 }
 

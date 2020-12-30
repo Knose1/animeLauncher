@@ -1,0 +1,31 @@
+:root {
+	--darken0 : #191c1f;
+	--darken1 : #1c2024;
+	--darken2 : #1c2024;
+	--darken3 : #1c2024;
+	--darken4 : #1f2328;
+}
+
+.bg-darken-0 {
+	background-color: var(--darken0);
+}
+
+.bg-darken-1 {
+	background-color: var(--darken1);
+}
+
+.bg-darken-2 {
+	background-color: var(--darken2);
+}
+
+.bg-darken-3 {
+	background-color: var(--darken3);
+}
+
+.bg-darken-4 {
+	background-color: var(--darken4);
+}
+
+.border-orange {
+	border-color: orange;
+}

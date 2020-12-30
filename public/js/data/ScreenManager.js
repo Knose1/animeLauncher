@@ -86,7 +86,6 @@ class ScreenManager {
 	 */
 	static init()
 	{
-		EditAnimeManager.init(this);
 		ScreenManager.setVideo(null);
 
 		/**
@@ -116,7 +115,8 @@ class ScreenManager {
 			}),
 			
 			new MenuButtonElement("Edit Animes", () => {
-				
+				ScreenElementManager.removeListenersOnAllElements();
+				EditAnimeManager.showAnimes();
 			}),
 			
 			ScreenManager.setAccountBtn

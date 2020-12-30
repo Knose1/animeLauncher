@@ -1,5 +1,4 @@
 :root {
-	--background-color:#1c2024;
 	--navSize: 50px;
 	--titleHeight: 64px;
 	--tabSize:30px;
@@ -14,7 +13,6 @@ body {
 	color: #ffffff;
 	-webkit-text-size-adjust: 100% !important;
 	-webkit-tap-highlight-color: transparent !important;
-	background-color: var(--background-color);
 	padding-bottom: 100px;
 }
 
@@ -90,7 +88,7 @@ button {
 	text-decoration: line-through;
 }
 
-#overlay > :not(.disabled)
+#overlay > :not(.disabled):not(.noBg)
 {
 	display:flex;
 	position:fixed;
@@ -101,6 +99,12 @@ button {
 	align-items:center;
 	justify-content:center;
 	background:hsl(0 0% 0% / 0.5);
+	z-index: 100;
+}
+
+
+
+#overlay > .noBg {
 	z-index: 100;
 }
 

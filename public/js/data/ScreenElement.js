@@ -395,37 +395,41 @@ class ScreenElement
 	{
 		if (join != undefined) 
 		{
-			if (join instanceof Array) {
+			if (join instanceof Array)
+			{
 				join = join.map((m, i) =>
 				{
 					if (m instanceof Function) return m(elements[i], i);
 					return m;
 				});
-	
+
 				for (let i = elements.length - 2; i >= 1; i--)
 				{
 					let joinArgs = Array.from(join); // ? tell me why
 					let lElement = joinArgs.shift();
-					
+
 					elements.splice(i, 0, lElement);
-					
+
 					if (joinArgs.length === 0) break;
 				}
 			}
-			else if (typeof(join) === "function") {
+			else if (typeof (join) === "function")
+			{
 				for (let i = elements.length - 2; i >= 1; i--)
 				{
 					elements.splice(i, 0, join(elements[i], i));
 				}
 			}
-			else if (typeof(join) === "string") {
+			else if (typeof (join) === "string")
+			{
 				for (let i = elements.length - 2; i >= 1; i--)
 				{
 					elements.splice(i, 0, join);
 				}
-				
+
 			}
-			else {
+			else
+			{
 				console.warn("ScreenElement.apprendlist(element,join) Join is in wrong type");
 			}
 		}
@@ -448,7 +452,8 @@ class ScreenElement
 		return this;
 	}
 
-	get firstChild() {
+	get firstChild()
+	{
 		let elm = this.element.firstElementChild;
 		return elm ? new ScreenElementFromElement(elm) : null;
 	}
@@ -511,6 +516,14 @@ class ScreenElement
 		return this;
 	}
 
+	/**
+	 * @type {string}
+	 */
+	getId()
+	{
+		return this.element.id;
+	}
+
 	clear()
 	{
 		this.element.innerHTML = "";
@@ -537,15 +550,103 @@ class ScreenElement
 	get hasFocusInChild() 
 	{
 		if (this.element === document) return document.hasFocus();
-		
+
 		return Array.from(this.element.querySelectorAll(":focus")).length > 0;
+	}
+}
+
+/**
+ * A bootstrap Accordion
+ */
+class Accordion extends ScreenElement
+{
+	/*
+	<div class="accordion" id="accordionExample">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingOne">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					Accordion Item #1
+				</button>
+			</h2>
+			<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+				</div>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingTwo">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+					Accordion Item #2
+				</button>
+			</h2>
+			<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+				</div>
+			</div>
+		</div>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="headingThree">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+					Accordion Item #3
+				</button>
+			</h2>
+			<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+				<div class="accordion-body">
+					<strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+				</div>
+			</div>
+		</div>
+	</div>
+	*/
+	/**
+	 * 
+	 * @param {string} id 
+	 */
+	constructor(id, tagName="div")
+	{
+		super(tagName);
+		this.setId("Accordion_" + id);
+		this.addClass("accordion");
+	}
+
+	/**
+	 * 
+	 * @param {AccordionItem} item 
+	 */
+	addAccordionItem(item) {
+		item.setParentId(this.getId());
+	}
+}
+
+class AccordionItem extends ScreenElement
+{
+	/**
+	 * 
+	 * @param {string} id 
+	 */
+	constructor(id, headerTagName="h2", tagName="div")
+	{
+		super(tagName);
+		//this.setId("Accordion_"+id);
+		this.addClass("accordion");
+
+
+	}
+
+	/**
+	 * 
+	 * @param {string} id 
+	 */
+	setParentId(id) {
+		id = "#"+id;
 	}
 }
 
 /**
  * Creates a ScreenElement using an HTMLElement
  * @memberof Public.Html.Elements
- * @extends Public.Html.Elements.ScreenElement
  */
 class ScreenElementFromElement extends ScreenElement
 {
@@ -564,7 +665,6 @@ class ScreenElementFromElement extends ScreenElement
 /**
  * Creates a screenElement that has a SRC attribute
  * @memberof Public.Html.Elements 
- * @extends Public.Html.Elements.ScreenElement
  */
 class SrcElement extends ScreenElement 
 {
@@ -588,7 +688,6 @@ class SrcElement extends ScreenElement
 /**
  * A video element
  * @memberof Public.Html.Elements
- * @extends Public.Html.Elements.SrcElement
  */
 class VideoElement extends SrcElement 
 {
@@ -703,7 +802,6 @@ class VideoElement extends SrcElement
 /**
  * Creates a button element listening to click event
  * @memberof Public.Html.Elements
- * @extends Public.Html.Elements.ScreenElement
  */
 class ButtonElement extends ScreenElement 
 {
@@ -730,7 +828,8 @@ class ButtonElement extends ScreenElement
 	/**
 	 * @public
 	 */
-	set_BtnPrimary() {
+	set_BtnPrimary()
+	{
 		this._removeOutline();
 		this._set_BtnPrimary_Internal(true);
 		this._set_BtnSecondary_Internal(false);
@@ -743,7 +842,8 @@ class ButtonElement extends ScreenElement
 	/**
 	 * @public
 	 */
-	set_BtnSecondary() {
+	set_BtnSecondary()
+	{
 		this._removeOutline();
 		this._set_BtnPrimary_Internal(false);
 		this._set_BtnSecondary_Internal(true);
@@ -756,7 +856,8 @@ class ButtonElement extends ScreenElement
 	/**
 	 * @public
 	 */
-	setBtnSuccess() {
+	setBtnSuccess()
+	{
 		this._removeOutline();
 		this._set_BtnPrimary_Internal(false);
 		this._set_BtnSecondary_Internal(false);
@@ -769,7 +870,8 @@ class ButtonElement extends ScreenElement
 	/**
 	 * @public
 	 */
-	setBtnDanger() {
+	setBtnDanger()
+	{
 		this._removeOutline();
 		this._set_BtnPrimary_Internal(false);
 		this._set_BtnSecondary_Internal(false);
@@ -782,7 +884,8 @@ class ButtonElement extends ScreenElement
 	/**
 	 * @public
 	 */
-	setBtnWarning() {
+	setBtnWarning()
+	{
 		this._removeOutline();
 		this._set_BtnPrimary_Internal(false);
 		this._set_BtnSecondary_Internal(false);
@@ -795,7 +898,8 @@ class ButtonElement extends ScreenElement
 	/**
 	 * @public
 	 */
-	setBtnInfo() {
+	setBtnInfo()
+	{
 		this._removeOutline();
 		this._set_BtnPrimary_Internal(false);
 		this._set_BtnSecondary_Internal(false);
@@ -808,14 +912,16 @@ class ButtonElement extends ScreenElement
 	/**
 	 * @public
 	 */
-	setBtnDark() {
+	setBtnDark()
+	{
 		this._set_BtnDark_Internal(true);
 	}
 
 	/**
 	 * @public
 	 */
-	setBtnLight() {
+	setBtnLight()
+	{
 		this._set_BtnDark_Internal(false);
 	}
 
@@ -850,7 +956,8 @@ class ButtonElement extends ScreenElement
 	 * @private
 	 * @param {boolean} bool 
 	 */
-	_set_BtnPrimary_Internal(bool) {
+	_set_BtnPrimary_Internal(bool)
+	{
 		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-primary");
 	}
 
@@ -858,7 +965,8 @@ class ButtonElement extends ScreenElement
 	 * @private
 	 * @param {boolean} bool 
 	 */
-	_set_BtnSecondary_Internal(bool) {
+	_set_BtnSecondary_Internal(bool)
+	{
 		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-secondary");
 	}
 
@@ -866,7 +974,8 @@ class ButtonElement extends ScreenElement
 	 * @private
 	 * @param {boolean} bool 
 	 */
-	_set_BtnSuccess_Internal(bool) {
+	_set_BtnSuccess_Internal(bool)
+	{
 		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-success");
 	}
 
@@ -874,7 +983,8 @@ class ButtonElement extends ScreenElement
 	 * @private
 	 * @param {boolean} bool 
 	 */
-	_set_BtnDanger_Internal(bool) {
+	_set_BtnDanger_Internal(bool)
+	{
 		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-danger");
 	}
 
@@ -882,7 +992,8 @@ class ButtonElement extends ScreenElement
 	 * @private
 	 * @param {boolean} bool 
 	 */
-	_set_BtnWarning_Internal(bool) {
+	_set_BtnWarning_Internal(bool)
+	{
 		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-warning");
 	}
 
@@ -890,7 +1001,8 @@ class ButtonElement extends ScreenElement
 	 * @private
 	 * @param {boolean} bool 
 	 */
-	_set_BtnInfo_Internal(bool) {
+	_set_BtnInfo_Internal(bool)
+	{
 		(bool ? this.addClass : this.removeClass).call(this, "btn-outline-info");
 	}
 
@@ -898,21 +1010,22 @@ class ButtonElement extends ScreenElement
 	 * @private
 	 * @param {boolean} dark 
 	 */
-	_set_BtnDark_Internal(dark) {
+	_set_BtnDark_Internal(dark)
+	{
 		this.removeClass("btn-dark", "btn-outline-light", "btn-light", "btn-outline-dark");
 		this.addClass(dark ? "btn-dark" : "btn-light");
 		this.addClass(dark ? "btn-outline-light" : "btn-outline-dark");
 	}
 
-	_removeOutline() {
+	_removeOutline()
+	{
 		this.removeClass("btn-outline-light", "btn-outline-dark", "btn-outline-info", "btn-outline-warning", "btn-outline-danger", "btn-outline-success", "btn-outline-secondary", "btn-outline-primary");
 	}
 }
 
 /**
  * Creates an input
- * @memberof Public.Html.Elements 
- * @extends Public.Html.Elements.ScreenElement
+ * @memberof Public.Html.Elements
  */
 class InputElement extends ScreenElement 
 {
@@ -955,8 +1068,7 @@ class InputElement extends ScreenElement
 
 /**
  * Creates button in the main menu (top bar)
- * @memberof Public.Html.Elements 
- * @extends Public.Html.Elements.ScreenElement
+ * @memberof Public.Html.Elements
  */
 class MenuButtonElement extends ScreenElement 
 {
@@ -971,9 +1083,9 @@ class MenuButtonElement extends ScreenElement
 		this.nameSpan = new ScreenElement("span").setText(name);
 		this.append(
 			new ButtonElement(onclick, true)
-			.append(
-				this.nameSpan
-			)
+				.append(
+					this.nameSpan
+				)
 		);
 		this.addClass("nav-item");
 	}
@@ -981,13 +1093,12 @@ class MenuButtonElement extends ScreenElement
 	setName(name) 
 	{
 		this.nameSpan.setText(name);
-	} 
+	}
 }
 
 /**
  * Creates a div with text that indicates progress
- * @memberof Public.Html.Elements 
- * @extends Public.Html.Elements.ScreenElement
+ * @memberof Public.Html.Elements
  * @abstract
  */
 class ProgressIndicator extends ScreenElement
@@ -1023,7 +1134,6 @@ class ProgressIndicator extends ScreenElement
 /**
  * Creates a div with a bar that indicates progress
  * @memberof Public.Html.Elements
- * @extends Public.Html.Elements.ProgressIndicator
  */
 class ProgressBarIndicator extends ProgressIndicator
 {
@@ -1064,7 +1174,6 @@ class ProgressBarIndicator extends ProgressIndicator
 /**
  * A video element for animes
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.VideoElement
  */
 class AnimeVideoElement extends VideoElement 
 {
@@ -1082,36 +1191,43 @@ class AnimeVideoElement extends VideoElement
 		this.setAutoplay(false)
 		this.setPoster(episode.posterLink || Loader.defaultThumbnailList[episodeId] || `/asset/thumbnail/${episodeId}.png?width:170&height:90&textSize=700`);
 
-		let lFKeyHandle = (k) => { 
-			this.toggleFullscreen() 
+		let lFKeyHandle = (k) =>
+		{
+			this.toggleFullscreen()
 		};
 
-		let lMKeyHandle = (k) => { 
-			this.toggleMute() 
+		let lMKeyHandle = (k) =>
+		{
+			this.toggleMute()
 		};
-		
-		let lArrowUpKeyHandle = (k) => { 
+
+		let lArrowUpKeyHandle = (k) =>
+		{
 			this.unmute();
 			this.volume += k.shiftKey ? 0.01 : 0.1;
 			k.preventDefault();
 		};
-		 
-		let lArrowDownKeyHandle = (k) => { 
+
+		let lArrowDownKeyHandle = (k) =>
+		{
 			this.volume -= k.shiftKey ? 0.01 : 0.1;
 			k.preventDefault();
 		};
-		
-		let lNKeyHandle = (k) => {
-			if (this._nextEpisode) {
+
+		let lNKeyHandle = (k) =>
+		{
+			if (this._nextEpisode)
+			{
 				let isFullscreen = this.isFullscreen;
 				this.exitFullscreen();
-				
+
 				setTimeout(() =>
 				{
 					if (confirm("Go to next episode ?")) 
 					{
 						ScreenElementManager.removeListenersOnAllElements();
-						Loader.setSeen(ScreenManager.currentAccount, this._episode.anime.id, this._episode.episodeId, true, () => {
+						Loader.setSeen(ScreenManager.currentAccount, this._episode.anime.id, this._episode.episodeId, true, () =>
+						{
 							this._listIsSeen[this._episode.episodeId] = ScreenManager.currentAccount != "";
 							Loader.loadLocalEpisode(this._nextEpisode.anime.id, this._nextEpisode.episodeId, this._listIsEpisodeLocal, this._listIsEpisode404, this._listIsSeen);
 						});
@@ -1139,7 +1255,6 @@ class AnimeVideoElement extends VideoElement
 /**
  * An anime button in the anime list
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ButtonElement
  */
 class AnimeElement extends ButtonElement
 {
@@ -1155,7 +1270,7 @@ class AnimeElement extends ButtonElement
 		this.setId(anime.id);
 
 		if (anime.thumbnailLink)
-		this.append(new SrcElement("img", anime.thumbnailLink))
+			this.append(new SrcElement("img", anime.thumbnailLink))
 
 		this.append(new ScreenElement("h2").setText(anime.name));
 	}
@@ -1164,7 +1279,6 @@ class AnimeElement extends ButtonElement
 /**
  * An episode button in the anime's episode list
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
 class EpisodeElement extends ScreenElement
 {
@@ -1181,11 +1295,11 @@ class EpisodeElement extends ScreenElement
 	{
 		super("li");
 
-		
-		
+
+
 		this.addClass("episode");
 		this.setId(`episode ${anime.id}-${episode.episodeId}`);
-		
+
 		let btn = new ButtonElement(() => { onclick(anime, episode); })
 		if (listIsSeen[episode.episodeId]) 
 		{
@@ -1209,7 +1323,6 @@ class EpisodeElement extends ScreenElement
 /**
  * A button to watch the episode
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ButtonElement
  */
 class EpisodeWatchButton extends ButtonElement
 {
@@ -1257,7 +1370,6 @@ class EpisodeWatchButton extends ButtonElement
 /**
  * A button to return to previous screen 
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ButtonElement
  */
 class ReturnButton extends ButtonElement
 {
@@ -1275,7 +1387,6 @@ class ReturnButton extends ButtonElement
 /**
  * A button to download all the episodes
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ButtonElement
  * @deprecated
  */
 class DownloadAllButton extends ButtonElement
@@ -1294,7 +1405,6 @@ class DownloadAllButton extends ButtonElement
 /**
  * A text that contains infos about the episode
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
 class EpisodeInfoElement extends ScreenElement
 {
@@ -1326,7 +1436,6 @@ class EpisodeInfoElement extends ScreenElement
 /**
  * A text that contains infos about the videoplayer
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
 class PlayerInfoElement extends ScreenElement
 {
@@ -1446,7 +1555,6 @@ class PlayerInfoElement extends ScreenElement
 /**
  * A text that formats ytdl string
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
 class YtDlFormatElement extends ScreenElement 
 {
@@ -1468,7 +1576,6 @@ class YtDlFormatElement extends ScreenElement
 /**
  * An element that opens an Iframe and wait for user input
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
 class IframeDownloadPromiseElement extends ScreenElement 
 {
@@ -1625,7 +1732,6 @@ class IframeDownloadPromiseElement extends ScreenElement
 /**
  * A progressbar fo
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
 class EpisodeDlProgress extends ScreenElement 
 {
@@ -1652,7 +1758,6 @@ class EpisodeDlProgress extends ScreenElement
 /**
  * When an episode has errors
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
 class EpisodeDlErrorProgress extends ScreenElement 
 {
@@ -1678,7 +1783,6 @@ class EpisodeDlErrorProgress extends ScreenElement
 /**
  * Layout for account
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ButtonElement
  */
 class Account extends ButtonElement 
 {
@@ -1686,9 +1790,11 @@ class Account extends ButtonElement
 	 * @public
 	 * @type {Array<Account>}
 	 */
-	static get list() {
+	static get list()
+	{
 		let list = Account._getList();
-		for (let i = list.length - 1; i >= 0; i--) {
+		for (let i = list.length - 1; i >= 0; i--)
+		{
 			let lElement = list[i];
 			if (lElement.parent === null) list.splice(i, 1);
 		}
@@ -1700,22 +1806,25 @@ class Account extends ButtonElement
 	 * @private
 	 * @return {Array<Account>}
 	 */
-	static _getList() {return this._list || (this._list = [])}
+	static _getList() { return this._list || (this._list = []) }
 
 	/**
 	 * @type {number}
 	 */
-	static get accountMode() {return Account._accountMode}
-	static set accountMode(value) {
+	static get accountMode() { return Account._accountMode }
+	static set accountMode(value)
+	{
 		let list = Account.list;
-		for (let i = list.length - 1; i >= 0; i--) {
+		for (let i = list.length - 1; i >= 0; i--)
+		{
 			let lElement = list[i];
 			lElement.removeClass("modeClick", "modeRemove");
-			switch (value) {
+			switch (value)
+			{
 				case Account.CLICK:
 					lElement.addClass("modeClick");
 					break;
-					
+
 				case Account.REMOVE:
 					lElement.addClass("modeRemove");
 					break;
@@ -1728,11 +1837,11 @@ class Account extends ButtonElement
 	/**
 	 * @type {number}
 	 */
-	 static get CLICK() {return 0}
+	static get CLICK() { return 0 }
 	/**
 	 * @type {number}
 	 */
-	static get REMOVE() {return 1}
+	static get REMOVE() { return 1 }
 
 	/**
 	 * 
@@ -1744,16 +1853,18 @@ class Account extends ButtonElement
 	{
 		if (Account.accountMode === undefined) Account.accountMode = Account.CLICK;
 
-		let handler = () => {
-			switch (Account.accountMode) {
+		let handler = () =>
+		{
+			switch (Account.accountMode)
+			{
 				case Account.CLICK:
 					clickHandler();
 					break;
-					
+
 				case Account.REMOVE:
 					removeHandler();
 					break;
-			
+
 				default:
 					break;
 			}
@@ -1764,18 +1875,19 @@ class Account extends ButtonElement
 
 		this.addClass("account");
 
-		switch (Account.accountMode) {
+		switch (Account.accountMode)
+		{
 			case Account.CLICK:
 				this.addClass("modeClick");
 				break;
-				
+
 			case Account.REMOVE:
 				this.addClass("modeRemove");
 				break;
 		}
-		
 
-		
+
+
 		/**
 		 * @type {ScreenElement}
 		 */
@@ -1798,7 +1910,8 @@ class Account extends ButtonElement
 	 * @param {string} buttonName
 	 * @returns {Account}
 	 */
-	setName(name, buttonName = "") {
+	setName(name, buttonName = "")
+	{
 
 		name.replace(/^./g, name[0].toUpperCase());
 
@@ -1815,7 +1928,6 @@ class Account extends ButtonElement
 /**
  * Contains all {@link VideoTimeElm Public.Html.Elements.Personalised.VideoTimeElm} 
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
 class VideoTime extends ScreenElement
 {
@@ -1823,7 +1935,8 @@ class VideoTime extends ScreenElement
 	 * @public
 	 * @type {VideoTime}
 	 */
-	static get instance() {
+	static get instance()
+	{
 		/**
 		 * @ignore 
 		 * @type {VideoTime}
@@ -1862,24 +1975,26 @@ class VideoTime extends ScreenElement
 		VideoTime._instance = this;
 	}
 
-	update(data) {
+	update(data)
+	{
 		this.clear();
 
 		let activities = data.activities;
 		let accounts = data.accounts;
 
 		let toAppend = [];
-		for (let i = accounts.length - 1; i >= 0; i--) {
+		for (let i = accounts.length - 1; i >= 0; i--)
+		{
 			let lName = accounts[i];
 			if (lName === ScreenManager.currentAccount) continue;
 
 			let lActivity = activities[lName];
-			let lAnimeId = Number.parseInt(lActivity.animeId); 
+			let lAnimeId = Number.parseInt(lActivity.animeId);
 			let lEpisodeId = Number.parseInt(lActivity.episodeId);
 			let lVideoTime = Number.parseFloat(lActivity.videoTime); //in sec
 			let lDate = lActivity.date / 1000; //from milisec to sec
 
-			
+
 			if (lAnimeId != this.animeId) continue;
 			if (lEpisodeId != this.episodeId) continue;
 			if ((Date.now() / 1000 - lDate) > 10) continue;
@@ -1896,26 +2011,28 @@ class VideoTime extends ScreenElement
  * Time information when someone else is watching
  * @internal
  * @memberof Public.Html.Elements.Personalised
- * @extends Public.Html.Elements.ScreenElement
  */
-class VideoTimeElm extends ScreenElement {
+class VideoTimeElm extends ScreenElement
+{
 	constructor(name, videoTime, date) 
 	{
 		super("span");
 		let endTime = (Date.now() / 1000) - date + videoTime;
 		let dateTime = new Date(endTime * 1000 - 3600000);
-		let btn = new ButtonElement( () => {
-			
+		let btn = new ButtonElement(() =>
+		{
+
 			endTime = (Date.now() / 1000) - date + videoTime;
 			dateTime = new Date(endTime * 1000 - 3600000)
-			
+
 			btn.setText(dateTime.toLocaleTimeString());
 
-			if (ScreenManager.currentVideo) {
+			if (ScreenManager.currentVideo)
+			{
 				ScreenManager.currentVideo.time = endTime;
 				ScreenManager.currentVideo.play();
 			}
-		}).setText(dateTime.toLocaleTimeString())	
+		}).setText(dateTime.toLocaleTimeString())
 		this.append(
 			name,
 			btn

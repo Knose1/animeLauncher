@@ -9,7 +9,6 @@ header .title {
 	z-index: 10;
     margin-bottom: 20px;
 	border-bottom: solid orange 2px;
-	background-color: #191c1f !important;
 }
 
 .nav-item, .btn {
