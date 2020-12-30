@@ -9,7 +9,7 @@ header .title {
 	z-index: 10;
     margin-bottom: 20px;
 	border-bottom: solid orange 2px;
-	background-color: var(--background-color);
+	background-color: #191c1f !important;
 }
 
 .nav-item, .btn {
@@ -25,6 +25,7 @@ header .title {
 	border-bottom: solid white 1px;
 	border-radius: 0px;
 	width:100%;
+	background-color: transparent !important;
 }
 
 .nav-item:hover > .btn, .nav-item:focus > .btn {
@@ -32,9 +33,8 @@ header .title {
 	color: #808fdb;
 }
 
-
-.nav-item:hover, .nav-item:focus, .nav-item:hover > .btn, .nav-item:focus > .btn {
-	background-color: #1c1f23;
+.nav-item:hover > .btn, .nav-item:focus > .btn {
+	background-color: transparent !important;
 }
 
 @media(max-width: 991.2px) {
@@ -43,12 +43,17 @@ header .title {
 		display:flex;
 		justify-content: center;
 		width: 100%;
+		border-radius: 10px;
 	}
 	.nav-item > .btn {
 		margin-top: 20px;
 		border-bottom: solid white 2px;
 		border-radius: 0px;
 		width: 75%;
+	}
+
+	.nav-item:hover, .nav-item:focus {
+		background-color: #0a0b0c;
 	}
 }
 

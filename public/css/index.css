@@ -316,3 +316,14 @@ video {
 .VideoTime > span > button {
 	margin-left: 6px;	
 }
+
+.btn-outline-success {
+	color: #46e26a;
+	border-color: #46e26a;
+}
+
+.btn-outline-success:hover {
+	color: #fff;
+	background-color: #28a745;
+	border-color: #28a745;
+}
