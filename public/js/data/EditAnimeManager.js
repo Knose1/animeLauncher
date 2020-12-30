@@ -1,15 +1,31 @@
+import ScreenManager from "./ScreenManager";
+
 /**
  * Manage Screen
  * @memberof Public.Html
+ * @ignore
  */
 class EditAnimeManager {
 	
 	/**
 	 * @public
-	 * @param {*} animes 
+	 * @ignore
+	 * @param {typeof ScreenManager} ScreenManager
 	 */
-	static init(animes) {
-		this.animes = animes;
+	static init(ScreenManager) {
+		/**
+		 * @ignore
+		 * @type {typeof ScreenManager}
+		 */
+		this.ScreenManager = ScreenManager;
+	}
+
+	/**
+	 * @public
+	 */
+	static showAnimes() {
+		this.ScreenManager
+		EditAnimeManager.ScreenManager;
 	}
 }
 

@@ -72,7 +72,6 @@
 											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
 											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
 											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
-											<li><a href="Public.Html.EditAnimeManager.html">Public.Html.EditAnimeManager</a></li>
 											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
 											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
 											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
@@ -154,18 +153,34 @@
 			<div class="col-md-12 main-content">
 		<section class="source-section">
 			<article></article>
-			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">/**
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import ScreenManager from "./ScreenManager";
+
+/**
  * Manage Screen
  * @memberof Public.Html
+ * @ignore
  */
 class EditAnimeManager {
 	
 	/**
 	 * @public
-	 * @param {*} animes 
+	 * @ignore
+	 * @param {typeof ScreenManager} ScreenManager
 	 */
-	static init(animes) {
-		this.animes = animes;
+	static init(ScreenManager) {
+		/**
+		 * @ignore
+		 * @type {typeof ScreenManager}
+		 */
+		this.ScreenManager = ScreenManager;
+	}
+
+	/**
+	 * @public
+	 */
+	static showAnimes() {
+		this.ScreenManager
+		EditAnimeManager.ScreenManager;
 	}
 }
 

@@ -83,10 +83,10 @@ class ScreenManager {
 
 	/**
 	 * @public
-	 * @this {ScreenManager}
 	 */
 	static init()
 	{
+		EditAnimeManager.init(this);
 		ScreenManager.setVideo(null);
 
 		/**
@@ -154,7 +154,6 @@ class ScreenManager {
 	 */
 	static initAnimes(json) 
 	{
-		EditAnimeManager.init(this.animes);
 		this.setTitle(LOADING_THUMBNAILS, ANIME_NODEJS);
 
 		HTMLManager.body.clear();

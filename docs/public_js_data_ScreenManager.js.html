@@ -72,7 +72,6 @@
 											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
 											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
 											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
-											<li><a href="Public.Html.EditAnimeManager.html">Public.Html.EditAnimeManager</a></li>
 											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
 											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
 											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
@@ -239,10 +238,10 @@ class ScreenManager {
 
 	/**
 	 * @public
-	 * @this {ScreenManager}
 	 */
 	static init()
 	{
+		EditAnimeManager.init(this);
 		ScreenManager.setVideo(null);
 
 		/**
@@ -310,7 +309,6 @@ class ScreenManager {
 	 */
 	static initAnimes(json) 
 	{
-		EditAnimeManager.init(this.animes);
 		this.setTitle(LOADING_THUMBNAILS, ANIME_NODEJS);
 
 		HTMLManager.body.clear();
