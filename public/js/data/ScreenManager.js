@@ -27,6 +27,7 @@ import
 	VideoTime
 }
 from './ScreenElement.js';
+import EditAnimeManager from './EditAnimeManager.js';
 
 const LOADING_ANIMES = "Loading Animes...";
 const LOADING_THUMBNAILS = "Loading Thumbnails...";
@@ -107,16 +108,14 @@ class ScreenManager {
 				ScreenElementManager.removeListenersOnAllElements();
 				ScreenManager.generateAnimeListHTML();
 			}),
-			
-			/*new MenuButtonElement("Edit Animes", () => {
-			}),
-			
-			new MenuButtonElement("Edit Streams", () => {
-			}),*/
-			
+				
 			new MenuButtonElement("Reload Animes", () => {
 				ScreenElementManager.removeListenersOnAllElements();
 				Loader.loadAnimeList();
+			}),
+			
+			new MenuButtonElement("Edit Animes", () => {
+				
 			}),
 			
 			ScreenManager.setAccountBtn
@@ -143,6 +142,7 @@ class ScreenManager {
 
 	static initAnimes(json) 
 	{
+		EditAnimeManager.init(this.animes);
 		this.setTitle(LOADING_THUMBNAILS, ANIME_NODEJS);
 
 		HTMLManager.body.clear();
