@@ -69,14 +69,16 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="AnimeVideoElement.html">AnimeVideoElement</a></li>
 											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
 											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
 											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
+											<li><a href="Public.Html.EditAnimeManager.html">Public.Html.EditAnimeManager</a></li>
 											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
 											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
 											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.Account.html">Public.Html.Elements.Personalised.Account</a></li>
 											<li><a href="Public.Html.Elements.Personalised.AnimeElement.html">Public.Html.Elements.Personalised.AnimeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.AnimeVideoElement.html">Public.Html.Elements.Personalised.AnimeVideoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.DownloadAllButton.html">Public.Html.Elements.Personalised.DownloadAllButton</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlErrorProgress.html">Public.Html.Elements.Personalised.EpisodeDlErrorProgress</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlProgress.html">Public.Html.Elements.Personalised.EpisodeDlProgress</a></li>
@@ -86,6 +88,8 @@
 											<li><a href="Public.Html.Elements.Personalised.IframeDownloadPromiseElement.html">Public.Html.Elements.Personalised.IframeDownloadPromiseElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.PlayerInfoElement.html">Public.Html.Elements.Personalised.PlayerInfoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.ReturnButton.html">Public.Html.Elements.Personalised.ReturnButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTime.html">Public.Html.Elements.Personalised.VideoTime</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTimeElm.html">Public.Html.Elements.Personalised.VideoTimeElm</a></li>
 											<li><a href="Public.Html.Elements.Personalised.YtDlFormatElement.html">Public.Html.Elements.Personalised.YtDlFormatElement</a></li>
 											<li><a href="Public.Html.Elements.ProgressBarIndicator.html">Public.Html.Elements.ProgressBarIndicator</a></li>
 											<li><a href="Public.Html.Elements.ProgressIndicator.html">Public.Html.Elements.ProgressIndicator</a></li>
@@ -93,17 +97,18 @@
 											<li><a href="Public.Html.Elements.ScreenElementFromElement.html">Public.Html.Elements.ScreenElementFromElement</a></li>
 											<li><a href="Public.Html.Elements.ScreenElementManager.html">Public.Html.Elements.ScreenElementManager</a></li>
 											<li><a href="Public.Html.Elements.SrcElement.html">Public.Html.Elements.SrcElement</a></li>
+											<li><a href="Public.Html.Elements.VideoElement.html">Public.Html.Elements.VideoElement</a></li>
 											<li><a href="Public.Html.HTMLManager.html">Public.Html.HTMLManager</a></li>
 											<li><a href="Public.Html.ScreenManager.html">Public.Html.ScreenManager</a></li>
 											<li><a href="Public.Loader.html">Public.Loader</a></li>
 											<li><a href="Public.Main.html">Public.Main</a></li>
+											<li><a href="server.Account.html">server.Account</a></li>
 											<li><a href="server.Anime.html">server.Anime</a></li>
 											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
 											<li><a href="server.Episode.html">server.Episode</a></li>
 											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
 											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
 											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
-											<li><a href="VideoElement.html">VideoElement</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -151,6 +156,7 @@
 			<article></article>
 			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import FileLoader from './utils/FileLoader.js';
 import ScreenManager from './data/ScreenManager.js';
+import { VideoTime } from './data/ScreenElement.js';
 
 /**
  * @memberof Public 
@@ -210,6 +216,7 @@ class Loader
 	{
 		Loader.loadAnimeList();
 		Loader.getListDownload();
+		Loader.updateActivity();
 	}
 
 	static loadAnimeList()
@@ -223,7 +230,7 @@ class Loader
 		})
 
 		FileLoader.getInstance().oncomplete = () => {
-			console.log("[FileLoader] Finished loading list");
+			console.log("[FileLoader] Finished loading anime list");
 			
 
 			FileLoader.getInstance().oncomplete = null;
@@ -237,7 +244,86 @@ class Loader
 
 		FileLoader.getInstance().start();
 	}
+
+	/**
+	 * 
+	 * @param {function} then 
+	 */
+	static loadAccounts(then) 
+	{
+		//ScreenManager.showLoadingAnime();
+		
+		let list;
+		FileLoader.getInstance()._reset()
+		FileLoader.getInstance().readAsJson("./get/accounts", (d) => {
+			list = d;
+		});
+
+		FileLoader.getInstance().oncomplete = () => {
+			console.log("[FileLoader] Finished loading account list");
+			
+
+			FileLoader.getInstance().oncomplete = null;
+			
+			
+			then(list);
+			//this.onListLoaded(list);
+		};
+		FileLoader.getInstance().onerror = (e) => {
+			alert(e);
+		};
+
+		FileLoader.getInstance().start();
+	}
+
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {Function} then 
+	 */
+	static removeAccount(name, then) 
+	{
+		let url = "./remove/account?name="+encodeURIComponent(name);
+
+		FileLoader.getInstance()._reset()
+		FileLoader.getInstance().readAsText(url, () => {});
+
+		FileLoader.getInstance().oncomplete = () => {
+			console.log("[FileLoader] Account "+name+" removed");
+			
+			then();
+		};
+		FileLoader.getInstance().onerror = (e) => {
+			alert(e);
+		};
+
+		FileLoader.getInstance().start();
+	}
 	
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {Function} then 
+	 */
+	static createAccount(name, then) 
+	{
+		let url = "./new/account?name="+encodeURIComponent(name);
+
+		FileLoader.getInstance()._reset()
+		FileLoader.getInstance().readAsText(url, () => {});
+
+		FileLoader.getInstance().oncomplete = () => {
+			console.log("[FileLoader] Account "+name+" created");
+			
+			then();
+		};
+		FileLoader.getInstance().onerror = (e) => {
+			alert(e);
+		};
+
+		FileLoader.getInstance().start();
+	}
+
 	static getEpisodeInfo(animeId, episodeId, callback, loadYtInfo = true)
 	{
 		animeId = Number.parseInt(animeId);
@@ -250,18 +336,48 @@ class Loader
 		})
 		.start();
 	}
+
+	static getIsSeen(name, animeId, episodeId, callback)
+	{
+		if (!name) {
+			callback(false);
+			return;
+		}
+		animeId = Number.parseInt(animeId);
+		episodeId = Number.parseInt(episodeId);
+
+		let reqUrl = new URL(`${window.location.protocol}//${window.location.host}/get/account/seen`);
+		
+		reqUrl.searchParams.set("name", name);
+		reqUrl.searchParams.set("animeId", animeId);
+		reqUrl.searchParams.set("episodeId", episodeId);
+
+		let lLoader = new FileLoader()
+		.readAsJson(reqUrl.toString(), (json) => {
+			lLoader._destroy();
+			callback(json);
+		});
+		lLoader.onparseerror = lLoader.onerror = e => {
+			callback(false);
+			//alert("Error when checking if a is seen : "+e);
+		};
+		lLoader.start();
+	}
 	
 	/**
 	 * 
 	 * @param {number} animeId 
 	 * @param {number} episodeId 
+	 * @param {Array&lt;boolean>} listIsEpisodeLocal 
+	 * @param {Array&lt;boolean>} listIsEpisode404 
+	 * @param {Array&lt;boolean>} listIsSeen 
 	 */
-	static loadLocalEpisode(animeId, episodeId, listIsEpisodeLocal, listIsEpisode404)
+	static loadLocalEpisode(animeId, episodeId, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 		animeId = Number.parseInt(animeId);
 		episodeId = Number.parseInt(episodeId);
 
-		ScreenManager.showVideo(this.getVideoPath(animeId, episodeId), animeId, episodeId, listIsEpisodeLocal, listIsEpisode404);
+		ScreenManager.showVideo(this.getVideoPath(animeId, episodeId), animeId, episodeId, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
 	}
 
 	static getVideoPath(animeId, episodeId) {return `./episode/${animeId}/${episodeId}`}
@@ -285,6 +401,7 @@ class Loader
 			});
 			loader.onparseerror = loader.onerror = (e) => 
 			{
+				loader._destroy();
 				reject(e);
 			}
 			loader.start();
@@ -314,7 +431,90 @@ class Loader
 					Loader.getListDownload();
 					loader._destroy(); 
 				},
+				10000
+			);
+		};
+		loader.start();
+	}
+
+	static updateActivity() {
+		let loader = new FileLoader()
+		
+		.readAsJson("./get/account/activity", (json) => {
+			let inst = VideoTime.instance;
+			if (inst)
+				inst.update(json);
+		});
+
+		if (ScreenManager.currentAccount) 
+		{
+			let lVid = ScreenManager.currentVideo;
+			let lActivity = {
+				/**
+				 * @ignore
+				 * @type {number}
+				 */
+				animeId: -1, 
+				
+				/**
+				 * @ignore
+				 * @type {number}
+				 */
+				episodeId: -1, 
+				
+				/**
+				 * @ignore
+				 * @type {number}
+				 */
+				videoTime: -1, 
+				
+				/**
+				 * @ignore
+				 * @type {number}
+				 */
+				date: Date.now()
+			};
+			if (lVid) {
+
+				let lEp = lVid._episode;
+				let lAnim = lVid._episode.anime;
+	
+				lActivity.animeId = lAnim.id;
+				lActivity.episodeId = lEp.episodeId;
+				lActivity.videoTime = lVid.time;
+			}
+
+
+			let reqUrl = new URL(`${window.location.protocol}//${window.location.host}/set/account/activity`);
+		
+			reqUrl.searchParams.set("name", ScreenManager.currentAccount);
+			reqUrl.searchParams.set("animeId", lActivity.animeId);
+			reqUrl.searchParams.set("episodeId", lActivity.episodeId);
+			reqUrl.searchParams.set("videoTime", lActivity.videoTime);
+			reqUrl.searchParams.set("date", lActivity.date);
+
+			loader.readAsText(reqUrl.toString(), () => {});
+		}
+		
+		loader.oncomplete = () => {
+			setTimeout(
+				() => 
+				{
+					Loader.updateActivity();
+					loader._destroy();
+				},
 				2000
+			);
+		};
+		loader.onparseerror = loader.onerror = (e) => 
+		{
+			console.log(e);
+			setTimeout(
+				() => {
+					Loader.updateActivity();
+					loader._destroy(); 
+				},
+				10000
 			);
 		};
 		loader.start();
@@ -323,6 +523,36 @@ class Loader
 	static onListLoaded(data)
 	{
 		ScreenManager.initAnimes(data);
+	}
+
+	/**
+	 * 
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 * @param {boolean} value 
+	 * @param {function} then
+	 */
+	static setSeen(name, animeId, episodeId, value, then) 
+	{
+		if (!name) then();
+
+		let reqUrl = new URL(`${window.location.protocol}//${window.location.host}/edit/account/seen`);
+		
+		reqUrl.searchParams.set("name", name);
+		reqUrl.searchParams.set("animeId", animeId);
+		reqUrl.searchParams.set("episodeId", episodeId);
+		reqUrl.searchParams.set("value", value);
+
+		let loader = new FileLoader().readAsText(reqUrl.toString(), (t) => {
+			loader._destroy();
+			then();
+		});
+		loader.onparseerror = loader.onerror = (e) => 
+		{
+			loader._destroy();
+			alert(e);
+		}
+		loader.start();
 	}
 }
 
@@ -333,7 +563,7 @@ export default Loader;</code></pre>
 	</div>
 	<footer>
 				<div class="copyright">Anime Launcher is licensed under MIT <a href="https://github.com/Knose1/animeLauncher/blob/master/LICENSE">license</a>. Copyright (c) 2020 <a href="https://github.com/Knose1/">Knose1</a></div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 19th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 30th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

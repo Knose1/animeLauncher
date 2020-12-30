@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-		<title>Public.Html.Elements~MenuButtonElement</title>
+		<title>server~Account</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -145,7 +145,7 @@
 	<!-- end:navbar.hbs -->		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
-				<h1><span class="ancestors"><a href="Public.html">Public</a><a href="Public.Html.html">.Html</a><a href="Public.Html.Elements.html">.Elements</a>~</span><span class="name">MenuButtonElement</span></h1>
+				<h1><span class="ancestors"><a href="server.html">server</a>~</span><span class="name">Account</span></h1>
 			</div>
 		</div>
 	<div class="container content">
@@ -154,26 +154,26 @@
 						<ol class="breadcrumb">
 							<li><a href="index.html">Home</a></li>
 							<li><a href="list_class.html">Classes</a></li>
-							<li class="active"><a href="Public.html">Public</a><a href="Public.Html.html">.Html</a><a href="Public.Html.Elements.html">.Elements</a>~MenuButtonElement</li>
+							<li class="active"><a href="server.html">server</a>~Account</li>
 						</ol>
 						<div class="access-filter">
 								<label class="checkbox-inline">
-									<input class="toggle-inherited" type="checkbox" value="" checked>
-									Inherited
-								</label>
-								<label class="checkbox-inline">
 									<input class="toggle-public" type="checkbox" value="" checked>
 									Public
+								</label>
+								<label class="checkbox-inline">
+									<input class="toggle-private" type="checkbox" value="" checked>
+									Private
 								</label>
 						</div>
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
-			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">MenuButtonElement</span><span class="signature-params">( <span class="signature-param">onclick</span>, <span class="signature-param">name</span>&nbsp;)</span><span class="signature-type"></span></h2>
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">Account</span><span class="signature-params">( <span class="signature-param">jsonObject</span>, <span class="signature-param">filePath</span>&nbsp;)</span><span class="signature-type"></span></h2>
 </dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>Creates button in the main menu (top bar)</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>Store the datas of an account</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -186,13 +186,13 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>onclick</code></td>
-							<td><span class="param-type">function</span></td>
+								<td><code>jsonObject</code></td>
+							<td><span class="param-type">JsonObject</span></td>
 							<td class="last">
 							</td>
 						</tr>
 						<tr>
-								<td><code>name</code></td>
+								<td><code>filePath</code></td>
 							<td><span class="param-type">string</span></td>
 							<td class="last">
 							</td>
@@ -204,13 +204,6 @@
 			
 			
 			
-							<!-- augments -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Augments</label>
-								<div class="col-sm-9">
-										<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html">Public.Html.Elements.ScreenElement</a></p>
-								</div>
-							</div>
 			
 			
 			
@@ -227,7 +220,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-968">line 968</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1307">line 1307</a></p>
 								</div>
 							</div>
 			
@@ -242,18 +235,19 @@
 									<h3>Members</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title member public inherited collapsible-symbol">
-			<h4 id="element" class="member public inherited"><span class="name">element</span><span class="signature-type"> :HTMLElement</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id=".list" class="member public"><span class="signature-attribs">&lt;static, readonly> </span><span class="name">list</span><span class="signature-type"> :Array.&lt;Account></span></h4>
 		</dt>
-<dd class="symbol-details member public inherited  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The list of Account</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">HTMLElement</span></div>
+									<div class="form-control-static type-names"><span class="param-type">Array.&lt;Account></span></div>
 								</div>
 							</div>
 			
@@ -261,21 +255,7 @@
 			
 			
 			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#element">Public.Html.Elements.ScreenElement#element</a></p>
-								</div>
-							</div>
 			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#element">Public.Html.Elements.ScreenElement#element</a></p>
-								</div>
-							</div>
 			
 			
 			
@@ -288,7 +268,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-368">line 368</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1299">line 1299</a></p>
 								</div>
 							</div>
 			
@@ -299,18 +279,19 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title member public inherited collapsible-symbol">
-			<h4 id="parent" class="member public inherited"><span class="name">parent</span><span class="signature-type"> :ScreenElementFromElement</span></h4>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="jsonFile" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">jsonFile</span><span class="signature-type"> :JsonObject</span></h4>
 		</dt>
-<dd class="symbol-details member public inherited  collapsible-symbol">
+<dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The JsonObject of the account.</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 							<!-- type -->
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">ScreenElementFromElement</span></div>
+									<div class="form-control-static type-names"><span class="param-type">JsonObject</span></div>
 								</div>
 							</div>
 			
@@ -318,21 +299,7 @@
 			
 			
 			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#parent">Public.Html.Elements.ScreenElement#parent</a></p>
-								</div>
-							</div>
 			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#parent">Public.Html.Elements.ScreenElement#parent</a></p>
-								</div>
-							</div>
 			
 			
 			
@@ -345,7 +312,260 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-464">line 464</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1315">line 1315</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="filePath" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">filePath</span><span class="signature-type"> :string</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The path to the file</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">string</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1323">line 1323</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="id" class="member public"><span class="signature-attribs">&lt;readonly> </span><span class="name">id</span><span class="signature-type"> :number</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The unique id of the account</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1343">line 1343</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member private collapsible-symbol">
+			<h4 id="_activity" class="member private"><span class="signature-attribs">&lt;private> </span><span class="name">_activity</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details member private  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1350">line 1350</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="name" class="member public"><span class="name">name</span><span class="signature-type"> :string</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">string</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1367">line 1367</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public collapsible-symbol">
+			<h4 id="password" class="member public"><span class="name">password</span><span class="signature-type"> :string</span></h4>
+		</dt>
+<dd class="symbol-details member public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">string</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1373">line 1373</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member private collapsible-symbol">
+			<h4 id="isDestroy" class="member private"><span class="signature-attribs">&lt;private, readonly> </span><span class="name">isDestroy</span><span class="signature-type"> :boolean</span></h4>
+		</dt>
+<dd class="symbol-details member private  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">boolean</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1452">line 1452</a></p>
 								</div>
 							</div>
 			
@@ -359,10 +579,10 @@
 									<h3>Methods</h3>
 									<dl class="symbol">
 											<hr/>
-											<dt class="symbol-title function public inherited collapsible-symbol">
-			<h4 id="setText" class="function public inherited"><span class="name">setText</span><span class="signature-params">( <span class="signature-param">txt</span>&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="setSeen" class="function public"><span class="name">setSeen</span><span class="signature-params">( <span class="signature-param">animeId</span>, <span class="signature-param">episodeId</span>, <span class="signature-param">value</span>&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
-<dd class="symbol-details function public inherited  collapsible-symbol">
+<dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -376,7 +596,299 @@
 					</thead>
 					<tbody>
 						<tr>
-								<td><code>txt</code></td>
+								<td><code>animeId</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>episodeId</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>value</code></td>
+							<td><span class="param-type">boolean</span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1382">line 1382</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getSeen" class="function public"><span class="name">getSeen</span><span class="signature-params">( <span class="signature-param">animeId</span>, <span class="signature-param">episodeId</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{boolean}</span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>animeId</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>episodeId</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1401">line 1401</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="setActivity" class="function public"><span class="name">setActivity</span><span class="signature-params">( <span class="signature-param">animeId</span>, <span class="signature-param">episodeId</span>, <span class="signature-param">videoTime</span>, <span class="signature-param">date</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>animeId</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>episodeId</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>videoTime</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>date</code></td>
+							<td><span class="param-type">number</span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1417">line 1417</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getActivity" class="function public"><span class="name">getActivity</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1425">line 1425</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="save" class="function public"><span class="name">save</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{Promise.&lt;void>}</span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Promise.&lt;void></span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"><p>jsonFile.save()</p></div>
+								</div>
+							</div>
+					</form>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1433">line 1433</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".getAccountByName" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">getAccountByName</span><span class="signature-params">( <span class="signature-param">name</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{Account}</span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>name</code></td>
 							<td><span class="param-type">string</span></td>
 							<td class="last">
 							</td>
@@ -384,107 +896,22 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-							<!-- inherits -->
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">Account</span></label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#setText">Public.Html.Elements.ScreenElement#setText</a></p>
+									<div class="form-control-static returns-description"></div>
 								</div>
 							</div>
-			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#setText">Public.Html.Elements.ScreenElement#setText</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-375">line 375</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
 					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public inherited collapsible-symbol">
-			<h4 id="appendList" class="function public inherited"><span class="name">appendList</span><span class="signature-params">( <span class="signature-param">elements</span> [,&nbsp;<span class="signature-param">join</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>elements</code></td>
-							<td><span class="param-type">Array.&lt;(string|<a href="ScreenElement.html">ScreenElement</a>)></span></td>
-								<td class="attributes"></td>
-							<td class="last">
-							</td>
-						</tr>
-						<tr>
-								<td><code>join</code></td>
-							<td><span class="param-type">string</span> | <span class="param-type">joinFunction</span> | <span class="param-type">Array.&lt;(string|<a href="ScreenElement.html">ScreenElement</a>|joinFunction)></span></td>
-								<td class="attributes">&lt;optional&gt;<br/></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
 			
 			
 			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#appendList">Public.Html.Elements.ScreenElement#appendList</a></p>
-								</div>
-							</div>
 			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#appendList">Public.Html.Elements.ScreenElement#appendList</a></p>
-								</div>
-							</div>
 			
 			
 			
@@ -497,293 +924,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-394">line 394</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public inherited collapsible-symbol">
-			<h4 id="append" class="function public inherited"><span class="name">append</span><span class="signature-params">( <span class="signature-param">...elements</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>elements</code></td>
-							<td><span class="param-type">string</span> | <span class="param-type"><a href="ScreenElement.html">ScreenElement</a></span></td>
-								<td class="attributes">&lt;repeatable&gt;<br/></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#append">Public.Html.Elements.ScreenElement#append</a></p>
-								</div>
-							</div>
-			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#append">Public.Html.Elements.ScreenElement#append</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-441">line 441</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public inherited collapsible-symbol">
-			<h4 id="addClassList" class="function public inherited"><span class="name">addClassList</span><span class="signature-params">( <span class="signature-param">classes</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>classes</code></td>
-							<td><span class="param-type">Array.&lt;string></span></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#addClassList">Public.Html.Elements.ScreenElement#addClassList</a></p>
-								</div>
-							</div>
-			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#addClassList">Public.Html.Elements.ScreenElement#addClassList</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-476">line 476</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public inherited collapsible-symbol">
-			<h4 id="addClass" class="function public inherited"><span class="name">addClass</span><span class="signature-params">( <span class="signature-param">...classes</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>classes</code></td>
-							<td><span class="param-type">string</span></td>
-								<td class="attributes">&lt;repeatable&gt;<br/></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#addClass">Public.Html.Elements.ScreenElement#addClass</a></p>
-								</div>
-							</div>
-			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#addClass">Public.Html.Elements.ScreenElement#addClass</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-486">line 486</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-					</form>
-			</div>	</div>
-</dd>
-											<hr/>
-											<dt class="symbol-title function public inherited collapsible-symbol">
-			<h4 id="removeClass" class="function public inherited"><span class="name">removeClass</span><span class="signature-params">( <span class="signature-param">...classes</span>&nbsp;)</span><span class="signature-type"></span></h4>
-		</dt>
-<dd class="symbol-details function public inherited  collapsible-symbol">
-	<div class="symbol-details-inner">
-			<div class="callout callout-info">
-				<h5>Parameters</h5>
-				<table class="params table table-striped">
-					<thead>
-					<tr>
-							<th>Name</th>
-						<th>Type</th>
-							<th>Attributes</th>
-						<th class="last">Description</th>
-					</tr>
-					</thead>
-					<tbody>
-						<tr>
-								<td><code>classes</code></td>
-							<td><span class="param-type">string</span></td>
-								<td class="attributes">&lt;repeatable&gt;<br/></td>
-							<td class="last">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
-			
-			
-			
-			
-			
-			
-							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#removeClass">Public.Html.Elements.ScreenElement#removeClass</a></p>
-								</div>
-							</div>
-			
-							<!-- overrides -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Overrides</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#removeClass">Public.Html.Elements.ScreenElement#removeClass</a></p>
-								</div>
-							</div>
-			
-			
-			
-			
-			
-			
-			
-			
-							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
-								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-499">line 499</a></p>
+									<p class="form-control-static"><a href="src_dataManager.js.html">src/dataManager.js</a>, <a href="src_dataManager.js.html#line-1462">line 1462</a></p>
 								</div>
 							</div>
 			

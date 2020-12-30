@@ -69,14 +69,16 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="AnimeVideoElement.html">AnimeVideoElement</a></li>
 											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
 											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
 											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
+											<li><a href="Public.Html.EditAnimeManager.html">Public.Html.EditAnimeManager</a></li>
 											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
 											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
 											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.Account.html">Public.Html.Elements.Personalised.Account</a></li>
 											<li><a href="Public.Html.Elements.Personalised.AnimeElement.html">Public.Html.Elements.Personalised.AnimeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.AnimeVideoElement.html">Public.Html.Elements.Personalised.AnimeVideoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.DownloadAllButton.html">Public.Html.Elements.Personalised.DownloadAllButton</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlErrorProgress.html">Public.Html.Elements.Personalised.EpisodeDlErrorProgress</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlProgress.html">Public.Html.Elements.Personalised.EpisodeDlProgress</a></li>
@@ -86,6 +88,8 @@
 											<li><a href="Public.Html.Elements.Personalised.IframeDownloadPromiseElement.html">Public.Html.Elements.Personalised.IframeDownloadPromiseElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.PlayerInfoElement.html">Public.Html.Elements.Personalised.PlayerInfoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.ReturnButton.html">Public.Html.Elements.Personalised.ReturnButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTime.html">Public.Html.Elements.Personalised.VideoTime</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTimeElm.html">Public.Html.Elements.Personalised.VideoTimeElm</a></li>
 											<li><a href="Public.Html.Elements.Personalised.YtDlFormatElement.html">Public.Html.Elements.Personalised.YtDlFormatElement</a></li>
 											<li><a href="Public.Html.Elements.ProgressBarIndicator.html">Public.Html.Elements.ProgressBarIndicator</a></li>
 											<li><a href="Public.Html.Elements.ProgressIndicator.html">Public.Html.Elements.ProgressIndicator</a></li>
@@ -93,17 +97,18 @@
 											<li><a href="Public.Html.Elements.ScreenElementFromElement.html">Public.Html.Elements.ScreenElementFromElement</a></li>
 											<li><a href="Public.Html.Elements.ScreenElementManager.html">Public.Html.Elements.ScreenElementManager</a></li>
 											<li><a href="Public.Html.Elements.SrcElement.html">Public.Html.Elements.SrcElement</a></li>
+											<li><a href="Public.Html.Elements.VideoElement.html">Public.Html.Elements.VideoElement</a></li>
 											<li><a href="Public.Html.HTMLManager.html">Public.Html.HTMLManager</a></li>
 											<li><a href="Public.Html.ScreenManager.html">Public.Html.ScreenManager</a></li>
 											<li><a href="Public.Loader.html">Public.Loader</a></li>
 											<li><a href="Public.Main.html">Public.Main</a></li>
+											<li><a href="server.Account.html">server.Account</a></li>
 											<li><a href="server.Anime.html">server.Anime</a></li>
 											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
 											<li><a href="server.Episode.html">server.Episode</a></li>
 											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
 											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
 											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
-											<li><a href="VideoElement.html">VideoElement</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -173,9 +178,12 @@ import
 	PlayerInfoElement,
 	YtDlFormatElement,
 	EpisodeDlProgress,
-	EpisodeDlErrorProgress
+	EpisodeDlErrorProgress,
+	Account,
+	VideoTime
 }
 from './ScreenElement.js';
+import EditAnimeManager from './EditAnimeManager.js';
 
 const LOADING_ANIMES = "Loading Animes...";
 const LOADING_THUMBNAILS = "Loading Thumbnails...";
@@ -203,37 +211,89 @@ class ScreenManager {
 	}
 
 	/**
-	 * @private
+	 * @protected
+	 * @param {Function} value 
+	 * @param {string} returnTitle 
 	 */
-	static set _OnReturn(value) 
+	static _OnReturn(value, returnTitle) 
 	{
-		
+		let lReturn = () => {
+			if (!returnTitle || confirm("Return to "+returnTitle)) 
+			{
+				if (value) value();
+			}
+		};
+
+		ScreenElementManager.removeKeyListener(ScreenElementManager.KeyTypeEnum.DOWN, HTMLManager.document, "Backspace");	
+		ScreenElementManager.addKeyListener(ScreenElementManager.KeyTypeEnum.DOWN, HTMLManager.document, lReturn, "Backspace", true);	
 	}
 
+	/**
+	 * @public
+	 * @param {AnimeVideoElement} videoElement 
+	 */
+	static setVideo(videoElement)
+	{
+		this.currentVideo = videoElement;
+	}
+
+	/**
+	 * @public
+	 * @this {ScreenManager}
+	 */
 	static init()
 	{
+		ScreenManager.setVideo(null);
+
+		/**
+		 * @public
+		 * @static
+		 * @type {string}
+		 */
+		this.currentAccount = "";
+
+		/**
+		 * @type {MenuButtonElement}
+		 */
+		this.setAccountBtn = new MenuButtonElement("", () => {
+			ScreenManager._showAndLoadAccounts();
+		})
+
 		HTMLManager.menuBar.append(
 			//If click on Watch generate AnimeList
 			new MenuButtonElement("Watch", () => {
 				ScreenElementManager.removeListenersOnAllElements();
-				this.generateAnimeListHTML();
+				ScreenManager.generateAnimeListHTML();
 			}),
-			
-			/*new MenuButtonElement("Edit Animes", () => {
-			}),
-			
-			new MenuButtonElement("Edit Streams", () => {
-			}),*/
-			
+				
 			new MenuButtonElement("Reload Animes", () => {
 				ScreenElementManager.removeListenersOnAllElements();
 				Loader.loadAnimeList();
-			})
+			}),
+			
+			new MenuButtonElement("Edit Animes", () => {
+				
+			}),
+			
+			ScreenManager.setAccountBtn
 		);
 
+		ScreenManager.setAccountName("");
 		ScreenElementManager.init();
 	}
 
+	/**
+	 * @public
+	 * @param {string} name 
+	 */
+	static setAccountName(name) {
+		ScreenManager.currentAccount = name;
+		ScreenManager.setAccountBtn.setName(ScreenManager.currentAccount == "" ? "Set Account" : "Connected as "+ScreenManager.currentAccount);
+	}
+
+	/**
+	 * @public
+	 */
 	static showLoadingAnime()
 	{
 		this.setTitle(LOADING_ANIMES, ANIME_NODEJS);
@@ -242,11 +302,15 @@ class ScreenManager {
 		HTMLManager.body.append(
 			new ScreenElement("p").setText(LOADING_ANIMES)
 		);
-
 	}
 
+	/**
+	 * @public
+	 * @param {*} json 
+	 */
 	static initAnimes(json) 
 	{
+		EditAnimeManager.init(this.animes);
 		this.setTitle(LOADING_THUMBNAILS, ANIME_NODEJS);
 
 		HTMLManager.body.clear();
@@ -311,9 +375,10 @@ class ScreenManager {
 			
 			animesElms.push(new AnimeElement(a, (anime) => {
 				ScreenElementManager.removeListenersOnAllElements();
-	
+				
 				let listIsEpisodeLocal = [];
 				let listIsEpisode404 = [];
+				let listIsSeen = [];
 	
 				//Get if the episode is local or not for each episode
 				let currentIndex = -1;
@@ -322,7 +387,7 @@ class ScreenManager {
 					
 					if (currentIndex >= anime.episodes.length) 
 					{
-						this.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404);
+						this.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
 						return;
 					}
 	
@@ -331,7 +396,10 @@ class ScreenManager {
 					Loader.getEpisodeInfo(anime.id, epId, (d) => {
 						listIsEpisodeLocal[epId] = d.isLocal;
 						listIsEpisode404[epId] = d.is404;
-						next();
+						Loader.getIsSeen(ScreenManager.currentAccount ,anime.id, epId, (s) => {
+							listIsSeen[epId] = s;
+							next();
+						});
 					}, false);
 				};
 	
@@ -345,7 +413,7 @@ class ScreenManager {
 		// HTML STARTS HERE //
 		// **************** //
 		HTMLManager.body.append(
-			new ScreenElement("ul").setId("animeList").appendList(animesElms)
+			new ScreenElement("ul").setId("animeList").addClass("list-group").appendList(animesElms)
 		);
 		// **************** //
 		//  HTML ENDS HERE  //
@@ -354,10 +422,18 @@ class ScreenManager {
 		ScreenElementManager.allowStaticListener();
 	}
 
-	static generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404)
+	/**
+	 * 
+	 * @param {*} anime 
+	 * @param {Array&lt;boolean>} listIsEpisodeLocal 
+	 * @param {Array&lt;boolean>} listIsEpisode404 
+	 * @param {Array&lt;boolean>} listIsSeen 
+	 */
+	static generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 		this.setTitle(ANIME_NODEJS + " - " + anime.name, anime.name);
 
+		
 		HTMLManager.body.clear();
 		
 		let episodeElms = [];
@@ -367,21 +443,29 @@ class ScreenManager {
 			let isLocal = listIsEpisodeLocal[episode.episodeId];
 			let is404 = listIsEpisode404[episode.episodeId];
 
-			episodeElms.push(new EpisodeElement(anime, episode, isLocal, listIsEpisodeLocal, listIsEpisode404,
+			episodeElms.push(new EpisodeElement(anime, episode, isLocal, listIsEpisodeLocal, listIsEpisode404, listIsSeen,
 				//OnClick
 				(a,e) => {
 					ScreenElementManager.removeListenersOnAllElements();
-					Loader.getEpisodeInfo(a.id, e.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, a, e, listIsEpisodeLocal, listIsEpisode404)});
+					Loader.getEpisodeInfo(a.id, e.episodeId, (d) => {
+						ScreenManager.generateEpisodeInfo(d, a, e, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
+					});
 				}
 			));
 		}
 
+		let lReturn = () => {
+			ScreenElementManager.removeListenersOnAllElements();
+
+			ScreenManager.generateAnimeListHTML();
+		}
+		ScreenManager._OnReturn(
+			lReturn,
+			"Anime List"
+		);
 		HTMLManager.body.append(
-			new ReturnButton(() => {
-				ScreenElementManager.removeListenersOnAllElements();
-	
-				ScreenManager.generateAnimeListHTML();
-			}),
+			new ReturnButton(lReturn),
+			
 			/*new DownloadAllButton(() => {
 				ScreenElementManager.removeListenersOnAllElements();
 
@@ -470,7 +554,16 @@ class ScreenManager {
 		this.allowStaticListener();
 	}
 
-	static generateEpisodeInfo(info, anime, episode, listIsEpisodeLocal, listIsEpisode404)
+	/**
+	 * 
+	 * @param {*} info 
+	 * @param {*} anime 
+	 * @param {*} episode
+	 * @param {Array&lt;boolean>} listIsEpisodeLocal 
+	 * @param {Array&lt;boolean>} listIsEpisode404 
+	 * @param {Array&lt;boolean>} listIsSeen 
+	 */
+	static generateEpisodeInfo(info, anime, episode, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 
 		HTMLManager.body.clear();
@@ -481,14 +574,19 @@ class ScreenManager {
 		this.setTitle(INFO + " - " + anime.name + " : " + info.episodeId, INFO + " - " + anime.name + " : " + "Episode " + episodeId);
 
 		let elmsToAppend = [];
-
-		elmsToAppend.push(new ReturnButton(() => {
+		let lReturn = () => {
 			ScreenElementManager.removeListenersOnAllElements();
 
-			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404);
-		}));
+			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
+		};
 
-		if (info.isLocal) elmsToAppend.push(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, listIsEpisode404));
+		elmsToAppend.push(new ReturnButton(lReturn));
+		ScreenManager._OnReturn(
+			lReturn,
+			"Episode list"
+		);
+
+		if (info.isLocal) elmsToAppend.push(new EpisodeWatchButton(anime, episode, listIsEpisodeLocal, listIsEpisode404, listIsSeen));
 
 		//* SHOW NEXT EPISODE BUTTON *//
 		let nextEpisode = ScreenManager.getNextEpisode(anime, episode);
@@ -497,7 +595,9 @@ class ScreenManager {
 			elmsToAppend.push(
 				new ButtonElement(() => {
 					ScreenElementManager.removeListenersOnAllElements();
-					Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal, listIsEpisode404)});
+					Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {
+						ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
+					});
 				}).append(new ScreenElement("h4").setText("Next - Episode "+nextEpisode.episodeId))
 			);
 		}
@@ -531,8 +631,11 @@ class ScreenManager {
 	 * @param {string} url 
 	 * @param {number} animeId 
 	 * @param {number} episodeId 
+	 * @param {Array&lt;boolean>} listIsEpisodeLocal 
+	 * @param {Array&lt;boolean>} listIsEpisode404 
+	 * @param {Array&lt;boolean>} listIsSeen 
 	 */
-	static showVideo(url, animeId, episodeId, listIsEpisodeLocal, listIsEpisode404)
+	static showVideo(url, animeId, episodeId, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 		let anime = this.animes[animeId];
 		this.setTitle(WATCH + " - " + anime.name + " : " + episodeId, anime.name + " : " + "Episode " + episodeId);
@@ -543,10 +646,13 @@ class ScreenManager {
 		
 		HTMLManager.body.clear();
 
-		let video = new AnimeVideoElement(url, episode, episodeId, nextEpisode, listIsEpisodeLocal, listIsEpisode404);
+		let video = new AnimeVideoElement(url, episode, episodeId, nextEpisode, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
+		let times = new VideoTime(animeId, episodeId);
 		
+		ScreenManager.setVideo(video);
+
 		HTMLManager.body.append(
-			video,
+			new ScreenElement("div").append(video,times).addClass("horizontal"),
 			new ScreenElement("h2")
 				.setText(anime.name + " - " + (episode.name || "Episode " + episodeId)),
 			
@@ -556,40 +662,77 @@ class ScreenManager {
 
 		if (nextEpisode != null) 
 		{
-			let boolIsLocal = !listIsEpisode404[nextEpisode.episodeId] &amp;&amp; listIsEpisodeLocal[nextEpisode.episodeId];
-			let btn = new ButtonElement(
+			let nextEpId = nextEpisode.episodeId;
+			let boolIsLocal = !listIsEpisode404[nextEpId] &amp;&amp; listIsEpisodeLocal[nextEpId];
+			let btnNext = new ButtonElement(
 				() => {
 					ScreenElementManager.removeListenersOnAllElements();
 					
 					//If episode is local, show next video. Else show info
-					if (boolIsLocal)
-						Loader.loadLocalEpisode(animeId, nextEpisode.episodeId, listIsEpisodeLocal, listIsEpisode404);
+					if (boolIsLocal) {
+						ScreenElementManager.removeListenersOnAllElements();
+						Loader.loadLocalEpisode(animeId, nextEpId, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
+					}
 					else 
-						Loader.getEpisodeInfo(animeId, nextEpisode.episodeId, (d) => {ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal, listIsEpisode404)});
+						Loader.getEpisodeInfo(animeId, nextEpId, (d) => {ScreenManager.generateEpisodeInfo(d, anime, nextEpisode, listIsEpisodeLocal, listIsEpisode404)});
 				}
 			)
-
-			if (boolIsLocal)
-				btn.setText("Watch Next - Episode "+nextEpisode.episodeId);
-			else
-				btn.setText("Download Next - Episode "+nextEpisode.episodeId);
 			
 
+			if (boolIsLocal)
+				btnNext.setText("Watch Next - Episode "+nextEpId);
+			else
+				btnNext.setText("Download Next - Episode "+nextEpId);
+			
+			if (listIsSeen[nextEpId]) btnNext.setBtnSuccess();
+			else btnNext.setBtnDark();
+
 			HTMLManager.body.append(
-				btn
+				btnNext
 			);
 		}
+		
+		if (ScreenManager.currentAccount) {
+			//if connected
 
-		HTMLManager.body.append(new ButtonElement(
-			() => {
-				ScreenElementManager.removeListenersOnAllElements();
-				ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404);
-			}).setText("Return to anime")
+			let btnSeen = new ButtonElement(
+				() => {
+					Loader.setSeen(ScreenManager.currentAccount, animeId, episodeId, !listIsSeen[episodeId], () => {
+						listIsSeen[episodeId] = !listIsSeen[episodeId];
+						btnSeen.setText(listIsSeen[episodeId] ? "Set as not seen" :  "Set as seen");
+
+						if (listIsSeen[episodeId]) btnSeen.setBtnSuccess();
+						else btnSeen.setBtnDark();
+					});
+				}
+			).setText(listIsSeen[episodeId] ? "Set as not seen" :  "Set as seen");
+			
+			if (listIsSeen[episodeId]) btnSeen.setBtnSuccess();
+			else btnSeen.setBtnDark();
+
+			HTMLManager.body.append(btnSeen);
+		}
+
+		let lReturn = () => {
+			ScreenElementManager.removeListenersOnAllElements();
+			ScreenManager.generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen);
+		};
+		ScreenManager._OnReturn(
+			lReturn,
+			"Episode List"
+		);
+		HTMLManager.body.append(
+			new ButtonElement(lReturn).setText("Return to anime")
 		);
 		
 		ScreenElementManager.allowStaticListener();
 	}
 
+	/**
+	 * 
+	 * @param {*} anime 
+	 * @param {*} episode 
+	 */
 	static getNextEpisode(anime, episode) 
 	{
 		let nextEpisode = null;
@@ -608,6 +751,11 @@ class ScreenManager {
 		return nextEpisode;
 	}
 
+	/**
+	 * 
+	 * @param {*} anime 
+	 * @param {*} episodeId 
+	 */
 	static getEpisodeFromId(anime, episodeId) 
 	{	
 		for (let i = anime.episodes.length - 1; i >= 0; i--) {
@@ -672,6 +820,98 @@ class ScreenManager {
 			);
 		}
 	}
+
+	/**
+	 * 
+	 * @param {*} accounts 
+	 */
+	static showAccounts(accounts) 
+	{
+		Account.accountMode = Account.CLICK;
+
+		/* RETURN */
+		let lReturn = () => {
+			ScreenElementManager.allowStaticListener();
+			HTMLManager.accountOverlay.addClass("disabled");
+			Account.accountMode = Account.CLICK;
+			ScreenManager.generateAnimeListHTML();
+		};
+		ScreenManager._OnReturn(lReturn);
+		/* ****** */
+		
+		/* INIT */
+		let firstC = HTMLManager.accountOverlay.firstChild;
+		firstC.clear();
+		
+		let accountContainer = new ScreenElement("div").addClass("accCont");
+		let actionContainer = new ScreenElement("div").addClass("actCont");
+		firstC.append(accountContainer, actionContainer);
+
+		HTMLManager.loadingOverlay.addClass("disabled");
+		HTMLManager.accountOverlay.removeClass("disabled");
+		/* **** */
+		
+		/* INIT ACCOUNTS */
+		for (let i = accounts.length - 1; i >= 0; i--) {
+			let lName = accounts[i];
+
+			let lSetAccount = () => {
+				alert("Connected as "+lName);
+				this.setAccountName(lName);
+				lReturn();
+			};
+
+			let lRemoveAccount = () => {
+				if (confirm("Remove account \""+lName+"\" ?"))
+				Loader.removeAccount(lName, () => {ScreenManager._showAndLoadAccounts();});
+			}
+			
+			let lAccount = new Account( lSetAccount, lRemoveAccount, false).setName(lName);
+			if (ScreenManager.currentAccount === lName) lAccount.addClass("current");
+			
+			accountContainer.append( lAccount );
+		}
+
+		accountContainer.append( new Account( () => {
+			let accountPrompt = prompt("Account name ?");
+			if (!accountPrompt) 
+				return;
+			
+			if (accounts.map(m => m.toLowerCase()).includes(accountPrompt.toLowerCase())) 
+			{
+				alert(`${accountPrompt} already exists`) 
+				return;
+			}
+
+			Loader.createAccount(accountPrompt, () => {
+				this.setAccountName(accountPrompt);
+				lReturn();
+			});
+		}, () => {}, false).setName("New Account", "+").addClass("new"));
+		/* **** ******** */
+
+		let btnRemove = new ButtonElement( () => {
+			Account.accountMode = (Account.accountMode === Account.REMOVE ? Account.CLICK : Account.REMOVE);
+
+			if (Account.accountMode === Account.REMOVE)
+				btnRemove.addClass("triggered");
+			else
+				btnRemove.removeClass("triggered");
+		});
+		btnRemove.setText("Remove");
+
+		actionContainer.append(btnRemove);
+	}
+
+	/**
+	 * @protected
+	 */
+	static _showAndLoadAccounts() {
+		ScreenElementManager.removeListenersOnAllElements();
+		Loader.loadAccounts((accounts) => {
+			ScreenManager.showAccounts(accounts);
+		});
+	}
 };
 
 export default ScreenManager;</code></pre>
@@ -681,7 +921,7 @@ export default ScreenManager;</code></pre>
 	</div>
 	<footer>
 				<div class="copyright">Anime Launcher is licensed under MIT <a href="https://github.com/Knose1/animeLauncher/blob/master/LICENSE">license</a>. Copyright (c) 2020 <a href="https://github.com/Knose1/">Knose1</a></div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 19th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 30th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

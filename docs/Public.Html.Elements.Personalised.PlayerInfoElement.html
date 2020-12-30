@@ -45,7 +45,7 @@
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Anime Launcher","systemSummary":"Documentation","systemLogo":"img/ico_64.png","systemColor":"hsl(150, 56%, 46%)","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Anime Launcher is licensed under MIT <a href=\"https://github.com/Knose1/animeLauncher/blob/master/LICENSE\">license</a>. Copyright (c) 2020 <a href=\"https://github.com/Knose1/\">Knose1</a>","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":"favicon.png","stylesheets":["./jsdocCustomScripts/index.css","./jsdocCustomScripts/dark.css"],"scripts":["./jsdocCustomScripts/jsColorUtils.js","./jsdocCustomScripts/index.js"],"monospaceLinks":true,"cleverLinks":false,"useLongnameInNav":false};
 			window.DOCLET_TOC_ENABLED = true;
-			window.DOCLET_AFILTER_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = true;
 		</script>
 </head>
 <body>
@@ -68,14 +68,16 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="AnimeVideoElement.html">AnimeVideoElement</a></li>
 											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
 											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
 											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
+											<li><a href="Public.Html.EditAnimeManager.html">Public.Html.EditAnimeManager</a></li>
 											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
 											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
 											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.Account.html">Public.Html.Elements.Personalised.Account</a></li>
 											<li><a href="Public.Html.Elements.Personalised.AnimeElement.html">Public.Html.Elements.Personalised.AnimeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.AnimeVideoElement.html">Public.Html.Elements.Personalised.AnimeVideoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.DownloadAllButton.html">Public.Html.Elements.Personalised.DownloadAllButton</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlErrorProgress.html">Public.Html.Elements.Personalised.EpisodeDlErrorProgress</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlProgress.html">Public.Html.Elements.Personalised.EpisodeDlProgress</a></li>
@@ -85,6 +87,8 @@
 											<li><a href="Public.Html.Elements.Personalised.IframeDownloadPromiseElement.html">Public.Html.Elements.Personalised.IframeDownloadPromiseElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.PlayerInfoElement.html">Public.Html.Elements.Personalised.PlayerInfoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.ReturnButton.html">Public.Html.Elements.Personalised.ReturnButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTime.html">Public.Html.Elements.Personalised.VideoTime</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTimeElm.html">Public.Html.Elements.Personalised.VideoTimeElm</a></li>
 											<li><a href="Public.Html.Elements.Personalised.YtDlFormatElement.html">Public.Html.Elements.Personalised.YtDlFormatElement</a></li>
 											<li><a href="Public.Html.Elements.ProgressBarIndicator.html">Public.Html.Elements.ProgressBarIndicator</a></li>
 											<li><a href="Public.Html.Elements.ProgressIndicator.html">Public.Html.Elements.ProgressIndicator</a></li>
@@ -92,17 +96,18 @@
 											<li><a href="Public.Html.Elements.ScreenElementFromElement.html">Public.Html.Elements.ScreenElementFromElement</a></li>
 											<li><a href="Public.Html.Elements.ScreenElementManager.html">Public.Html.Elements.ScreenElementManager</a></li>
 											<li><a href="Public.Html.Elements.SrcElement.html">Public.Html.Elements.SrcElement</a></li>
+											<li><a href="Public.Html.Elements.VideoElement.html">Public.Html.Elements.VideoElement</a></li>
 											<li><a href="Public.Html.HTMLManager.html">Public.Html.HTMLManager</a></li>
 											<li><a href="Public.Html.ScreenManager.html">Public.Html.ScreenManager</a></li>
 											<li><a href="Public.Loader.html">Public.Loader</a></li>
 											<li><a href="Public.Main.html">Public.Main</a></li>
+											<li><a href="server.Account.html">server.Account</a></li>
 											<li><a href="server.Anime.html">server.Anime</a></li>
 											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
 											<li><a href="server.Episode.html">server.Episode</a></li>
 											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
 											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
 											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
-											<li><a href="VideoElement.html">VideoElement</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -151,6 +156,16 @@
 							<li><a href="list_class.html">Classes</a></li>
 							<li class="active"><a href="Public.html">Public</a><a href="Public.Html.html">.Html</a><a href="Public.Html.Elements.html">.Elements</a><a href="Public.Html.Elements.Personalised.html">.Personalised</a>~PlayerInfoElement</li>
 						</ol>
+						<div class="access-filter">
+								<label class="checkbox-inline">
+									<input class="toggle-inherited" type="checkbox" value="" checked>
+									Inherited
+								</label>
+								<label class="checkbox-inline">
+									<input class="toggle-public" type="checkbox" value="" checked>
+									Public
+								</label>
+						</div>
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
@@ -163,6 +178,13 @@
 			
 			
 			
+							<!-- augments -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Augments</label>
+								<div class="col-sm-9">
+										<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html">Public.Html.Elements.ScreenElement</a></p>
+								</div>
+							</div>
 			
 			
 			
@@ -179,7 +201,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-1006">line 1006</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-1355">line 1355</a></p>
 								</div>
 							</div>
 			
@@ -191,8 +213,560 @@
 </dd>
 							</dl>
 							<article class="secondary">
+									<h3>Members</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title member public inherited collapsible-symbol">
+			<h4 id="element" class="member public inherited"><span class="name">element</span><span class="signature-type"> :HTMLElement</span></h4>
+		</dt>
+<dd class="symbol-details member public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">HTMLElement</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#element">Public.Html.Elements.ScreenElement#element</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#element">Public.Html.Elements.ScreenElement#element</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-368">line 368</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title member public inherited collapsible-symbol">
+			<h4 id="parent" class="member public inherited"><span class="name">parent</span><span class="signature-type"> :ScreenElementFromElement</span></h4>
+		</dt>
+<dd class="symbol-details member public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+							<!-- type -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-control-static type-names"><span class="param-type">ScreenElementFromElement</span></div>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#parent">Public.Html.Elements.ScreenElement#parent</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#parent">Public.Html.Elements.ScreenElement#parent</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-464">line 464</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
 									<h3>Methods</h3>
 									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function public inherited collapsible-symbol">
+			<h4 id="setText" class="function public inherited"><span class="name">setText</span><span class="signature-params">( <span class="signature-param">txt</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>txt</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#setText">Public.Html.Elements.ScreenElement#setText</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#setText">Public.Html.Elements.ScreenElement#setText</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-375">line 375</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public inherited collapsible-symbol">
+			<h4 id="appendList" class="function public inherited"><span class="name">appendList</span><span class="signature-params">( <span class="signature-param">elements</span> [,&nbsp;<span class="signature-param">join</span>&nbsp;]&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>elements</code></td>
+							<td><span class="param-type">Array.&lt;(string|<a href="ScreenElement.html">ScreenElement</a>)></span></td>
+								<td class="attributes"></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>join</code></td>
+							<td><span class="param-type">string</span> | <span class="param-type">joinFunction</span> | <span class="param-type">Array.&lt;(string|<a href="ScreenElement.html">ScreenElement</a>|joinFunction)></span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#appendList">Public.Html.Elements.ScreenElement#appendList</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#appendList">Public.Html.Elements.ScreenElement#appendList</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-394">line 394</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public inherited collapsible-symbol">
+			<h4 id="append" class="function public inherited"><span class="name">append</span><span class="signature-params">( <span class="signature-param">...elements</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>elements</code></td>
+							<td><span class="param-type">string</span> | <span class="param-type"><a href="ScreenElement.html">ScreenElement</a></span></td>
+								<td class="attributes">&lt;repeatable&gt;<br/></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#append">Public.Html.Elements.ScreenElement#append</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#append">Public.Html.Elements.ScreenElement#append</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-441">line 441</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public inherited collapsible-symbol">
+			<h4 id="addClassList" class="function public inherited"><span class="name">addClassList</span><span class="signature-params">( <span class="signature-param">classes</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>classes</code></td>
+							<td><span class="param-type">Array.&lt;string></span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#addClassList">Public.Html.Elements.ScreenElement#addClassList</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#addClassList">Public.Html.Elements.ScreenElement#addClassList</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-476">line 476</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public inherited collapsible-symbol">
+			<h4 id="addClass" class="function public inherited"><span class="name">addClass</span><span class="signature-params">( <span class="signature-param">...classes</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>classes</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;repeatable&gt;<br/></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#addClass">Public.Html.Elements.ScreenElement#addClass</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#addClass">Public.Html.Elements.ScreenElement#addClass</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-486">line 486</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public inherited collapsible-symbol">
+			<h4 id="removeClass" class="function public inherited"><span class="name">removeClass</span><span class="signature-params">( <span class="signature-param">...classes</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public inherited  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>classes</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;repeatable&gt;<br/></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+							<!-- inherits -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Inherited From</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#removeClass">Public.Html.Elements.ScreenElement#removeClass</a></p>
+								</div>
+							</div>
+			
+							<!-- overrides -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Overrides</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="Public.Html.Elements.ScreenElement.html#removeClass">Public.Html.Elements.ScreenElement#removeClass</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-499">line 499</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
 			<h4 id=".setCurrentIFrame" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">setCurrentIFrame</span><span class="signature-params">( <span class="signature-param">src</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{<a href="IframeDownloadPromiseElement.html">IframeDownloadPromiseElement</a>}</span></h4>
@@ -247,7 +821,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-990">line 990</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-1338">line 1338</a></p>
 								</div>
 							</div>
 			
@@ -268,7 +842,7 @@
 	</div>
 	<footer>
 				<div class="copyright">Anime Launcher is licensed under MIT <a href="https://github.com/Knose1/animeLauncher/blob/master/LICENSE">license</a>. Copyright (c) 2020 <a href="https://github.com/Knose1/">Knose1</a></div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 19th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 30th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

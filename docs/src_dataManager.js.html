@@ -69,14 +69,16 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="AnimeVideoElement.html">AnimeVideoElement</a></li>
 											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
 											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
 											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
+											<li><a href="Public.Html.EditAnimeManager.html">Public.Html.EditAnimeManager</a></li>
 											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
 											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
 											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.Account.html">Public.Html.Elements.Personalised.Account</a></li>
 											<li><a href="Public.Html.Elements.Personalised.AnimeElement.html">Public.Html.Elements.Personalised.AnimeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.AnimeVideoElement.html">Public.Html.Elements.Personalised.AnimeVideoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.DownloadAllButton.html">Public.Html.Elements.Personalised.DownloadAllButton</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlErrorProgress.html">Public.Html.Elements.Personalised.EpisodeDlErrorProgress</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlProgress.html">Public.Html.Elements.Personalised.EpisodeDlProgress</a></li>
@@ -86,6 +88,8 @@
 											<li><a href="Public.Html.Elements.Personalised.IframeDownloadPromiseElement.html">Public.Html.Elements.Personalised.IframeDownloadPromiseElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.PlayerInfoElement.html">Public.Html.Elements.Personalised.PlayerInfoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.ReturnButton.html">Public.Html.Elements.Personalised.ReturnButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTime.html">Public.Html.Elements.Personalised.VideoTime</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTimeElm.html">Public.Html.Elements.Personalised.VideoTimeElm</a></li>
 											<li><a href="Public.Html.Elements.Personalised.YtDlFormatElement.html">Public.Html.Elements.Personalised.YtDlFormatElement</a></li>
 											<li><a href="Public.Html.Elements.ProgressBarIndicator.html">Public.Html.Elements.ProgressBarIndicator</a></li>
 											<li><a href="Public.Html.Elements.ProgressIndicator.html">Public.Html.Elements.ProgressIndicator</a></li>
@@ -93,17 +97,18 @@
 											<li><a href="Public.Html.Elements.ScreenElementFromElement.html">Public.Html.Elements.ScreenElementFromElement</a></li>
 											<li><a href="Public.Html.Elements.ScreenElementManager.html">Public.Html.Elements.ScreenElementManager</a></li>
 											<li><a href="Public.Html.Elements.SrcElement.html">Public.Html.Elements.SrcElement</a></li>
+											<li><a href="Public.Html.Elements.VideoElement.html">Public.Html.Elements.VideoElement</a></li>
 											<li><a href="Public.Html.HTMLManager.html">Public.Html.HTMLManager</a></li>
 											<li><a href="Public.Html.ScreenManager.html">Public.Html.ScreenManager</a></li>
 											<li><a href="Public.Loader.html">Public.Loader</a></li>
 											<li><a href="Public.Main.html">Public.Main</a></li>
+											<li><a href="server.Account.html">server.Account</a></li>
 											<li><a href="server.Anime.html">server.Anime</a></li>
 											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
 											<li><a href="server.Episode.html">server.Episode</a></li>
 											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
 											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
 											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
-											<li><a href="VideoElement.html">VideoElement</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -1015,6 +1020,7 @@ class YoutubePlayer extends VideoPlayer {
  * @memberof server
  */
 class Anime {
+	
 	/**
 	 * The list of Animes
 	 * @public
@@ -1084,7 +1090,7 @@ class Anime {
 		 * @public
 		 * @type {string}
 		 */
-		this.name = data.name || pathNode.dirname(folderPath);
+		this.name = data.name || pathNode.basename(folderPath);
 		if (!data.name) console.warn(`"${nameof({name:this.name})}" is null in anime : \r\n"${folderPath}"`);
 
 		/**
@@ -1161,10 +1167,28 @@ class Anime {
 	 * @returns {Promise&lt;void>}
 	 * @see {@link JsonObject}
 	 */
-	updateJson()
+	saveJson()
 	{
 		this.jsonObject.value = this.toAnimeConfig();
-		return this.jsonObject.save().catch( () => {console.error(`Can't save anime ${this.name}`);});
+		return this.jsonObject.save().catch( (e) => {
+			console.error(`Error saving the anime ${this.name}`);
+			console.error(e);
+			return new Promise((resolve, reject) => {
+				setTimeout( () => {
+					//Give a second try
+					console.log("Retry saving");
+					this.jsonObject.save()
+					.then(() =>{
+						resolve()
+					})
+					.catch((e) =>{
+						reject(e);
+						console.error(`Can't save anime ${this.name}`);
+						console.error(e);
+					})
+				}, 500);
+			});
+		});
 	}
 
 	/**
@@ -1361,7 +1385,7 @@ class Episode {
 	setLocalPath(path)
 	{
 		this.localLink = path;
-		return this.anime.updateJson();
+		return this.anime.saveJson();
 	}
 
 	/**
@@ -1415,19 +1439,208 @@ class Episode {
 	}
 }
 
+/**
+ * Store the datas of an account
+ * @public
+ * @memberof server
+ */
+class Account 
+{
+	/**
+	 * The list of Account
+	 * @public
+	 * @readonly
+	 * @type {Account[]}
+	 */
+	static get list() {return Account._list || (Account._list = []);}
+
+	/**
+	 * Constructor of the class
+	 * @public
+	 * @param {JsonObject} jsonObject 
+	 * @param {string} filePath
+	 */
+	constructor(jsonFile, filePath) 
+	{
+		/**
+		 * The JsonObject of the account.
+		 * @public
+		 * @readonly
+		 * @type {JsonObject}
+		 */
+		this.jsonFile = jsonFile;
+
+		/**
+		 * The path to the file
+		 * @public
+		 * @readonly
+		 * @type {string}
+		 */
+		this.filePath = filePath;
+
+		if (!this.name) {
+			this.name = pathNode.basename(folderPath);
+		}
+
+		if (!this.jsonFile.value.seen) 
+		{
+			/**
+			 * @type {boolean[]}
+			 */
+			this.jsonFile.value.seen = [];
+		}
+
+		/**
+		 * The unique id of the account
+		 * @public
+		 * @readonly
+		 * @type {number}
+		 */
+		this.id = Account.list.length;
+
+		this.isWorkingOn = null;
+
+		/**
+		 * @private
+		 */
+		this._activity = {animeId: -1, episodeId: -1, videoTime: -1, date: -1};
+
+		/*
+		 * Current Ip linked to the account
+		 * @public
+		 * @readonly
+		 * @type {string}
+		 */
+		//this.currentLinkedIp = "";
+
+		Account.list.push(this);
+	}
+
+	/**
+	 * @public
+	 * @type {string}
+	 */
+	get name() {return this.jsonFile.value.name;}
+	set name(value) {this.jsonFile.value.name = value;}
+	
+	/**
+	 * @type {string}
+	 */
+	get password() {return this.jsonFile.value.password;}
+	set password(value) {this.jsonFile.value.password = value;}
+
+	/**
+	 * 
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 * @param {boolean} value 
+	 */
+	setSeen(animeId, episodeId, value) 
+	{
+		//seen :
+		/* 
+			{"path": [true,false,true,false]}
+		*/
+		let path = Anime.list[animeId].path;
+		let animeSeenList =	this.jsonFile.value.seen[path];
+		if (!animeSeenList) animeSeenList = this.jsonFile.value.seen[path] = [];
+
+		animeSeenList[episodeId] = value;
+	}
+	
+	/**
+	 * 
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 * @returns {boolean}
+	 */
+	getSeen(animeId, episodeId) 
+	{
+		let path = Anime.list[animeId].path;
+		let animeSeenList = this.jsonFile.value.seen[path];
+		if (!animeSeenList) return undefined;
+		
+		return animeSeenList[episodeId];
+	}
+
+	/**
+	 * @public
+	 * @param {number} animeId 
+	 * @param {number} episodeId 
+	 * @param {number} videoTime 
+	 * @param {number} date 
+	 */
+	setActivity(animeId, episodeId, videoTime, date) 
+	{
+		this._activity = {animeId, episodeId, videoTime, date};
+	}
+
+	/**
+	 * @public
+	 */
+	getActivity() 
+	{
+		return this._activity;
+	}
+
+	/**
+	 * @returns {Promise&lt;void>} jsonFile.save()
+	 */
+	save() 
+	{
+		if (this.isWorkingOn != null) 
+		{
+			return null;
+		}
+
+		return this.isWorkingOn = this.jsonFile.save().then( () => { this.isWorkingOn = null; });
+	}
+
+	destroy() 
+	{
+		if (this.isDestroy) return;
+
+		/**
+		 * @private
+		 * @readonly
+		 * @type {boolean}
+		 */
+		this.isDestroy = true;
+		fs.unlinkSync(this.filePath);
+		Account.list.splice(Account.list.indexOf(this), 1);
+	}
+
+	/**
+	 * 
+	 * @param {string} name 
+	 * @returns {Account}
+	 */
+	static getAccountByName(name) 
+	{
+		for (let i = Account.list.length - 1; i >= 0; i--) {
+			let lElement = Account.list[i];
+			if (lElement.name == name)
+				return lElement;
+		}
+
+		return null;
+	}
+}
+
 exports.JsonObject = JsonObject;
 exports.DownloadEpisode = DownloadEpisode;
 exports.VideoPlayer = VideoPlayer;
 exports.YoutubePlayer = YoutubePlayer;
 exports.Anime = Anime;
-exports.Episode = Episode;</code></pre>
+exports.Episode = Episode;
+exports.Account = Account;</code></pre>
 		</section>
 			</div>
 		</div>
 	</div>
 	<footer>
 				<div class="copyright">Anime Launcher is licensed under MIT <a href="https://github.com/Knose1/animeLauncher/blob/master/LICENSE">license</a>. Copyright (c) 2020 <a href="https://github.com/Knose1/">Knose1</a></div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 19th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 30th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

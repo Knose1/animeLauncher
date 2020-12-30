@@ -459,7 +459,7 @@ class ScreenElement
 	}
 
 	/**
-	 * 
+	 * @type {ScreenElementFromElement}
 	 */
 	get parent() 
 	{
@@ -544,7 +544,8 @@ class ScreenElement
 
 /**
  * Creates a ScreenElement using an HTMLElement
- * @memberof Public.Html.Elements 
+ * @memberof Public.Html.Elements
+ * @extends Public.Html.Elements.ScreenElement
  */
 class ScreenElementFromElement extends ScreenElement
 {
@@ -563,6 +564,7 @@ class ScreenElementFromElement extends ScreenElement
 /**
  * Creates a screenElement that has a SRC attribute
  * @memberof Public.Html.Elements 
+ * @extends Public.Html.Elements.ScreenElement
  */
 class SrcElement extends ScreenElement 
 {
@@ -584,7 +586,9 @@ class SrcElement extends ScreenElement
 }
 
 /**
- * @extends SrcElement
+ * A video element
+ * @memberof Public.Html.Elements
+ * @extends Public.Html.Elements.SrcElement
  */
 class VideoElement extends SrcElement 
 {
@@ -698,7 +702,8 @@ class VideoElement extends SrcElement
 
 /**
  * Creates a button element listening to click event
- * @memberof Public.Html.Elements 
+ * @memberof Public.Html.Elements
+ * @extends Public.Html.Elements.ScreenElement
  */
 class ButtonElement extends ScreenElement 
 {
@@ -907,6 +912,7 @@ class ButtonElement extends ScreenElement
 /**
  * Creates an input
  * @memberof Public.Html.Elements 
+ * @extends Public.Html.Elements.ScreenElement
  */
 class InputElement extends ScreenElement 
 {
@@ -950,6 +956,7 @@ class InputElement extends ScreenElement
 /**
  * Creates button in the main menu (top bar)
  * @memberof Public.Html.Elements 
+ * @extends Public.Html.Elements.ScreenElement
  */
 class MenuButtonElement extends ScreenElement 
 {
@@ -980,6 +987,7 @@ class MenuButtonElement extends ScreenElement
 /**
  * Creates a div with text that indicates progress
  * @memberof Public.Html.Elements 
+ * @extends Public.Html.Elements.ScreenElement
  * @abstract
  */
 class ProgressIndicator extends ScreenElement
@@ -1015,6 +1023,7 @@ class ProgressIndicator extends ScreenElement
 /**
  * Creates a div with a bar that indicates progress
  * @memberof Public.Html.Elements
+ * @extends Public.Html.Elements.ProgressIndicator
  */
 class ProgressBarIndicator extends ProgressIndicator
 {
@@ -1053,7 +1062,9 @@ class ProgressBarIndicator extends ProgressIndicator
 /*//////////////////////////////////*/
 
 /**
- * @extends VideoElement
+ * A video element for animes
+ * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.VideoElement
  */
 class AnimeVideoElement extends VideoElement 
 {
@@ -1128,6 +1139,7 @@ class AnimeVideoElement extends VideoElement
 /**
  * An anime button in the anime list
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ButtonElement
  */
 class AnimeElement extends ButtonElement
 {
@@ -1152,6 +1164,7 @@ class AnimeElement extends ButtonElement
 /**
  * An episode button in the anime's episode list
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
  */
 class EpisodeElement extends ScreenElement
 {
@@ -1196,6 +1209,7 @@ class EpisodeElement extends ScreenElement
 /**
  * A button to watch the episode
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ButtonElement
  */
 class EpisodeWatchButton extends ButtonElement
 {
@@ -1243,6 +1257,7 @@ class EpisodeWatchButton extends ButtonElement
 /**
  * A button to return to previous screen 
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ButtonElement
  */
 class ReturnButton extends ButtonElement
 {
@@ -1260,6 +1275,7 @@ class ReturnButton extends ButtonElement
 /**
  * A button to download all the episodes
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ButtonElement
  * @deprecated
  */
 class DownloadAllButton extends ButtonElement
@@ -1278,6 +1294,7 @@ class DownloadAllButton extends ButtonElement
 /**
  * A text that contains infos about the episode
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
  */
 class EpisodeInfoElement extends ScreenElement
 {
@@ -1309,6 +1326,7 @@ class EpisodeInfoElement extends ScreenElement
 /**
  * A text that contains infos about the videoplayer
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
  */
 class PlayerInfoElement extends ScreenElement
 {
@@ -1428,6 +1446,7 @@ class PlayerInfoElement extends ScreenElement
 /**
  * A text that formats ytdl string
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
  */
 class YtDlFormatElement extends ScreenElement 
 {
@@ -1449,6 +1468,7 @@ class YtDlFormatElement extends ScreenElement
 /**
  * An element that opens an Iframe and wait for user input
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
  */
 class IframeDownloadPromiseElement extends ScreenElement 
 {
@@ -1605,6 +1625,7 @@ class IframeDownloadPromiseElement extends ScreenElement
 /**
  * A progressbar fo
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
  */
 class EpisodeDlProgress extends ScreenElement 
 {
@@ -1631,6 +1652,7 @@ class EpisodeDlProgress extends ScreenElement
 /**
  * When an episode has errors
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
  */
 class EpisodeDlErrorProgress extends ScreenElement 
 {
@@ -1656,6 +1678,7 @@ class EpisodeDlErrorProgress extends ScreenElement
 /**
  * Layout for account
  * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ButtonElement
  */
 class Account extends ButtonElement 
 {
@@ -1702,7 +1725,13 @@ class Account extends ButtonElement
 		return Account._accountMode = value;
 	}
 
-	static get CLICK() {return 0}
+	/**
+	 * @type {number}
+	 */
+	 static get CLICK() {return 0}
+	/**
+	 * @type {number}
+	 */
 	static get REMOVE() {return 1}
 
 	/**
@@ -1784,7 +1813,9 @@ class Account extends ButtonElement
 }
 
 /**
- * Time information for simultaneous watch
+ * Contains all {@link VideoTimeElm Public.Html.Elements.Personalised.VideoTimeElm} 
+ * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
  */
 class VideoTime extends ScreenElement
 {
@@ -1861,6 +1892,12 @@ class VideoTime extends ScreenElement
 	}
 }
 
+/**
+ * Time information when someone else is watching
+ * @internal
+ * @memberof Public.Html.Elements.Personalised
+ * @extends Public.Html.Elements.ScreenElement
+ */
 class VideoTimeElm extends ScreenElement {
 	constructor(name, videoTime, date) 
 	{

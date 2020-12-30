@@ -1,3 +1,7 @@
+/**
+ * Manage Screen
+ * @memberof Public.Html
+ */
 class EditAnimeManager {
 	
 	/**

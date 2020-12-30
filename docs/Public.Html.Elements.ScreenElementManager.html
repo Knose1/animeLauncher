@@ -45,7 +45,7 @@
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Anime Launcher","systemSummary":"Documentation","systemLogo":"img/ico_64.png","systemColor":"hsl(150, 56%, 46%)","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Anime Launcher is licensed under MIT <a href=\"https://github.com/Knose1/animeLauncher/blob/master/LICENSE\">license</a>. Copyright (c) 2020 <a href=\"https://github.com/Knose1/\">Knose1</a>","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":"favicon.png","stylesheets":["./jsdocCustomScripts/index.css","./jsdocCustomScripts/dark.css"],"scripts":["./jsdocCustomScripts/jsColorUtils.js","./jsdocCustomScripts/index.js"],"monospaceLinks":true,"cleverLinks":false,"useLongnameInNav":false};
 			window.DOCLET_TOC_ENABLED = true;
-			window.DOCLET_AFILTER_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = true;
 		</script>
 </head>
 <body>
@@ -68,14 +68,16 @@
 								<li class="dropdown">
 									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 									<ul class="dropdown-menu">
-											<li><a href="AnimeVideoElement.html">AnimeVideoElement</a></li>
 											<li><a href="Public.Common.FileLoader.html">Public.Common.FileLoader</a></li>
 											<li><a href="Public.Common.FileLoader.FileToLoad.html">Public.Common.FileLoader.FileToLoad</a></li>
 											<li><a href="Public.Common.Point.html">Public.Common.Point</a></li>
+											<li><a href="Public.Html.EditAnimeManager.html">Public.Html.EditAnimeManager</a></li>
 											<li><a href="Public.Html.Elements.ButtonElement.html">Public.Html.Elements.ButtonElement</a></li>
 											<li><a href="Public.Html.Elements.InputElement.html">Public.Html.Elements.InputElement</a></li>
 											<li><a href="Public.Html.Elements.MenuButtonElement.html">Public.Html.Elements.MenuButtonElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.Account.html">Public.Html.Elements.Personalised.Account</a></li>
 											<li><a href="Public.Html.Elements.Personalised.AnimeElement.html">Public.Html.Elements.Personalised.AnimeElement</a></li>
+											<li><a href="Public.Html.Elements.Personalised.AnimeVideoElement.html">Public.Html.Elements.Personalised.AnimeVideoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.DownloadAllButton.html">Public.Html.Elements.Personalised.DownloadAllButton</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlErrorProgress.html">Public.Html.Elements.Personalised.EpisodeDlErrorProgress</a></li>
 											<li><a href="Public.Html.Elements.Personalised.EpisodeDlProgress.html">Public.Html.Elements.Personalised.EpisodeDlProgress</a></li>
@@ -85,6 +87,8 @@
 											<li><a href="Public.Html.Elements.Personalised.IframeDownloadPromiseElement.html">Public.Html.Elements.Personalised.IframeDownloadPromiseElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.PlayerInfoElement.html">Public.Html.Elements.Personalised.PlayerInfoElement</a></li>
 											<li><a href="Public.Html.Elements.Personalised.ReturnButton.html">Public.Html.Elements.Personalised.ReturnButton</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTime.html">Public.Html.Elements.Personalised.VideoTime</a></li>
+											<li><a href="Public.Html.Elements.Personalised.VideoTimeElm.html">Public.Html.Elements.Personalised.VideoTimeElm</a></li>
 											<li><a href="Public.Html.Elements.Personalised.YtDlFormatElement.html">Public.Html.Elements.Personalised.YtDlFormatElement</a></li>
 											<li><a href="Public.Html.Elements.ProgressBarIndicator.html">Public.Html.Elements.ProgressBarIndicator</a></li>
 											<li><a href="Public.Html.Elements.ProgressIndicator.html">Public.Html.Elements.ProgressIndicator</a></li>
@@ -92,17 +96,18 @@
 											<li><a href="Public.Html.Elements.ScreenElementFromElement.html">Public.Html.Elements.ScreenElementFromElement</a></li>
 											<li><a href="Public.Html.Elements.ScreenElementManager.html">Public.Html.Elements.ScreenElementManager</a></li>
 											<li><a href="Public.Html.Elements.SrcElement.html">Public.Html.Elements.SrcElement</a></li>
+											<li><a href="Public.Html.Elements.VideoElement.html">Public.Html.Elements.VideoElement</a></li>
 											<li><a href="Public.Html.HTMLManager.html">Public.Html.HTMLManager</a></li>
 											<li><a href="Public.Html.ScreenManager.html">Public.Html.ScreenManager</a></li>
 											<li><a href="Public.Loader.html">Public.Loader</a></li>
 											<li><a href="Public.Main.html">Public.Main</a></li>
+											<li><a href="server.Account.html">server.Account</a></li>
 											<li><a href="server.Anime.html">server.Anime</a></li>
 											<li><a href="server.DownloadEpisode.html">server.DownloadEpisode</a></li>
 											<li><a href="server.Episode.html">server.Episode</a></li>
 											<li><a href="server.JsonObject.html">server.JsonObject</a></li>
 											<li><a href="server.VideoPlayer.html">server.VideoPlayer</a></li>
 											<li><a href="server.YoutubePlayer.html">server.YoutubePlayer</a></li>
-											<li><a href="VideoElement.html">VideoElement</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
@@ -151,6 +156,16 @@
 							<li><a href="list_class.html">Classes</a></li>
 							<li class="active"><a href="Public.html">Public</a><a href="Public.Html.html">.Html</a><a href="Public.Html.Elements.html">.Elements</a>.ScreenElementManager</li>
 						</ol>
+						<div class="access-filter">
+								<label class="checkbox-inline">
+									<input class="toggle-public" type="checkbox" value="" checked>
+									Public
+								</label>
+								<label class="checkbox-inline">
+									<input class="toggle-private" type="checkbox" value="" checked>
+									Private
+								</label>
+						</div>
 					<section>
 							<dl class="symbol primary">
 								<dt class="symbol-title class collapsible-symbol expanded">
@@ -178,7 +193,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-34">line 34</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-35">line 35</a></p>
 								</div>
 							</div>
 			
@@ -264,7 +279,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-13">line 13</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-14">line 14</a></p>
 								</div>
 							</div>
 			
@@ -307,7 +322,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-75">line 75</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-78">line 78</a></p>
 								</div>
 							</div>
 			
@@ -350,7 +365,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-80">line 80</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-83">line 83</a></p>
 								</div>
 							</div>
 			
@@ -393,7 +408,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-85">line 85</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-88">line 88</a></p>
 								</div>
 							</div>
 			
@@ -436,7 +451,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-90">line 90</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-93">line 93</a></p>
 								</div>
 							</div>
 			
@@ -470,7 +485,7 @@
 					<tbody>
 						<tr>
 								<td><code>elm</code></td>
-							<td><span class="param-type">ScreenElement</span></td>
+							<td><span class="param-type"><a href="ScreenElement.html">ScreenElement</a></span></td>
 								<td></td>
 							<td class="last">
 							</td>
@@ -519,7 +534,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-99">line 99</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-102">line 102</a></p>
 								</div>
 							</div>
 			
@@ -548,7 +563,7 @@
 					<tbody>
 						<tr>
 								<td><code>elm</code></td>
-							<td><span class="param-type">ScreenElement</span></td>
+							<td><span class="param-type"><a href="ScreenElement.html">ScreenElement</a></span></td>
 							<td class="last">
 							</td>
 						</tr>
@@ -575,7 +590,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-127">line 127</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-131">line 131</a></p>
 								</div>
 							</div>
 			
@@ -604,7 +619,7 @@
 					<tbody>
 						<tr>
 								<td><code>elm</code></td>
-							<td><span class="param-type">ScreenElement</span></td>
+							<td><span class="param-type"><a href="ScreenElement.html">ScreenElement</a></span></td>
 							<td class="last">
 							</td>
 						</tr>
@@ -637,7 +652,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-146">line 146</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-151">line 151</a></p>
 								</div>
 							</div>
 			
@@ -695,7 +710,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-162">line 162</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-168">line 168</a></p>
 								</div>
 							</div>
 			
@@ -707,9 +722,45 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="._keyDown" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">_keyDown</span><span class="signature-params">( <span class="signature-param">k</span>&nbsp;)</span><span class="signature-type"></span></h4>
+			<h4 id=".init" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">init</span><span class="signature-params">()</span><span class="signature-type"></span></h4>
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-202">line 202</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function private collapsible-symbol">
+			<h4 id="._keyDown" class="function private"><span class="signature-attribs">&lt;private, static> </span><span class="name">_keyDown</span><span class="signature-params">( <span class="signature-param">k</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function private  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -751,7 +802,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-194">line 194</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-213">line 213</a></p>
 								</div>
 							</div>
 			
@@ -762,10 +813,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="._keyPress" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">_keyPress</span><span class="signature-params">( <span class="signature-param">k</span>&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function private collapsible-symbol">
+			<h4 id="._keyPress" class="function private"><span class="signature-attribs">&lt;private, static> </span><span class="name">_keyPress</span><span class="signature-params">( <span class="signature-param">k</span>&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
+<dd class="symbol-details function private  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -807,7 +858,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-211">line 211</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-234">line 234</a></p>
 								</div>
 							</div>
 			
@@ -818,10 +869,10 @@
 			</div>	</div>
 </dd>
 											<hr/>
-											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id="._keyUp" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">_keyUp</span><span class="signature-params">( <span class="signature-param">k</span>&nbsp;)</span><span class="signature-type"></span></h4>
+											<dt class="symbol-title function private collapsible-symbol">
+			<h4 id="._keyUp" class="function private"><span class="signature-attribs">&lt;private, static> </span><span class="name">_keyUp</span><span class="signature-params">( <span class="signature-param">k</span>&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
-<dd class="symbol-details function public  collapsible-symbol">
+<dd class="symbol-details function private  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-info">
 				<h5>Parameters</h5>
@@ -863,7 +914,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-228">line 228</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-254">line 254</a></p>
 								</div>
 							</div>
 			
@@ -875,7 +926,7 @@
 </dd>
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
-			<h4 id=".AddKeyListener" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">AddKeyListener</span><span class="signature-params">( <span class="signature-param">kl</span>&nbsp;)</span><span class="signature-type"></span></h4>
+			<h4 id=".addKeyListener" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">addKeyListener</span><span class="signature-params">( <span class="signature-param">kl</span>, <span class="signature-param">elm</span>, <span class="signature-param">handeler</span>, <span class="signature-param">key</span>, <span class="signature-param">useFocusInChild</span>&nbsp;)</span><span class="signature-type"></span></h4>
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
@@ -892,7 +943,31 @@
 					<tbody>
 						<tr>
 								<td><code>kl</code></td>
-							<td><span class="param-type">ScreenElementManager.KeyTypeEnum</span></td>
+							<td><span class="param-type">KeyTypeEnum</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>elm</code></td>
+							<td><span class="param-type"><a href="ScreenElement.html">ScreenElement</a></span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>handeler</code></td>
+							<td><span class="param-type">KeyEventHandler</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>key</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>useFocusInChild</code></td>
+							<td><span class="param-type">boolean</span></td>
 							<td class="last">
 							</td>
 						</tr>
@@ -919,7 +994,75 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-245">line 245</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-278">line 278</a></p>
+								</div>
+							</div>
+			
+			
+			
+			
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id=".removeKeyListener" class="function public"><span class="signature-attribs">&lt;static> </span><span class="name">removeKeyListener</span><span class="signature-params">( <span class="signature-param">kl</span>, <span class="signature-param">elm</span>, <span class="signature-param">key</span>&nbsp;)</span><span class="signature-type"></span></h4>
+		</dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>kl</code></td>
+							<td><span class="param-type">KeyTypeEnum</span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>elm</code></td>
+							<td><span class="param-type"><a href="ScreenElement.html">ScreenElement</a></span></td>
+							<td class="last">
+							</td>
+						</tr>
+						<tr>
+								<td><code>key</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+							<!-- source -->
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Source</label>
+								<div class="col-sm-9">
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-310">line 310</a></p>
 								</div>
 							</div>
 			
@@ -993,7 +1136,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-36">line 36</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-38">line 38</a></p>
 								</div>
 							</div>
 			
@@ -1026,6 +1169,12 @@
 							<td class="last">
 							</td>
 						</tr>
+						<tr>
+								<td><code>elm</code></td>
+							<td><span class="param-type"><a href="Public.Html.Elements.ScreenElement.html">Public.Html.Elements.ScreenElement</a></span></td>
+							<td class="last">
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -1049,7 +1198,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-43">line 43</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-45">line 45</a></p>
 								</div>
 							</div>
 			
@@ -1130,7 +1279,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-50">line 50</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-53">line 53</a></p>
 								</div>
 							</div>
 			
@@ -1165,13 +1314,13 @@
 						</tr>
 						<tr>
 								<td><code>handeler</code></td>
-							<td><span class="param-type">Public.Html.Elements.KeyEventHandler</span></td>
+							<td><span class="param-type"><a href="Public.Html.Elements.ScreenElementManager.html#.KeyEventHandler">Public.Html.Elements.ScreenElementManager.KeyEventHandler</a></span></td>
 							<td class="last">
 							</td>
 						</tr>
 						<tr>
-								<td><code>isStatic</code></td>
-							<td><span class="param-type">boolean</span></td>
+								<td><code>key</code></td>
+							<td><span class="param-type">string</span></td>
 							<td class="last">
 							</td>
 						</tr>
@@ -1211,7 +1360,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-61">line 61</a></p>
+									<p class="form-control-static"><a href="public_js_data_ScreenElement.js.html">public/js/data/ScreenElement.js</a>, <a href="public_js_data_ScreenElement.js.html#line-64">line 64</a></p>
 								</div>
 							</div>
 			
@@ -1232,7 +1381,7 @@
 	</div>
 	<footer>
 				<div class="copyright">Anime Launcher is licensed under MIT <a href="https://github.com/Knose1/animeLauncher/blob/master/LICENSE">license</a>. Copyright (c) 2020 <a href="https://github.com/Knose1/">Knose1</a></div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 19th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on 30th Dec 2020 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

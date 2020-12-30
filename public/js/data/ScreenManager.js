@@ -55,7 +55,7 @@ class ScreenManager {
 	}
 
 	/**
-	 * 
+	 * @protected
 	 * @param {Function} value 
 	 * @param {string} returnTitle 
 	 */
@@ -73,7 +73,7 @@ class ScreenManager {
 	}
 
 	/**
-	 * 
+	 * @public
 	 * @param {AnimeVideoElement} videoElement 
 	 */
 	static setVideo(videoElement)
@@ -82,6 +82,7 @@ class ScreenManager {
 	}
 
 	/**
+	 * @public
 	 * @this {ScreenManager}
 	 */
 	static init()
@@ -125,11 +126,18 @@ class ScreenManager {
 		ScreenElementManager.init();
 	}
 
+	/**
+	 * @public
+	 * @param {string} name 
+	 */
 	static setAccountName(name) {
 		ScreenManager.currentAccount = name;
 		ScreenManager.setAccountBtn.setName(ScreenManager.currentAccount == "" ? "Set Account" : "Connected as "+ScreenManager.currentAccount);
 	}
 
+	/**
+	 * @public
+	 */
 	static showLoadingAnime()
 	{
 		this.setTitle(LOADING_ANIMES, ANIME_NODEJS);
@@ -140,6 +148,10 @@ class ScreenManager {
 		);
 	}
 
+	/**
+	 * @public
+	 * @param {*} json 
+	 */
 	static initAnimes(json) 
 	{
 		EditAnimeManager.init(this.animes);
@@ -254,6 +266,13 @@ class ScreenManager {
 		ScreenElementManager.allowStaticListener();
 	}
 
+	/**
+	 * 
+	 * @param {*} anime 
+	 * @param {Array<boolean>} listIsEpisodeLocal 
+	 * @param {Array<boolean>} listIsEpisode404 
+	 * @param {Array<boolean>} listIsSeen 
+	 */
 	static generateEpisodeListHTML(anime, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 		this.setTitle(ANIME_NODEJS + " - " + anime.name, anime.name);
@@ -379,6 +398,15 @@ class ScreenManager {
 		this.allowStaticListener();
 	}
 
+	/**
+	 * 
+	 * @param {*} info 
+	 * @param {*} anime 
+	 * @param {*} episode
+	 * @param {Array<boolean>} listIsEpisodeLocal 
+	 * @param {Array<boolean>} listIsEpisode404 
+	 * @param {Array<boolean>} listIsSeen 
+	 */
 	static generateEpisodeInfo(info, anime, episode, listIsEpisodeLocal, listIsEpisode404, listIsSeen)
 	{
 
@@ -544,6 +572,11 @@ class ScreenManager {
 		ScreenElementManager.allowStaticListener();
 	}
 
+	/**
+	 * 
+	 * @param {*} anime 
+	 * @param {*} episode 
+	 */
 	static getNextEpisode(anime, episode) 
 	{
 		let nextEpisode = null;
@@ -562,6 +595,11 @@ class ScreenManager {
 		return nextEpisode;
 	}
 
+	/**
+	 * 
+	 * @param {*} anime 
+	 * @param {*} episodeId 
+	 */
 	static getEpisodeFromId(anime, episodeId) 
 	{	
 		for (let i = anime.episodes.length - 1; i >= 0; i--) {
@@ -627,6 +665,10 @@ class ScreenManager {
 		}
 	}
 
+	/**
+	 * 
+	 * @param {*} accounts 
+	 */
 	static showAccounts(accounts) 
 	{
 		Account.accountMode = Account.CLICK;
@@ -705,6 +747,9 @@ class ScreenManager {
 		actionContainer.append(btnRemove);
 	}
 
+	/**
+	 * @protected
+	 */
 	static _showAndLoadAccounts() {
 		ScreenElementManager.removeListenersOnAllElements();
 		Loader.loadAccounts((accounts) => {
