@@ -112,6 +112,47 @@ function start(config)
 	let port = config.port;
 
 
+	//*////////////////////////////////////////*//
+	//*       Some utils local functions       *//
+	//*////////////////////////////////////////*//
+	function tryToGetAnimeOrSendStatus(res, animeId)
+	{
+		//Arguments checking
+		if (!Number.isSafeInteger(animeId))
+		{
+			console.log("[Missing Argument]");
+			res.sendStatus(HttpStatus.BAD_REQUEST);
+			return;
+		}
+
+		//Anime finding
+		let lAnime = Anime.list[animeId]
+		if (!lAnime)
+		{
+			console.log("[Anime not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		return lAnime;
+	}
+
+	function tryToGetEpisodeOrSendStatus(res, animeId, episodeId)
+	{
+		let lAnime = tryToGetAnimeOrSendStatus(res, animeId);
+
+		//Episode finding
+		let lEpisode = lAnime.getEpisodeById(episodeId);
+		if (!lEpisode)
+		{
+			console.log("[Episode not found]");
+			res.sendStatus(HttpStatus.NOT_FOUND);
+			return;
+		}
+
+		return lEpisode
+	}
+
 	app.use('*', (req, res, next) =>
 	{
 		console.group(`[${req.method}] ` + (req.baseUrl || "/"));
@@ -232,7 +273,7 @@ function start(config)
 		/**
 		 * @type {server.data.config.EpisodeConfig}
 		 */
-		let epConfig = { "episodeId": anime.episodes.length + 2, "links": [], "name": episodeName, "posterLink": posterLink };
+		let epConfig = { "episodeId": anime.episodes.length + 1, "links": [], "name": episodeName, "posterLink": posterLink };
 		let ep = new Episode(epConfig, anime);
 
 		anime.episodes.push(ep);
@@ -241,9 +282,6 @@ function start(config)
 		
 		res.send(JSON.stringify({ 'id': ep.episodeId }));
 	});
-
-
-
 
 	//*///////////////////////////////*//
 	//*           Get Account         *//
@@ -272,64 +310,6 @@ function start(config)
 		res.contentType("application/json");
 		res.send(JSON.stringify(Anime.publicList));
 	});
-
-	//*///////////////////////////////*//
-	//*        Get Episode Info       *//
-	//*///////////////////////////////*//
-	function tryToGetAnimeOrSendStatus(res, animeId)
-	{
-		//Arguments checking
-		if (!Number.isSafeInteger(animeId))
-		{
-
-			console.log("[Missing Argument]");
-			res.sendStatus(HttpStatus.BAD_REQUEST);
-			return;
-		}
-
-		//Anime finding
-		let lAnime = Anime.list[animeId]
-		if (!lAnime)
-		{
-			console.log("[Anime not found]");
-			res.sendStatus(HttpStatus.NOT_FOUND);
-			return;
-		}
-
-		return lAnime;
-	}
-
-	function tryToGetEpisodeOrSendStatus(res, animeId, episodeId)
-	{
-		//Arguments checking
-		if (!Number.isSafeInteger(animeId) || !Number.isSafeInteger(episodeId))
-		{
-
-			console.log("[Missing Argument(s)]");
-			res.sendStatus(HttpStatus.BAD_REQUEST);
-			return;
-		}
-
-		//Anime finding
-		let lAnime = Anime.list[animeId]
-		if (!lAnime)
-		{
-			console.log("[Anime not found]");
-			res.sendStatus(HttpStatus.NOT_FOUND);
-			return;
-		}
-
-		//Episode finding
-		let lEpisode = lAnime.getEpisodeById(episodeId);
-		if (!lEpisode)
-		{
-			console.log("[Episode not found]");
-			res.sendStatus(HttpStatus.NOT_FOUND);
-			return;
-		}
-
-		return lEpisode
-	}
 
 	app.get('/get/episode/info', async (req, res, next) =>
 	{
@@ -463,6 +443,41 @@ function start(config)
 			{
 				res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 			});
+	});
+
+	//*///////////////////////////////*//
+	//*          Edit Account         *//
+	//*///////////////////////////////*//
+	app.get('/edit/anime', (req, res, next) => {
+		let animeId = req.query.id;
+		let animeName = req.query.name;
+		let animeThumbnailLink = req.query.thumbnailLink;
+
+		console.log("?id = " + animeId);
+		console.log("?name = " + animeName);
+		console.log("?thumbnailLink = " + animeThumbnailLink);
+
+		if (animeId === undefined) 
+		{
+			return res.sendStatus(HttpStatus.BAD_REQUEST);
+		}
+
+		animeId = parseFloat(animeId);
+
+		let lAnime = tryToGetAnimeOrSendStatus(res, animeId);
+
+		if (typeof(animeName) === "string") lAnime.name = animeName;
+		if (typeof(animeThumbnailLink) === "string") lAnime.thumbnailLink = animeThumbnailLink;
+
+		lAnime.saveJson()
+		.then(() =>
+		{
+			res.sendStatus(HttpStatus.OK);
+		})
+		.catch((e) =>
+		{
+			res.sendStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		});
 	});
 
 	//*///////////////////////////////*//

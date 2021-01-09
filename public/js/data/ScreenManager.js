@@ -114,10 +114,10 @@ class ScreenManager {
 				Loader.loadAnimeList();
 			}),
 			
-			new MenuButtonElement("Edit Animes", () => {
+			/*new MenuButtonElement("Edit Animes", () => {
 				ScreenElementManager.removeListenersOnAllElements();
 				EditAnimeManager.showAnimes();
-			}),
+			}),*/
 			
 			ScreenManager.setAccountBtn
 		);

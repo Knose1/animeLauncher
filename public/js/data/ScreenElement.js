@@ -1226,11 +1226,21 @@ class AnimeVideoElement extends VideoElement
 					if (confirm("Go to next episode ?")) 
 					{
 						ScreenElementManager.removeListenersOnAllElements();
-						Loader.setSeen(ScreenManager.currentAccount, this._episode.anime.id, this._episode.episodeId, true, () =>
-						{
-							this._listIsSeen[this._episode.episodeId] = ScreenManager.currentAccount != "";
+
+						const finaly = () => {
 							Loader.loadLocalEpisode(this._nextEpisode.anime.id, this._nextEpisode.episodeId, this._listIsEpisodeLocal, this._listIsEpisode404, this._listIsSeen);
-						});
+						}
+
+						if (ScreenManager.currentAccount != "") {
+							Loader.setSeen(ScreenManager.currentAccount, this._episode.anime.id, this._episode.episodeId, true, () =>
+							{
+								this._listIsSeen[this._episode.episodeId] = ScreenManager.currentAccount != "";
+								finaly();
+							});
+						}
+						else {
+							finaly();
+						}
 					}
 					else 
 					{
